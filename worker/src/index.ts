@@ -18,6 +18,7 @@ import { scoreAmenities } from "./scorers/amenities";
 import { scoreEarthquake } from "./scorers/earthquake";
 import { scoreHealthcare } from "./scorers/healthcare";
 import { computeOverall } from "./scorers/overall";
+import { scoreTransit } from "./scorers/transit";
 import type {
   ActiveFaultsDataset,
   AqiDataset,
@@ -114,7 +115,7 @@ app.get("/api/report", async (c) => {
     );
   }
 
-  const [healthcare, amenities, air_quality, earthquake] = await Promise.all([
+  const [healthcare, amenities, air_quality, earthquake, transit] = await Promise.all([
     Promise.resolve(scoreHealthcare({ lat: geo.lat, lng: geo.lng }, hospitalsData)),
     scoreAmenities({ lat: geo.lat, lng: geo.lng }),
     Promise.resolve(scoreAirQuality({ lat: geo.lat, lng: geo.lng }, aqiData)),
@@ -125,9 +126,10 @@ app.get("/api/report", async (c) => {
         activeFaultsData,
       ),
     ),
+    scoreTransit({ lat: geo.lat, lng: geo.lng }),
   ]);
 
-  const dimensions = { healthcare, amenities, air_quality, earthquake };
+  const dimensions = { healthcare, amenities, air_quality, earthquake, transit };
   const overall = computeOverall(dimensions);
 
   const report: RiskReport = {

@@ -1,0 +1,201 @@
+import { clsx } from "clsx";
+import type {
+  AirQualityRisk,
+  Amenities,
+  DimensionConfig,
+  EarthquakeRisk,
+  HealthcareAccess,
+  Transit,
+} from "@/lib/types";
+
+export type DimensionData =
+  | { kind: "earthquake"; data: EarthquakeRisk }
+  | { kind: "air_quality"; data: AirQualityRisk }
+  | { kind: "healthcare"; data: HealthcareAccess }
+  | { kind: "amenities"; data: Amenities }
+  | { kind: "transit"; data: Transit }
+  | { kind: "placeholder" };
+
+interface Props {
+  config: DimensionConfig;
+  value: DimensionData;
+  className?: string;
+}
+
+function scoreBucket(score: number): { color: string; label: string } {
+  if (score >= 80) return { color: "text-emerald-300", label: "極佳" };
+  if (score >= 60) return { color: "text-amber-300", label: "尚可" };
+  if (score >= 40) return { color: "text-orange-400", label: "留意" };
+  return { color: "text-rose-400", label: "警示" };
+}
+
+export function DimensionCard({ config, value, className }: Props) {
+  const isAvailable = config.available && value.kind !== "placeholder";
+
+  return (
+    <article
+      className={clsx(
+        "glass relative overflow-hidden rounded-2xl p-6 transition",
+        "hover:border-white/20 hover:bg-white/[0.06]",
+        !isAvailable && "opacity-60",
+        className,
+      )}
+    >
+      <div
+        className="absolute -right-12 -top-12 h-40 w-40 rounded-full opacity-30 blur-3xl"
+        style={{ backgroundColor: config.colorVar }}
+        aria-hidden
+      />
+      <div className="relative">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <div className="text-xs uppercase tracking-[0.2em] text-white/40">
+              {config.shortLabel}
+            </div>
+            <h3 className="mt-1 text-lg font-semibold text-white">
+              {config.label}
+            </h3>
+          </div>
+          {value.kind !== "placeholder" ? (
+            <ScoreNumber score={value.data.score} />
+          ) : (
+            <span className="rounded-full border border-white/15 px-3 py-1 text-[10px] uppercase tracking-widest text-white/50">
+              Coming Soon
+            </span>
+          )}
+        </div>
+        <div className="mt-5 text-sm leading-relaxed text-white/70">
+          {renderDetail(value, config)}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function ScoreNumber({ score }: { score: number }) {
+  const { color, label } = scoreBucket(score);
+  return (
+    <div className="text-right">
+      <div
+        className={clsx(
+          "font-mono text-4xl font-bold tabular-nums text-glow",
+          color,
+        )}
+      >
+        {score}
+      </div>
+      <div className="mt-0.5 text-[10px] uppercase tracking-widest text-white/40">
+        {label}
+      </div>
+    </div>
+  );
+}
+
+function renderDetail(value: DimensionData, config: DimensionConfig) {
+  if (value.kind === "placeholder") {
+    return (
+      <div className="space-y-2">
+        <p>{config.description}</p>
+        {config.comingSoon && (
+          <p className="text-white/40">{config.comingSoon}</p>
+        )}
+      </div>
+    );
+  }
+  switch (value.kind) {
+    case "earthquake": {
+      const d = value.data;
+      return (
+        <ul className="space-y-1.5">
+          {d.nearest_fault && (
+            <Row
+              label="最近活動斷層"
+              value={`${d.nearest_fault.name ?? "—"}（${d.nearest_fault.distance_km} km${
+                d.nearest_fault.slip_type ? `，${d.nearest_fault.slip_type}` : ""
+              }）`}
+            />
+          )}
+          <Row
+            label={`近 ${d.window_years} 年 5km 內 M≥5`}
+            value={
+              d.recent_quakes_within_5km > 0
+                ? `${d.recent_quakes_within_5km} 次` +
+                  (d.max_magnitude_within_5km
+                    ? `（最大 M${d.max_magnitude_within_5km}）`
+                    : "")
+                : "無紀錄"
+            }
+          />
+        </ul>
+      );
+    }
+    case "air_quality": {
+      const s = value.data.nearest_station;
+      if (!s) return <span>無資料</span>;
+      return (
+        <ul className="space-y-1.5">
+          <Row label="最近測站" value={`${s.name}（${s.distance_km} km）`} />
+          <Row
+            label="AQI"
+            value={`${s.aqi ?? "—"}${s.status ? `　${s.status}` : ""}`}
+          />
+          {s.pm25 != null && <Row label="PM2.5" value={`${s.pm25}`} />}
+        </ul>
+      );
+    }
+    case "healthcare": {
+      const d = value.data;
+      return (
+        <ul className="space-y-1.5">
+          <Row
+            label="5km 內急救醫院"
+            value={`${d.emergency_hospitals_within_5km} 家`}
+          />
+          {d.nearest_emergency && (
+            <Row
+              label="最近"
+              value={`${d.nearest_emergency.name}（${d.nearest_emergency.distance_km} km）`}
+            />
+          )}
+          {d.note && (
+            <li className="pt-1 text-xs italic text-white/40">{d.note}</li>
+          )}
+        </ul>
+      );
+    }
+    case "amenities": {
+      const d = value.data;
+      return (
+        <ul className="space-y-1.5">
+          <Row label="500m 內超商" value={`${d.convenience_stores_500m} 家`} />
+          <Row label="藥局" value={`${d.pharmacies_500m} 家`} />
+          <Row label="公園" value={`${d.parks_500m} 處`} />
+        </ul>
+      );
+    }
+    case "transit": {
+      const d = value.data;
+      return (
+        <ul className="space-y-1.5">
+          {d.nearest_rail && (
+            <Row
+              label="最近捷運/火車站"
+              value={`${d.nearest_rail.name ?? "—"}（${d.nearest_rail.distance_km} km）`}
+            />
+          )}
+          <Row label="500m 內軌道站" value={`${d.rail_within_500m} 站`} />
+          <Row label="500m 內公車站" value={`${d.bus_stops_500m} 站`} />
+        </ul>
+      );
+    }
+  }
+}
+
+function Row({ label, value }: { label: string; value: string }) {
+  return (
+    <li className="flex items-baseline justify-between gap-3 border-b border-dashed border-white/[0.06] py-1 last:border-0">
+      <span className="text-white/50">{label}</span>
+      <span className="text-right text-white/90">{value}</span>
+    </li>
+  );
+}

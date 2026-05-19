@@ -36,6 +36,17 @@ export interface Amenities {
   parks_500m: number;
 }
 
+export interface Transit {
+  score: number;
+  rail_within_500m: number;
+  rail_500m_to_1km: number;
+  bus_stops_500m: number;
+  nearest_rail: {
+    name: string | null;
+    distance_km: number;
+  } | null;
+}
+
 export interface AirQualityRisk {
   score: number;
   nearest_station: {
@@ -128,6 +139,7 @@ export interface RiskReport {
     amenities: Amenities;
     air_quality: AirQualityRisk;
     earthquake: EarthquakeRisk;
+    transit: Transit;
   };
   sources: SourceRef[];
 }
