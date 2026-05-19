@@ -1,0 +1,34 @@
+# === Secrets ===
+.env
+.env.local
+.env.*.local
+
+# === Python (data-pipeline) ===
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# === Node (worker, web) ===
+node_modules/
+.next/
+.wrangler/
+.vercel/
+dist/
+build/
+*.tsbuildinfo
+
+# === Data (巨量、不入庫) ===
+data-pipeline/data/raw/
+data-pipeline/data/processed/
+
+# === OS ===
+.DS_Store
+Thumbs.db
+
+# === IDE ===
+.vscode/
+.idea/
+*.swp

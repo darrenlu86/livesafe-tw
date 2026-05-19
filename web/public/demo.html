@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>LiveSafe.tw — AQI Demo</title>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""
+/>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; height: 100%; font-family: -apple-system, "PingFang TC", "Helvetica Neue", sans-serif; background: #0d1116; color: #e6edf3; }
+  #app { display: grid; grid-template-rows: auto 1fr; height: 100vh; }
+  header { padding: 0.75rem 1rem; background: #161b22; border-bottom: 1px solid #30363d; display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+  header h1 { font-size: 1rem; margin: 0; font-weight: 600; }
+  header .meta { color: #8b949e; font-size: 0.85rem; }
+  form { display: flex; gap: 0.5rem; flex: 1; min-width: 280px; }
+  input { flex: 1; padding: 0.4rem 0.6rem; border: 1px solid #30363d; border-radius: 4px; background: #0d1116; color: #e6edf3; font-size: 0.9rem; }
+  button { padding: 0.4rem 0.9rem; border: 0; border-radius: 4px; background: #2f81f7; color: white; cursor: pointer; font-size: 0.9rem; }
+  button:disabled { opacity: 0.5; cursor: wait; }
+  #map { width: 100%; height: 100%; }
+  #sidebar { position: absolute; right: 12px; top: 70px; width: 320px; max-height: calc(100vh - 90px); overflow-y: auto; background: #161b22ee; border: 1px solid #30363d; border-radius: 6px; padding: 0.9rem; z-index: 1000; font-size: 0.88rem; }
+  #sidebar h2 { margin: 0 0 0.4rem 0; font-size: 1rem; }
+  #sidebar .row { display: flex; justify-content: space-between; padding: 0.2rem 0; border-bottom: 1px solid #30363d33; }
+  #sidebar .row:last-child { border-bottom: 0; }
+  #sidebar .label { color: #8b949e; }
+  #sidebar .grade { display: inline-block; padding: 0.1rem 0.45rem; border-radius: 3px; font-weight: 700; }
+  .grade-A { background: #238636; color: white; }
+  .grade-B { background: #b58a00; color: white; }
+  .grade-C { background: #d2691e; color: white; }
+  .grade-D { background: #cf222e; color: white; }
+  .err { color: #ff7b72; }
+  .src { color: #8b949e; font-size: 0.78rem; margin-top: 0.5rem; }
+  .src a { color: #58a6ff; }
+  .legend { position: absolute; left: 12px; bottom: 12px; background: #161b22ee; border: 1px solid #30363d; border-radius: 4px; padding: 0.5rem 0.7rem; font-size: 0.78rem; line-height: 1.5; z-index: 1000; }
+  .legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <h1>LiveSafe.tw <span class="meta">- AQI Demo</span></h1>
+    <form id="searchForm">
+      <input id="addressInput" type="text" placeholder="例：台北市信義區松壽路（縣市+區+路名）" required />
+      <button type="submit" id="searchBtn">查詢</button>
+    </form>
+    <span class="meta" id="metaInfo">載入中...</span>
+  </header>
+  <div id="map"></div>
+</div>
+
+<div id="sidebar" hidden>
+  <h2 id="sbTitle">點任一測站或查詢地址</h2>
+  <div id="sbBody"></div>
+</div>
+
+<div class="legend">
+  <strong>AQI</strong><br />
+  <span class="dot" style="background:#00b050"></span>0-50 良好<br />
+  <span class="dot" style="background:#ffff00"></span>51-100 普通<br />
+  <span class="dot" style="background:#ff7e00"></span>101-150 對敏感族群不健康<br />
+  <span class="dot" style="background:#ff0000"></span>151-200 不健康<br />
+  <span class="dot" style="background:#8f3f97"></span>201-300 非常不健康<br />
+  <span class="dot" style="background:#7e0023"></span>301+ 危害<br />
+</div>
+
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""
+></script>
+<script>
+const API_BASE = (new URLSearchParams(location.search)).get("api") || "http://127.0.0.1:8787";
+
+function aqiColor(aqi) {
+  if (aqi == null) return "#999";
+  if (aqi <= 50) return "#00b050";
+  if (aqi <= 100) return "#ffff00";
+  if (aqi <= 150) return "#ff7e00";
+  if (aqi <= 200) return "#ff0000";
+  if (aqi <= 300) return "#8f3f97";
+  return "#7e0023";
+}
+
+function gradeOfScore(s) {
+  if (s >= 80) return "A";
+  if (s >= 60) return "B";
+  if (s >= 40) return "C";
+  return "D";
+}
+
+const map = L.map("map").setView([23.7, 121], 7);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom: 18,
+  attribution: "&copy; OpenStreetMap contributors",
+}).addTo(map);
+
+const sidebar = document.getElementById("sidebar");
+const sbTitle = document.getElementById("sbTitle");
+const sbBody = document.getElementById("sbBody");
+const metaInfo = document.getElementById("metaInfo");
+let queryMarker = null;
+
+function showStation(s) {
+  sidebar.hidden = false;
+  sbTitle.textContent = `${s.name}（${s.county}）`;
+  sbBody.innerHTML = `
+    <div class="row"><span class="label">AQI</span><span><strong>${s.aqi ?? "-"}</strong> ${s.status || ""}</span></div>
+    <div class="row"><span class="label">主要污染</span><span>${s.pollutant || "-"}</span></div>
+    <div class="row"><span class="label">PM2.5</span><span>${s.pm25 ?? "-"} μg/m³</span></div>
+    <div class="row"><span class="label">PM10</span><span>${s.pm10 ?? "-"} μg/m³</span></div>
+    <div class="row"><span class="label">O3 8hr</span><span>${s.o3_8hr ?? "-"} ppb</span></div>
+    <div class="row"><span class="label">發布時間</span><span>${s.publishtime}</span></div>
+    <div class="src">資料來源：<a href="https://data.gov.tw/dataset/40448" target="_blank" rel="noopener">環境部 aqx_p_432</a></div>`;
+}
+
+function showRiskByCoord(lat, lng, data) {
+  const aq = data.air_quality;
+  sidebar.hidden = false;
+  const grade = gradeOfScore(aq.score);
+  sbTitle.innerHTML = `查詢點 <span class="grade grade-${grade}">${grade}</span> 空品分數 ${aq.score}/100`;
+  if (!aq.nearest_station) {
+    sbBody.innerHTML = `<div class="err">查無附近測站</div>`;
+    return;
+  }
+  const ns = aq.nearest_station;
+  sbBody.innerHTML = `
+    <div class="row"><span class="label">座標</span><span>${lat.toFixed(4)}, ${lng.toFixed(4)}</span></div>
+    <div class="row"><span class="label">最近測站</span><span>${ns.name}（${ns.county}）</span></div>
+    <div class="row"><span class="label">距離</span><span>${ns.distance_km} km</span></div>
+    <div class="row"><span class="label">AQI</span><span><strong>${ns.aqi ?? "-"}</strong> ${ns.status}</span></div>
+    <div class="row"><span class="label">主要污染</span><span>${ns.pollutant || "-"}</span></div>
+    <div class="row"><span class="label">PM2.5</span><span>${ns.pm25 ?? "-"} μg/m³</span></div>
+    <div class="row"><span class="label">發布時間</span><span>${ns.publishtime}</span></div>
+    <div class="src">${data.source.name} · 取得於 ${data.source.fetched_at}<br />授權：${data.source.license}</div>`;
+}
+
+async function loadStations() {
+  const r = await fetch(`${API_BASE}/api/aqi/stations`);
+  if (!r.ok) throw new Error(`/api/aqi/stations HTTP ${r.status}`);
+  return r.json();
+}
+
+async function pickPoint(lat, lng) {
+  if (queryMarker) map.removeLayer(queryMarker);
+  queryMarker = L.marker([lat, lng]).addTo(map);
+  const r = await fetch(`${API_BASE}/api/risk?lat=${lat}&lng=${lng}`);
+  if (!r.ok) {
+    const e = await r.json().catch(() => ({}));
+    sidebar.hidden = false;
+    sbTitle.textContent = "查詢失敗";
+    sbBody.innerHTML = `<div class="err">${e.error || r.status}</div>`;
+    return;
+  }
+  const data = await r.json();
+  showRiskByCoord(lat, lng, data);
+  queryMarker.bindPopup(`AQI 評分 ${data.air_quality.score} / 最近 ${data.air_quality.nearest_station?.name || "?"}`).openPopup();
+}
+
+async function searchAddress(addr) {
+  const btn = document.getElementById("searchBtn");
+  btn.disabled = true;
+  try {
+    const r = await fetch(`${API_BASE}/api/report?address=${encodeURIComponent(addr)}`);
+    const data = await r.json();
+    if (!r.ok) throw new Error(data.hint || data.error || `HTTP ${r.status}`);
+    const lat = data.query.lat;
+    const lng = data.query.lng;
+    map.setView([lat, lng], 13);
+    if (queryMarker) map.removeLayer(queryMarker);
+    queryMarker = L.marker([lat, lng]).addTo(map);
+    sidebar.hidden = false;
+    const aq = data.dimensions.air_quality;
+    const hc = data.dimensions.healthcare;
+    const am = data.dimensions.amenities;
+    const eq = data.dimensions.earthquake;
+    sbTitle.innerHTML = `${data.query.geocode_display_name || addr}<br /><span class="grade grade-${data.overall.grade}">${data.overall.grade}</span> 總評分 ${data.overall.score}/100`;
+    const nsLine = aq.nearest_station
+      ? `${aq.nearest_station.name}（${aq.nearest_station.distance_km} km）AQI ${aq.nearest_station.aqi ?? "-"} ${aq.nearest_station.status}`
+      : "-";
+    const faultLine = eq.nearest_fault
+      ? `${eq.nearest_fault.name || "-"}（${eq.nearest_fault.distance_km} km，${eq.nearest_fault.slip_type || "-"}）`
+      : "-";
+    const quakeLine = `${eq.recent_quakes_within_5km} 次` + (eq.max_magnitude_within_5km != null ? `，最大 M${eq.max_magnitude_within_5km}` : "");
+    sbBody.innerHTML = `
+      <div class="row"><span class="label">空品</span><span>${aq.score} 分</span></div>
+      <div class="row"><span class="label">最近測站</span><span>${nsLine}</span></div>
+      <div class="row"><span class="label">醫療</span><span>${hc.score} 分（5km 內 ${hc.emergency_hospitals_within_5km} 家急救）</span></div>
+      <div class="row"><span class="label">最近急救</span><span>${hc.nearest_emergency ? `${hc.nearest_emergency.name}（${hc.nearest_emergency.distance_km} km）` : "-"}</span></div>
+      <div class="row"><span class="label">生活機能</span><span>${am.score} 分（超商 ${am.convenience_stores_500m} / 藥局 ${am.pharmacies_500m} / 公園 ${am.parks_500m}）</span></div>
+      <div class="row"><span class="label">地震</span><span>${eq.score} 分</span></div>
+      <div class="row"><span class="label">最近斷層</span><span>${faultLine}</span></div>
+      <div class="row"><span class="label">近 ${eq.window_years} 年 5km 內 M≥5</span><span>${quakeLine}</span></div>
+      <div class="src">資料來源：${data.sources.map(s => `<a href="${s.url}" target="_blank" rel="noopener">${s.name}</a>`).join("、")}</div>`;
+    queryMarker.bindPopup(`${data.overall.grade} 級｜AQI ${aq.nearest_station?.aqi ?? "-"}`).openPopup();
+  } catch (e) {
+    sidebar.hidden = false;
+    sbTitle.textContent = "查詢失敗";
+    sbBody.innerHTML = `<div class="err">${e.message}</div>`;
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+document.getElementById("searchForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const v = document.getElementById("addressInput").value.trim();
+  if (v) searchAddress(v);
+});
+
+map.on("click", (e) => pickPoint(e.latlng.lat, e.latlng.lng));
+
+(async () => {
+  try {
+    const data = await loadStations();
+    metaInfo.textContent = `${data.metadata.station_count} 測站｜發布：${data.metadata.publish_times.join(", ")}`;
+    for (const s of data.stations) {
+      const m = L.circleMarker([s.lat, s.lng], {
+        radius: 7,
+        fillColor: aqiColor(s.aqi),
+        color: "#222",
+        weight: 1,
+        fillOpacity: 0.9,
+      }).addTo(map);
+      m.on("click", (ev) => {
+        L.DomEvent.stopPropagation(ev);
+        showStation(s);
+      });
+      m.bindTooltip(`${s.name} AQI ${s.aqi ?? "-"}`);
+    }
+  } catch (e) {
+    metaInfo.innerHTML = `<span class="err">無法載入測站：${e.message}（worker 是否啟動？）</span>`;
+  }
+})();
+</script>
+</body>
+</html>

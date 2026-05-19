@@ -1,0 +1,13 @@
+name = "livesafe-worker"
+main = "src/index.ts"
+compatibility_date = "2026-04-22"
+compatibility_flags = ["nodejs_compat"]
+
+# 部署前執行：wrangler kv:namespace create REPORT_CACHE
+# 然後把回傳的 id 填入以下區塊並取消註解
+# [[kv_namespaces]]
+# binding = "REPORT_CACHE"
+# id = "<填入>"
+
+[observability]
+enabled = true
