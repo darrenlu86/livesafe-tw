@@ -20,6 +20,8 @@ export interface StoredReport {
     healthcare: number;
     amenities: number;
     transit: number;
+    flood: number;
+    school_district: number;
   };
   saved_at: string;
 }
@@ -57,6 +59,8 @@ function toStored(report: RiskReport): StoredReport {
       healthcare: report.dimensions.healthcare.score,
       amenities: report.dimensions.amenities.score,
       transit: report.dimensions.transit.score,
+      flood: report.dimensions.flood?.score ?? 0,
+      school_district: report.dimensions.school_district?.score ?? 0,
     },
     saved_at: new Date().toISOString(),
   };

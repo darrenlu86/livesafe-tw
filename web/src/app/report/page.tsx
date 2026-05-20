@@ -2,36 +2,122 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { clsx } from "clsx";
 import { AddressSearch } from "@/components/AddressSearch";
 import { DimensionCard, type DimensionData } from "@/components/DimensionCard";
 import { GradeBadge } from "@/components/GradeBadge";
 import { RiskRadar } from "@/components/RiskRadar";
-import { fetchReport } from "@/lib/api";
+import { fetchDimension, fetchGeocode, type DimensionPayload } from "@/lib/api";
 import { isInCompare, recordRecent, toggleCompare } from "@/lib/storage";
-import { DIMENSIONS, type DimensionKey, type RiskReport } from "@/lib/types";
+import {
+  DIMENSIONS,
+  type DimensionKey,
+  type GeocodeResult,
+  type Grade,
+  type RiskReport,
+} from "@/lib/types";
+
+type DimSlot = DimensionData;
+
+function gradeFromScore(score: number): Grade {
+  if (score >= 80) return "A";
+  if (score >= 60) return "B";
+  if (score >= 40) return "C";
+  return "D";
+}
 
 function ReportInner() {
   const params = useSearchParams();
   const address = params.get("address") ?? "";
 
-  const [report, setReport] = useState<RiskReport | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [geo, setGeo] = useState<GeocodeResult | null>(null);
+  const [geoError, setGeoError] = useState<string | null>(null);
+  const [dims, setDims] = useState<Record<DimensionKey, DimSlot>>(initialDims);
   const [inCompare, setInCompare] = useState(false);
+  const [savedOnce, setSavedOnce] = useState(false);
 
+  // Step 1: geocode
   useEffect(() => {
     if (!address) return;
-    setReport(null);
-    setError(null);
-    fetchReport(address)
-      .then((r) => {
-        setReport(r);
-        recordRecent(r);
-        setInCompare(isInCompare(address));
-      })
-      .catch((e) => setError(e instanceof Error ? e.message : String(e)));
+    setGeo(null);
+    setGeoError(null);
+    setDims(initialDims);
+    setSavedOnce(false);
+    setInCompare(isInCompare(address));
+    fetchGeocode(address)
+      .then(setGeo)
+      .catch((e) => setGeoError(e instanceof Error ? e.message : String(e)));
   }, [address]);
+
+  // Step 2: fan out dimensions
+  useEffect(() => {
+    if (!geo) return;
+    const targets = DIMENSIONS.filter((d) => d.available).map((d) => d.key);
+    targets.forEach((key) => {
+      fetchDimension(key, geo.lat, geo.lng)
+        .then((data) => {
+          setDims((prev) => ({
+            ...prev,
+            [key]: { kind: key, data } as DimensionData,
+          }));
+        })
+        .catch((e) => {
+          setDims((prev) => ({
+            ...prev,
+            [key]: {
+              kind: "error",
+              message: e instanceof Error ? e.message : String(e),
+            },
+          }));
+        });
+    });
+  }, [geo]);
+
+  // Compute overall when all dims resolved (not loading)
+  const overall = useMemo(() => {
+    const scores: number[] = [];
+    let stillLoading = 0;
+    DIMENSIONS.filter((d) => d.available).forEach((d) => {
+      const slot = dims[d.key];
+      if (slot.kind === "loading") stillLoading++;
+      else if (slot.kind !== "error" && slot.kind !== "placeholder") {
+        scores.push((slot as { data: { score: number } }).data.score);
+      }
+    });
+    if (stillLoading > 0 || scores.length === 0) {
+      return { ready: false as const, stillLoading };
+    }
+    const avg = Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
+    return { ready: true as const, score: avg, grade: gradeFromScore(avg) };
+  }, [dims]);
+
+  // Persist to localStorage once everything completes
+  useEffect(() => {
+    if (!geo || !overall.ready || savedOnce) return;
+    const dimensions: Partial<Record<DimensionKey, { score: number }>> = {};
+    DIMENSIONS.filter((d) => d.available).forEach((d) => {
+      const slot = dims[d.key];
+      if (slot.kind !== "loading" && slot.kind !== "error" && slot.kind !== "placeholder") {
+        dimensions[d.key] = (slot as { data: { score: number } }).data;
+      }
+    });
+    const fakeReport: RiskReport = {
+      query: {
+        address,
+        lat: geo.lat,
+        lng: geo.lng,
+        geocode_source: "nominatim",
+        geocode_display_name: geo.display_name,
+        generated_at: new Date().toISOString(),
+      },
+      overall: { score: overall.score, grade: overall.grade },
+      dimensions: dimensions as RiskReport["dimensions"],
+      sources: [],
+    };
+    recordRecent(fakeReport);
+    setSavedOnce(true);
+  }, [overall, geo, dims, address, savedOnce]);
 
   if (!address) {
     return (
@@ -50,12 +136,12 @@ function ReportInner() {
     );
   }
 
-  if (error) {
+  if (geoError) {
     return (
       <div className="mx-auto max-w-2xl px-6 py-16">
         <div className="glass rounded-2xl border-rose-500/30 p-6">
-          <h2 className="text-lg font-semibold text-rose-300">查詢失敗</h2>
-          <p className="mt-2 text-sm text-white/70">{error}</p>
+          <h2 className="text-lg font-semibold text-rose-300">地理編碼失敗</h2>
+          <p className="mt-2 text-sm text-white/70">{geoError}</p>
         </div>
         <div className="mt-8">
           <AddressSearch initial={address} size="hero" />
@@ -64,14 +150,14 @@ function ReportInner() {
     );
   }
 
-  if (!report) {
-    return <LoadingState address={address} />;
-  }
-
-  const radarData = DIMENSIONS.filter((d) => d.available).map((d) => ({
-    dimension: d.shortLabel,
-    分數: scoreOf(d.key, report),
-  }));
+  const radarData = DIMENSIONS.filter((d) => d.available).map((d) => {
+    const slot = dims[d.key];
+    const score =
+      slot.kind === "loading" || slot.kind === "error" || slot.kind === "placeholder"
+        ? 0
+        : (slot as { data: { score: number } }).data.score;
+    return { dimension: d.shortLabel, 分數: score };
+  });
 
   return (
     <div className="mx-auto max-w-6xl px-6 pb-24">
@@ -85,27 +171,34 @@ function ReportInner() {
             居住安心度
           </p>
           <h1 className="mt-2 text-2xl font-semibold text-white md:text-3xl">
-            {report.query.address}
+            {address}
           </h1>
-          {report.query.geocode_display_name && (
-            <p className="mt-1 text-sm text-white/40">
-              {report.query.geocode_display_name}
-            </p>
+          {geo?.display_name && (
+            <p className="mt-1 text-sm text-white/40">{geo.display_name}</p>
           )}
           <div className="my-8 flex items-center justify-center lg:justify-start">
-            <GradeBadge
-              grade={report.overall.grade}
-              score={report.overall.score}
-            />
+            {overall.ready ? (
+              <GradeBadge grade={overall.grade} score={overall.score} />
+            ) : (
+              <LoadingGrade
+                progress={
+                  DIMENSIONS.filter((d) => d.available).length -
+                  overall.stillLoading
+                }
+                total={DIMENSIONS.filter((d) => d.available).length}
+              />
+            )}
           </div>
           <button
+            disabled={!overall.ready}
             onClick={() => {
               toggleCompare(address);
               setInCompare(isInCompare(address));
             }}
             className={clsx(
               "rounded-xl border px-5 py-2.5 text-sm font-medium transition",
-              inCompare
+              !overall.ready && "opacity-40",
+              overall.ready && inCompare
                 ? "border-white bg-white text-black"
                 : "border-white/20 bg-white/5 text-white hover:bg-white/10",
             )}
@@ -123,107 +216,90 @@ function ReportInner() {
       </section>
 
       <section className="mt-16">
-        <h2 className="mb-6 text-xl font-bold text-white">維度細節</h2>
+        <div className="mb-6 flex items-end justify-between">
+          <h2 className="text-xl font-bold text-white">維度細節</h2>
+          <ProgressIndicator dims={dims} />
+        </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {DIMENSIONS.map((config) => (
             <DimensionCard
               key={config.key}
               config={config}
-              value={dimensionData(config.key, report)}
+              value={dims[config.key]}
             />
           ))}
         </div>
-      </section>
-
-      <section className="glass mt-16 rounded-2xl p-6">
-        <h3 className="text-sm font-semibold uppercase tracking-widest text-white/60">
-          資料來源
-        </h3>
-        <ul className="mt-4 grid gap-2 text-sm text-white/70 md:grid-cols-2">
-          {report.sources.map((s) => (
-            <li
-              key={s.url}
-              className="flex items-baseline justify-between gap-3 border-b border-dashed border-white/[0.06] py-1.5 last:border-0"
-            >
-              <a
-                href={s.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white"
-              >
-                {s.name}
-              </a>
-              <span className="font-mono text-xs text-white/40">
-                {s.updated_at.slice(0, 10)}
-              </span>
-            </li>
-          ))}
-        </ul>
-        <p className="mt-4 text-xs text-white/40">
-          產生於 {new Date(report.query.generated_at).toLocaleString("zh-TW")}
-        </p>
       </section>
     </div>
   );
 }
 
-function LoadingState({ address }: { address: string }) {
+function LoadingGrade({
+  progress,
+  total,
+}: {
+  progress: number;
+  total: number;
+}) {
   return (
-    <div className="mx-auto max-w-2xl px-6 py-20">
-      <p className="text-xs uppercase tracking-[0.3em] text-white/40">分析中</p>
-      <h1 className="mt-2 text-2xl font-semibold text-white">{address}</h1>
-      <div className="mt-10 space-y-3">
-        {[1, 2, 3, 4].map((i) => (
+    <div className="flex flex-col items-center gap-4 lg:items-start">
+      <div className="font-mono text-7xl font-black tabular-nums text-white/30">
+        — / —
+      </div>
+      <div className="w-64">
+        <div className="flex items-center justify-between text-xs uppercase tracking-widest text-white/40">
+          <span>分析中</span>
+          <span>
+            {progress}/{total}
+          </span>
+        </div>
+        <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/10">
           <div
-            key={i}
-            className="glass h-16 animate-pulse rounded-2xl"
-            style={{ animationDelay: `${i * 80}ms` }}
+            className="h-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-purple-400 transition-all duration-500"
+            style={{ width: `${(progress / total) * 100}%` }}
           />
-        ))}
+        </div>
       </div>
     </div>
   );
 }
 
-function scoreOf(key: DimensionKey, r: RiskReport): number {
-  switch (key) {
-    case "earthquake":
-      return r.dimensions.earthquake.score;
-    case "air_quality":
-      return r.dimensions.air_quality.score;
-    case "healthcare":
-      return r.dimensions.healthcare.score;
-    case "amenities":
-      return r.dimensions.amenities.score;
-    case "transit":
-      return r.dimensions.transit.score;
-    default:
-      return 0;
+function ProgressIndicator({ dims }: { dims: Record<DimensionKey, DimSlot> }) {
+  const items = DIMENSIONS.filter((d) => d.available);
+  const done = items.filter((d) => {
+    const s = dims[d.key];
+    return s.kind !== "loading";
+  }).length;
+  if (done === items.length) {
+    return (
+      <span className="font-mono text-xs uppercase tracking-widest text-emerald-300/80">
+        ✓ 全部完成
+      </span>
+    );
   }
+  return (
+    <span className="font-mono text-xs uppercase tracking-widest text-white/40">
+      {done}/{items.length} 完成
+    </span>
+  );
 }
 
-function dimensionData(key: DimensionKey, r: RiskReport): DimensionData {
-  switch (key) {
-    case "earthquake":
-      return { kind: "earthquake", data: r.dimensions.earthquake };
-    case "air_quality":
-      return { kind: "air_quality", data: r.dimensions.air_quality };
-    case "healthcare":
-      return { kind: "healthcare", data: r.dimensions.healthcare };
-    case "amenities":
-      return { kind: "amenities", data: r.dimensions.amenities };
-    case "transit":
-      return { kind: "transit", data: r.dimensions.transit };
-    default:
-      return { kind: "placeholder" };
-  }
+function initialDims(): Record<DimensionKey, DimSlot> {
+  return Object.fromEntries(
+    DIMENSIONS.map((d) => [
+      d.key,
+      d.available ? { kind: "loading" } : { kind: "placeholder" },
+    ]),
+  ) as Record<DimensionKey, DimSlot>;
 }
 
 export default function ReportPage() {
   return (
     <Suspense
       fallback={
-        <div className="mx-auto max-w-2xl px-6 py-20 text-white/60">載入中…</div>
+        <div className="mx-auto max-w-2xl px-6 py-20 text-white/60">
+          載入中…
+        </div>
       }
     >
       <ReportInner />

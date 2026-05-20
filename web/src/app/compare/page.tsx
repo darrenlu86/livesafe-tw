@@ -245,6 +245,10 @@ function scoreOf(key: DimensionKey, r: RiskReport): number {
       return r.dimensions.amenities.score;
     case "transit":
       return r.dimensions.transit.score;
+    case "flood":
+      return r.dimensions.flood.score;
+    case "school_district":
+      return r.dimensions.school_district.score;
     default:
       return 0;
   }

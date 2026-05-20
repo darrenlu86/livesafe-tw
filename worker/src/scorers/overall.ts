@@ -13,6 +13,8 @@ export function computeOverall(dimensions: RiskReport["dimensions"]): {
     dimensions.air_quality.score,
     dimensions.earthquake.score,
     dimensions.transit.score,
+    dimensions.flood.score,
+    dimensions.school_district.score,
   ];
   const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
   const score = Math.round(avg);

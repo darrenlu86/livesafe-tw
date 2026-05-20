@@ -47,6 +47,24 @@ export interface Transit {
   } | null;
 }
 
+export interface FloodRisk {
+  score: number;
+  nearest_water: {
+    name: string | null;
+    type: string | null;
+    distance_km: number;
+  } | null;
+  proxy_note: string;
+}
+
+export interface SchoolDistrict {
+  score: number;
+  schools_within_1km: number;
+  kindergartens_within_1km: number;
+  nearest_schools: Array<{ name: string; distance_km: number }>;
+  proxy_note: string;
+}
+
 export interface AirQualityRisk {
   score: number;
   nearest_station: {
@@ -140,6 +158,8 @@ export interface RiskReport {
     air_quality: AirQualityRisk;
     earthquake: EarthquakeRisk;
     transit: Transit;
+    flood: FloodRisk;
+    school_district: SchoolDistrict;
   };
   sources: SourceRef[];
 }

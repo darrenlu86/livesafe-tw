@@ -50,6 +50,31 @@ export interface Transit {
   nearest_rail: { name: string | null; distance_km: number } | null;
 }
 
+export interface FloodRisk {
+  score: number;
+  nearest_water: {
+    name: string | null;
+    type: string | null;
+    distance_km: number;
+  } | null;
+  proxy_note: string;
+}
+
+export interface SchoolDistrict {
+  score: number;
+  schools_within_1km: number;
+  kindergartens_within_1km: number;
+  nearest_schools: Array<{ name: string; distance_km: number }>;
+  proxy_note: string;
+}
+
+export interface GeocodeResult {
+  address: string;
+  lat: number;
+  lng: number;
+  display_name: string;
+}
+
 export interface RiskReport {
   query: {
     address: string;
@@ -66,6 +91,8 @@ export interface RiskReport {
     air_quality: AirQualityRisk;
     earthquake: EarthquakeRisk;
     transit: Transit;
+    flood: FloodRisk;
+    school_district: SchoolDistrict;
   };
   sources: { name: string; url: string; updated_at: string }[];
 }
@@ -132,21 +159,19 @@ export const DIMENSIONS: DimensionConfig[] = [
   },
   {
     key: "flood",
-    label: "淹水潛勢",
+    label: "淹水鄰近",
     shortLabel: "淹水",
-    description: "水利署淹水潛勢圖（650mm/24hr 情境）",
+    description: "距最近水體（河川、湖泊、運河）距離 — OSM 代理",
     colorVar: "var(--color-dim-flood)",
-    available: false,
-    comingSoon: "資料源整合中：水利署淹水潛勢 shapefile → PMTiles",
+    available: true,
   },
   {
     key: "school_district",
-    label: "學區資訊",
+    label: "學校密度",
     shortLabel: "學區",
-    description: "周邊國中小學分布",
+    description: "1km 內國中小、幼兒園數量 — 代理「學區資訊」",
     colorVar: "var(--color-dim-school)",
-    available: false,
-    comingSoon: "資料源整合中：各縣市教育局學區劃分 CSV",
+    available: true,
   },
 ];
 

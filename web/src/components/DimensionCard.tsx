@@ -4,7 +4,9 @@ import type {
   Amenities,
   DimensionConfig,
   EarthquakeRisk,
+  FloodRisk,
   HealthcareAccess,
+  SchoolDistrict,
   Transit,
 } from "@/lib/types";
 
@@ -14,6 +16,10 @@ export type DimensionData =
   | { kind: "healthcare"; data: HealthcareAccess }
   | { kind: "amenities"; data: Amenities }
   | { kind: "transit"; data: Transit }
+  | { kind: "flood"; data: FloodRisk }
+  | { kind: "school_district"; data: SchoolDistrict }
+  | { kind: "loading" }
+  | { kind: "error"; message: string }
   | { kind: "placeholder" };
 
 interface Props {
@@ -30,14 +36,18 @@ function scoreBucket(score: number): { color: string; label: string } {
 }
 
 export function DimensionCard({ config, value, className }: Props) {
-  const isAvailable = config.available && value.kind !== "placeholder";
+  const isLoading = value.kind === "loading";
+  const isError = value.kind === "error";
+  const isInactive =
+    value.kind === "placeholder" || isLoading || isError;
 
   return (
     <article
       className={clsx(
         "glass relative overflow-hidden rounded-2xl p-6 transition",
-        "hover:border-white/20 hover:bg-white/[0.06]",
-        !isAvailable && "opacity-60",
+        !isInactive && "hover:border-white/20 hover:bg-white/[0.06]",
+        value.kind === "placeholder" && "opacity-60",
+        isError && "border-rose-500/30",
         className,
       )}
     >
@@ -56,9 +66,24 @@ export function DimensionCard({ config, value, className }: Props) {
               {config.label}
             </h3>
           </div>
-          {value.kind !== "placeholder" ? (
-            <ScoreNumber score={value.data.score} />
-          ) : (
+          {!isInactive && (
+            <ScoreNumber
+              score={
+                (value as { data: { score: number } }).data.score
+              }
+            />
+          )}
+          {isLoading && (
+            <span className="rounded-full border border-white/15 px-3 py-1 text-[10px] uppercase tracking-widest text-white/50">
+              載入中
+            </span>
+          )}
+          {isError && (
+            <span className="rounded-full border border-rose-500/40 px-3 py-1 text-[10px] uppercase tracking-widest text-rose-300">
+              失敗
+            </span>
+          )}
+          {value.kind === "placeholder" && (
             <span className="rounded-full border border-white/15 px-3 py-1 text-[10px] uppercase tracking-widest text-white/50">
               Coming Soon
             </span>
@@ -92,6 +117,24 @@ function ScoreNumber({ score }: { score: number }) {
 }
 
 function renderDetail(value: DimensionData, config: DimensionConfig) {
+  if (value.kind === "loading") {
+    return (
+      <div className="space-y-2.5">
+        <SkeletonLine />
+        <SkeletonLine width="80%" />
+        <SkeletonLine width="60%" />
+        <p className="mt-3 text-xs text-white/40">分析{config.label}中…</p>
+      </div>
+    );
+  }
+  if (value.kind === "error") {
+    return (
+      <div className="space-y-2">
+        <p className="text-rose-300/80">{value.message}</p>
+        <p className="text-xs text-white/40">此維度載入失敗，其他維度不受影響。</p>
+      </div>
+    );
+  }
   if (value.kind === "placeholder") {
     return (
       <div className="space-y-2">
@@ -188,6 +231,40 @@ function renderDetail(value: DimensionData, config: DimensionConfig) {
         </ul>
       );
     }
+    case "flood": {
+      const d = value.data;
+      return (
+        <>
+          <ul className="space-y-1.5">
+            {d.nearest_water && (
+              <Row
+                label="最近水體"
+                value={`${d.nearest_water.name ?? d.nearest_water.type ?? "—"}（${d.nearest_water.distance_km} km）`}
+              />
+            )}
+          </ul>
+          <p className="mt-3 text-xs italic text-white/40">{d.proxy_note}</p>
+        </>
+      );
+    }
+    case "school_district": {
+      const d = value.data;
+      return (
+        <>
+          <ul className="space-y-1.5">
+            <Row label="1km 內國中小" value={`${d.schools_within_1km} 校`} />
+            <Row label="幼兒園" value={`${d.kindergartens_within_1km} 家`} />
+            {d.nearest_schools[0] && (
+              <Row
+                label="最近學校"
+                value={`${d.nearest_schools[0].name}（${d.nearest_schools[0].distance_km} km）`}
+              />
+            )}
+          </ul>
+          <p className="mt-3 text-xs italic text-white/40">{d.proxy_note}</p>
+        </>
+      );
+    }
   }
 }
 
@@ -197,5 +274,14 @@ function Row({ label, value }: { label: string; value: string }) {
       <span className="text-white/50">{label}</span>
       <span className="text-right text-white/90">{value}</span>
     </li>
+  );
+}
+
+function SkeletonLine({ width = "100%" }: { width?: string }) {
+  return (
+    <div
+      className="h-3 animate-pulse rounded-full bg-white/[0.06]"
+      style={{ width }}
+    />
   );
 }
