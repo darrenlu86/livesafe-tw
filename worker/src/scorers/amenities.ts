@@ -1,84 +1,66 @@
 /**
- * 生活機能評分
+ * 生活機能評分 — 純 in-memory spatial lookup (pre-processed OSM data)
  *
- * 500m 半徑內 OSM POI 計數 (convenience / pharmacy / park)，並回傳 POI 列表。
+ * 來源：data-pipeline fetch_osm_pois.py 預清洗（排除 disused/abandoned），bundled。
+ *
+ * 算法：
+ *   conv_pts   = min(50, 500m 內超商 × 10)
+ *   pharm_pts  = min(30, 500m 內藥局 × 10)
+ *   park_pts   = min(20, 500m 內公園 × 10)
+ *   score      = conv_pts + pharm_pts + park_pts
  */
 import { haversineKm } from "./healthcare";
-import type { Amenities, Coords, OverpassResponse, Poi } from "../types";
+import type {
+  Amenities,
+  Coords,
+  OsmAmenitiesDataset,
+  OsmPoiBase,
+  Poi,
+} from "../types";
 
-const OVERPASS_URL = "https://overpass-api.de/api/interpreter";
-const RADIUS_M = 500;
+const RADIUS_KM = 0.5;
 const MAX_POIS = 30;
 
-function buildQuery(lat: number, lng: number): string {
-  return `[out:json][timeout:25];
-(
-  node["shop"="convenience"](around:${RADIUS_M},${lat},${lng});
-  node["amenity"="pharmacy"](around:${RADIUS_M},${lat},${lng});
-  node["leisure"="park"](around:${RADIUS_M},${lat},${lng});
-  way["leisure"="park"](around:${RADIUS_M},${lat},${lng});
-);
-out tags center;`;
-}
-
-export async function scoreAmenities(target: Coords): Promise<Amenities> {
-  const body = new URLSearchParams({ data: buildQuery(target.lat, target.lng) });
-  const resp = await fetch(OVERPASS_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-      "User-Agent": "LiveSafe.tw/0.1 (https://livesafe.oharalab.com)",
-      Accept: "application/json",
-    },
-    body: body.toString(),
-    cf: { cacheTtl: 3600, cacheEverything: true },
-  });
-  if (!resp.ok) {
-    throw new Error(`Overpass ${resp.status}: ${await resp.text()}`);
-  }
-  const data = (await resp.json()) as OverpassResponse;
-
-  let convenience = 0;
-  let pharmacy = 0;
-  let park = 0;
-  const pois: Poi[] = [];
-
-  for (const el of data.elements) {
-    const tags = el.tags ?? {};
-    const lat = el.lat ?? el.center?.lat;
-    const lng = el.lon ?? el.center?.lon;
-    if (lat == null || lng == null) continue;
-    let category: string | null = null;
-    if (tags.shop === "convenience") {
-      convenience++;
-      category = "convenience";
-    } else if (tags.amenity === "pharmacy") {
-      pharmacy++;
-      category = "pharmacy";
-    } else if (tags.leisure === "park") {
-      park++;
-      category = "park";
-    }
-    if (!category) continue;
-    pois.push({
-      name: tags.name ?? tags["name:zh"] ?? `(${category})`,
-      lat,
-      lng,
-      distance_km: Number(haversineKm(target, { lat, lng }).toFixed(2)),
+function withinRadius(
+  target: Coords,
+  pois: OsmPoiBase[],
+  category: string,
+): Poi[] {
+  const result: Poi[] = [];
+  for (const p of pois) {
+    const d = haversineKm(target, p);
+    if (d > RADIUS_KM) continue;
+    result.push({
+      name: p.name ?? `(${category})`,
+      lat: p.lat,
+      lng: p.lng,
+      distance_km: Number(d.toFixed(2)),
       category,
     });
   }
+  return result;
+}
 
-  pois.sort((a, b) => a.distance_km - b.distance_km);
+export function scoreAmenities(
+  target: Coords,
+  dataset: OsmAmenitiesDataset,
+): Amenities {
+  const convenience = withinRadius(target, dataset.convenience, "convenience");
+  const pharmacy = withinRadius(target, dataset.pharmacy, "pharmacy");
+  const park = withinRadius(target, dataset.park, "park");
+
+  const pois = [...convenience, ...pharmacy, ...park].sort(
+    (a, b) => a.distance_km - b.distance_km,
+  );
 
   return {
     score:
-      Math.min(50, convenience * 10) +
-      Math.min(30, pharmacy * 10) +
-      Math.min(20, park * 10),
-    convenience_stores_500m: convenience,
-    pharmacies_500m: pharmacy,
-    parks_500m: park,
+      Math.min(50, convenience.length * 10) +
+      Math.min(30, pharmacy.length * 10) +
+      Math.min(20, park.length * 10),
+    convenience_stores_500m: convenience.length,
+    pharmacies_500m: pharmacy.length,
+    parks_500m: park.length,
     pois: pois.slice(0, MAX_POIS),
   };
 }

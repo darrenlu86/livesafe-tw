@@ -39,26 +39,70 @@ export interface HealthcareAccess {
   note?: string;
 }
 
-export interface OsmHospital {
-  osm_id: string;
+export interface MergedHospital {
   name: string;
   lat: number;
   lng: number;
+  source: "nhi" | "osm";
+  has_emergency: boolean;
   is_medical_center: boolean;
-  has_emergency_tag: boolean;
+  type?: string;
+  address?: string | null;
   operator?: string | null;
-  addr?: string | null;
 }
 
-export interface OsmHospitalsDataset {
+export interface MergedHospitalsDataset {
   metadata: {
     source: string;
     fetched_at: string;
     total: number;
+    from_nhi: number;
+    from_osm: number;
+    emergency_count: number;
     medical_center_count: number;
-    with_emergency_tag: number;
   };
-  hospitals: OsmHospital[];
+  hospitals: MergedHospital[];
+}
+
+export interface OsmPoiBase {
+  name: string | null;
+  lat: number;
+  lng: number;
+}
+
+export interface OsmAmenitiesDataset {
+  metadata: { source: string; fetched_at: string };
+  convenience: OsmPoiBase[];
+  pharmacy: OsmPoiBase[];
+  park: OsmPoiBase[];
+}
+
+export interface OsmRailStation extends OsmPoiBase {
+  kind: "train" | "subway" | "light_rail" | "tram";
+  operator?: string;
+}
+
+export interface OsmTransitDataset {
+  metadata: { source: string; fetched_at: string };
+  rail: OsmRailStation[];
+  bus: OsmPoiBase[];
+}
+
+export type SchoolLevel =
+  | "university"
+  | "high"
+  | "junior"
+  | "primary"
+  | "kindergarten"
+  | "other";
+
+export interface OsmSchool extends OsmPoiBase {
+  level: SchoolLevel;
+}
+
+export interface OsmSchoolsDataset {
+  metadata: { source: string; fetched_at: string; level_counts: Record<SchoolLevel, number> };
+  schools: OsmSchool[];
 }
 
 export interface Poi {

@@ -26,22 +26,28 @@ import type {
   ActiveFaultsDataset,
   AnnualAqiDataset,
   EarthquakesDataset,
-  HospitalsDataset,
-  OsmHospitalsDataset,
+  MergedHospitalsDataset,
+  OsmAmenitiesDataset,
+  OsmSchoolsDataset,
+  OsmTransitDataset,
   RiskReport,
 } from "./types";
 
-import hospitalsDataRaw from "./data/hospitals_geocoded.json";
-import osmHospitalsRaw from "./data/osm_hospitals.json";
+import hospitalsMergedRaw from "./data/hospitals_merged.json";
 import earthquakesDataRaw from "./data/earthquakes.json";
 import activeFaultsDataRaw from "./data/active_faults.json";
 import aqiAnnualRaw from "./data/aqi_annual.json";
+import osmAmenitiesRaw from "./data/osm_amenities.json";
+import osmTransitRaw from "./data/osm_transit.json";
+import osmSchoolsRaw from "./data/osm_schools.json";
 
-const hospitalsData = hospitalsDataRaw as HospitalsDataset;
-const osmHospitalsData = osmHospitalsRaw as unknown as OsmHospitalsDataset;
+const hospitalsData = hospitalsMergedRaw as unknown as MergedHospitalsDataset;
 const earthquakesData = earthquakesDataRaw as unknown as EarthquakesDataset;
 const activeFaultsData = activeFaultsDataRaw as unknown as ActiveFaultsDataset;
 const aqiAnnualData = aqiAnnualRaw as unknown as AnnualAqiDataset;
+const osmAmenitiesData = osmAmenitiesRaw as unknown as OsmAmenitiesDataset;
+const osmTransitData = osmTransitRaw as unknown as OsmTransitDataset;
+const osmSchoolsData = osmSchoolsRaw as unknown as OsmSchoolsDataset;
 
 const app = new Hono();
 
@@ -130,15 +136,15 @@ app.get("/api/dim/:key", async (c) => {
       case "air_quality":
         return c.json(scoreAirQuality(parsed, aqiAnnualData));
       case "healthcare":
-        return c.json(scoreHealthcare(parsed, hospitalsData, osmHospitalsData));
+        return c.json(scoreHealthcare(parsed, hospitalsData));
       case "amenities":
-        return c.json(await scoreAmenities(parsed));
+        return c.json(await scoreAmenities(parsed, osmAmenitiesData));
       case "transit":
-        return c.json(await scoreTransit(parsed));
+        return c.json(await scoreTransit(parsed, osmTransitData));
       case "flood":
         return c.json(await scoreFlood(parsed));
       case "school_district":
-        return c.json(await scoreSchool(parsed));
+        return c.json(await scoreSchool(parsed, osmSchoolsData));
       default:
         return c.json({ error: `Unknown dimension: ${key}` }, 400);
     }
@@ -169,13 +175,13 @@ app.get("/api/report", async (c) => {
   const coords = { lat: geo.lat, lng: geo.lng };
   const [healthcare, amenities, air_quality, earthquake, transit, flood, school_district] =
     await Promise.all([
-      Promise.resolve(scoreHealthcare(coords, hospitalsData, osmHospitalsData)),
-      scoreAmenities(coords),
+      Promise.resolve(scoreHealthcare(coords, hospitalsData)),
+      scoreAmenities(coords, osmAmenitiesData),
       Promise.resolve(scoreAirQuality(coords, aqiAnnualData)),
       Promise.resolve(scoreEarthquake(coords, earthquakesData, activeFaultsData)),
-      scoreTransit(coords),
+      scoreTransit(coords, osmTransitData),
       scoreFlood(coords),
-      scoreSchool(coords),
+      scoreSchool(coords, osmSchoolsData),
     ]);
 
   const dimensions = {

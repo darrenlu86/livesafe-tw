@@ -1,17 +1,8 @@
 /**
- * 淹水風險（OSM 河川 + 滯洪池代理）
+ * 淹水風險（OSM 河川 vs 滯洪池代理）— 暫時 live OSM 版本
  *
- * 真正的水利署淹水潛勢圖（22 縣市 shapefile 共 ~2GB）需 PMTiles 工程，
- * 此版用 OSM 區分「河川（風險）」與「滯洪池（緩衝、加分）」做代理。
- *
- * 算法：
- *   base = 95
- *   river_penalty (距最近河川距離)：
- *     < 200m → -60、200-500m → -45、500m-1km → -25、>1km → 0
- *   stream_penalty (距最近野溪)：river_penalty × 0.5
- *   detention_bonus (1km 內有滯洪池/人工水池)：每座 +5, cap +15
- *
- * proxy_note 連結至水利署淹水潛勢查詢系統供用戶交叉驗證。
+ * TODO: 切換為 bundled flood_potential.json (水利署 24h 650mm shp 整合)，
+ *       目前 22 個縣市 7z 下載中。data ready 後改 in-memory PIP 查詢。
  */
 import { haversineKm } from "./healthcare";
 import type { Coords, FloodRisk, OverpassResponse, Poi } from "../types";
@@ -116,19 +107,17 @@ export async function scoreFlood(target: Coords): Promise<FloodRisk> {
   const detBonus = Math.min(15, detentionCount * 5);
   const score = Math.max(0, Math.min(100, Math.round(95 - rivP - strP + detBonus)));
 
-  const nearest = Number.isFinite(nearestRiverKm)
-    ? {
-        name: nearestRiverName,
-        type: nearestRiverType,
-        distance_km: Number(nearestRiverKm.toFixed(2)),
-      }
-    : null;
-
   return {
     score,
-    nearest_water: nearest,
+    nearest_water: Number.isFinite(nearestRiverKm)
+      ? {
+          name: nearestRiverName,
+          type: nearestRiverType,
+          distance_km: Number(nearestRiverKm.toFixed(2)),
+        }
+      : null,
     pois: pois.slice(0, MAX_POIS),
     proxy_note:
-      "本維度為「距河川距離」OSM 代理（滯洪池鄰近加分）。真實淹水深度需參考水利署淹水潛勢圖：https://dprc.wra.gov.tw/",
+      "本維度為「距河川距離」OSM 代理（滯洪池鄰近加分）。真實淹水深度需參考水利署淹水潛勢圖（22 縣市 shp 整合中）",
   };
 }
