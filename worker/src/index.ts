@@ -18,6 +18,7 @@ import { scoreAirQuality } from "./scorers/air_quality";
 import { scoreAmenities } from "./scorers/amenities";
 import { scoreEarthquake } from "./scorers/earthquake";
 import { scoreFlood } from "./scorers/flood";
+import { scoreLandslide } from "./scorers/landslide";
 import { scoreHealthcare } from "./scorers/healthcare";
 import { computeOverall } from "./scorers/overall";
 import { scoreSchool } from "./scorers/school";
@@ -145,6 +146,8 @@ app.get("/api/dim/:key", async (c) => {
         return c.json(scoreFlood(parsed));
       case "school_district":
         return c.json(await scoreSchool(parsed, osmSchoolsData));
+      case "landslide":
+        return c.json(scoreLandslide(parsed));
       default:
         return c.json({ error: `Unknown dimension: ${key}` }, 400);
     }
@@ -173,16 +176,25 @@ app.get("/api/report", async (c) => {
   }
 
   const coords = { lat: geo.lat, lng: geo.lng };
-  const [healthcare, amenities, air_quality, earthquake, transit, flood, school_district] =
-    await Promise.all([
-      Promise.resolve(scoreHealthcare(coords, hospitalsData)),
-      scoreAmenities(coords, osmAmenitiesData),
-      Promise.resolve(scoreAirQuality(coords, aqiAnnualData)),
-      Promise.resolve(scoreEarthquake(coords, earthquakesData, activeFaultsData)),
-      scoreTransit(coords, osmTransitData),
-      Promise.resolve(scoreFlood(coords)),
-      scoreSchool(coords, osmSchoolsData),
-    ]);
+  const [
+    healthcare,
+    amenities,
+    air_quality,
+    earthquake,
+    transit,
+    flood,
+    school_district,
+    landslide,
+  ] = await Promise.all([
+    Promise.resolve(scoreHealthcare(coords, hospitalsData)),
+    scoreAmenities(coords, osmAmenitiesData),
+    Promise.resolve(scoreAirQuality(coords, aqiAnnualData)),
+    Promise.resolve(scoreEarthquake(coords, earthquakesData, activeFaultsData)),
+    scoreTransit(coords, osmTransitData),
+    Promise.resolve(scoreFlood(coords)),
+    scoreSchool(coords, osmSchoolsData),
+    Promise.resolve(scoreLandslide(coords)),
+  ]);
 
   const dimensions = {
     healthcare,
@@ -192,6 +204,7 @@ app.get("/api/report", async (c) => {
     transit,
     flood,
     school_district,
+    landslide,
   };
   const overall = computeOverall(dimensions);
 

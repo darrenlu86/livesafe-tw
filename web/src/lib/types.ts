@@ -87,6 +87,20 @@ export interface FloodRisk {
   proxy_note: string;
 }
 
+export interface LandslideRisk {
+  score: number;
+  nearest_stream: {
+    name: string;
+    risk: string;
+    county: string;
+    town: string;
+    distance_km: number;
+  } | null;
+  streams_within_1km: number;
+  high_risk_within_1km: number;
+  proxy_note: string;
+}
+
 export interface SchoolDistrict {
   score: number;
   schools_within_1km: number;
@@ -132,6 +146,7 @@ export interface RiskReport {
     transit: Transit;
     flood: FloodRisk;
     school_district: SchoolDistrict;
+    landslide: LandslideRisk;
   };
   sources: { name: string; url: string; updated_at: string }[];
 }
@@ -143,7 +158,8 @@ export type DimensionKey =
   | "amenities"
   | "transit"
   | "flood"
-  | "school_district";
+  | "school_district"
+  | "landslide";
 
 export interface DimensionConfig {
   key: DimensionKey;
@@ -209,6 +225,14 @@ export const DIMENSIONS: DimensionConfig[] = [
     label: "學校密度",
     shortLabel: "學區",
     description: "1km 內國中小、幼兒園數量 — 代理「學區資訊」",
+    colorVar: "var(--color-dim-school)",
+    available: true,
+  },
+  {
+    key: "landslide",
+    label: "坊地災害",
+    shortLabel: "坊地",
+    description: "水保局土石流潛勢溪流（1729 條），距溪流距離 + 風險等級",
     colorVar: "var(--color-dim-school)",
     available: true,
   },

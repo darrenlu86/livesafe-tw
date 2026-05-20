@@ -7,6 +7,7 @@ import type {
   EarthquakeRisk,
   FloodRisk,
   HealthcareAccess,
+  LandslideRisk,
   SchoolDistrict,
   Transit,
 } from "@/lib/types";
@@ -19,6 +20,7 @@ export type DimensionData =
   | { kind: "transit"; data: Transit }
   | { kind: "flood"; data: FloodRisk }
   | { kind: "school_district"; data: SchoolDistrict }
+  | { kind: "landslide"; data: LandslideRisk }
   | { kind: "loading" }
   | { kind: "error"; message: string }
   | { kind: "placeholder" };
@@ -364,6 +366,53 @@ function renderDetail(value: DimensionData, config: DimensionConfig) {
               <div className="font-semibold">✓ 不在淹水潛勢區</div>
               <div className="mt-0.5 text-xs opacity-75">水利署 24h 650mm 情境</div>
             </div>
+          )}
+          <p className="text-xs italic text-white/40">{d.proxy_note}</p>
+        </div>
+      );
+    }
+    case "landslide": {
+      const d = value.data;
+      const ns = d.nearest_stream;
+      const dist = ns?.distance_km ?? null;
+      const tier =
+        dist == null
+          ? null
+          : dist < 0.3
+            ? { color: "border-rose-400/40 bg-rose-500/15 text-rose-300", icon: "⚠️", desc: "極近土石流溪流" }
+            : dist < 1
+              ? { color: "border-orange-400/40 bg-orange-500/15 text-orange-300", icon: "⚠", desc: "土石流溪流近" }
+              : dist < 3
+                ? { color: "border-amber-400/30 bg-amber-500/10 text-amber-300", icon: "·", desc: "土石流溪流中距離" }
+                : null;
+      return (
+        <div className="space-y-3">
+          {ns && tier && (
+            <div className={clsx("rounded-xl border px-3 py-2 text-sm", tier.color)}>
+              <div className="flex items-baseline justify-between gap-2">
+                <span className="font-semibold">
+                  {tier.icon} {ns.name || "(未命名溪流)"}
+                </span>
+                <span className="font-mono tabular-nums">{ns.distance_km} km</span>
+              </div>
+              <div className="mt-0.5 text-xs opacity-75">
+                {ns.county}
+                {ns.town} · 風險等級「{ns.risk}」 · {tier.desc}
+              </div>
+            </div>
+          )}
+          {!ns && (
+            <div className="rounded-xl border border-emerald-400/30 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-300">
+              <div className="font-semibold">✓ 3km 內無土石流潛勢溪流</div>
+            </div>
+          )}
+          {d.streams_within_1km > 0 && (
+            <ul className="space-y-1.5">
+              <Row
+                label="1km 內潛勢溪流"
+                value={`${d.streams_within_1km} 條（高風險 ${d.high_risk_within_1km}）`}
+              />
+            </ul>
           )}
           <p className="text-xs italic text-white/40">{d.proxy_note}</p>
         </div>

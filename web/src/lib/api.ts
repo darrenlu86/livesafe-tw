@@ -6,6 +6,7 @@ import type {
   FloodRisk,
   GeocodeResult,
   HealthcareAccess,
+  LandslideRisk,
   RiskReport,
   SchoolDistrict,
   Transit,
@@ -46,6 +47,7 @@ export type DimensionPayload = {
   transit: Transit;
   flood: FloodRisk;
   school_district: SchoolDistrict;
+  landslide: LandslideRisk;
 };
 
 export async function fetchDimension<K extends DimensionKey>(

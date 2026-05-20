@@ -25,7 +25,7 @@ import {
 
 type DimSlot = DimensionData;
 
-const SAFETY_KEYS: DimensionKey[] = ["earthquake", "flood", "air_quality"];
+const SAFETY_KEYS: DimensionKey[] = ["earthquake", "flood", "landslide", "air_quality"];
 const CONVEN_KEYS: DimensionKey[] = [
   "healthcare",
   "amenities",

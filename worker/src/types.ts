@@ -141,6 +141,20 @@ export interface FloodRisk {
   proxy_note: string;
 }
 
+export interface LandslideRisk {
+  score: number;
+  nearest_stream: {
+    name: string;
+    risk: string;
+    county: string;
+    town: string;
+    distance_km: number;
+  } | null;
+  streams_within_1km: number;
+  high_risk_within_1km: number;
+  proxy_note: string;
+}
+
 export interface SchoolDistrict {
   score: number;
   schools_within_1km: number;
@@ -287,6 +301,7 @@ export interface RiskReport {
     transit: Transit;
     flood: FloodRisk;
     school_district: SchoolDistrict;
+    landslide: LandslideRisk;
   };
   sources: SourceRef[];
 }
