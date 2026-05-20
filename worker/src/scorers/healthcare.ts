@@ -4,10 +4,10 @@
  * 來源：NHI 急救責任醫院 + OSM 醫院（含醫學中心識別），於 data-pipeline 階段合併去重。
  * Worker 端只做 5km 內 haversine 過濾與排序。
  *
- * 算法：
- *   base      = min(70, 5km 內醫院總數 × 12)
+ * 算法（對數飽和，避免都會普遍頂滿）：
+ *   base      = min(60, 10 × ln(1 + n))    // n=5 ≈ 17.9, n=10 ≈ 24, n=30 ≈ 34, n=100 ≈ 46
  *   proximity = max(0, 30 - 最近醫院距離(km) × 3)
- *   medical_center_bonus = +5 per 5km 內醫學中心, cap +15
+ *   medical_center_bonus = +3 per 5km 內醫學中心, cap +9
  *   score     = round(min(100, base + proximity + bonus))
  *
  * 5km 內 0 家 → score 0 + 「無大型醫療機構」note（不硬列遠處醫院）。
@@ -70,9 +70,9 @@ export function scoreHealthcare(
     };
   }
 
-  const base = Math.min(70, total * 12);
+  const base = Math.min(60, 10 * Math.log(1 + total));
   const proximity = nearest ? Math.max(0, 30 - nearest.distance_km * 3) : 0;
-  const mcBonus = Math.min(15, mcCount * 5);
+  const mcBonus = Math.min(9, mcCount * 3);
   const score = Math.round(Math.min(100, base + proximity + mcBonus));
 
   return {

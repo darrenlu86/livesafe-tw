@@ -11,9 +11,10 @@
  * 涵蓋：19/22 縣市（缺臺北市 — 政府公開 7z 是空檔；缺漏縣市 fallback = 95 不在 zone）
  *
  * 算法：
- *   in flood polygon → depth_class 對應扣分（90→5）
+ *   in flood polygon → depth_class 對應扣分（70→3）
  *     0-0.3 → 70, 0.3-0.5 → 50, 0.5-1 → 30, 1-2 → 15, 2-3 → 8, >3 → 3
- *   不在 polygon → 95
+ *   不在 polygon 但縣市有資料 → 95 (data_available=true)
+ *   縣市資料缺漏 → score=50, data_available=false (overall.ts 自動排除)
  *
  * Worker 端只做 point-in-polygon（ray casting），無 Overpass call。
  */
@@ -128,17 +129,59 @@ function findFloodMatch(lng: number, lat: number): FloodMatch | null {
   return best;
 }
 
+// 已知缺漏縣市 bbox（粗略判斷點是否落在資料缺漏的縣市範圍內）
+// 臺北市公開 7z 為空檔，目前 fallback 為「資料不可用」，不裝作 95
+const MISSING_COUNTY_BBOXES: Array<{ name: string; bbox: [number, number, number, number] }> = [
+  // 臺北市大致範圍：[minLng, minLat, maxLng, maxLat]
+  { name: "臺北市", bbox: [121.45, 24.96, 121.67, 25.21] },
+];
+
+function isMissingCounty(lng: number, lat: number): string | null {
+  for (const { name, bbox } of MISSING_COUNTY_BBOXES) {
+    if (
+      lng >= bbox[0] &&
+      lng <= bbox[2] &&
+      lat >= bbox[1] &&
+      lat <= bbox[3] &&
+      !floodData.metadata.counties.includes(name)
+    ) {
+      return name;
+    }
+  }
+  return null;
+}
+
 export function scoreFlood(target: Coords): FloodRisk {
   const match = findFloodMatch(target.lng, target.lat);
   const inZone = !!match;
-  const score = inZone ? (DEPTH_SCORE[match!.depth_class] ?? 40) : 95;
+
+  if (inZone) {
+    const score = DEPTH_SCORE[match!.depth_class] ?? 40;
+    return {
+      score,
+      data_available: true,
+      nearest_water: null,
+      pois: [],
+      proxy_note: `落入水利署淹水潛勢圖（${floodData.metadata.scenario_label}）「${match!.depth_class} m」淹水深度區`,
+    };
+  }
+
+  const missingCounty = isMissingCounty(target.lng, target.lat);
+  if (missingCounty) {
+    return {
+      score: 50,
+      data_available: false,
+      nearest_water: null,
+      pois: [],
+      proxy_note: `${missingCounty}的水利署淹水潛勢圖資料缺漏（公開 7z 是空檔），本維度標示為「資料不可用」並從總評排除。`,
+    };
+  }
 
   return {
-    score,
+    score: 95,
+    data_available: true,
     nearest_water: null,
     pois: [],
-    proxy_note: inZone
-      ? `落入水利署淹水潛勢圖（${floodData.metadata.scenario_label}）「${match!.depth_class} m」淹水深度區`
-      : `不在水利署 24h 650mm 淹水潛勢區內（資料涵蓋 ${floodData.metadata.counties.length} 縣市；臺北市資料源缺漏，可能誤報）`,
+    proxy_note: `不在水利署 24h 650mm 淹水潛勢區內（資料涵蓋 ${floodData.metadata.counties.length} 縣市）`,
   };
 }

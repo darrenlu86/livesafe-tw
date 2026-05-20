@@ -81,9 +81,18 @@ export function DimensionCard({
           </div>
           {!isInactive && (
             <div className="flex flex-col items-end gap-2">
-              <ScoreNumber
-                score={(value as { data: { score: number } }).data.score}
-              />
+              {value.kind === "flood" && !value.data.data_available ? (
+                <div className="text-right">
+                  <div className="font-mono text-3xl font-bold text-white/40">N/A</div>
+                  <div className="mt-0.5 text-[10px] uppercase tracking-widest text-white/40">
+                    無資料
+                  </div>
+                </div>
+              ) : (
+                <ScoreNumber
+                  score={(value as { data: { score: number } }).data.score}
+                />
+              )}
               {onToggleInclude && (
                 <button
                   type="button"
@@ -335,6 +344,17 @@ function renderDetail(value: DimensionData, config: DimensionConfig) {
     }
     case "flood": {
       const d = value.data;
+      if (!d.data_available) {
+        return (
+          <div className="space-y-3">
+            <div className="rounded-xl border border-white/15 bg-white/[0.03] px-3 py-2 text-sm text-white/60">
+              <div className="font-semibold">— 資料不可用</div>
+              <div className="mt-0.5 text-xs opacity-75">本維度從總評排除</div>
+            </div>
+            <p className="text-xs italic text-white/40">{d.proxy_note}</p>
+          </div>
+        );
+      }
       // 從 proxy_note 解析深度等級
       const depthMatch = d.proxy_note.match(/「([^」]+)\s*m」/);
       const depthLabel = depthMatch ? depthMatch[1] : null;

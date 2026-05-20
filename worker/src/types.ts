@@ -132,6 +132,7 @@ export interface Transit {
 
 export interface FloodRisk {
   score: number;
+  data_available: boolean;
   nearest_water: {
     name: string | null;
     type: string | null;

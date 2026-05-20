@@ -3,7 +3,8 @@
  *
  * 兩個因子，score 越高越安全：
  *   1. 距最近活動斷層距離（point-to-polyline）
- *      < 0.5km → 5、0.5-1km → 25、1-3km → 50、3-5km → 75、> 5km → 95
+ *      < 0.5km → 5、0.5-1km → 25、1-3km → 50、3-5km → 75、> 5km → 85
+ *      （>5km 不給滿分 95，保留台灣島基準震災風險）
  *   2. 近 5 年 5km 內 M >= 5.0 地震次數
  *      0 → 100、1 → 75、2 → 55、3-4 → 35、>= 5 → 15
  *   最終 score = round((fault_score + quake_score) / 2)
@@ -93,7 +94,7 @@ function faultScore(distKm: number): number {
   if (distKm < 1) return 25;
   if (distKm < 3) return 50;
   if (distKm < 5) return 75;
-  return 95;
+  return 85;
 }
 
 function quakeCountScore(n: number): number {

@@ -3,10 +3,10 @@
  *
  * 來源：data-pipeline fetch_osm_pois.py 預清洗（排除 disused/abandoned），bundled。
  *
- * 算法：
- *   conv_pts   = min(50, 500m 內超商 × 10)
- *   pharm_pts  = min(30, 500m 內藥局 × 10)
- *   park_pts   = min(20, 500m 內公園 × 10)
+ * 算法（每家權重從 ×10 砍半為 ×5，避免都會普遍頂滿）：
+ *   conv_pts   = min(50, 500m 內超商 × 5)   // 10 家頂滿
+ *   pharm_pts  = min(30, 500m 內藥局 × 5)   // 6  家頂滿
+ *   park_pts   = min(20, 500m 內公園 × 5)   // 4  個頂滿
  *   score      = conv_pts + pharm_pts + park_pts
  */
 import { haversineKm } from "./healthcare";
@@ -55,9 +55,9 @@ export function scoreAmenities(
 
   return {
     score:
-      Math.min(50, convenience.length * 10) +
-      Math.min(30, pharmacy.length * 10) +
-      Math.min(20, park.length * 10),
+      Math.min(50, convenience.length * 5) +
+      Math.min(30, pharmacy.length * 5) +
+      Math.min(20, park.length * 5),
     convenience_stores_500m: convenience.length,
     pharmacies_500m: pharmacy.length,
     parks_500m: park.length,

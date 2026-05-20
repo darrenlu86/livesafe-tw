@@ -6,9 +6,10 @@
  *   - 排除 disused/abandoned/service=yard|depot
  *   - 公車站同名同址 ~10m 去重
  *
- * 算法：
- *   rail_pts = min(60, 500m 內 rail × 60 + 500m-1km 內 × 30)
- *   bus_pts  = min(40, 500m 內公車 × 8)
+ * 算法（階梯化，避免單站直接吃滿）：
+ *   rail_pts = min(60, 500m 內 rail × 30 + 500m-1km × 15)
+ *              → 2 站 500m 內才滿；1 站 500m 內 + 1 站 1km 內 = 45
+ *   bus_pts  = min(40, 500m 內公車 × 4)   // 10 站才滿
  *   score    = rail_pts + bus_pts
  */
 import { haversineKm } from "./healthcare";
@@ -62,8 +63,8 @@ export function scoreTransit(
 
   pois.sort((a, b) => a.distance_km - b.distance_km);
 
-  const railPts = Math.min(60, railWithin500 * 60 + rail500to1000 * 30);
-  const busPts = Math.min(40, busWithin500 * 8);
+  const railPts = Math.min(60, railWithin500 * 30 + rail500to1000 * 15);
+  const busPts = Math.min(40, busWithin500 * 4);
   const score = Math.min(100, railPts + busPts);
 
   return {
