@@ -21,13 +21,16 @@ export interface AirQualityRisk {
     name: string;
     county: string;
     distance_km: number;
-    aqi: number | null;
-    status: string;
-    pollutant: string;
-    pm25: number | null;
-    publishtime: string;
+    avg_aqi: number;
+    avg_pm25: number | null;
+    purple_days: number;
+    red_days: number;
+    good_rate: number;
+    days_total: number;
   } | null;
-  data_publishtime: string | null;
+  window_days: number;
+  current_aqi: number | null;
+  current_publishtime: string | null;
 }
 
 export interface EarthquakeRisk {
@@ -129,7 +132,7 @@ export const DIMENSIONS: DimensionConfig[] = [
     key: "air_quality",
     label: "空氣品質",
     shortLabel: "空品",
-    description: "最近環境部測站即時 AQI",
+    description: "近 1 年 PM2.5 年均、紫爆／紅色不健康天數、AQI 良好率",
     colorVar: "var(--color-dim-air)",
     available: true,
   },

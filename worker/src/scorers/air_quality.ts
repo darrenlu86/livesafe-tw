@@ -1,43 +1,65 @@
 /**
- * 空氣品質評分
+ * 空氣品質評分（年度版）
  *
- * 資料源：環境部 aqx_p_432，每小時更新（見 data-pipeline/scripts/fetch_aqi.py）
- * 算法（依規格 §4.1）：
- *   - 找最近測站（haversine）
- *   - 以即時 AQI 換算分數，AQI 越低分數越高
- *     AQI <=50 良好          → 100
- *     AQI <=100 普通         → 80
- *     AQI <=150 對敏感族群不健康 → 55
- *     AQI <=200 不健康       → 30
- *     AQI <=300 非常不健康   → 15
- *     AQI >300 危害          → 0
+ * 資料源：環境部 aqx_p_434（測站逐日 AQI）+ aqx_p_322（測站逐日 PM2.5）
+ * 由 data-pipeline/scripts/fetch_aqi_annual.py 預處理為 aqi_annual.json。
  *
- * v1 限制：未做近 12 個月年均 / 紫爆天數（須累積歷史資料）。
- * 規格 §4.1 將之列為 v2 後續工作，見 docs/roadmap.md。
+ * 算法（spec §4.1：近 12 個月 PM2.5 年均 + 紫爆天數）：
+ *   PM2.5 年均 (µg/m³)：
+ *     ≤ 12 (WHO 良好) → 100
+ *     12-15           → 85
+ *     15-25           → 70
+ *     25-35           → 50
+ *     35-50           → 25
+ *     > 50            → 10
+ *   紅色天數扣分 (AQI > 150)：
+ *     -2 per day, cap -20
+ *   紫爆天數加重扣分 (AQI > 200)：
+ *     -3 per day, cap -15
+ *
+ * 若無 PM2.5 資料，fallback 用年均 AQI 分級。
  */
 import { haversineKm } from "./healthcare";
-import type { AirQualityRisk, AqiDataset, AqiStation, Coords } from "../types";
+import type {
+  AirQualityRisk,
+  AnnualAqiDataset,
+  AnnualAqiStation,
+  Coords,
+} from "../types";
 
-function aqiToScore(aqi: number | null): number {
-  if (aqi === null) return 50; // 無資料給中性分
-  if (aqi <= 50) return 100;
-  if (aqi <= 100) return 80;
-  if (aqi <= 150) return 55;
-  if (aqi <= 200) return 30;
-  if (aqi <= 300) return 15;
-  return 0;
+function pm25Score(avg: number): number {
+  if (avg <= 12) return 100;
+  if (avg <= 15) return 85;
+  if (avg <= 25) return 70;
+  if (avg <= 35) return 50;
+  if (avg <= 50) return 25;
+  return 10;
+}
+
+function avgAqiScore(avg: number): number {
+  if (avg <= 50) return 100;
+  if (avg <= 70) return 85;
+  if (avg <= 100) return 65;
+  if (avg <= 150) return 35;
+  return 15;
 }
 
 export function scoreAirQuality(
   target: Coords,
-  dataset: AqiDataset,
+  dataset: AnnualAqiDataset,
 ): AirQualityRisk {
   const stations = dataset.stations;
   if (stations.length === 0) {
-    return { score: 0, nearest_station: null, data_publishtime: null };
+    return {
+      score: 0,
+      nearest_station: null,
+      window_days: dataset.metadata.window_days,
+      current_aqi: null,
+      current_publishtime: null,
+    };
   }
 
-  let nearest: AqiStation | null = null;
+  let nearest: AnnualAqiStation | null = null;
   let nearestDist = Infinity;
   for (const s of stations) {
     const d = haversineKm(target, { lat: s.lat, lng: s.lng });
@@ -46,12 +68,25 @@ export function scoreAirQuality(
       nearest = s;
     }
   }
-
   if (!nearest) {
-    return { score: 0, nearest_station: null, data_publishtime: null };
+    return {
+      score: 0,
+      nearest_station: null,
+      window_days: dataset.metadata.window_days,
+      current_aqi: null,
+      current_publishtime: null,
+    };
   }
 
-  const score = aqiToScore(nearest.aqi);
+  // base: 以 PM2.5 年均優先，否則用 AQI 年均
+  const base =
+    nearest.avg_pm25 != null
+      ? pm25Score(nearest.avg_pm25)
+      : avgAqiScore(nearest.avg_aqi);
+
+  const redPenalty = Math.min(20, nearest.red_days * 2);
+  const purplePenalty = Math.min(15, nearest.purple_days * 3);
+  const score = Math.max(0, Math.round(base - redPenalty - purplePenalty));
 
   return {
     score,
@@ -60,12 +95,15 @@ export function scoreAirQuality(
       name: nearest.name,
       county: nearest.county,
       distance_km: Number(nearestDist.toFixed(2)),
-      aqi: nearest.aqi,
-      status: nearest.status,
-      pollutant: nearest.pollutant,
-      pm25: nearest.pm25,
-      publishtime: nearest.publishtime,
+      avg_aqi: nearest.avg_aqi,
+      avg_pm25: nearest.avg_pm25,
+      purple_days: nearest.purple_days,
+      red_days: nearest.red_days,
+      good_rate: nearest.good_rate,
+      days_total: nearest.days_total,
     },
-    data_publishtime: dataset.metadata.publish_times[0] ?? null,
+    window_days: dataset.metadata.window_days,
+    current_aqi: null,
+    current_publishtime: null,
   };
 }

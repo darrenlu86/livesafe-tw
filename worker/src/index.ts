@@ -24,6 +24,7 @@ import { scoreSchool } from "./scorers/school";
 import { scoreTransit } from "./scorers/transit";
 import type {
   ActiveFaultsDataset,
+  AnnualAqiDataset,
   EarthquakesDataset,
   HospitalsDataset,
   RiskReport,
@@ -32,36 +33,37 @@ import type {
 import hospitalsDataRaw from "./data/hospitals_geocoded.json";
 import earthquakesDataRaw from "./data/earthquakes.json";
 import activeFaultsDataRaw from "./data/active_faults.json";
+import aqiAnnualRaw from "./data/aqi_annual.json";
 
 const hospitalsData = hospitalsDataRaw as HospitalsDataset;
 const earthquakesData = earthquakesDataRaw as unknown as EarthquakesDataset;
 const activeFaultsData = activeFaultsDataRaw as unknown as ActiveFaultsDataset;
+const aqiAnnualData = aqiAnnualRaw as unknown as AnnualAqiDataset;
 
 const app = new Hono();
 
 app.use("*", cors({ origin: "*", allowMethods: ["GET"] }));
 
-app.get("/health", async (c) => {
-  let aqiInfo: { loaded: number; publish_times: string[] } | { error: string };
-  try {
-    const aqi = await getLiveAqiDataset();
-    aqiInfo = {
-      loaded: aqi.stations.length,
-      publish_times: aqi.metadata.publish_times,
-    };
-  } catch (e) {
-    aqiInfo = { error: e instanceof Error ? e.message : String(e) };
-  }
-  return c.json({
+app.get("/health", (c) =>
+  c.json({
     ok: true,
     hospitals_loaded: hospitalsData.hospitals.length,
-    aqi: aqiInfo,
-  });
-});
+    aqi_annual_stations: aqiAnnualData.stations.length,
+    aqi_annual_window_days: aqiAnnualData.metadata.window_days,
+  }),
+);
 
 app.get("/api/aqi/stations", async (c) => {
-  const aqi = await getLiveAqiDataset();
-  return c.json({ metadata: aqi.metadata, stations: aqi.stations });
+  // 即時 AQI 測站清單（給地圖渲染當下空氣，與年度評分分離）
+  try {
+    const aqi = await getLiveAqiDataset();
+    return c.json({ metadata: aqi.metadata, stations: aqi.stations });
+  } catch (e) {
+    return c.json(
+      { error: e instanceof Error ? e.message : String(e) },
+      500,
+    );
+  }
 });
 
 function parseCoords(c: { req: { query: (k: string) => string | undefined } }):
@@ -83,11 +85,10 @@ function parseCoords(c: { req: { query: (k: string) => string | undefined } }):
   return { lat, lng };
 }
 
-app.get("/api/risk", async (c) => {
+app.get("/api/risk", (c) => {
   const parsed = parseCoords(c);
   if ("error" in parsed) return c.json({ error: parsed.error }, parsed.status);
-  const aqi = await getLiveAqiDataset();
-  const air = scoreAirQuality(parsed, aqi);
+  const air = scoreAirQuality(parsed, aqiAnnualData);
   return c.json({
     query: { ...parsed, generated_at: new Date().toISOString() },
     air_quality: air,
@@ -124,7 +125,7 @@ app.get("/api/dim/:key", async (c) => {
       case "earthquake":
         return c.json(scoreEarthquake(parsed, earthquakesData, activeFaultsData));
       case "air_quality":
-        return c.json(scoreAirQuality(parsed, await getLiveAqiDataset()));
+        return c.json(scoreAirQuality(parsed, aqiAnnualData));
       case "healthcare":
         return c.json(scoreHealthcare(parsed, hospitalsData));
       case "amenities":
@@ -163,12 +164,11 @@ app.get("/api/report", async (c) => {
   }
 
   const coords = { lat: geo.lat, lng: geo.lng };
-  const aqi = await getLiveAqiDataset();
   const [healthcare, amenities, air_quality, earthquake, transit, flood, school_district] =
     await Promise.all([
       Promise.resolve(scoreHealthcare(coords, hospitalsData)),
       scoreAmenities(coords),
-      Promise.resolve(scoreAirQuality(coords, aqi)),
+      Promise.resolve(scoreAirQuality(coords, aqiAnnualData)),
       Promise.resolve(scoreEarthquake(coords, earthquakesData, activeFaultsData)),
       scoreTransit(coords),
       scoreFlood(coords),
@@ -214,9 +214,9 @@ app.get("/api/report", async (c) => {
         updated_at: new Date().toISOString(),
       },
       {
-        name: "環境部空氣品質指標 (AQI)",
-        url: aqi.metadata.source_human,
-        updated_at: aqi.metadata.fetched_at,
+        name: `環境部空品 (近 ${aqiAnnualData.metadata.window_days} 天年均)`,
+        url: "https://data.gov.tw/dataset/40448",
+        updated_at: aqiAnnualData.metadata.fetched_at,
       },
       {
         name: "USGS Earthquake Catalog (台灣近 5 年 M>=4)",

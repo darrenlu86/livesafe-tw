@@ -196,16 +196,25 @@ function renderDetail(value: DimensionData, config: DimensionConfig) {
       );
     }
     case "air_quality": {
-      const s = value.data.nearest_station;
+      const d = value.data;
+      const s = d.nearest_station;
       if (!s) return <span>無資料</span>;
       return (
         <ul className="space-y-1.5">
           <Row label="最近測站" value={`${s.name}（${s.distance_km} km）`} />
           <Row
-            label="AQI"
-            value={`${s.aqi ?? "—"}${s.status ? `　${s.status}` : ""}`}
+            label={`近 ${d.window_days} 天 PM2.5 年均`}
+            value={s.avg_pm25 != null ? `${s.avg_pm25} µg/m³` : "—"}
           />
-          {s.pm25 != null && <Row label="PM2.5" value={`${s.pm25}`} />}
+          <Row label="AQI 年均" value={`${s.avg_aqi}`} />
+          <Row
+            label="不健康天數"
+            value={`紫爆 ${s.purple_days} · 紅 ${s.red_days}（/${s.days_total} 天）`}
+          />
+          <Row
+            label="AQI 良好率"
+            value={`${Math.round(s.good_rate * 100)}%`}
+          />
         </ul>
       );
     }

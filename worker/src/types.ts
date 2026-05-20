@@ -72,13 +72,44 @@ export interface AirQualityRisk {
     name: string;
     county: string;
     distance_km: number;
-    aqi: number | null;
-    status: string;
-    pollutant: string;
-    pm25: number | null;
-    publishtime: string;
+    avg_aqi: number;
+    avg_pm25: number | null;
+    purple_days: number;
+    red_days: number;
+    good_rate: number;
+    days_total: number;
   } | null;
-  data_publishtime: string | null;
+  window_days: number;
+  current_aqi: number | null;
+  current_publishtime: string | null;
+}
+
+export interface AnnualAqiStation {
+  siteid: string;
+  name: string;
+  county: string;
+  lat: number;
+  lng: number;
+  days_total: number;
+  avg_aqi: number;
+  purple_days: number;
+  red_days: number;
+  good_days: number;
+  good_rate: number;
+  avg_pm25: number | null;
+  pm25_days_total: number;
+}
+
+export interface AnnualAqiDataset {
+  metadata: {
+    fetched_at: string;
+    window_days: number;
+    cutoff_date: string;
+    station_count: number;
+    avg_aqi_min: number | null;
+    avg_aqi_max: number | null;
+  };
+  stations: AnnualAqiStation[];
 }
 
 export interface EarthquakeRecord {
