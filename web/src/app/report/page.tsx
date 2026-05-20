@@ -8,7 +8,7 @@ import { AddressSearch } from "@/components/AddressSearch";
 import { DimensionCard, type DimensionData } from "@/components/DimensionCard";
 import { GradeBadge } from "@/components/GradeBadge";
 import { RiskRadar } from "@/components/RiskRadar";
-import { fetchDimension, fetchGeocode, type DimensionPayload } from "@/lib/api";
+import { fetchDimension, fetchGeocode } from "@/lib/api";
 import { isInCompare, recordRecent, toggleCompare } from "@/lib/storage";
 import {
   DIMENSIONS,
@@ -17,6 +17,11 @@ import {
   type Grade,
   type RiskReport,
 } from "@/lib/types";
+import {
+  getDisabledDims,
+  resetWeights,
+  toggleDimension,
+} from "@/lib/weights";
 
 type DimSlot = DimensionData;
 
@@ -36,6 +41,20 @@ function ReportInner() {
   const [dims, setDims] = useState<Record<DimensionKey, DimSlot>>(initialDims);
   const [inCompare, setInCompare] = useState(false);
   const [savedOnce, setSavedOnce] = useState(false);
+  const [disabled, setDisabled] = useState<Set<DimensionKey>>(new Set());
+
+  useEffect(() => {
+    setDisabled(getDisabledDims());
+  }, []);
+
+  function handleToggleDim(key: DimensionKey) {
+    setDisabled(new Set(toggleDimension(key)));
+  }
+
+  function handleReset() {
+    resetWeights();
+    setDisabled(new Set());
+  }
 
   // Step 1: geocode
   useEffect(() => {
@@ -74,23 +93,28 @@ function ReportInner() {
     });
   }, [geo]);
 
-  // Compute overall when all dims resolved (not loading)
+  // Compute overall — only includes available, non-error, non-disabled dims
   const overall = useMemo(() => {
     const scores: number[] = [];
     let stillLoading = 0;
     DIMENSIONS.filter((d) => d.available).forEach((d) => {
       const slot = dims[d.key];
       if (slot.kind === "loading") stillLoading++;
-      else if (slot.kind !== "error" && slot.kind !== "placeholder") {
+      else if (
+        slot.kind !== "error" &&
+        slot.kind !== "placeholder" &&
+        !disabled.has(d.key)
+      ) {
         scores.push((slot as { data: { score: number } }).data.score);
       }
     });
-    if (stillLoading > 0 || scores.length === 0) {
-      return { ready: false as const, stillLoading };
+    if (stillLoading > 0) return { ready: false as const, stillLoading };
+    if (scores.length === 0) {
+      return { ready: true as const, score: 0, grade: "D" as Grade };
     }
     const avg = Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
     return { ready: true as const, score: avg, grade: gradeFromScore(avg) };
-  }, [dims]);
+  }, [dims, disabled]);
 
   // Persist to localStorage once everything completes
   useEffect(() => {
@@ -150,10 +174,14 @@ function ReportInner() {
     );
   }
 
-  const radarData = DIMENSIONS.filter((d) => d.available).map((d) => {
+  const radarData = DIMENSIONS.filter(
+    (d) => d.available && !disabled.has(d.key),
+  ).map((d) => {
     const slot = dims[d.key];
     const score =
-      slot.kind === "loading" || slot.kind === "error" || slot.kind === "placeholder"
+      slot.kind === "loading" ||
+      slot.kind === "error" ||
+      slot.kind === "placeholder"
         ? 0
         : (slot as { data: { score: number } }).data.score;
     return { dimension: d.shortLabel, 分數: score };
@@ -216,9 +244,24 @@ function ReportInner() {
       </section>
 
       <section className="mt-16">
-        <div className="mb-6 flex items-end justify-between">
-          <h2 className="text-xl font-bold text-white">維度細節</h2>
-          <ProgressIndicator dims={dims} />
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <h2 className="text-xl font-bold text-white">維度細節</h2>
+            <p className="mt-1 text-xs text-white/40">
+              不在意的維度可點「✓ 計入」切換為「○ 不計」，總評會即時重算
+            </p>
+          </div>
+          <div className="flex items-center gap-4">
+            {disabled.size > 0 && (
+              <button
+                onClick={handleReset}
+                className="text-xs text-white/50 underline-offset-2 hover:text-white hover:underline"
+              >
+                重設為全部計入
+              </button>
+            )}
+            <ProgressIndicator dims={dims} />
+          </div>
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {DIMENSIONS.map((config) => (
@@ -226,6 +269,10 @@ function ReportInner() {
               key={config.key}
               config={config}
               value={dims[config.key]}
+              included={!disabled.has(config.key)}
+              onToggleInclude={
+                config.available ? () => handleToggleDim(config.key) : undefined
+              }
             />
           ))}
         </div>

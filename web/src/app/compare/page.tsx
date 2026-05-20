@@ -9,6 +9,7 @@ import { RiskRadar } from "@/components/RiskRadar";
 import { fetchReport } from "@/lib/api";
 import { listCompare, toggleCompare } from "@/lib/storage";
 import { DIMENSIONS, type DimensionKey, type RiskReport } from "@/lib/types";
+import { getDisabledDims } from "@/lib/weights";
 
 const SERIES_COLORS = ["#a855f7", "#06b6d4", "#22c55e", "#f59e0b"];
 
@@ -77,7 +78,10 @@ function CompareInner() {
     );
   }
 
-  const availableDims = DIMENSIONS.filter((d) => d.available);
+  const disabled = getDisabledDims();
+  const availableDims = DIMENSIONS.filter(
+    (d) => d.available && !disabled.has(d.key),
+  );
   const radarData = availableDims.map((d) => {
     const point: Record<string, string | number> = { dimension: d.shortLabel };
     slots.forEach((s) => {

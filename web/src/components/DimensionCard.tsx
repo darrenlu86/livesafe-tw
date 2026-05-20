@@ -26,6 +26,8 @@ interface Props {
   config: DimensionConfig;
   value: DimensionData;
   className?: string;
+  included?: boolean;
+  onToggleInclude?: () => void;
 }
 
 function scoreBucket(score: number): { color: string; label: string } {
@@ -35,11 +37,16 @@ function scoreBucket(score: number): { color: string; label: string } {
   return { color: "text-rose-400", label: "警示" };
 }
 
-export function DimensionCard({ config, value, className }: Props) {
+export function DimensionCard({
+  config,
+  value,
+  className,
+  included = true,
+  onToggleInclude,
+}: Props) {
   const isLoading = value.kind === "loading";
   const isError = value.kind === "error";
-  const isInactive =
-    value.kind === "placeholder" || isLoading || isError;
+  const isInactive = value.kind === "placeholder" || isLoading || isError;
 
   return (
     <article
@@ -47,6 +54,7 @@ export function DimensionCard({ config, value, className }: Props) {
         "glass relative overflow-hidden rounded-2xl p-6 transition",
         !isInactive && "hover:border-white/20 hover:bg-white/[0.06]",
         value.kind === "placeholder" && "opacity-60",
+        !included && "opacity-50",
         isError && "border-rose-500/30",
         className,
       )}
@@ -67,11 +75,26 @@ export function DimensionCard({ config, value, className }: Props) {
             </h3>
           </div>
           {!isInactive && (
-            <ScoreNumber
-              score={
-                (value as { data: { score: number } }).data.score
-              }
-            />
+            <div className="flex flex-col items-end gap-2">
+              <ScoreNumber
+                score={(value as { data: { score: number } }).data.score}
+              />
+              {onToggleInclude && (
+                <button
+                  type="button"
+                  onClick={onToggleInclude}
+                  className={clsx(
+                    "rounded-full border px-3 py-1 text-[10px] uppercase tracking-widest transition",
+                    included
+                      ? "border-emerald-400/40 bg-emerald-400/10 text-emerald-300 hover:bg-emerald-400/20"
+                      : "border-white/15 bg-white/[0.03] text-white/50 hover:border-white/30 hover:text-white/80",
+                  )}
+                  aria-label={included ? "從總評移除" : "加入總評"}
+                >
+                  {included ? "✓ 計入" : "○ 不計"}
+                </button>
+              )}
+            </div>
           )}
           {isLoading && (
             <span className="rounded-full border border-white/15 px-3 py-1 text-[10px] uppercase tracking-widest text-white/50">
