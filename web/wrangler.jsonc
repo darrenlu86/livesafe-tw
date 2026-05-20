@@ -3,6 +3,8 @@
 	"main": ".open-next/worker.js",
 	"name": "livesafe-web",
 	"compatibility_date": "2026-05-19",
+	"workers_dev": true,
+	"preview_urls": true,
 	"compatibility_flags": [
 		"nodejs_compat",
 		"global_fetch_strictly_public"
@@ -13,5 +15,11 @@
 	},
 	"images": {
 		"binding": "IMAGES"
-	}
+	},
+	"routes": [
+		{
+			"pattern": "livesafe.oharalab.com",
+			"custom_domain": true
+		}
+	]
 }
