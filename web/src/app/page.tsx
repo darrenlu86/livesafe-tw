@@ -48,7 +48,7 @@ const FAQS = [
   },
   {
     q: "支援台灣全國嗎？",
-    a: "支援。台灣 22 縣市皆可查詢，但臺北市的淹水資料因水利署公開檔案缺漏，該維度會標示「資料不可用」並從總評排除。",
+    a: "支援，台灣 22 縣市皆可查詢。臺北市的淹水資料使用 data.taipei 130mm/h 短延時情境（其他縣市為水利署 24h 650mm 情境），兩者皆為各自最壞情境。",
   },
   {
     q: "資料準確嗎？來源是哪裡？",
@@ -92,10 +92,10 @@ export default function HomePage() {
             一站式查核報告
           </span>
         </h1>
-        <p className="mx-auto mt-6 max-w-xl text-base text-white/65 md:text-lg">
-          輸入地址，30 秒拿到 9 維度居住安全評分：
-          <strong className="text-white/85">地震斷層、淹水潛勢、土石流、空品、醫療、嫌惡設施</strong>。
-          政府公開資料整合，不賣房、不估價、不抽佣。
+        <p className="mx-auto mt-6 max-w-xl text-base text-white/70 md:text-lg">
+          輸入地址，30 秒拿到 9 維度居住安全評分。
+          <br className="hidden md:inline" />
+          政府公開資料整合 · 不賣房 · 不估價 · 不抽佣
         </p>
 
         <div className="mt-10">
@@ -158,12 +158,12 @@ export default function HomePage() {
             </span>
           ))}
         </div>
-        <div className="mt-8 text-center">
-          <Link
-            href="/about"
-            className="text-sm text-cyan-300 hover:text-cyan-200"
-          >
-            看每個維度的評分標準與資料來源 →
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
+          <Link href="/guides" className="text-cyan-300 hover:text-cyan-200">
+            買房前必查指南 →
+          </Link>
+          <Link href="/about" className="text-white/50 hover:text-white">
+            評分標準與資料來源
           </Link>
         </div>
       </section>

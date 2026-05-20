@@ -95,13 +95,43 @@ export default function RootLayout({
           <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3.5">
             <Link
               href="/"
-              className="font-display text-lg font-bold tracking-tight text-white"
+              className="flex items-center gap-2 font-display text-lg font-bold tracking-tight text-white"
             >
+              <svg
+                viewBox="0 0 32 32"
+                className="size-6 shrink-0"
+                aria-hidden="true"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <linearGradient id="logoGrad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stopColor="#34d399" />
+                    <stop offset="50%" stopColor="#22d3ee" />
+                    <stop offset="100%" stopColor="#a855f7" />
+                  </linearGradient>
+                </defs>
+                <circle cx="13" cy="13" r="9" stroke="url(#logoGrad)" strokeWidth="2.2" />
+                <path d="M19.5 19.5L27 27" stroke="url(#logoGrad)" strokeWidth="2.6" strokeLinecap="round" />
+                <path
+                  d="M8 14.5L13 10.5L18 14.5V18.5H8V14.5Z"
+                  fill="url(#logoGrad)"
+                  fillOpacity="0.85"
+                />
+                <path
+                  d="M11.5 18.5V15.5H14.5V18.5"
+                  stroke="#0a0a0f"
+                  strokeWidth="0.8"
+                />
+              </svg>
               <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
                 居住安全透視鏡
               </span>
             </Link>
             <nav className="flex items-center gap-6 text-sm">
+              <Link href="/guides" className="text-white/60 hover:text-white">
+                指南
+              </Link>
               <Link href="/compare" className="text-white/60 hover:text-white">
                 多址比較
               </Link>

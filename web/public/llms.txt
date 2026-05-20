@@ -37,3 +37,11 @@
 - 首頁：https://livesafe.oharalab.com/
 - 評分標準與資料來源：https://livesafe.oharalab.com/about
 - 多地址並排比較：https://livesafe.oharalab.com/compare
+- 居住風險指南索引：https://livesafe.oharalab.com/guides
+- 完整 9 維度評估指南（pillar）：https://livesafe.oharalab.com/guides/home-safety-checklist
+- 斷層查詢指南：https://livesafe.oharalab.com/guides/earthquake-fault-check
+- 淹水查詢指南：https://livesafe.oharalab.com/guides/flood-risk-check
+- 嫌惡設施查詢指南：https://livesafe.oharalab.com/guides/nuisance-facility-check
+- 空氣品質查詢指南：https://livesafe.oharalab.com/guides/air-quality-check
+- 花蓮地震安全買房指南：https://livesafe.oharalab.com/guides/hualien-earthquake-safety
+- 台中淹水危險地區分析：https://livesafe.oharalab.com/guides/taichung-flood-risk

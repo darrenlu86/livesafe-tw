@@ -61,13 +61,13 @@ export function RecentList() {
           return (
             <li
               key={r.id}
-              className="glass group relative overflow-hidden rounded-2xl p-5 transition hover:border-white/20 hover:bg-white/[0.06]"
+              className="glass group overflow-hidden rounded-2xl p-5 transition hover:border-white/20 hover:bg-white/[0.06]"
             >
-              <Link
-                href={`/report?address=${encodeURIComponent(r.address)}`}
-                className="block"
-              >
-                <div className="flex items-start gap-4">
+              <div className="flex items-start gap-3">
+                <Link
+                  href={`/report?address=${encodeURIComponent(r.address)}`}
+                  className="flex min-w-0 flex-1 items-start gap-4"
+                >
                   <div
                     className={clsx(
                       "flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-2xl font-black",
@@ -93,20 +93,20 @@ export function RecentList() {
                       })}
                     </div>
                   </div>
-                </div>
-              </Link>
-              <button
-                type="button"
-                onClick={() => onToggle(r.address)}
-                className={clsx(
-                  "absolute right-3 top-3 rounded-full border px-3 py-1 text-[10px] uppercase tracking-widest transition",
-                  inCompare
-                    ? "border-white bg-white text-black"
-                    : "border-white/20 bg-transparent text-white/60 hover:border-white/40 hover:text-white",
-                )}
-              >
-                {inCompare ? "已選" : "比較"}
-              </button>
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => onToggle(r.address)}
+                  className={clsx(
+                    "shrink-0 self-start rounded-full border px-3 py-1 text-[10px] uppercase tracking-widest transition",
+                    inCompare
+                      ? "border-white bg-white text-black"
+                      : "border-white/20 bg-transparent text-white/60 hover:border-white/40 hover:text-white",
+                  )}
+                >
+                  {inCompare ? "已選" : "比較"}
+                </button>
+              </div>
             </li>
           );
         })}
