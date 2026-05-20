@@ -129,51 +129,45 @@ function findFloodMatch(lng: number, lat: number): FloodMatch | null {
   return best;
 }
 
-// 已知缺漏縣市 bbox（粗略判斷點是否落在資料缺漏的縣市範圍內）
-// 臺北市公開 7z 為空檔，目前 fallback 為「資料不可用」，不裝作 95
-const MISSING_COUNTY_BBOXES: Array<{ name: string; bbox: [number, number, number, number] }> = [
-  // 臺北市大致範圍：[minLng, minLat, maxLng, maxLat]
-  { name: "臺北市", bbox: [121.45, 24.96, 121.67, 25.21] },
-];
+// 臺北市資料來自 data.taipei 130mm/h 短延時情境（與其他縣市 24h 650mm 情境不完全等同）
+const TAIPEI_BBOX: [number, number, number, number] = [121.45, 24.96, 121.67, 25.21];
 
-function isMissingCounty(lng: number, lat: number): string | null {
-  for (const { name, bbox } of MISSING_COUNTY_BBOXES) {
-    if (
-      lng >= bbox[0] &&
-      lng <= bbox[2] &&
-      lat >= bbox[1] &&
-      lat <= bbox[3] &&
-      !floodData.metadata.counties.includes(name)
-    ) {
-      return name;
-    }
-  }
-  return null;
+function isTaipei(lng: number, lat: number): boolean {
+  return (
+    lng >= TAIPEI_BBOX[0] &&
+    lng <= TAIPEI_BBOX[2] &&
+    lat >= TAIPEI_BBOX[1] &&
+    lat <= TAIPEI_BBOX[3]
+  );
 }
 
 export function scoreFlood(target: Coords): FloodRisk {
   const match = findFloodMatch(target.lng, target.lat);
   const inZone = !!match;
+  const taipei = isTaipei(target.lng, target.lat);
 
   if (inZone) {
     const score = DEPTH_SCORE[match!.depth_class] ?? 40;
+    const isTaipeiMatch = match!.county === "臺北市";
+    const dataSource = isTaipeiMatch
+      ? "臺北市降雨積水模擬圖（130mm/h 短延時強降雨情境）"
+      : `水利署淹水潛勢圖（${floodData.metadata.scenario_label}）`;
     return {
       score,
       data_available: true,
       nearest_water: null,
       pois: [],
-      proxy_note: `落入水利署淹水潛勢圖（${floodData.metadata.scenario_label}）「${match!.depth_class} m」淹水深度區`,
+      proxy_note: `落入${dataSource}「${match!.depth_class} m」淹水深度區`,
     };
   }
 
-  const missingCounty = isMissingCounty(target.lng, target.lat);
-  if (missingCounty) {
+  if (taipei) {
     return {
-      score: 50,
-      data_available: false,
+      score: 95,
+      data_available: true,
       nearest_water: null,
       pois: [],
-      proxy_note: `${missingCounty}的水利署淹水潛勢圖資料缺漏（公開 7z 是空檔），本維度標示為「資料不可用」並從總評排除。`,
+      proxy_note: "不在臺北市降雨積水模擬圖（130mm/h 短延時情境）潛勢區內",
     };
   }
 

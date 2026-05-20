@@ -43,7 +43,7 @@ const DIM_CHIPS = [
 
 const FAQS = [
   {
-    q: "LiveSafe.tw 怎麼用？",
+    q: "居住安全透視鏡怎麼用？",
     a: "在輸入框輸入你的地址（縣市 + 行政區 + 路名），系統會在 30 秒內回傳 9 個維度的居住安全評分，並以 A/B/C/D 等級標示總分。",
   },
   {
@@ -56,7 +56,7 @@ const FAQS = [
   },
   {
     q: "需要登入或付費嗎？",
-    a: "不需要。LiveSafe.tw 完全免費、不需註冊，也不販售房屋資訊或抽取任何仲介佣金。",
+    a: "不需要。居住安全透視鏡完全免費、不需註冊，也不販售房屋資訊或抽取任何仲介佣金。",
   },
 ];
 
@@ -86,16 +86,16 @@ export default function HomePage() {
           9 個維度 · 政府公開資料 · 免費工具
         </div>
         <h1 className="font-display text-5xl font-bold leading-tight tracking-tight text-white md:text-7xl">
-          買房或租屋前，
+          買房前的
           <br />
           <span className="bg-gradient-to-r from-emerald-300 via-cyan-300 to-purple-400 bg-clip-text text-transparent">
-            先查這個地址的風險
+            一站式查核報告
           </span>
         </h1>
         <p className="mx-auto mt-6 max-w-xl text-base text-white/65 md:text-lg">
           輸入地址，30 秒拿到 9 維度居住安全評分：
           <strong className="text-white/85">地震斷層、淹水潛勢、土石流、空品、醫療、嫌惡設施</strong>。
-          政府公開資料計算，不賣房、不估價。
+          政府公開資料整合，不賣房、不估價、不抽佣。
         </p>
 
         <div className="mt-10">

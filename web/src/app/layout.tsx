@@ -12,16 +12,16 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 const SITE_URL = "https://livesafe.oharalab.com";
-const SITE_NAME = "LiveSafe.tw";
+const SITE_NAME = "居住安全透視鏡";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "買房前查地震、淹水、空污風險 — LiveSafe.tw 居住安全評分",
-    template: "%s | LiveSafe.tw",
+    default: "居住安全透視鏡 — 買房前的一站式查核報告",
+    template: "%s | 居住安全透視鏡",
   },
   description:
-    "輸入地址，30 秒拿到 9 維度居住安全評分：地震斷層、淹水潛勢、土石流、空品、醫療、嫌惡設施。政府公開資料，不賣房、不估價，純評估工具。",
+    "輸入地址，30 秒拿到 9 維度居住安全評分：地震斷層、淹水潛勢、土石流、空品、醫療、嫌惡設施。政府公開資料整合，專為買房前查核設計，不賣房、不估價、不抽佣。",
   keywords: [
     "買房前查詢",
     "租屋前查詢",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/" },
   openGraph: {
-    title: "買房前必查：地震、淹水、嫌惡設施 9 維度評分",
+    title: "居住安全透視鏡 — 買房前的一站式查核報告",
     description:
       "輸入台灣任一地址，30 秒拿到居住安全 A/B/C/D 評分。地震斷層、淹水潛勢、空品、嫌惡設施全整合。",
     url: SITE_URL,
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "買房前必查 9 維度居住風險 — LiveSafe.tw",
+    title: "居住安全透視鏡 — 買房前必查的 9 維度報告",
     description: "地震斷層、淹水潛勢、空品、嫌惡設施一鍵查",
   },
   robots: {
@@ -64,11 +64,11 @@ export const metadata: Metadata = {
 const JSON_LD_WEBAPP = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "LiveSafe.tw 居住安全評分工具",
-  alternateName: "LiveSafe.tw",
+  name: "居住安全透視鏡",
+  alternateName: ["居住安全透視鏡", "LiveSafe.tw"],
   applicationCategory: "UtilitiesApplication",
   description:
-    "輸入台灣地址，取得地震斷層、淹水潛勢、土石流、空氣品質、醫療、生活機能、交通、學校密度、嫌惡設施 9 維度居住安全評分",
+    "買房前的一站式查核報告。輸入台灣地址，取得地震斷層、淹水潛勢、土石流、空氣品質、醫療、生活機能、交通、學校密度、嫌惡設施 9 維度居住安全評分。",
   url: SITE_URL,
   inLanguage: "zh-TW",
   operatingSystem: "Web",
@@ -98,9 +98,8 @@ export default function RootLayout({
               className="font-display text-lg font-bold tracking-tight text-white"
             >
               <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                LiveSafe
+                居住安全透視鏡
               </span>
-              <span className="text-white/40">.tw</span>
             </Link>
             <nav className="flex items-center gap-6 text-sm">
               <Link href="/compare" className="text-white/60 hover:text-white">
@@ -116,8 +115,7 @@ export default function RootLayout({
         <footer className="mt-32 border-t border-white/[0.06] py-10">
           <div className="mx-auto max-w-6xl px-6 text-center text-xs text-white/40">
             <p>
-              LiveSafe.tw · 使用政府公開資料、USGS、OSM 計算 ·
-              僅供參考，不構成購屋建議
+              居住安全透視鏡 · livesafe.oharalab.com · 政府公開資料 + USGS + OSM 計算 · 僅供參考，不構成購屋建議
             </p>
           </div>
         </footer>

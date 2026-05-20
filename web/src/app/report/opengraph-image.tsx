@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "LiveSafe.tw 居住安心度報告";
+export const alt = "居住安全透視鏡 — 買房前的一站式查核報告";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -47,7 +47,7 @@ export default async function OgImage({ searchParams }: Props) {
               boxShadow: "0 0 12px #10b981",
             }}
           />
-          LiveSafe.tw · 居住安心度
+          居住安全透視鏡 · 買房一站式查核
         </div>
 
         <div style={{ marginTop: "auto", display: "flex", flexDirection: "column" }}>
