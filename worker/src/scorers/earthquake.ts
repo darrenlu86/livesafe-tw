@@ -124,9 +124,11 @@ export function scoreEarthquake(
     if (maxMag === null || q.magnitude > maxMag) maxMag = q.magnitude;
   }
 
+  // 斷層存在是「潛在風險」即使無震也該主導扣分（用戶 feedback）
+  // fault 70% + quake 30%，避免「沒地震就高分」掩蓋斷層風險
   const fScore = nearest ? faultScore(nearest.distance_km) : 50;
   const qScore = quakeCountScore(count);
-  const score = Math.round((fScore + qScore) / 2);
+  const score = Math.round(fScore * 0.7 + qScore * 0.3);
 
   return {
     score,

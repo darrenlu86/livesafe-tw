@@ -172,28 +172,56 @@ function renderDetail(value: DimensionData, config: DimensionConfig) {
   switch (value.kind) {
     case "earthquake": {
       const d = value.data;
+      const fault = d.nearest_fault;
+      const dist = fault?.distance_km ?? null;
+      const faultAlert =
+        dist == null
+          ? null
+          : dist < 0.5
+            ? { color: "text-rose-300 bg-rose-500/15 border-rose-400/40", icon: "⚠️", label: "斷層直接通過" }
+            : dist < 1
+              ? { color: "text-orange-300 bg-orange-500/15 border-orange-400/40", icon: "⚠", label: "斷層極近" }
+              : dist < 3
+                ? { color: "text-amber-300 bg-amber-500/10 border-amber-400/30", icon: "·", label: "斷層中近距離" }
+                : null;
       return (
-        <ul className="space-y-1.5">
-          {d.nearest_fault && (
-            <Row
-              label="最近活動斷層"
-              value={`${d.nearest_fault.name ?? "—"}（${d.nearest_fault.distance_km} km${
-                d.nearest_fault.slip_type ? `，${d.nearest_fault.slip_type}` : ""
-              }）`}
-            />
+        <div className="space-y-3">
+          {fault && (
+            <div
+              className={clsx(
+                "rounded-xl border px-3 py-2 text-sm",
+                faultAlert?.color ?? "border-white/10 bg-white/[0.03] text-white/80",
+              )}
+            >
+              <div className="flex items-baseline justify-between gap-2">
+                <span className="font-semibold">
+                  {faultAlert?.icon ?? "·"} {fault.name ?? "—"}
+                </span>
+                <span className="font-mono tabular-nums">{fault.distance_km} km</span>
+              </div>
+              <div className="mt-0.5 text-xs opacity-75">
+                {faultAlert?.label ?? "距活動斷層"}
+                {fault.slip_type ? ` · ${fault.slip_type}` : ""}
+              </div>
+            </div>
           )}
-          <Row
-            label={`近 ${d.window_years} 年 5km 內 M≥5`}
-            value={
-              d.recent_quakes_within_5km > 0
-                ? `${d.recent_quakes_within_5km} 次` +
-                  (d.max_magnitude_within_5km
-                    ? `（最大 M${d.max_magnitude_within_5km}）`
-                    : "")
-                : "無紀錄"
-            }
-          />
-        </ul>
+          <ul className="space-y-1.5">
+            <Row
+              label={`近 ${d.window_years} 年 5km 內 M≥5`}
+              value={
+                d.recent_quakes_within_5km > 0
+                  ? `${d.recent_quakes_within_5km} 次` +
+                    (d.max_magnitude_within_5km
+                      ? `（最大 M${d.max_magnitude_within_5km}）`
+                      : "")
+                  : "無紀錄"
+              }
+            />
+          </ul>
+          <p className="text-xs italic text-white/40">
+            分數權重：斷層距離 70% + 近期地震密度 30%（斷層為潛在風險，即使無震也計分）
+          </p>
+        </div>
       );
     }
     case "air_quality": {
