@@ -1,18 +1,14 @@
 /**
  * 生活機能評分
  *
- * 500m 半徑內 OSM POI 計數（convenience / pharmacy / park）。
- *
- * 算法：
- *   conv_pts   = min(50, 超商數 × 10)
- *   pharm_pts  = min(30, 藥局數 × 10)
- *   park_pts   = min(20, 公園數 × 10)
- *   score      = conv_pts + pharm_pts + park_pts（上限 100）
+ * 500m 半徑內 OSM POI 計數 (convenience / pharmacy / park)，並回傳 POI 列表。
  */
-import type { Amenities, Coords, OverpassResponse } from "../types";
+import { haversineKm } from "./healthcare";
+import type { Amenities, Coords, OverpassResponse, Poi } from "../types";
 
 const OVERPASS_URL = "https://overpass-api.de/api/interpreter";
 const RADIUS_M = 500;
+const MAX_POIS = 30;
 
 function buildQuery(lat: number, lng: number): string {
   return `[out:json][timeout:25];
@@ -45,12 +41,35 @@ export async function scoreAmenities(target: Coords): Promise<Amenities> {
   let convenience = 0;
   let pharmacy = 0;
   let park = 0;
+  const pois: Poi[] = [];
+
   for (const el of data.elements) {
     const tags = el.tags ?? {};
-    if (tags.shop === "convenience") convenience++;
-    else if (tags.amenity === "pharmacy") pharmacy++;
-    else if (tags.leisure === "park") park++;
+    const lat = el.lat ?? el.center?.lat;
+    const lng = el.lon ?? el.center?.lon;
+    if (lat == null || lng == null) continue;
+    let category: string | null = null;
+    if (tags.shop === "convenience") {
+      convenience++;
+      category = "convenience";
+    } else if (tags.amenity === "pharmacy") {
+      pharmacy++;
+      category = "pharmacy";
+    } else if (tags.leisure === "park") {
+      park++;
+      category = "park";
+    }
+    if (!category) continue;
+    pois.push({
+      name: tags.name ?? tags["name:zh"] ?? `(${category})`,
+      lat,
+      lng,
+      distance_km: Number(haversineKm(target, { lat, lng }).toFixed(2)),
+      category,
+    });
   }
+
+  pois.sort((a, b) => a.distance_km - b.distance_km);
 
   return {
     score:
@@ -60,5 +79,6 @@ export async function scoreAmenities(target: Coords): Promise<Amenities> {
     convenience_stores_500m: convenience,
     pharmacies_500m: pharmacy,
     parks_500m: park,
+    pois: pois.slice(0, MAX_POIS),
   };
 }

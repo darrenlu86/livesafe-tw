@@ -1,22 +1,12 @@
 /**
- * 淹水風險（OSM 水域鄰近）— 輕量替代版
- *
- * 真正的淹水潛勢需要水利署 shapefile → PMTiles（規格 §6.3，工程量大）。
- * 此版用「距水體距離」做粗略代理，並於 UI 註明。
- *
- * 算法（距最近水體距離）：
- *   < 200m → 15
- *   200-500m → 40
- *   500m-1km → 70
- *   > 1km → 95
- *
- * 水體定義：natural=water、waterway=river/stream/canal
+ * 淹水風險（OSM 水域鄰近代理）
  */
 import { haversineKm } from "./healthcare";
-import type { Coords, FloodRisk, OverpassResponse } from "../types";
+import type { Coords, FloodRisk, OverpassResponse, Poi } from "../types";
 
 const OVERPASS_URL = "https://overpass-api.de/api/interpreter";
 const RADIUS_M = 1500;
+const MAX_POIS = 8;
 
 function buildQuery(lat: number, lng: number): string {
   return `[out:json][timeout:25];
@@ -55,6 +45,7 @@ export async function scoreFlood(target: Coords): Promise<FloodRisk> {
   let nearestKm = Infinity;
   let nearestName: string | null = null;
   let nearestType: string | null = null;
+  const pois: Poi[] = [];
 
   for (const el of data.elements) {
     const tags = el.tags ?? {};
@@ -62,13 +53,23 @@ export async function scoreFlood(target: Coords): Promise<FloodRisk> {
     const lng = el.lon ?? el.center?.lon;
     if (lat == null || lng == null) continue;
     const dKm = haversineKm(target, { lat, lng });
+    const t = tags.waterway ?? (tags.natural === "water" ? "water" : null);
+    const name = tags.name ?? tags["name:zh"] ?? null;
     if (dKm < nearestKm) {
       nearestKm = dKm;
-      nearestName = tags.name ?? tags["name:zh"] ?? null;
-      nearestType =
-        tags.waterway ?? (tags.natural === "water" ? "water" : null);
+      nearestName = name;
+      nearestType = t;
     }
+    pois.push({
+      name: name ?? `(${t ?? "water"})`,
+      lat,
+      lng,
+      distance_km: Number(dKm.toFixed(2)),
+      category: t ?? "water",
+    });
   }
+
+  pois.sort((a, b) => a.distance_km - b.distance_km);
 
   const hasNearby = Number.isFinite(nearestKm);
   const score = hasNearby ? distanceScore(nearestKm) : 95;
@@ -82,6 +83,7 @@ export async function scoreFlood(target: Coords): Promise<FloodRisk> {
           distance_km: Number(nearestKm.toFixed(2)),
         }
       : null,
+    pois: pois.slice(0, MAX_POIS),
     proxy_note:
       "本維度為「距水體距離」粗略代理，非水利署淹水潛勢圖。",
   };

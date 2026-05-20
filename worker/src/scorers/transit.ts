@@ -2,20 +2,17 @@
  * 交通便利評分
  *
  * OSM Overpass：
- *   - 1km 內 railway=station / station=subway（捷運/輕軌/火車）
- *   - 500m 內 highway=bus_stop（公車站）
- *
- * 算法：
- *   rail_pts    = min(60, 500m 內 rail × 60 + 500-1000m × 30)
- *   bus_pts     = min(40, 公車站 × 8)
- *   score       = rail_pts + bus_pts
+ *   - 1km 內 railway/subway 站
+ *   - 500m 內公車站
+ * 回傳 score + POI list。
  */
 import { haversineKm } from "./healthcare";
-import type { Coords, OverpassResponse, Transit } from "../types";
+import type { Coords, OverpassResponse, Poi, Transit } from "../types";
 
 const OVERPASS_URL = "https://overpass-api.de/api/interpreter";
 const RAIL_RADIUS_M = 1000;
 const BUS_RADIUS_M = 500;
+const MAX_POIS = 25;
 
 function buildQuery(lat: number, lng: number): string {
   return `[out:json][timeout:25];
@@ -50,6 +47,7 @@ export async function scoreTransit(target: Coords): Promise<Transit> {
   let busWithin500 = 0;
   let nearestRailName: string | null = null;
   let nearestRailKm = Infinity;
+  const pois: Poi[] = [];
 
   for (const el of data.elements) {
     const tags = el.tags ?? {};
@@ -69,10 +67,26 @@ export async function scoreTransit(target: Coords): Promise<Transit> {
       }
       if (dKm <= 0.5) railWithin500++;
       else if (dKm <= 1) rail500to1000++;
+      pois.push({
+        name: tags.name ?? tags["name:zh"] ?? "(rail station)",
+        lat,
+        lng,
+        distance_km: Number(dKm.toFixed(2)),
+        category: "rail",
+      });
     } else if (isBus && dKm <= 0.5) {
       busWithin500++;
+      pois.push({
+        name: tags.name ?? "(bus stop)",
+        lat,
+        lng,
+        distance_km: Number(dKm.toFixed(2)),
+        category: "bus",
+      });
     }
   }
+
+  pois.sort((a, b) => a.distance_km - b.distance_km);
 
   const railPts = Math.min(60, railWithin500 * 60 + rail500to1000 * 30);
   const busPts = Math.min(40, busWithin500 * 8);
@@ -89,5 +103,6 @@ export async function scoreTransit(target: Coords): Promise<Transit> {
           distance_km: Number(nearestRailKm.toFixed(2)),
         }
       : null,
+    pois: pois.slice(0, MAX_POIS),
   };
 }

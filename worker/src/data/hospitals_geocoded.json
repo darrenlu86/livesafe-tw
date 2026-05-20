@@ -6,16 +6,17 @@
     "row_count": 371,
     "emergency_hospital_count": 174,
     "active_count": 337,
-    "geocoded_at": "2026-05-20T01:45:48.421081+00:00",
+    "geocoded_at": "2026-05-20T04:20:14.409899+00:00",
     "geocoder": "OSM Nominatim + (optional) Google Maps fallback",
     "geocoder_endpoint": "https://nominatim.openstreetmap.org/search",
     "geocode_stats": {
+      "address_full": 0,
+      "address_street": 0,
+      "county_name": 0,
+      "county_name_stripped": 0,
       "name": 0,
       "name_stripped": 0,
-      "address_street": 0,
-      "address_full": 0,
-      "google_name": 0,
-      "google_address": 0,
+      "google": 0,
       "manual_street": 2,
       "manual_district": 4,
       "unresolved": 0,
@@ -71,9 +72,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 22.626765,
-      "lng": 120.3237952,
-      "geocode_method": "name"
+      "lat": 22.6261425,
+      "lng": 120.3222081,
+      "geocode_method": "address_street"
     },
     {
       "code": "0122020517",
@@ -122,9 +123,9 @@
       "contract_start": "2002-03-08",
       "contract_end": "2028-03-07",
       "is_active": true,
-      "lat": 23.48091,
-      "lng": 120.43012,
-      "geocode_method": "name_stripped"
+      "lat": 23.4807819,
+      "lng": 120.4300341,
+      "geocode_method": "county_name_stripped"
     },
     {
       "code": "0131060010",
@@ -173,8 +174,8 @@
       "contract_start": "1995-07-07",
       "contract_end": "2028-07-06",
       "is_active": true,
-      "lat": 25.0311205,
-      "lng": 121.4297858,
+      "lat": 25.0229395,
+      "lng": 121.4136575,
       "geocode_method": "address_street"
     },
     {
@@ -266,7 +267,7 @@
       "is_active": true,
       "lat": 23.4646789,
       "lng": 120.2345976,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "0141010013",
@@ -309,9 +310,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 23.3091744,
-      "lng": 120.313291,
-      "geocode_method": "name"
+      "lat": 23.305732,
+      "lng": 120.3149825,
+      "geocode_method": "address_street"
     },
     {
       "code": "0141060513",
@@ -355,7 +356,7 @@
       "is_active": true,
       "lat": 23.062697,
       "lng": 120.3366389,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "0141270019",
@@ -380,9 +381,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 22.9751468,
-      "lng": 120.2418647,
-      "geocode_method": "name"
+      "lat": 22.9704569,
+      "lng": 120.2616026,
+      "geocode_method": "address_street"
     },
     {
       "code": "0143040019",
@@ -425,9 +426,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 21.997821,
-      "lng": 120.7448852,
-      "geocode_method": "name_stripped"
+      "lat": 21.9926353,
+      "lng": 120.7468243,
+      "geocode_method": "address_street"
     },
     {
       "code": "0144010015",
@@ -468,9 +469,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 23.564217,
-      "lng": 119.5651826,
-      "geocode_method": "name_stripped"
+      "lat": 23.5643803,
+      "lng": 119.5652362,
+      "geocode_method": "address_street"
     },
     {
       "code": "0145010019",
@@ -516,9 +517,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 23.9789532,
-      "lng": 121.6119673,
-      "geocode_method": "name"
+      "lat": 23.977472,
+      "lng": 121.6076938,
+      "geocode_method": "address_street"
     },
     {
       "code": "0145030020",
@@ -550,9 +551,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 23.3470795,
-      "lng": 121.3214907,
-      "geocode_method": "name"
+      "lat": 23.3424772,
+      "lng": 121.3169361,
+      "geocode_method": "address_street"
     },
     {
       "code": "0145080011",
@@ -578,9 +579,9 @@
       "contract_start": "1997-09-22",
       "contract_end": "2028-09-21",
       "is_active": true,
-      "lat": 23.6019806,
-      "lng": 121.5213852,
-      "geocode_method": "name_stripped"
+      "lat": 23.6029801,
+      "lng": 121.5171433,
+      "geocode_method": "address_street"
     },
     {
       "code": "0146010013",
@@ -629,9 +630,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 22.757322,
-      "lng": 121.1507168,
-      "geocode_method": "name"
+      "lat": 22.7567132,
+      "lng": 121.149395,
+      "geocode_method": "address_street"
     },
     {
       "code": "0146020537",
@@ -661,9 +662,9 @@
       "contract_start": "2014-01-01",
       "contract_end": "2028-12-31",
       "is_active": true,
-      "lat": 23.0992434,
-      "lng": 121.3778257,
-      "geocode_method": "name"
+      "lat": 23.1031499,
+      "lng": 121.3844868,
+      "geocode_method": "address_street"
     },
     {
       "code": "0190030516",
@@ -715,9 +716,9 @@
       "contract_start": "2005-10-01",
       "contract_end": "2027-09-30",
       "is_active": true,
-      "lat": 24.4407788,
-      "lng": 118.4180617,
-      "geocode_method": "name"
+      "lat": 24.4415011,
+      "lng": 118.4157116,
+      "geocode_method": "address_street"
     },
     {
       "code": "0211070012",
@@ -750,9 +751,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.129665,
-      "lng": 121.7620932,
-      "geocode_method": "name"
+      "lat": 25.1285292,
+      "lng": 121.7594856,
+      "geocode_method": "address_street"
     },
     {
       "code": "0291010010",
@@ -794,7 +795,7 @@
       "is_active": true,
       "lat": 26.1611298,
       "lng": 119.9491307,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "0401190010",
@@ -832,9 +833,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.0418653,
-      "lng": 121.5036135,
-      "geocode_method": "name"
+      "lat": 25.0437903,
+      "lng": 121.5026863,
+      "geocode_method": "address_street"
     },
     {
       "code": "0431270012",
@@ -877,7 +878,7 @@
       "is_active": true,
       "lat": 25.2196639,
       "lng": 121.6284219,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "0439010527",
@@ -964,8 +965,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.1448553,
-      "lng": 121.7627875,
+      "lat": 25.1433789,
+      "lng": 121.7628676,
       "geocode_method": "address_street"
     },
     {
@@ -1014,8 +1015,8 @@
       "contract_start": "1998-08-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.8161356,
-      "lng": 120.9631451,
+      "lat": 24.8178735,
+      "lng": 120.965816,
       "geocode_method": "address_street"
     },
     {
@@ -1058,8 +1059,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.1617133,
-      "lng": 120.6636071,
+      "lat": 24.162612,
+      "lng": 120.6650752,
       "geocode_method": "address_street"
     },
     {
@@ -1239,9 +1240,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.7219787,
-      "lng": 121.1000423,
-      "geocode_method": "name"
+      "lat": 24.7149318,
+      "lng": 121.0715019,
+      "geocode_method": "address_street"
     },
     {
       "code": "0634030014",
@@ -1280,9 +1281,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.6138796,
-      "lng": 121.8489138,
-      "geocode_method": "name"
+      "lat": 24.6269241,
+      "lng": 121.8333697,
+      "geocode_method": "address_street"
     },
     {
       "code": "0634070018",
@@ -1329,8 +1330,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.7181163,
-      "lng": 121.6920705,
+      "lat": 24.7240314,
+      "lng": 121.6766082,
       "geocode_method": "address_street"
     },
     {
@@ -1384,9 +1385,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 23.975553,
-      "lng": 120.996928,
-      "geocode_method": "name"
+      "lat": 23.9738683,
+      "lng": 121.0011528,
+      "geocode_method": "address_street"
     },
     {
       "code": "0640140012",
@@ -1426,9 +1427,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 23.487332,
+      "lat": 23.4873319,
       "lng": 120.5066631,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "0641310018",
@@ -1477,9 +1478,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 22.9964094,
-      "lng": 120.2405457,
-      "geocode_method": "name"
+      "lat": 23.0022134,
+      "lng": 120.2416625,
+      "geocode_method": "address_street"
     },
     {
       "code": "0643130018",
@@ -1523,9 +1524,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 22.6751079,
-      "lng": 120.598353,
-      "geocode_method": "name"
+      "lat": 22.6757332,
+      "lng": 120.6009356,
+      "geocode_method": "address_street"
     },
     {
       "code": "0645020015",
@@ -1608,9 +1609,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 23.3378493,
-      "lng": 121.3110972,
-      "geocode_method": "name"
+      "lat": 23.338323,
+      "lng": 121.3133993,
+      "geocode_method": "address_street"
     },
     {
       "code": "0646010013",
@@ -1650,9 +1651,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 22.7726658,
-      "lng": 121.1327739,
-      "geocode_method": "name"
+      "lat": 22.7725168,
+      "lng": 121.1316499,
+      "geocode_method": "address_street"
     },
     {
       "code": "0701160518",
@@ -1691,8 +1692,8 @@
       "contract_start": "2000-07-18",
       "contract_end": "2028-07-17",
       "is_active": true,
-      "lat": 25.120301,
-      "lng": 121.4670906,
+      "lat": 25.1179776,
+      "lng": 121.4648946,
       "geocode_method": "address_street"
     },
     {
@@ -1718,9 +1719,9 @@
       "contract_start": "2012-11-15",
       "contract_end": "2027-11-14",
       "is_active": true,
-      "lat": 24.1426711,
-      "lng": 120.5961226,
-      "geocode_method": "name"
+      "lat": 24.1435325,
+      "lng": 120.5993363,
+      "geocode_method": "address_street"
     },
     {
       "code": "0901020013",
@@ -1766,8 +1767,8 @@
       "contract_start": "2007-01-01",
       "contract_end": "2028-12-31",
       "is_active": true,
-      "lat": 25.0377566,
-      "lng": 121.5578261,
+      "lat": 25.0378604,
+      "lng": 121.5434029,
       "geocode_method": "address_street"
     },
     {
@@ -1848,9 +1849,9 @@
       "contract_start": "2018-06-01",
       "contract_end": "2027-05-31",
       "is_active": true,
-      "lat": 25.0277614,
-      "lng": 121.4943704,
-      "geocode_method": "name"
+      "lat": 25.03267,
+      "lng": 121.49757,
+      "geocode_method": "address_street"
     },
     {
       "code": "0903150014",
@@ -1899,8 +1900,8 @@
       "contract_start": "2017-03-01",
       "contract_end": "2028-12-11",
       "is_active": true,
-      "lat": 24.107653,
-      "lng": 120.5970951,
+      "lat": 24.1092831,
+      "lng": 120.5976285,
       "geocode_method": "address_street"
     },
     {
@@ -1923,9 +1924,9 @@
       "contract_start": "2019-10-18",
       "contract_end": "2028-10-17",
       "is_active": true,
-      "lat": 22.9667371,
-      "lng": 120.3443897,
-      "geocode_method": "name"
+      "lat": 22.9685841,
+      "lng": 120.3536689,
+      "geocode_method": "address_street"
     },
     {
       "code": "0905320014",
@@ -1950,9 +1951,9 @@
       "contract_start": "2013-07-21",
       "contract_end": "2028-07-20",
       "is_active": true,
-      "lat": 22.9897693,
-      "lng": 120.2115865,
-      "geocode_method": "name"
+      "lat": 22.9851982,
+      "lng": 120.2379648,
+      "geocode_method": "address_street"
     },
     {
       "code": "0907120012",
@@ -1977,9 +1978,9 @@
       "contract_start": "2014-01-16",
       "contract_end": "2029-01-15",
       "is_active": true,
-      "lat": 22.7818649,
-      "lng": 120.4167095,
-      "geocode_method": "name"
+      "lat": 22.7810887,
+      "lng": 120.4181427,
+      "geocode_method": "address_street"
     },
     {
       "code": "0907150029",
@@ -2027,9 +2028,9 @@
       "contract_start": "2024-10-09",
       "contract_end": "2027-10-08",
       "is_active": true,
-      "lat": 22.8347768,
-      "lng": 120.2661011,
-      "geocode_method": "name"
+      "lat": 22.829329,
+      "lng": 120.2716468,
+      "geocode_method": "address_street"
     },
     {
       "code": "0907320012",
@@ -2070,8 +2071,8 @@
       "contract_start": "2016-09-30",
       "contract_end": "2028-09-29",
       "is_active": true,
-      "lat": 25.1250435,
-      "lng": 121.7994152,
+      "lat": 25.1310672,
+      "lng": 121.7989375,
       "geocode_method": "address_street"
     },
     {
@@ -2095,8 +2096,8 @@
       "contract_start": "2008-05-01",
       "contract_end": "2028-04-30",
       "is_active": true,
-      "lat": 24.8115095,
-      "lng": 120.9547302,
+      "lat": 24.8078573,
+      "lng": 120.9556053,
       "geocode_method": "address_street"
     },
     {
@@ -2120,8 +2121,8 @@
       "contract_start": "2009-10-08",
       "contract_end": "2026-10-07",
       "is_active": true,
-      "lat": 24.1575003,
-      "lng": 120.674556,
+      "lat": 24.1572312,
+      "lng": 120.6745601,
       "geocode_method": "address_street"
     },
     {
@@ -2189,9 +2190,9 @@
       "contract_start": "2016-07-01",
       "contract_end": "2028-06-30",
       "is_active": true,
-      "lat": 23.4800625,
-      "lng": 120.4438095,
-      "geocode_method": "name"
+      "lat": 23.475194,
+      "lng": 120.4445741,
+      "geocode_method": "address_street"
     },
     {
       "code": "0922020031",
@@ -2243,8 +2244,8 @@
       "contract_start": "2025-06-01",
       "contract_end": "2028-05-31",
       "is_active": true,
-      "lat": 23.453315,
-      "lng": 120.4331802,
+      "lat": 23.4563124,
+      "lng": 120.4365037,
       "geocode_method": "address_street"
     },
     {
@@ -2305,9 +2306,9 @@
       "contract_start": "2007-12-01",
       "contract_end": "2028-11-30",
       "is_active": true,
-      "lat": 25.0198152,
-      "lng": 121.4662163,
-      "geocode_method": "name"
+      "lat": 25.013484,
+      "lng": 121.4609794,
+      "geocode_method": "address_street"
     },
     {
       "code": "0931010025",
@@ -2357,8 +2358,8 @@
       "contract_start": "2016-07-07",
       "contract_end": "2028-07-06",
       "is_active": true,
-      "lat": 24.9561454,
-      "lng": 121.510741,
+      "lat": 24.9476301,
+      "lng": 121.5094971,
       "geocode_method": "address_street"
     },
     {
@@ -2389,8 +2390,8 @@
       "contract_start": "2011-06-01",
       "contract_end": "2026-05-31",
       "is_active": true,
-      "lat": 25.0311205,
-      "lng": 121.4297858,
+      "lat": 25.0229395,
+      "lng": 121.4136575,
       "geocode_method": "address_street"
     },
     {
@@ -2437,7 +2438,7 @@
       "is_active": true,
       "lat": 25.1932145,
       "lng": 121.4750147,
-      "geocode_method": "name_stripped"
+      "geocode_method": "county_name_stripped"
     },
     {
       "code": "0932020016",
@@ -2463,8 +2464,8 @@
       "contract_start": "2007-12-21",
       "contract_end": "2028-12-20",
       "is_active": true,
-      "lat": 24.9623965,
-      "lng": 121.2179902,
+      "lat": 24.9568957,
+      "lng": 121.2273906,
       "geocode_method": "address_street"
     },
     {
@@ -2525,9 +2526,9 @@
       "contract_start": "2015-11-01",
       "contract_end": "2027-10-31",
       "is_active": true,
-      "lat": 24.7569201,
+      "lat": 24.7569202,
       "lng": 121.1897349,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "0933050036",
@@ -2614,8 +2615,8 @@
       "contract_start": "2015-11-17",
       "contract_end": "2027-11-16",
       "is_active": true,
-      "lat": 24.5483087,
-      "lng": 120.825353,
+      "lat": 24.5512862,
+      "lng": 120.8210997,
       "geocode_method": "address_street"
     },
     {
@@ -2642,7 +2643,7 @@
       "is_active": true,
       "lat": 24.5195974,
       "lng": 120.7883366,
-      "geocode_method": "name_stripped"
+      "geocode_method": "county_name_stripped"
     },
     {
       "code": "0935020027",
@@ -2841,7 +2842,7 @@
       "is_active": true,
       "lat": 23.9674471,
       "lng": 120.5628285,
-      "geocode_method": "name_stripped"
+      "geocode_method": "county_name_stripped"
     },
     {
       "code": "0937080012",
@@ -3073,8 +3074,8 @@
       "contract_start": "2010-09-23",
       "contract_end": "2028-09-22",
       "is_active": true,
-      "lat": 23.0210695,
-      "lng": 120.2469487,
+      "lat": 23.0192454,
+      "lng": 120.241588,
       "geocode_method": "address_street"
     },
     {
@@ -3147,8 +3148,8 @@
       "contract_start": "2011-12-06",
       "contract_end": "2026-12-05",
       "is_active": true,
-      "lat": 22.6821229,
-      "lng": 120.4788287,
+      "lat": 22.6834772,
+      "lng": 120.4868734,
       "geocode_method": "address_street"
     },
     {
@@ -3174,9 +3175,9 @@
       "contract_start": "2013-12-18",
       "contract_end": "2028-12-17",
       "is_active": true,
-      "lat": 25.0076683,
-      "lng": 121.4611497,
-      "geocode_method": "name_stripped"
+      "lat": 22.6743179,
+      "lng": 120.4959106,
+      "geocode_method": "county_name_stripped"
     },
     {
       "code": "0943010044",
@@ -3197,8 +3198,8 @@
       "contract_start": "2020-04-01",
       "contract_end": "2029-03-31",
       "is_active": true,
-      "lat": 22.6657039,
-      "lng": 120.5010407,
+      "lat": 22.6683356,
+      "lng": 120.496384,
       "geocode_method": "address_street"
     },
     {
@@ -3235,7 +3236,7 @@
       "is_active": true,
       "lat": 22.5539238,
       "lng": 120.5471369,
-      "geocode_method": "name_stripped"
+      "geocode_method": "county_name_stripped"
     },
     {
       "code": "0943030019",
@@ -3292,7 +3293,7 @@
       "is_active": true,
       "lat": 22.4738623,
       "lng": 120.4595123,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "0943040015",
@@ -3435,8 +3436,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.0444322,
-      "lng": 121.5365679,
+      "lat": 25.04159,
+      "lng": 121.5378,
       "geocode_method": "address_street"
     },
     {
@@ -3480,8 +3481,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.0377566,
-      "lng": 121.5578261,
+      "lat": 25.0378604,
+      "lng": 121.5434029,
       "geocode_method": "address_street"
     },
     {
@@ -3618,7 +3619,7 @@
       "is_active": true,
       "lat": 23.1798218,
       "lng": 120.2333644,
-      "geocode_method": "name_stripped"
+      "geocode_method": "county_name_stripped"
     },
     {
       "code": "1105050012",
@@ -3668,7 +3669,7 @@
       "is_active": true,
       "lat": 23.1820175,
       "lng": 120.1836489,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1107320017",
@@ -3817,9 +3818,9 @@
       "contract_start": "2003-04-01",
       "contract_end": "2028-07-30",
       "is_active": true,
-      "lat": 25.0307609,
-      "lng": 121.5335151,
-      "geocode_method": "address_street"
+      "lat": 24.7984786,
+      "lng": 120.9650497,
+      "geocode_method": "county_name_stripped"
     },
     {
       "code": "1117010019",
@@ -3848,9 +3849,9 @@
       "contract_start": "2000-05-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.1396791,
-      "lng": 121.7543377,
-      "geocode_method": "address_street"
+      "lat": 24.1433182,
+      "lng": 120.677996,
+      "geocode_method": "county_name_stripped"
     },
     {
       "code": "1133060019",
@@ -3930,9 +3931,9 @@
       "contract_start": "1995-09-23",
       "contract_end": "2028-09-22",
       "is_active": true,
-      "lat": 24.7487498,
-      "lng": 121.7545083,
-      "geocode_method": "name"
+      "lat": 24.7679241,
+      "lng": 121.7550402,
+      "geocode_method": "address_street"
     },
     {
       "code": "1134050026",
@@ -3996,8 +3997,8 @@
       "contract_start": "1997-06-13",
       "contract_end": "2028-06-12",
       "is_active": true,
-      "lat": 24.7128564,
-      "lng": 121.727156,
+      "lat": 24.7219978,
+      "lng": 121.7221968,
       "geocode_method": "address_street"
     },
     {
@@ -4040,8 +4041,8 @@
       "contract_start": "2019-09-01",
       "contract_end": "2028-08-31",
       "is_active": true,
-      "lat": 24.0976264,
-      "lng": 120.5447573,
+      "lat": 24.0677696,
+      "lng": 120.5226703,
       "geocode_method": "address_street"
     },
     {
@@ -4173,8 +4174,8 @@
       "contract_start": "2015-07-01",
       "contract_end": "2027-06-30",
       "is_active": true,
-      "lat": 23.9674572,
-      "lng": 120.5668897,
+      "lat": 23.9654946,
+      "lng": 120.5665656,
       "geocode_method": "address_street"
     },
     {
@@ -4222,9 +4223,9 @@
       "contract_start": "1997-02-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 23.8936463,
-      "lng": 120.363327,
-      "geocode_method": "name"
+      "lat": 23.8966135,
+      "lng": 120.3667729,
+      "geocode_method": "address_street"
     },
     {
       "code": "1138010019",
@@ -4266,9 +4267,9 @@
       "contract_start": "2019-10-01",
       "contract_end": "2028-09-30",
       "is_active": true,
-      "lat": 23.8987986,
-      "lng": 120.6838435,
-      "geocode_method": "name"
+      "lat": 23.9263223,
+      "lng": 120.6921142,
+      "geocode_method": "address_street"
     },
     {
       "code": "1139010013",
@@ -4334,8 +4335,8 @@
       "contract_start": "2019-01-01",
       "contract_end": "2027-12-31",
       "is_active": true,
-      "lat": 23.6768788,
-      "lng": 120.4822371,
+      "lat": 23.6767289,
+      "lng": 120.4820776,
       "geocode_method": "address_street"
     },
     {
@@ -4478,8 +4479,8 @@
       "contract_start": "2009-12-29",
       "contract_end": "2026-12-28",
       "is_active": true,
-      "lat": 23.7913018,
-      "lng": 120.2429452,
+      "lat": 23.7909492,
+      "lng": 120.2555566,
       "geocode_method": "address_street"
     },
     {
@@ -4607,9 +4608,9 @@
       "contract_start": "1998-06-06",
       "contract_end": "2028-06-05",
       "is_active": true,
-      "lat": 22.4634182,
-      "lng": 120.615147,
-      "geocode_method": "name"
+      "lat": 22.451856,
+      "lng": 120.6067268,
+      "geocode_method": "address_street"
     },
     {
       "code": "1144010016",
@@ -4677,8 +4678,8 @@
       "contract_start": "1999-06-14",
       "contract_end": "2028-03-14",
       "is_active": true,
-      "lat": 23.3342363,
-      "lng": 121.3145214,
+      "lat": 23.3340953,
+      "lng": 121.3145353,
       "geocode_method": "address_street"
     },
     {
@@ -4713,7 +4714,7 @@
       "is_active": true,
       "lat": 23.869949,
       "lng": 121.5261243,
-      "geocode_method": "name_stripped"
+      "geocode_method": "county_name_stripped"
     },
     {
       "code": "1146010032",
@@ -4762,9 +4763,9 @@
       "contract_start": "1998-08-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 22.76392,
-      "lng": 121.1461269,
-      "geocode_method": "name"
+      "lat": 22.7590386,
+      "lng": 121.137617,
+      "geocode_method": "address_street"
     },
     {
       "code": "1146010041",
@@ -4799,7 +4800,7 @@
       "is_active": true,
       "lat": 22.7581327,
       "lng": 121.1464856,
-      "geocode_method": "name_stripped"
+      "geocode_method": "county_name_stripped"
     },
     {
       "code": "1146030516",
@@ -4833,9 +4834,9 @@
       "contract_start": "2000-03-04",
       "contract_end": "2028-03-03",
       "is_active": true,
-      "lat": 23.0573482,
-      "lng": 121.1666858,
-      "geocode_method": "name"
+      "lat": 23.051014,
+      "lng": 121.1652672,
+      "geocode_method": "address_street"
     },
     {
       "code": "1202080029",
@@ -4865,9 +4866,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 22.6140742,
-      "lng": 120.2962613,
-      "geocode_method": "name"
+      "lat": 22.6135479,
+      "lng": 120.2968751,
+      "geocode_method": "address_street"
     },
     {
       "code": "1231030015",
@@ -4963,9 +4964,9 @@
       "contract_start": "2008-08-25",
       "contract_end": "2028-08-24",
       "is_active": true,
-      "lat": 25.0821223,
-      "lng": 121.5907401,
-      "geocode_method": "name"
+      "lat": 25.0625839,
+      "lng": 121.6056403,
+      "geocode_method": "address_street"
     },
     {
       "code": "1303010014",
@@ -4993,8 +4994,8 @@
       "contract_start": "2025-12-01",
       "contract_end": "2028-11-30",
       "is_active": true,
-      "lat": 24.2518543,
-      "lng": 120.7171973,
+      "lat": 24.2517446,
+      "lng": 120.7204001,
       "geocode_method": "address_street"
     },
     {
@@ -5044,8 +5045,8 @@
       "contract_start": "2025-09-02",
       "contract_end": "2028-09-01",
       "is_active": true,
-      "lat": 24.161352,
-      "lng": 120.7270055,
+      "lat": 24.16334,
+      "lng": 120.71974,
       "geocode_method": "address_street"
     },
     {
@@ -5099,8 +5100,8 @@
       "contract_start": "2024-04-17",
       "contract_end": "2027-04-16",
       "is_active": true,
-      "lat": 22.7907917,
-      "lng": 120.2959098,
+      "lat": 22.7787263,
+      "lng": 120.2993697,
       "geocode_method": "address_street"
     },
     {
@@ -5169,9 +5170,9 @@
       "contract_start": "2008-09-05",
       "contract_end": "2028-09-04",
       "is_active": true,
-      "lat": 24.1425599,
-      "lng": 120.6948101,
-      "geocode_method": "name"
+      "lat": 24.1427811,
+      "lng": 120.7005817,
+      "geocode_method": "address_street"
     },
     {
       "code": "1317040039",
@@ -5203,9 +5204,9 @@
       "contract_start": "2010-01-01",
       "contract_end": "2026-12-31",
       "is_active": true,
-      "lat": 24.1181499,
-      "lng": 120.6585153,
-      "geocode_method": "name"
+      "lat": 24.1280349,
+      "lng": 120.6721122,
+      "geocode_method": "address_street"
     },
     {
       "code": "1333050017",
@@ -5258,9 +5259,9 @@
       "contract_start": "2018-12-03",
       "contract_end": "2027-12-02",
       "is_active": true,
-      "lat": 24.8249408,
-      "lng": 121.0027098,
-      "geocode_method": "name"
+      "lat": 24.8063448,
+      "lng": 121.025381,
+      "geocode_method": "address_street"
     },
     {
       "code": "1336010015",
@@ -5276,9 +5277,9 @@
       "contract_start": "2009-02-01",
       "contract_end": "2025-12-01",
       "is_active": false,
-      "lat": 24.2515329,
-      "lng": 120.7184547,
-      "geocode_method": "name"
+      "lat": 24.2507143,
+      "lng": 120.7117958,
+      "geocode_method": "address_street"
     },
     {
       "code": "1401190011",
@@ -5387,9 +5388,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.0990785,
-      "lng": 121.756375,
-      "geocode_method": "address_street"
+      "lat": 25.0984566,
+      "lng": 121.7530762,
+      "geocode_method": "manual_street"
     },
     {
       "code": "1412040022",
@@ -5493,8 +5494,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.5483087,
-      "lng": 120.825353,
+      "lat": 24.5512862,
+      "lng": 120.8210997,
       "geocode_method": "address_street"
     },
     {
@@ -5530,9 +5531,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.2536198,
-      "lng": 120.8290937,
-      "geocode_method": "name"
+      "lat": 24.2544945,
+      "lng": 120.8294703,
+      "geocode_method": "address_street"
     },
     {
       "code": "1441060010",
@@ -5553,8 +5554,8 @@
       "contract_start": "1995-05-24",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 23.034571,
-      "lng": 120.28811,
+      "lat": 23.0360878,
+      "lng": 120.3087416,
       "geocode_method": "address_street"
     },
     {
@@ -5601,9 +5602,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.0499453,
-      "lng": 121.5574371,
-      "geocode_method": "name"
+      "lat": 25.0499626,
+      "lng": 121.5578025,
+      "geocode_method": "address_street"
     },
     {
       "code": "1501010029",
@@ -5626,7 +5627,7 @@
       "is_active": true,
       "lat": 25.0493566,
       "lng": 121.5683513,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1501021219",
@@ -5651,9 +5652,9 @@
       "contract_start": "2018-03-01",
       "contract_end": "2027-02-28",
       "is_active": true,
-      "lat": 22.7965196,
-      "lng": 120.2945194,
-      "geocode_method": "name"
+      "lat": 25.038005,
+      "lng": 121.557533,
+      "geocode_method": "address_street"
     },
     {
       "code": "1501100037",
@@ -5678,9 +5679,9 @@
       "contract_start": "1997-07-14",
       "contract_end": "2028-07-13",
       "is_active": true,
-      "lat": 25.0503897,
-      "lng": 121.5339512,
-      "geocode_method": "name"
+      "lat": 25.0645731,
+      "lng": 121.5333192,
+      "geocode_method": "address_street"
     },
     {
       "code": "1501101141",
@@ -5696,9 +5697,9 @@
       "contract_start": "2003-09-19",
       "contract_end": "2024-06-20",
       "is_active": false,
-      "lat": 25.0614488,
-      "lng": 121.5315114,
-      "geocode_method": "name"
+      "lat": 25.0673919,
+      "lng": 121.5340165,
+      "geocode_method": "address_street"
     },
     {
       "code": "1501201020",
@@ -5735,7 +5736,7 @@
       "is_active": true,
       "lat": 24.9911807,
       "lng": 121.5397953,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1502020065",
@@ -5759,9 +5760,9 @@
       "contract_start": "1996-08-28",
       "contract_end": "2028-08-27",
       "is_active": true,
-      "lat": 23.1195378,
-      "lng": 121.2108719,
-      "geocode_method": "name"
+      "lat": 22.6533006,
+      "lng": 120.275589,
+      "geocode_method": "address_street"
     },
     {
       "code": "1502031095",
@@ -5794,9 +5795,9 @@
       "contract_start": "2000-06-08",
       "contract_end": "2028-06-07",
       "is_active": true,
-      "lat": 22.6568704,
-      "lng": 120.3034517,
-      "geocode_method": "name"
+      "lat": 22.6609464,
+      "lng": 120.3063628,
+      "geocode_method": "address_street"
     },
     {
       "code": "1502031102",
@@ -5822,9 +5823,9 @@
       "contract_start": "2003-05-20",
       "contract_end": "2028-05-19",
       "is_active": true,
-      "lat": 22.6642999,
-      "lng": 120.3035863,
-      "geocode_method": "name"
+      "lat": 22.6812391,
+      "lng": 120.3167349,
+      "geocode_method": "address_street"
     },
     {
       "code": "1502040021",
@@ -5868,9 +5869,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 22.7236971,
-      "lng": 120.3289693,
-      "geocode_method": "name"
+      "lat": 22.7256585,
+      "lng": 120.3310627,
+      "geocode_method": "address_street"
     },
     {
       "code": "1502040076",
@@ -5886,9 +5887,9 @@
       "contract_start": "1996-04-15",
       "contract_end": "2025-12-30",
       "is_active": false,
-      "lat": 22.7111887,
-      "lng": 120.2956585,
-      "geocode_method": "name"
+      "lat": 22.7094469,
+      "lng": 120.297084,
+      "geocode_method": "address_street"
     },
     {
       "code": "1502041108",
@@ -5909,9 +5910,9 @@
       "contract_start": "2003-12-31",
       "contract_end": "2028-12-30",
       "is_active": true,
-      "lat": 24.1328507,
-      "lng": 120.6797291,
-      "geocode_method": "name"
+      "lat": 22.7156267,
+      "lng": 120.2883055,
+      "geocode_method": "address_street"
     },
     {
       "code": "1502041117",
@@ -5949,9 +5950,9 @@
       "contract_start": "2006-05-05",
       "contract_end": "2028-05-04",
       "is_active": true,
-      "lat": 22.7135743,
-      "lng": 120.290961,
-      "geocode_method": "name"
+      "lat": 22.7133834,
+      "lng": 120.2906602,
+      "geocode_method": "address_street"
     },
     {
       "code": "1502050045",
@@ -5977,9 +5978,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.5510531,
-      "lng": 120.8148222,
-      "geocode_method": "name"
+      "lat": 22.6476949,
+      "lng": 120.2996219,
+      "geocode_method": "manual_district"
     },
     {
       "code": "1502050170",
@@ -6006,9 +6007,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 22.6743179,
-      "lng": 120.4959106,
-      "geocode_method": "name"
+      "lat": 22.6359857,
+      "lng": 120.2902063,
+      "geocode_method": "address_street"
     },
     {
       "code": "1502050296",
@@ -6036,9 +6037,9 @@
       "contract_start": "1997-12-10",
       "contract_end": "2028-12-09",
       "is_active": true,
-      "lat": 24.1446881,
-      "lng": 120.6522277,
-      "geocode_method": "name"
+      "lat": 22.6479469,
+      "lng": 120.2983465,
+      "geocode_method": "address_street"
     },
     {
       "code": "1502051337",
@@ -6089,9 +6090,9 @@
       "contract_start": "2006-06-07",
       "contract_end": "2028-06-06",
       "is_active": true,
-      "lat": 22.659413,
-      "lng": 120.3136833,
-      "geocode_method": "name"
+      "lat": 22.6578486,
+      "lng": 120.3141723,
+      "geocode_method": "address_street"
     },
     {
       "code": "1502060014",
@@ -6107,9 +6108,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2024-09-20",
       "is_active": false,
-      "lat": 23.4785462,
-      "lng": 120.4592743,
-      "geocode_method": "name"
+      "lat": 22.6310699,
+      "lng": 120.3100224,
+      "geocode_method": "manual_district"
     },
     {
       "code": "1502060041",
@@ -6125,9 +6126,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2024-06-28",
       "is_active": false,
-      "lat": 22.7811796,
-      "lng": 120.4162162,
-      "geocode_method": "name"
+      "lat": 22.6322209,
+      "lng": 120.3134893,
+      "geocode_method": "address_street"
     },
     {
       "code": "1502060112",
@@ -6149,9 +6150,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 23.0492578,
-      "lng": 120.1722674,
-      "geocode_method": "name"
+      "lat": 22.6316485,
+      "lng": 120.31101,
+      "geocode_method": "address_street"
     },
     {
       "code": "1502060149",
@@ -6167,9 +6168,9 @@
       "contract_start": "1999-04-16",
       "contract_end": "2024-12-26",
       "is_active": false,
-      "lat": 25.0585727,
-      "lng": 121.5222088,
-      "geocode_method": "name"
+      "lat": 22.6352863,
+      "lng": 120.302341,
+      "geocode_method": "address_street"
     },
     {
       "code": "1502061208",
@@ -6195,9 +6196,9 @@
       "contract_start": "2009-10-29",
       "contract_end": "2026-10-28",
       "is_active": true,
-      "lat": 25.1311915,
-      "lng": 121.763673,
-      "geocode_method": "name"
+      "lat": 22.6837841,
+      "lng": 120.3229852,
+      "geocode_method": "county_name"
     },
     {
       "code": "1502070118",
@@ -6226,7 +6227,7 @@
       "is_active": true,
       "lat": 22.6313015,
       "lng": 120.2908493,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1502081175",
@@ -6242,9 +6243,9 @@
       "contract_start": "2006-01-01",
       "contract_end": "2025-03-31",
       "is_active": false,
-      "lat": 22.6146622,
-      "lng": 120.2972218,
-      "geocode_method": "name"
+      "lat": 22.6195171,
+      "lng": 120.2956094,
+      "geocode_method": "address_street"
     },
     {
       "code": "1502090209",
@@ -6270,8 +6271,8 @@
       "contract_start": "1999-09-23",
       "contract_end": "2028-09-22",
       "is_active": true,
-      "lat": 22.6085142,
-      "lng": 120.3111623,
+      "lat": 22.6102101,
+      "lng": 120.3134938,
       "geocode_method": "address_street"
     },
     {
@@ -6304,9 +6305,9 @@
       "contract_start": "1997-10-22",
       "contract_end": "2028-10-21",
       "is_active": true,
-      "lat": 22.565182,
-      "lng": 120.3614756,
-      "geocode_method": "name"
+      "lat": 22.564287,
+      "lng": 120.3568236,
+      "geocode_method": "address_street"
     },
     {
       "code": "1502111089",
@@ -6331,9 +6332,9 @@
       "contract_start": "2002-09-23",
       "contract_end": "2028-09-22",
       "is_active": true,
-      "lat": 24.1511427,
-      "lng": 120.73093,
-      "geocode_method": "name"
+      "lat": 22.570773,
+      "lng": 120.362583,
+      "geocode_method": "address_street"
     },
     {
       "code": "1503010027",
@@ -6351,7 +6352,7 @@
       "is_active": false,
       "lat": 24.2537805,
       "lng": 120.7201353,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1503010036",
@@ -6377,9 +6378,9 @@
       "contract_start": "2017-01-01",
       "contract_end": "2028-12-31",
       "is_active": true,
-      "lat": 24.1602336,
-      "lng": 120.6524449,
-      "geocode_method": "name"
+      "lat": 24.2507143,
+      "lng": 120.7117958,
+      "geocode_method": "address_street"
     },
     {
       "code": "1503010045",
@@ -6408,9 +6409,9 @@
       "contract_start": "2020-08-25",
       "contract_end": "2026-08-24",
       "is_active": true,
-      "lat": 25.0204676,
-      "lng": 121.4084292,
-      "geocode_method": "name"
+      "lat": 24.2507143,
+      "lng": 120.7117958,
+      "geocode_method": "address_street"
     },
     {
       "code": "1503030010",
@@ -6431,9 +6432,9 @@
       "contract_start": "2013-07-03",
       "contract_end": "2028-07-02",
       "is_active": true,
-      "lat": 24.3437993,
-      "lng": 120.6255507,
-      "geocode_method": "name"
+      "lat": 24.3464222,
+      "lng": 120.6177874,
+      "geocode_method": "address_street"
     },
     {
       "code": "1503030065",
@@ -6457,9 +6458,9 @@
       "contract_start": "2022-11-15",
       "contract_end": "2027-12-11",
       "is_active": true,
-      "lat": 24.3862111,
-      "lng": 120.665421,
-      "geocode_method": "name"
+      "lat": 24.3849013,
+      "lng": 120.6608339,
+      "geocode_method": "address_street"
     },
     {
       "code": "1503190020",
@@ -6503,9 +6504,9 @@
       "contract_start": "2016-09-01",
       "contract_end": "2028-08-31",
       "is_active": true,
-      "lat": 24.1312016,
-      "lng": 120.7196382,
-      "geocode_method": "name"
+      "lat": 24.1294891,
+      "lng": 120.721732,
+      "geocode_method": "address_street"
     },
     {
       "code": "1503190039",
@@ -6575,9 +6576,9 @@
       "contract_start": "2017-01-23",
       "contract_end": "2029-01-22",
       "is_active": true,
-      "lat": 24.0856883,
-      "lng": 120.6994283,
-      "geocode_method": "name"
+      "lat": 24.0855072,
+      "lng": 120.6998322,
+      "geocode_method": "address_street"
     },
     {
       "code": "1503250012",
@@ -6599,9 +6600,9 @@
       "contract_start": "2014-05-22",
       "contract_end": "2026-05-21",
       "is_active": true,
-      "lat": 24.1192686,
-      "lng": 120.6552333,
-      "geocode_method": "name"
+      "lat": 24.1149243,
+      "lng": 120.6589329,
+      "geocode_method": "address_street"
     },
     {
       "code": "1503260018",
@@ -6635,9 +6636,9 @@
       "contract_start": "2017-02-15",
       "contract_end": "2029-02-14",
       "is_active": true,
-      "lat": 24.1526901,
-      "lng": 120.6885025,
-      "geocode_method": "name"
+      "lat": 24.1440932,
+      "lng": 120.6858252,
+      "geocode_method": "address_street"
     },
     {
       "code": "1503270014",
@@ -6665,9 +6666,9 @@
       "contract_start": "2021-06-05",
       "contract_end": "2027-06-04",
       "is_active": true,
-      "lat": 24.1997183,
-      "lng": 120.6122427,
-      "geocode_method": "name"
+      "lat": 24.1990981,
+      "lng": 120.6115344,
+      "geocode_method": "address_street"
     },
     {
       "code": "1503290025",
@@ -6699,9 +6700,9 @@
       "contract_start": "2015-12-07",
       "contract_end": "2027-12-06",
       "is_active": true,
-      "lat": 24.1666873,
-      "lng": 120.6941887,
-      "geocode_method": "name"
+      "lat": 24.1946728,
+      "lng": 120.6829498,
+      "geocode_method": "address_street"
     },
     {
       "code": "1503290034",
@@ -6748,9 +6749,9 @@
       "contract_start": "2025-04-29",
       "contract_end": "2028-04-28",
       "is_active": true,
-      "lat": 22.9991385,
-      "lng": 120.2327353,
-      "geocode_method": "name"
+      "lat": 24.1607573,
+      "lng": 120.7252019,
+      "geocode_method": "address_street"
     },
     {
       "code": "1505310011",
@@ -6777,9 +6778,9 @@
       "contract_start": "2015-03-18",
       "contract_end": "2027-03-17",
       "is_active": true,
-      "lat": 23.0209931,
-      "lng": 120.2374807,
-      "geocode_method": "name"
+      "lat": 23.0238069,
+      "lng": 120.2363612,
+      "geocode_method": "address_street"
     },
     {
       "code": "1505340019",
@@ -6808,9 +6809,9 @@
       "contract_start": "2013-04-19",
       "contract_end": "2028-04-18",
       "is_active": true,
-      "lat": 22.9926899,
-      "lng": 120.1927975,
-      "geocode_method": "name"
+      "lat": 22.9956568,
+      "lng": 120.1887648,
+      "geocode_method": "address_street"
     },
     {
       "code": "1505350015",
@@ -6867,9 +6868,9 @@
       "contract_start": "2013-12-17",
       "contract_end": "2028-12-16",
       "is_active": true,
-      "lat": 22.6284722,
-      "lng": 120.3631437,
-      "geocode_method": "name"
+      "lat": 22.624224,
+      "lng": 120.3657459,
+      "geocode_method": "address_street"
     },
     {
       "code": "1507010023",
@@ -6921,9 +6922,9 @@
       "contract_start": "2025-10-18",
       "contract_end": "2028-10-17",
       "is_active": true,
-      "lat": 25.0304074,
-      "lng": 121.5075597,
-      "geocode_method": "name"
+      "lat": 22.5957561,
+      "lng": 120.3360984,
+      "geocode_method": "address_street"
     },
     {
       "code": "1507290012",
@@ -6949,8 +6950,8 @@
       "contract_start": "2011-04-27",
       "contract_end": "2029-04-26",
       "is_active": true,
-      "lat": 22.6531086,
-      "lng": 120.2880038,
+      "lat": 22.6633979,
+      "lng": 120.288492,
       "geocode_method": "address_street"
     },
     {
@@ -6976,9 +6977,9 @@
       "contract_start": "2015-11-16",
       "contract_end": "2027-11-15",
       "is_active": true,
-      "lat": 22.6568705,
-      "lng": 120.3034517,
-      "geocode_method": "name"
+      "lat": 22.6686073,
+      "lng": 120.3019101,
+      "geocode_method": "address_street"
     },
     {
       "code": "1507300059",
@@ -7002,8 +7003,8 @@
       "contract_start": "2019-09-24",
       "contract_end": "2028-09-23",
       "is_active": true,
-      "lat": 22.6741784,
-      "lng": 120.2851732,
+      "lat": 22.6795872,
+      "lng": 120.3061801,
       "geocode_method": "address_street"
     },
     {
@@ -7030,9 +7031,9 @@
       "contract_start": "2020-02-21",
       "contract_end": "2029-02-20",
       "is_active": true,
-      "lat": 22.6765433,
-      "lng": 120.3006402,
-      "geocode_method": "name"
+      "lat": 22.6797952,
+      "lng": 120.3048122,
+      "geocode_method": "address_street"
     },
     {
       "code": "1507300077",
@@ -7070,9 +7071,9 @@
       "contract_start": "2020-08-21",
       "contract_end": "2026-08-20",
       "is_active": true,
-      "lat": 22.6581048,
-      "lng": 120.303536,
-      "geocode_method": "name"
+      "lat": 22.6686073,
+      "lng": 120.3019101,
+      "geocode_method": "address_street"
     },
     {
       "code": "1507310019",
@@ -7098,9 +7099,9 @@
       "contract_start": "2016-09-09",
       "contract_end": "2028-09-08",
       "is_active": true,
-      "lat": 25.0306547,
-      "lng": 121.5252807,
-      "geocode_method": "name"
+      "lat": 22.7141696,
+      "lng": 120.2945495,
+      "geocode_method": "address_street"
     },
     {
       "code": "1507310037",
@@ -7157,9 +7158,9 @@
       "contract_start": "2011-11-11",
       "contract_end": "2026-11-10",
       "is_active": true,
-      "lat": 22.6168571,
-      "lng": 120.3429059,
-      "geocode_method": "name"
+      "lat": 22.6511405,
+      "lng": 120.3192311,
+      "geocode_method": "address_street"
     },
     {
       "code": "1507330011",
@@ -7228,8 +7229,8 @@
       "contract_start": "2011-03-10",
       "contract_end": "2025-03-14",
       "is_active": false,
-      "lat": 22.6282346,
-      "lng": 120.2909199,
+      "lat": 22.6285387,
+      "lng": 120.2943026,
       "geocode_method": "address_street"
     },
     {
@@ -7246,9 +7247,9 @@
       "contract_start": "2012-07-19",
       "contract_end": "2025-03-31",
       "is_active": false,
-      "lat": 25.0424455,
-      "lng": 121.5640292,
-      "geocode_method": "name"
+      "lat": 22.6304622,
+      "lng": 120.2933199,
+      "geocode_method": "address_street"
     },
     {
       "code": "1507340044",
@@ -7291,9 +7292,9 @@
       "contract_start": "2021-07-01",
       "contract_end": "2027-12-02",
       "is_active": true,
-      "lat": 22.6342303,
-      "lng": 120.2936991,
-      "geocode_method": "name"
+      "lat": 22.6271127,
+      "lng": 120.2972949,
+      "geocode_method": "address_street"
     },
     {
       "code": "1507340062",
@@ -7322,8 +7323,8 @@
       "contract_start": "2025-03-14",
       "contract_end": "2028-03-13",
       "is_active": true,
-      "lat": 22.6282346,
-      "lng": 120.2909199,
+      "lat": 22.6285387,
+      "lng": 120.2943026,
       "geocode_method": "address_street"
     },
     {
@@ -7351,9 +7352,9 @@
       "contract_start": "2016-06-16",
       "contract_end": "2028-06-15",
       "is_active": true,
-      "lat": 23.5446391,
-      "lng": 120.1895179,
-      "geocode_method": "name"
+      "lat": 22.6016644,
+      "lng": 120.3239563,
+      "geocode_method": "address_street"
     },
     {
       "code": "1507360028",
@@ -7384,7 +7385,7 @@
       "is_active": true,
       "lat": 22.60797,
       "lng": 120.31802,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1511010068",
@@ -7413,9 +7414,9 @@
       "contract_start": "1999-09-01",
       "contract_end": "2028-08-31",
       "is_active": true,
-      "lat": 25.133243,
-      "lng": 121.7449389,
-      "geocode_method": "name"
+      "lat": 25.1388795,
+      "lng": 121.7516729,
+      "geocode_method": "address_street"
     },
     {
       "code": "1511060022",
@@ -7437,9 +7438,9 @@
       "contract_start": "1998-07-08",
       "contract_end": "2028-07-07",
       "is_active": true,
-      "lat": 25.1385666,
-      "lng": 121.7181798,
-      "geocode_method": "name"
+      "lat": 25.1398102,
+      "lng": 121.7151131,
+      "geocode_method": "address_street"
     },
     {
       "code": "1511060040",
@@ -7461,9 +7462,9 @@
       "contract_start": "2015-01-08",
       "contract_end": "2027-01-07",
       "is_active": true,
-      "lat": 25.1388601,
-      "lng": 121.7146514,
-      "geocode_method": "name"
+      "lat": 25.1398102,
+      "lng": 121.7151131,
+      "geocode_method": "address_street"
     },
     {
       "code": "1512011185",
@@ -7508,9 +7509,9 @@
       "contract_start": "2000-04-01",
       "contract_end": "2028-03-31",
       "is_active": true,
-      "lat": 24.802243,
-      "lng": 120.9696608,
-      "geocode_method": "name"
+      "lat": 24.7993895,
+      "lng": 120.9648122,
+      "geocode_method": "address_street"
     },
     {
       "code": "1512040051",
@@ -7536,9 +7537,9 @@
       "contract_start": "1995-09-22",
       "contract_end": "2028-09-21",
       "is_active": true,
-      "lat": 24.8018689,
+      "lat": 24.8018688,
       "lng": 120.9627613,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1517011103",
@@ -7559,9 +7560,9 @@
       "contract_start": "2004-09-04",
       "contract_end": "2028-09-03",
       "is_active": true,
-      "lat": 23.0646341,
-      "lng": 120.2230255,
-      "geocode_method": "name"
+      "lat": 24.1367405,
+      "lng": 120.6829293,
+      "geocode_method": "address_street"
     },
     {
       "code": "1517020040",
@@ -7595,9 +7596,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.1303984,
-      "lng": 120.7054389,
-      "geocode_method": "name"
+      "lat": 24.1315321,
+      "lng": 120.7024358,
+      "geocode_method": "address_street"
     },
     {
       "code": "1517021074",
@@ -7628,9 +7629,9 @@
       "contract_start": "2003-12-01",
       "contract_end": "2027-11-30",
       "is_active": true,
-      "lat": 25.0474734,
-      "lng": 121.5472645,
-      "geocode_method": "name"
+      "lat": 24.1504232,
+      "lng": 120.6944403,
+      "geocode_method": "address_street"
     },
     {
       "code": "1517030055",
@@ -7659,7 +7660,7 @@
       "is_active": true,
       "lat": 24.1358746,
       "lng": 120.6730821,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1517040015",
@@ -7688,9 +7689,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.0384498,
-      "lng": 121.5468232,
-      "geocode_method": "name"
+      "lat": 24.121627,
+      "lng": 120.6683909,
+      "geocode_method": "address_street"
     },
     {
       "code": "1517050084",
@@ -7713,8 +7714,8 @@
       "contract_start": "1999-07-01",
       "contract_end": "2028-06-30",
       "is_active": true,
-      "lat": 24.1664761,
-      "lng": 120.6732345,
+      "lat": 24.1665581,
+      "lng": 120.6735413,
       "geocode_method": "address_street"
     },
     {
@@ -7738,7 +7739,7 @@
       "is_active": true,
       "lat": 24.1531308,
       "lng": 120.6828114,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1517070031",
@@ -7756,7 +7757,7 @@
       "is_active": false,
       "lat": 24.257925,
       "lng": 120.8279194,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1517080019",
@@ -7785,9 +7786,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.1703704,
-      "lng": 120.6990412,
-      "geocode_method": "name"
+      "lat": 24.1665193,
+      "lng": 120.705439,
+      "geocode_method": "address_street"
     },
     {
       "code": "1517080091",
@@ -7803,9 +7804,9 @@
       "contract_start": "1998-06-06",
       "contract_end": "2025-12-31",
       "is_active": false,
-      "lat": 24.1804367,
-      "lng": 120.6668055,
-      "geocode_method": "name"
+      "lat": 24.1928621,
+      "lng": 120.6604573,
+      "geocode_method": "address_street"
     },
     {
       "code": "1517081141",
@@ -7826,8 +7827,8 @@
       "contract_start": "2008-04-25",
       "contract_end": "2028-04-24",
       "is_active": true,
-      "lat": 24.1722036,
-      "lng": 120.6862783,
+      "lat": 24.1720204,
+      "lng": 120.6618883,
       "geocode_method": "address_street"
     },
     {
@@ -7852,9 +7853,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 22.9952104,
-      "lng": 120.1977073,
-      "geocode_method": "name"
+      "lat": 22.9925956,
+      "lng": 120.2050583,
+      "geocode_method": "address_street"
     },
     {
       "code": "1521031104",
@@ -7906,7 +7907,7 @@
       "is_active": true,
       "lat": 22.9949814,
       "lng": 120.1988041,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1521040050",
@@ -7929,9 +7930,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.053808,
-      "lng": 121.514723,
-      "geocode_method": "name"
+      "lat": 23.0076279,
+      "lng": 120.2098651,
+      "geocode_method": "address_street"
     },
     {
       "code": "1521041137",
@@ -7957,9 +7958,9 @@
       "contract_start": "2006-11-01",
       "contract_end": "2028-10-31",
       "is_active": true,
-      "lat": 23.0106599,
-      "lng": 120.2225126,
-      "geocode_method": "name"
+      "lat": 23.010797,
+      "lng": 120.2231703,
+      "geocode_method": "address_street"
     },
     {
       "code": "1521050010",
@@ -7984,7 +7985,7 @@
       "is_active": true,
       "lat": 22.9979572,
       "lng": 120.2063085,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1521051160",
@@ -8013,9 +8014,9 @@
       "contract_start": "2002-04-01",
       "contract_end": "2028-03-31",
       "is_active": true,
-      "lat": 22.9902881,
-      "lng": 120.1988495,
-      "geocode_method": "name"
+      "lat": 22.9913949,
+      "lng": 120.1963292,
+      "geocode_method": "address_street"
     },
     {
       "code": "1521051179",
@@ -8041,9 +8042,9 @@
       "contract_start": "2002-07-15",
       "contract_end": "2028-07-14",
       "is_active": true,
-      "lat": 24.1757008,
-      "lng": 120.6401389,
-      "geocode_method": "name"
+      "lat": 22.9901612,
+      "lng": 120.1994425,
+      "geocode_method": "address_street"
     },
     {
       "code": "1522011080",
@@ -8059,9 +8060,9 @@
       "contract_start": "2000-01-13",
       "contract_end": "2024-08-16",
       "is_active": false,
-      "lat": 24.1388026,
-      "lng": 120.6444288,
-      "geocode_method": "name"
+      "lat": 23.4824128,
+      "lng": 120.4611116,
+      "geocode_method": "manual_street"
     },
     {
       "code": "1522011115",
@@ -8105,9 +8106,9 @@
       "contract_start": "2005-02-05",
       "contract_end": "2029-02-04",
       "is_active": true,
-      "lat": 24.9501194,
-      "lng": 121.212469,
-      "geocode_method": "name"
+      "lat": 23.4788329,
+      "lng": 120.4532979,
+      "geocode_method": "address_street"
     },
     {
       "code": "1522021175",
@@ -8125,7 +8126,7 @@
       "is_active": false,
       "lat": 23.4821171,
       "lng": 120.4475475,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1522021237",
@@ -8146,9 +8147,9 @@
       "contract_start": "2008-01-01",
       "contract_end": "2026-12-31",
       "is_active": true,
-      "lat": 25.0306547,
-      "lng": 121.5252807,
-      "geocode_method": "name"
+      "lat": 23.4710763,
+      "lng": 120.4426552,
+      "geocode_method": "address_street"
     },
     {
       "code": "1522021264",
@@ -8164,9 +8165,9 @@
       "contract_start": "2011-07-01",
       "contract_end": "2025-06-01",
       "is_active": false,
-      "lat": 23.4532187,
-      "lng": 120.4334759,
-      "geocode_method": "name"
+      "lat": 23.4563124,
+      "lng": 120.4365037,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531010082",
@@ -8196,9 +8197,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.0168281,
-      "lng": 121.4563572,
-      "geocode_method": "name"
+      "lat": 25.0258448,
+      "lng": 121.4545913,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531010108",
@@ -8231,9 +8232,9 @@
       "contract_start": "1998-08-21",
       "contract_end": "2028-08-20",
       "is_active": true,
-      "lat": 25.0451126,
-      "lng": 121.5174148,
-      "geocode_method": "name"
+      "lat": 25.0073542,
+      "lng": 121.4537259,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531010279",
@@ -8266,9 +8267,9 @@
       "contract_start": "1999-03-16",
       "contract_end": "2028-03-15",
       "is_active": true,
-      "lat": 25.002083,
-      "lng": 121.4602337,
-      "geocode_method": "name"
+      "lat": 25.0028205,
+      "lng": 121.4661861,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531011310",
@@ -8296,9 +8297,9 @@
       "contract_start": "2000-01-15",
       "contract_end": "2029-01-14",
       "is_active": true,
-      "lat": 25.0019813,
-      "lng": 121.4599608,
-      "geocode_method": "name"
+      "lat": 25.0028205,
+      "lng": 121.4661861,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531020122",
@@ -8316,7 +8317,7 @@
       "is_active": false,
       "lat": 25.0540829,
       "lng": 121.4838426,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1531021165",
@@ -8346,9 +8347,9 @@
       "contract_start": "2003-08-28",
       "contract_end": "2028-08-27",
       "is_active": true,
-      "lat": 25.0672086,
-      "lng": 121.4976414,
-      "geocode_method": "name"
+      "lat": 25.0505315,
+      "lng": 121.4693549,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531021174",
@@ -8364,9 +8365,9 @@
       "contract_start": "2006-04-01",
       "contract_end": "2023-12-15",
       "is_active": false,
-      "lat": 24.9574178,
-      "lng": 121.2036573,
-      "geocode_method": "name"
+      "lat": 25.0627766,
+      "lng": 121.4993931,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531021183",
@@ -8395,9 +8396,9 @@
       "contract_start": "2023-08-07",
       "contract_end": "2026-08-06",
       "is_active": true,
-      "lat": 24.1804367,
-      "lng": 120.6668055,
-      "geocode_method": "name"
+      "lat": 25.061486,
+      "lng": 121.488102,
+      "geocode_method": "manual_district"
     },
     {
       "code": "1531021192",
@@ -8436,7 +8437,7 @@
       "is_active": true,
       "lat": 25.0540829,
       "lng": 121.4838426,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1531031278",
@@ -8462,9 +8463,9 @@
       "contract_start": "2015-11-06",
       "contract_end": "2027-11-05",
       "is_active": true,
-      "lat": 25.0038436,
-      "lng": 121.5119425,
-      "geocode_method": "name"
+      "lat": 25.0018091,
+      "lng": 121.5103183,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531040259",
@@ -8489,9 +8490,9 @@
       "contract_start": "1996-09-02",
       "contract_end": "2028-09-01",
       "is_active": true,
-      "lat": 24.133583,
-      "lng": 120.6454008,
-      "geocode_method": "name"
+      "lat": 25.0038182,
+      "lng": 121.4900689,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531041363",
@@ -8515,9 +8516,9 @@
       "contract_start": "2005-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.0204676,
-      "lng": 121.4084292,
-      "geocode_method": "name"
+      "lat": 25.0038182,
+      "lng": 121.4900689,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531041390",
@@ -8546,9 +8547,9 @@
       "contract_start": "2013-09-02",
       "contract_end": "2026-09-01",
       "is_active": true,
-      "lat": 25.0018801,
-      "lng": 121.4985466,
-      "geocode_method": "name"
+      "lat": 24.9922433,
+      "lng": 121.477253,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531050077",
@@ -8575,9 +8576,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.9826348,
-      "lng": 121.5378146,
-      "geocode_method": "name"
+      "lat": 24.9829231,
+      "lng": 121.5390574,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531050086",
@@ -8599,9 +8600,9 @@
       "contract_start": "1997-11-03",
       "contract_end": "2028-11-02",
       "is_active": true,
-      "lat": 24.9386192,
-      "lng": 121.4882902,
-      "geocode_method": "name"
+      "lat": 24.9493939,
+      "lng": 121.4854944,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531051163",
@@ -8636,9 +8637,9 @@
       "contract_start": "2018-04-13",
       "contract_end": "2027-04-12",
       "is_active": true,
-      "lat": 24.9632551,
-      "lng": 121.5114451,
-      "geocode_method": "name"
+      "lat": 24.9613837,
+      "lng": 121.5099596,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531051172",
@@ -8667,9 +8668,9 @@
       "contract_start": "2018-08-06",
       "contract_end": "2027-08-05",
       "is_active": true,
-      "lat": 24.9554737,
-      "lng": 121.499885,
-      "geocode_method": "name"
+      "lat": 24.9584449,
+      "lng": 121.5047117,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531060046",
@@ -8692,9 +8693,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.4239994,
-      "lng": 120.8668454,
-      "geocode_method": "name"
+      "lat": 25.0229395,
+      "lng": 121.4136575,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531061230",
@@ -8716,9 +8717,9 @@
       "contract_start": "2010-07-01",
       "contract_end": "2028-06-30",
       "is_active": true,
-      "lat": 22.6664429,
-      "lng": 120.3054474,
-      "geocode_method": "name"
+      "lat": 25.0588765,
+      "lng": 121.4502155,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531061249",
@@ -8759,9 +8760,9 @@
       "contract_start": "2022-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.0215392,
-      "lng": 121.4342715,
-      "geocode_method": "name"
+      "lat": 25.0313504,
+      "lng": 121.4397183,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531061258",
@@ -8783,9 +8784,9 @@
       "contract_start": "2022-06-15",
       "contract_end": "2028-06-14",
       "is_active": true,
-      "lat": 25.0451437,
-      "lng": 121.5161994,
-      "geocode_method": "name"
+      "lat": 25.0637875,
+      "lng": 121.4626775,
+      "geocode_method": "address_full"
     },
     {
       "code": "1531071030",
@@ -8822,9 +8823,9 @@
       "contract_start": "2000-08-07",
       "contract_end": "2028-08-06",
       "is_active": true,
-      "lat": 25.03756,
-      "lng": 121.54587,
-      "geocode_method": "name"
+      "lat": 24.9876112,
+      "lng": 121.4194442,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531091149",
@@ -8847,9 +8848,9 @@
       "contract_start": "2021-02-01",
       "contract_end": "2027-01-31",
       "is_active": true,
-      "lat": 24.9291048,
-      "lng": 121.3800401,
-      "geocode_method": "name"
+      "lat": 24.93513,
+      "lng": 121.39008,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531101113",
@@ -8867,7 +8868,7 @@
       "is_active": false,
       "lat": 25.211783,
       "lng": 121.4389333,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1531120038",
@@ -8895,7 +8896,7 @@
       "is_active": true,
       "lat": 25.1085738,
       "lng": 121.8021052,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1531130052",
@@ -8924,9 +8925,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.9826794,
-      "lng": 121.4546809,
-      "geocode_method": "name"
+      "lat": 24.9891406,
+      "lng": 121.4468258,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531130105",
@@ -8952,9 +8953,9 @@
       "contract_start": "1999-04-21",
       "contract_end": "2028-04-20",
       "is_active": true,
-      "lat": 25.0378204,
-      "lng": 121.5458541,
-      "geocode_method": "name"
+      "lat": 24.9915483,
+      "lng": 121.4489653,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531131139",
@@ -8981,9 +8982,9 @@
       "contract_start": "2007-01-08",
       "contract_end": "2029-01-07",
       "is_active": true,
-      "lat": 24.97789,
-      "lng": 121.2681016,
-      "geocode_method": "name"
+      "lat": 24.9915483,
+      "lng": 121.4489653,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531131157",
@@ -9012,9 +9013,9 @@
       "contract_start": "2016-11-01",
       "contract_end": "2028-10-31",
       "is_active": true,
-      "lat": 24.99109,
-      "lng": 121.4489394,
-      "geocode_method": "name"
+      "lat": 24.9915483,
+      "lng": 121.4489653,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531140058",
@@ -9030,9 +9031,9 @@
       "contract_start": "2019-11-01",
       "contract_end": "2023-08-07",
       "is_active": false,
-      "lat": 24.1804367,
-      "lng": 120.6668055,
-      "geocode_method": "name"
+      "lat": 25.084923,
+      "lng": 121.4737,
+      "geocode_method": "manual_district"
     },
     {
       "code": "1531210019",
@@ -9048,9 +9049,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2025-04-01",
       "is_active": false,
-      "lat": 25.0474734,
-      "lng": 121.5472645,
-      "geocode_method": "name"
+      "lat": 25.20714,
+      "lng": 121.5042231,
+      "geocode_method": "address_street"
     },
     {
       "code": "1531210037",
@@ -9071,9 +9072,9 @@
       "contract_start": "2025-04-01",
       "contract_end": "2028-03-31",
       "is_active": true,
-      "lat": 25.0474734,
-      "lng": 121.5472645,
-      "geocode_method": "name"
+      "lat": 25.20714,
+      "lng": 121.5042231,
+      "geocode_method": "address_street"
     },
     {
       "code": "1532010013",
@@ -9101,7 +9102,7 @@
       "is_active": true,
       "lat": 24.9996534,
       "lng": 121.3094824,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1532010120",
@@ -9134,9 +9135,9 @@
       "contract_start": "1998-01-02",
       "contract_end": "2028-01-01",
       "is_active": true,
-      "lat": 24.9891347,
-      "lng": 121.3094866,
-      "geocode_method": "name"
+      "lat": 24.990947,
+      "lng": 121.3171143,
+      "geocode_method": "address_street"
     },
     {
       "code": "1532011163",
@@ -9166,9 +9167,9 @@
       "contract_start": "2013-09-01",
       "contract_end": "2028-08-31",
       "is_active": true,
-      "lat": 24.9840903,
-      "lng": 121.318728,
-      "geocode_method": "name"
+      "lat": 24.9325642,
+      "lng": 121.1225616,
+      "geocode_method": "address_street"
     },
     {
       "code": "1532011172",
@@ -9194,9 +9195,9 @@
       "contract_start": "2022-06-09",
       "contract_end": "2028-06-08",
       "is_active": true,
-      "lat": 25.0003803,
-      "lng": 121.2892744,
-      "geocode_method": "name"
+      "lat": 25.0010257,
+      "lng": 121.2926228,
+      "geocode_method": "address_street"
     },
     {
       "code": "1532020215",
@@ -9225,9 +9226,9 @@
       "contract_start": "1997-03-27",
       "contract_end": "2026-12-15",
       "is_active": true,
-      "lat": 24.9574178,
-      "lng": 121.2036573,
-      "geocode_method": "name"
+      "lat": 24.9561021,
+      "lng": 121.211356,
+      "geocode_method": "address_street"
     },
     {
       "code": "1532021285",
@@ -9243,9 +9244,9 @@
       "contract_start": "2004-07-19",
       "contract_end": "2025-11-01",
       "is_active": false,
-      "lat": 24.953369,
-      "lng": 121.2220707,
-      "geocode_method": "name"
+      "lat": 24.9581975,
+      "lng": 121.2241304,
+      "geocode_method": "address_street"
     },
     {
       "code": "1532021338",
@@ -9286,9 +9287,9 @@
       "contract_start": "2010-08-03",
       "contract_end": "2028-08-02",
       "is_active": true,
-      "lat": 24.9645221,
-      "lng": 121.2577533,
-      "geocode_method": "name"
+      "lat": 24.9590488,
+      "lng": 121.2508005,
+      "geocode_method": "address_street"
     },
     {
       "code": "1532021365",
@@ -9321,9 +9322,9 @@
       "contract_start": "2013-10-16",
       "contract_end": "2028-10-15",
       "is_active": true,
-      "lat": 24.9531415,
-      "lng": 121.2300101,
-      "geocode_method": "name"
+      "lat": 25.0194074,
+      "lng": 121.2924918,
+      "geocode_method": "address_street"
     },
     {
       "code": "1532021374",
@@ -9357,9 +9358,9 @@
       "contract_start": "2014-10-02",
       "contract_end": "2026-10-01",
       "is_active": true,
-      "lat": 24.9477867,
-      "lng": 121.2462754,
-      "geocode_method": "name"
+      "lat": 24.9565521,
+      "lng": 121.2318114,
+      "geocode_method": "address_street"
     },
     {
       "code": "1532021383",
@@ -9375,9 +9376,9 @@
       "contract_start": "2015-04-23",
       "contract_end": "2023-11-22",
       "is_active": false,
-      "lat": 24.9614216,
-      "lng": 121.2054066,
-      "geocode_method": "name"
+      "lat": 24.9603817,
+      "lng": 121.2087212,
+      "geocode_method": "address_street"
     },
     {
       "code": "1532021392",
@@ -9409,9 +9410,9 @@
       "contract_start": "2016-05-16",
       "contract_end": "2028-05-15",
       "is_active": true,
-      "lat": 25.035656,
-      "lng": 121.50144,
-      "geocode_method": "name"
+      "lat": 24.9582282,
+      "lng": 121.2268494,
+      "geocode_method": "address_street"
     },
     {
       "code": "1532021418",
@@ -9448,9 +9449,9 @@
       "contract_start": "2025-01-09",
       "contract_end": "2028-01-08",
       "is_active": true,
-      "lat": 24.1108246,
-      "lng": 120.6960414,
-      "geocode_method": "name"
+      "lat": 25.0586371,
+      "lng": 121.1660324,
+      "geocode_method": "county_name"
     },
     {
       "code": "1532040039",
@@ -9496,9 +9497,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.9089161,
-      "lng": 121.1572082,
-      "geocode_method": "name"
+      "lat": 24.91257,
+      "lng": 121.1523344,
+      "geocode_method": "address_street"
     },
     {
       "code": "1532040066",
@@ -9543,9 +9544,9 @@
       "contract_start": "1996-09-14",
       "contract_end": "2028-09-13",
       "is_active": true,
-      "lat": 25.0368264,
-      "lng": 121.5536774,
-      "geocode_method": "name"
+      "lat": 24.91257,
+      "lng": 121.1523344,
+      "geocode_method": "address_street"
     },
     {
       "code": "1532060031",
@@ -9566,9 +9567,9 @@
       "contract_start": "1999-07-13",
       "contract_end": "2028-07-12",
       "is_active": true,
-      "lat": 25.0586371,
-      "lng": 121.1660324,
-      "geocode_method": "name"
+      "lat": 25.0587827,
+      "lng": 121.1676888,
+      "geocode_method": "address_street"
     },
     {
       "code": "1532061065",
@@ -9599,9 +9600,9 @@
       "contract_start": "2005-09-01",
       "contract_end": "2027-12-31",
       "is_active": true,
-      "lat": 25.0623198,
-      "lng": 121.1960445,
-      "geocode_method": "name"
+      "lat": 24.9554468,
+      "lng": 121.3008923,
+      "geocode_method": "address_street"
     },
     {
       "code": "1532070019",
@@ -9629,9 +9630,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.9953755,
-      "lng": 121.3377438,
-      "geocode_method": "name"
+      "lat": 24.9991922,
+      "lng": 121.3462601,
+      "geocode_method": "address_street"
     },
     {
       "code": "1532091081",
@@ -9667,9 +9668,9 @@
       "contract_start": "2012-12-13",
       "contract_end": "2027-10-12",
       "is_active": true,
-      "lat": 24.8753122,
-      "lng": 121.2134781,
-      "geocode_method": "name"
+      "lat": 24.8828684,
+      "lng": 121.2119212,
+      "geocode_method": "address_street"
     },
     {
       "code": "1532100012",
@@ -9696,9 +9697,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.951357,
-      "lng": 121.2196723,
-      "geocode_method": "name"
+      "lat": 24.9532924,
+      "lng": 121.2217937,
+      "geocode_method": "address_street"
     },
     {
       "code": "1532101091",
@@ -9724,9 +9725,9 @@
       "contract_start": "2004-01-01",
       "contract_end": "2027-12-31",
       "is_active": true,
-      "lat": 24.9501194,
-      "lng": 121.212469,
-      "geocode_method": "name"
+      "lat": 24.9532924,
+      "lng": 121.2217937,
+      "geocode_method": "address_street"
     },
     {
       "code": "1532101108",
@@ -9752,9 +9753,9 @@
       "contract_start": "2004-07-26",
       "contract_end": "2028-07-25",
       "is_active": true,
-      "lat": 24.9561895,
-      "lng": 121.2099665,
-      "geocode_method": "name"
+      "lat": 24.9561021,
+      "lng": 121.211356,
+      "geocode_method": "address_street"
     },
     {
       "code": "1532101117",
@@ -9780,9 +9781,9 @@
       "contract_start": "2007-06-30",
       "contract_end": "2028-02-21",
       "is_active": true,
-      "lat": 24.9481805,
-      "lng": 121.2117441,
-      "geocode_method": "name"
+      "lat": 24.9532924,
+      "lng": 121.2217937,
+      "geocode_method": "address_street"
     },
     {
       "code": "1533030028",
@@ -9809,9 +9810,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2027-10-25",
       "is_active": true,
-      "lat": 25.0607943,
-      "lng": 121.3671521,
-      "geocode_method": "name"
+      "lat": 24.7369899,
+      "lng": 121.0892057,
+      "geocode_method": "address_street"
     },
     {
       "code": "1533030046",
@@ -9836,9 +9837,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.7343544,
-      "lng": 121.0910849,
-      "geocode_method": "name"
+      "lat": 24.7401347,
+      "lng": 121.0915797,
+      "geocode_method": "address_street"
     },
     {
       "code": "1533051063",
@@ -9867,9 +9868,9 @@
       "contract_start": "2002-09-27",
       "contract_end": "2028-09-26",
       "is_active": true,
-      "lat": 24.8349104,
-      "lng": 121.0081587,
-      "geocode_method": "name"
+      "lat": 24.8410477,
+      "lng": 121.012025,
+      "geocode_method": "address_street"
     },
     {
       "code": "1533051072",
@@ -9885,9 +9886,9 @@
       "contract_start": "2015-07-22",
       "contract_end": "2024-07-01",
       "is_active": false,
-      "lat": 24.8356509,
-      "lng": 121.0077947,
-      "geocode_method": "name"
+      "lat": 24.8410477,
+      "lng": 121.012025,
+      "geocode_method": "address_street"
     },
     {
       "code": "1535010024",
@@ -9915,9 +9916,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.0503312,
-      "lng": 121.5339513,
-      "geocode_method": "name"
+      "lat": 24.5405358,
+      "lng": 120.8172921,
+      "geocode_method": "address_street"
     },
     {
       "code": "1535010051",
@@ -9968,9 +9969,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.5510531,
-      "lng": 120.8148222,
-      "geocode_method": "name"
+      "lat": 24.5537238,
+      "lng": 120.815434,
+      "geocode_method": "address_street"
     },
     {
       "code": "1535031041",
@@ -10001,9 +10002,9 @@
       "contract_start": "2006-11-01",
       "contract_end": "2028-05-10",
       "is_active": true,
-      "lat": 24.4889731,
-      "lng": 120.678474,
-      "geocode_method": "name"
+      "lat": 24.4731215,
+      "lng": 120.6706827,
+      "geocode_method": "address_street"
     },
     {
       "code": "1535040068",
@@ -10034,9 +10035,9 @@
       "contract_start": "1995-11-20",
       "contract_end": "2028-11-19",
       "is_active": true,
-      "lat": 24.1704564,
-      "lng": 120.6484756,
-      "geocode_method": "name"
+      "lat": 24.6848921,
+      "lng": 120.8783237,
+      "geocode_method": "address_street"
     },
     {
       "code": "1535040086",
@@ -10063,9 +10064,9 @@
       "contract_start": "1999-08-09",
       "contract_end": "2028-08-08",
       "is_active": true,
-      "lat": 24.6905531,
-      "lng": 120.8794624,
-      "geocode_method": "name"
+      "lat": 24.69048,
+      "lng": 120.8794194,
+      "geocode_method": "address_street"
     },
     {
       "code": "1535051178",
@@ -10100,9 +10101,9 @@
       "contract_start": "2007-02-12",
       "contract_end": "2028-02-11",
       "is_active": true,
-      "lat": 24.6865981,
-      "lng": 120.9081189,
-      "geocode_method": "name"
+      "lat": 24.6992619,
+      "lng": 120.9191481,
+      "geocode_method": "address_street"
     },
     {
       "code": "1535051196",
@@ -10118,9 +10119,9 @@
       "contract_start": "2011-10-12",
       "contract_end": "2024-05-01",
       "is_active": false,
-      "lat": 22.6804012,
-      "lng": 120.4831079,
-      "geocode_method": "name"
+      "lat": 24.6837165,
+      "lng": 120.9025263,
+      "geocode_method": "address_street"
     },
     {
       "code": "1535081078",
@@ -10153,7 +10154,7 @@
       "is_active": true,
       "lat": 24.4239994,
       "lng": 120.8668454,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1536010046",
@@ -10180,9 +10181,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.2516296,
-      "lng": 120.7206029,
-      "geocode_method": "name"
+      "lat": 24.2507143,
+      "lng": 120.7117958,
+      "geocode_method": "address_street"
     },
     {
       "code": "1536011276",
@@ -10206,9 +10207,9 @@
       "contract_start": "2005-07-01",
       "contract_end": "2028-06-30",
       "is_active": true,
-      "lat": 24.2582659,
-      "lng": 120.7192113,
-      "geocode_method": "name"
+      "lat": 24.2558743,
+      "lng": 120.7133749,
+      "geocode_method": "address_street"
     },
     {
       "code": "1536011294",
@@ -10230,9 +10231,9 @@
       "contract_start": "2007-04-26",
       "contract_end": "2028-04-25",
       "is_active": true,
-      "lat": 24.1445429,
-      "lng": 120.6496498,
-      "geocode_method": "name"
+      "lat": 24.2477824,
+      "lng": 120.7131548,
+      "geocode_method": "address_street"
     },
     {
       "code": "1536040535",
@@ -10254,9 +10255,9 @@
       "contract_start": "2001-08-10",
       "contract_end": "2028-08-09",
       "is_active": true,
-      "lat": 24.2811477,
-      "lng": 120.6094044,
-      "geocode_method": "name"
+      "lat": 24.2774663,
+      "lng": 120.6071761,
+      "geocode_method": "address_street"
     },
     {
       "code": "1536040553",
@@ -10279,9 +10280,9 @@
       "contract_start": "2007-04-17",
       "contract_end": "2028-04-16",
       "is_active": true,
-      "lat": 25.0041837,
-      "lng": 121.3145089,
-      "geocode_method": "name"
+      "lat": 24.2826041,
+      "lng": 120.5480754,
+      "geocode_method": "address_street"
     },
     {
       "code": "1536060037",
@@ -10309,9 +10310,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.2538446,
-      "lng": 120.5357988,
-      "geocode_method": "name"
+      "lat": 24.2544142,
+      "lng": 120.5374848,
+      "geocode_method": "address_street"
     },
     {
       "code": "1536061114",
@@ -10332,9 +10333,9 @@
       "contract_start": "2010-11-01",
       "contract_end": "2028-10-31",
       "is_active": true,
-      "lat": 24.2527079,
-      "lng": 120.5362366,
-      "geocode_method": "name"
+      "lat": 24.2533042,
+      "lng": 120.5343357,
+      "geocode_method": "address_street"
     },
     {
       "code": "1536100081",
@@ -10377,9 +10378,9 @@
       "contract_start": "1999-08-09",
       "contract_end": "2028-02-11",
       "is_active": true,
-      "lat": 24.2170172,
-      "lng": 120.6664757,
-      "geocode_method": "name"
+      "lat": 24.2169621,
+      "lng": 120.6664759,
+      "geocode_method": "county_name"
     },
     {
       "code": "1536120010",
@@ -10401,9 +10402,9 @@
       "contract_start": "1999-06-14",
       "contract_end": "2028-06-13",
       "is_active": true,
-      "lat": 25.0521187,
-      "lng": 121.5138125,
-      "geocode_method": "name"
+      "lat": 24.2714677,
+      "lng": 120.7742727,
+      "geocode_method": "address_street"
     },
     {
       "code": "1536151042",
@@ -10433,8 +10434,8 @@
       "contract_start": "2002-05-01",
       "contract_end": "2028-04-30",
       "is_active": true,
-      "lat": 24.0994908,
-      "lng": 120.6478035,
+      "lat": 24.1093826,
+      "lng": 120.6507592,
       "geocode_method": "address_street"
     },
     {
@@ -10464,9 +10465,9 @@
       "contract_start": "2004-07-30",
       "contract_end": "2028-07-29",
       "is_active": true,
-      "lat": 24.0535672,
-      "lng": 120.6965128,
-      "geocode_method": "name"
+      "lat": 24.0664431,
+      "lng": 120.6987426,
+      "geocode_method": "address_street"
     },
     {
       "code": "1536190076",
@@ -10507,9 +10508,9 @@
       "contract_start": "1999-07-01",
       "contract_end": "2028-06-30",
       "is_active": true,
-      "lat": 24.1452058,
-      "lng": 120.7143458,
-      "geocode_method": "name"
+      "lat": 24.1428115,
+      "lng": 120.7127646,
+      "geocode_method": "address_street"
     },
     {
       "code": "1536200022",
@@ -10537,9 +10538,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.1113816,
-      "lng": 120.6901709,
-      "geocode_method": "name"
+      "lat": 24.093104,
+      "lng": 120.6925742,
+      "geocode_method": "address_street"
     },
     {
       "code": "1536201065",
@@ -10555,9 +10556,9 @@
       "contract_start": "2007-01-01",
       "contract_end": "2025-12-04",
       "is_active": false,
-      "lat": 24.1149218,
-      "lng": 120.6890208,
-      "geocode_method": "name"
+      "lat": 24.093104,
+      "lng": 120.6925742,
+      "geocode_method": "address_street"
     },
     {
       "code": "1537010040",
@@ -10584,9 +10585,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.085796,
+      "lat": 24.0857961,
       "lng": 120.5449616,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1537010175",
@@ -10612,7 +10613,7 @@
       "is_active": true,
       "lat": 24.0824483,
       "lng": 120.5425986,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1537010219",
@@ -10638,7 +10639,7 @@
       "is_active": true,
       "lat": 24.0831659,
       "lng": 120.5403384,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1537010237",
@@ -10661,9 +10662,9 @@
       "contract_start": "1998-08-31",
       "contract_end": "2028-08-30",
       "is_active": true,
-      "lat": 24.3437993,
-      "lng": 120.6255507,
-      "geocode_method": "name"
+      "lat": 24.0808627,
+      "lng": 120.5442406,
+      "geocode_method": "address_street"
     },
     {
       "code": "1537040057",
@@ -10679,9 +10680,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2024-01-22",
       "is_active": false,
-      "lat": 23.8725525,
-      "lng": 120.5277506,
-      "geocode_method": "name"
+      "lat": 23.8750712,
+      "lng": 120.5244166,
+      "geocode_method": "address_street"
     },
     {
       "code": "1537040066",
@@ -10711,9 +10712,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.0190265,
-      "lng": 121.409093,
-      "geocode_method": "name"
+      "lat": 23.8721576,
+      "lng": 120.5154065,
+      "geocode_method": "county_name"
     },
     {
       "code": "1537050071",
@@ -10744,9 +10745,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 23.95707,
-      "lng": 120.570519,
-      "geocode_method": "name"
+      "lat": 23.957288,
+      "lng": 120.5713734,
+      "geocode_method": "address_street"
     },
     {
       "code": "1537051265",
@@ -10769,9 +10770,9 @@
       "contract_start": "2005-07-14",
       "contract_end": "2028-07-13",
       "is_active": true,
-      "lat": 23.9513024,
-      "lng": 120.6045495,
-      "geocode_method": "name"
+      "lat": 23.9513143,
+      "lng": 120.5971457,
+      "geocode_method": "address_street"
     },
     {
       "code": "1537051274",
@@ -10799,7 +10800,7 @@
       "is_active": true,
       "lat": 23.9590969,
       "lng": 120.5734185,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1537051318",
@@ -10832,9 +10833,9 @@
       "contract_start": "2021-06-11",
       "contract_end": "2027-06-10",
       "is_active": true,
-      "lat": 23.9477692,
-      "lng": 120.5748669,
-      "geocode_method": "name"
+      "lat": 23.9633394,
+      "lng": 120.5613289,
+      "geocode_method": "address_street"
     },
     {
       "code": "1537061065",
@@ -10862,7 +10863,7 @@
       "is_active": true,
       "lat": 23.9614896,
       "lng": 120.4802761,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1537070028",
@@ -10890,9 +10891,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.2354527,
-      "lng": 120.558521,
-      "geocode_method": "name"
+      "lat": 23.8553758,
+      "lng": 120.5885088,
+      "geocode_method": "address_street"
     },
     {
       "code": "1537081085",
@@ -10916,9 +10917,9 @@
       "contract_start": "2003-07-09",
       "contract_end": "2028-07-08",
       "is_active": true,
-      "lat": 23.9005535,
-      "lng": 120.3728314,
-      "geocode_method": "name"
+      "lat": 23.8989236,
+      "lng": 120.3723733,
+      "geocode_method": "address_street"
     },
     {
       "code": "1537100012",
@@ -10942,9 +10943,9 @@
       "contract_start": "1995-10-04",
       "contract_end": "2027-10-03",
       "is_active": true,
-      "lat": 24.1487352,
-      "lng": 120.48593,
-      "geocode_method": "name"
+      "lat": 24.1485957,
+      "lng": 120.4859009,
+      "geocode_method": "address_street"
     },
     {
       "code": "1537150512",
@@ -10973,7 +10974,7 @@
       "is_active": true,
       "lat": 23.9992543,
       "lng": 120.5389433,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1538030037",
@@ -11001,9 +11002,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 23.9785832,
-      "lng": 120.6857231,
-      "geocode_method": "name"
+      "lat": 23.9661898,
+      "lng": 120.686923,
+      "geocode_method": "address_street"
     },
     {
       "code": "1538031114",
@@ -11032,9 +11033,9 @@
       "contract_start": "2021-08-01",
       "contract_end": "2027-07-31",
       "is_active": true,
-      "lat": 23.9847459,
-      "lng": 120.6859753,
-      "geocode_method": "name"
+      "lat": 23.9839545,
+      "lng": 120.6868343,
+      "geocode_method": "address_street"
     },
     {
       "code": "1538041209",
@@ -11067,9 +11068,9 @@
       "contract_start": "2021-04-16",
       "contract_end": "2027-04-15",
       "is_active": true,
-      "lat": 23.7643347,
-      "lng": 120.7001,
-      "geocode_method": "name"
+      "lat": 23.7524577,
+      "lng": 120.6796507,
+      "geocode_method": "address_street"
     },
     {
       "code": "1539010048",
@@ -11099,9 +11100,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 23.7112109,
-      "lng": 120.5496713,
-      "geocode_method": "name"
+      "lat": 23.7168401,
+      "lng": 120.5679939,
+      "geocode_method": "address_street"
     },
     {
       "code": "1539010057",
@@ -11130,9 +11131,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.1652141,
-      "lng": 120.6574774,
-      "geocode_method": "name"
+      "lat": 23.7097596,
+      "lng": 120.5470476,
+      "geocode_method": "address_street"
     },
     {
       "code": "1539040019",
@@ -11148,9 +11149,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2024-08-30",
       "is_active": false,
-      "lat": 24.1601689,
-      "lng": 120.6487868,
-      "geocode_method": "name"
+      "lat": 23.8002124,
+      "lng": 120.4528779,
+      "geocode_method": "address_street"
     },
     {
       "code": "1539050015",
@@ -11166,9 +11167,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2025-12-31",
       "is_active": false,
-      "lat": 25.0585727,
-      "lng": 121.5222088,
-      "geocode_method": "name"
+      "lat": 23.6753789,
+      "lng": 120.3906999,
+      "geocode_method": "address_street"
     },
     {
       "code": "1539060011",
@@ -11191,9 +11192,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.1694962,
-      "lng": 120.6597107,
-      "geocode_method": "name"
+      "lat": 23.5695343,
+      "lng": 120.3021042,
+      "geocode_method": "address_street"
     },
     {
       "code": "1539061063",
@@ -11215,9 +11216,9 @@
       "contract_start": "2008-05-01",
       "contract_end": "2028-12-31",
       "is_active": true,
-      "lat": 22.9735219,
-      "lng": 120.2148237,
-      "geocode_method": "name"
+      "lat": 23.5653624,
+      "lng": 120.3041874,
+      "geocode_method": "address_street"
     },
     {
       "code": "1539061072",
@@ -11242,9 +11243,9 @@
       "contract_start": "2012-12-27",
       "contract_end": "2027-12-26",
       "is_active": true,
-      "lat": 23.5774293,
-      "lng": 120.3012852,
-      "geocode_method": "name"
+      "lat": 23.5732296,
+      "lng": 120.3029728,
+      "geocode_method": "address_street"
     },
     {
       "code": "1541011126",
@@ -11280,9 +11281,9 @@
       "contract_start": "2000-06-16",
       "contract_end": "2028-06-15",
       "is_active": true,
-      "lat": 23.3082407,
-      "lng": 120.3008128,
-      "geocode_method": "name"
+      "lat": 23.3082149,
+      "lng": 120.2972358,
+      "geocode_method": "address_street"
     },
     {
       "code": "1541011162",
@@ -11323,9 +11324,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2023-12-20",
       "is_active": false,
-      "lat": 23.1604134,
-      "lng": 120.1765381,
-      "geocode_method": "name"
+      "lat": 23.1601634,
+      "lng": 120.1757829,
+      "geocode_method": "address_street"
     },
     {
       "code": "1541070045",
@@ -11353,9 +11354,9 @@
       "contract_start": "1996-03-07",
       "contract_end": "2028-03-06",
       "is_active": true,
-      "lat": 23.1275846,
-      "lng": 120.287175,
-      "geocode_method": "name"
+      "lat": 23.1276215,
+      "lng": 120.2870681,
+      "geocode_method": "county_name"
     },
     {
       "code": "1542010052",
@@ -11373,7 +11374,7 @@
       "is_active": false,
       "lat": 22.6252704,
       "lng": 120.3619561,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1542010141",
@@ -11389,9 +11390,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2024-12-31",
       "is_active": false,
-      "lat": 25.0076683,
-      "lng": 121.4611497,
-      "geocode_method": "name"
+      "lat": 22.6250961,
+      "lng": 120.3460587,
+      "geocode_method": "address_street"
     },
     {
       "code": "1542011237",
@@ -11422,7 +11423,7 @@
       "is_active": true,
       "lat": 22.5920545,
       "lng": 120.325157,
-      "geocode_method": "name"
+      "geocode_method": "address_street"
     },
     {
       "code": "1542011246",
@@ -11448,9 +11449,9 @@
       "contract_start": "2000-10-01",
       "contract_end": "2027-09-18",
       "is_active": true,
-      "lat": 23.584145,
-      "lng": 120.4694884,
-      "geocode_method": "name"
+      "lat": 22.625393,
+      "lng": 120.3484932,
+      "geocode_method": "address_street"
     },
     {
       "code": "1542011282",
@@ -11486,7 +11487,7 @@
       "is_active": true,
       "lat": 22.5974874,
       "lng": 120.3357757,
-      "geocode_method": "name"
+      "geocode_method": "county_name"
     },
     {
       "code": "1542020058",
@@ -11513,9 +11514,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 22.7957716,
-      "lng": 120.2958756,
-      "geocode_method": "name"
+      "lat": 22.7907917,
+      "lng": 120.2959098,
+      "geocode_method": "address_street"
     },
     {
       "code": "1542020067",
@@ -11547,9 +11548,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 22.7941486,
-      "lng": 120.2961603,
-      "geocode_method": "name"
+      "lat": 22.7907917,
+      "lng": 120.2959098,
+      "geocode_method": "address_street"
     },
     {
       "code": "1542020129",
@@ -11572,9 +11573,9 @@
       "contract_start": "1998-11-17",
       "contract_end": "2028-11-16",
       "is_active": true,
-      "lat": 22.7924223,
-      "lng": 120.2808843,
-      "geocode_method": "name"
+      "lat": 22.7954136,
+      "lng": 120.2792329,
+      "geocode_method": "address_street"
     },
     {
       "code": "1542021171",
@@ -11603,9 +11604,9 @@
       "contract_start": "2004-04-09",
       "contract_end": "2028-04-08",
       "is_active": true,
-      "lat": 22.7879928,
-      "lng": 120.2968701,
-      "geocode_method": "name"
+      "lat": 22.7907917,
+      "lng": 120.2959098,
+      "geocode_method": "address_street"
     },
     {
       "code": "1542030018",
@@ -11630,9 +11631,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.0474734,
-      "lng": 121.5472645,
-      "geocode_method": "name"
+      "lat": 22.8828266,
+      "lng": 120.4847146,
+      "geocode_method": "address_street"
     },
     {
       "code": "1542030116",
@@ -11661,9 +11662,9 @@
       "contract_start": "1997-01-28",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.830145,
-      "lng": 121.261141,
-      "geocode_method": "name"
+      "lat": 22.8990471,
+      "lng": 120.4830629,
+      "geocode_method": "address_street"
     },
     {
       "code": "1542040050",
@@ -11686,9 +11687,9 @@
       "contract_start": "2010-06-29",
       "contract_end": "2028-06-28",
       "is_active": true,
-      "lat": 25.0034125,
-      "lng": 121.3267206,
-      "geocode_method": "name"
+      "lat": 22.8941741,
+      "lng": 120.5481499,
+      "geocode_method": "address_street"
     },
     {
       "code": "1542050056",
@@ -11733,9 +11734,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 22.503861,
-      "lng": 120.3868314,
-      "geocode_method": "name"
+      "lat": 22.5035152,
+      "lng": 120.3825319,
+      "geocode_method": "address_street"
     },
     {
       "code": "1542051151",
@@ -11756,9 +11757,9 @@
       "contract_start": "2007-11-19",
       "contract_end": "2028-11-18",
       "is_active": true,
-      "lat": 25.0607943,
-      "lng": 121.3671521,
-      "geocode_method": "name"
+      "lat": 22.5140816,
+      "lng": 120.3935323,
+      "geocode_method": "address_street"
     },
     {
       "code": "1542061077",
@@ -11810,9 +11811,9 @@
       "contract_start": "2005-01-01",
       "contract_end": "2026-12-31",
       "is_active": true,
-      "lat": 22.617751,
-      "lng": 120.384906,
-      "geocode_method": "name"
+      "lat": 22.6202506,
+      "lng": 120.3819504,
+      "geocode_method": "address_street"
     },
     {
       "code": "1542110020",
@@ -11828,9 +11829,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2025-11-30",
       "is_active": false,
-      "lat": 24.1348754,
-      "lng": 120.6619035,
-      "geocode_method": "name"
+      "lat": 22.7581726,
+      "lng": 120.3101735,
+      "geocode_method": "address_street"
     },
     {
       "code": "1542150033",
@@ -11884,9 +11885,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2027-03-07",
       "is_active": true,
-      "lat": 22.8654213,
-      "lng": 120.2571682,
-      "geocode_method": "name"
+      "lat": 22.6257367,
+      "lng": 120.3717686,
+      "geocode_method": "address_street"
     },
     {
       "code": "1543010109",
@@ -11920,9 +11921,9 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 22.6584902,
-      "lng": 120.5147039,
-      "geocode_method": "name"
+      "lat": 22.659015,
+      "lng": 120.5129745,
+      "geocode_method": "address_street"
     },
     {
       "code": "1543010190",
@@ -11952,9 +11953,9 @@
       "contract_start": "1998-09-18",
       "contract_end": "2028-09-17",
       "is_active": true,
-      "lat": 22.6762252,
-      "lng": 120.4876825,
-      "geocode_method": "name"
+      "lat": 22.7061293,
+      "lng": 120.4911118,
+      "geocode_method": "address_street"
     },
     {
       "code": "1543020105",
@@ -11979,8 +11980,8 @@
       "contract_start": "1997-06-03",
       "contract_end": "2028-06-02",
       "is_active": true,
-      "lat": 22.5558429,
-      "lng": 120.5439016,
+      "lat": 22.555775,
+      "lng": 120.5388068,
       "geocode_method": "address_street"
     },
     {
@@ -12012,9 +12013,9 @@
       "contract_start": "2014-11-01",
       "contract_end": "2026-10-31",
       "is_active": true,
-      "lat": 22.8237462,
-      "lng": 120.5996851,
-      "geocode_method": "name"
+      "lat": 22.8219103,
+      "lng": 120.5984395,
+      "geocode_method": "address_street"
     },
     {
       "code": "1701110019",
@@ -12040,9 +12041,9 @@
       "contract_start": "2021-02-03",
       "contract_end": "2027-02-02",
       "is_active": true,
-      "lat": 25.0802002,
-      "lng": 121.575396,
-      "geocode_method": "name"
+      "lat": 25.0625839,
+      "lng": 121.6056403,
+      "geocode_method": "address_street"
     }
   ]
 }

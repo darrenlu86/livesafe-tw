@@ -1,4 +1,5 @@
 import { clsx } from "clsx";
+import { PoiList } from "./PoiList";
 import type {
   AirQualityRisk,
   Amenities,
@@ -208,8 +209,12 @@ function renderDetail(value: DimensionData, config: DimensionConfig) {
           />
           <Row label="AQI 年均" value={`${s.avg_aqi}`} />
           <Row
-            label="不健康天數"
-            value={`紫爆 ${s.purple_days} · 紅 ${s.red_days}（/${s.days_total} 天）`}
+            label="對敏感族群不健康"
+            value={`${s.orange_days + s.red_days + s.purple_days} 天（${Math.round(s.unhealthy_for_sensitive_rate * 100)}%）`}
+          />
+          <Row
+            label="不健康／紫爆"
+            value={`紅 ${s.red_days} · 紫爆 ${s.purple_days}`}
           />
           <Row
             label="AQI 良好率"
@@ -220,81 +225,118 @@ function renderDetail(value: DimensionData, config: DimensionConfig) {
     }
     case "healthcare": {
       const d = value.data;
+      if (d.total_hospitals_within_5km === 0) {
+        return (
+          <div className="space-y-2">
+            <p className="text-rose-300/80">5km 內查無大型醫療機構</p>
+            {d.note && <p className="text-xs text-white/40">{d.note}</p>}
+          </div>
+        );
+      }
       return (
-        <ul className="space-y-1.5">
-          <Row
-            label="5km 內急救醫院"
-            value={`${d.emergency_hospitals_within_5km} 家`}
-          />
-          {d.nearest_emergency && (
+        <div className="space-y-3">
+          <ul className="space-y-1.5">
             <Row
-              label="最近"
-              value={`${d.nearest_emergency.name}（${d.nearest_emergency.distance_km} km）`}
+              label="5km 內醫院"
+              value={`${d.total_hospitals_within_5km} 家（${d.emergency_hospitals_within_5km} 急救${d.medical_centers_within_5km ? ` · ${d.medical_centers_within_5km} 醫學中心` : ""}）`}
             />
-          )}
-          {d.note && (
-            <li className="pt-1 text-xs italic text-white/40">{d.note}</li>
-          )}
-        </ul>
+          </ul>
+          <PoiList
+            items={d.hospitals}
+            limit={5}
+            showBadge={(p) => {
+              const badges: string[] = [];
+              if (p.is_medical_center) badges.push("醫學中心");
+              else if (p.has_emergency) badges.push("急救");
+              return badges.length > 0 ? badges.join(" · ") : null;
+            }}
+          />
+        </div>
       );
     }
     case "amenities": {
       const d = value.data;
       return (
-        <ul className="space-y-1.5">
-          <Row label="500m 內超商" value={`${d.convenience_stores_500m} 家`} />
-          <Row label="藥局" value={`${d.pharmacies_500m} 家`} />
-          <Row label="公園" value={`${d.parks_500m} 處`} />
-        </ul>
+        <div className="space-y-3">
+          <ul className="space-y-1.5">
+            <Row
+              label="500m 內"
+              value={`超商 ${d.convenience_stores_500m} · 藥局 ${d.pharmacies_500m} · 公園 ${d.parks_500m}`}
+            />
+          </ul>
+          <PoiList
+            items={d.pois}
+            limit={6}
+            showBadge={(p) =>
+              p.category === "convenience"
+                ? "超商"
+                : p.category === "pharmacy"
+                  ? "藥局"
+                  : p.category === "park"
+                    ? "公園"
+                    : null
+            }
+          />
+        </div>
       );
     }
     case "transit": {
       const d = value.data;
       return (
-        <ul className="space-y-1.5">
-          {d.nearest_rail && (
+        <div className="space-y-3">
+          <ul className="space-y-1.5">
             <Row
-              label="最近捷運/火車站"
-              value={`${d.nearest_rail.name ?? "—"}（${d.nearest_rail.distance_km} km）`}
+              label="1km 內軌道"
+              value={`${d.rail_within_500m + d.rail_500m_to_1km} 站`}
             />
-          )}
-          <Row label="500m 內軌道站" value={`${d.rail_within_500m} 站`} />
-          <Row label="500m 內公車站" value={`${d.bus_stops_500m} 站`} />
-        </ul>
+            <Row label="500m 內公車" value={`${d.bus_stops_500m} 站`} />
+          </ul>
+          <PoiList
+            items={d.pois}
+            limit={5}
+            showBadge={(p) =>
+              p.category === "rail" ? "軌道" : p.category === "bus" ? "公車" : null
+            }
+          />
+        </div>
       );
     }
     case "flood": {
       const d = value.data;
       return (
-        <>
-          <ul className="space-y-1.5">
-            {d.nearest_water && (
+        <div className="space-y-3">
+          {d.nearest_water && (
+            <ul className="space-y-1.5">
               <Row
                 label="最近水體"
                 value={`${d.nearest_water.name ?? d.nearest_water.type ?? "—"}（${d.nearest_water.distance_km} km）`}
               />
-            )}
-          </ul>
-          <p className="mt-3 text-xs italic text-white/40">{d.proxy_note}</p>
-        </>
+            </ul>
+          )}
+          <PoiList items={d.pois} limit={4} />
+          <p className="text-xs italic text-white/40">{d.proxy_note}</p>
+        </div>
       );
     }
     case "school_district": {
       const d = value.data;
       return (
-        <>
+        <div className="space-y-3">
           <ul className="space-y-1.5">
-            <Row label="1km 內國中小" value={`${d.schools_within_1km} 校`} />
-            <Row label="幼兒園" value={`${d.kindergartens_within_1km} 家`} />
-            {d.nearest_schools[0] && (
-              <Row
-                label="最近學校"
-                value={`${d.nearest_schools[0].name}（${d.nearest_schools[0].distance_km} km）`}
-              />
-            )}
+            <Row
+              label="1km 內"
+              value={`國中小 ${d.schools_within_1km} · 幼兒園 ${d.kindergartens_within_1km}`}
+            />
           </ul>
-          <p className="mt-3 text-xs italic text-white/40">{d.proxy_note}</p>
-        </>
+          <PoiList
+            items={d.pois}
+            limit={5}
+            showBadge={(p) =>
+              p.category === "school" ? "學校" : p.category === "kindergarten" ? "幼兒園" : null
+            }
+          />
+          <p className="text-xs italic text-white/40">{d.proxy_note}</p>
+        </div>
       );
     }
   }

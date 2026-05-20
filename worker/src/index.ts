@@ -27,15 +27,18 @@ import type {
   AnnualAqiDataset,
   EarthquakesDataset,
   HospitalsDataset,
+  OsmHospitalsDataset,
   RiskReport,
 } from "./types";
 
 import hospitalsDataRaw from "./data/hospitals_geocoded.json";
+import osmHospitalsRaw from "./data/osm_hospitals.json";
 import earthquakesDataRaw from "./data/earthquakes.json";
 import activeFaultsDataRaw from "./data/active_faults.json";
 import aqiAnnualRaw from "./data/aqi_annual.json";
 
 const hospitalsData = hospitalsDataRaw as HospitalsDataset;
+const osmHospitalsData = osmHospitalsRaw as unknown as OsmHospitalsDataset;
 const earthquakesData = earthquakesDataRaw as unknown as EarthquakesDataset;
 const activeFaultsData = activeFaultsDataRaw as unknown as ActiveFaultsDataset;
 const aqiAnnualData = aqiAnnualRaw as unknown as AnnualAqiDataset;
@@ -127,7 +130,7 @@ app.get("/api/dim/:key", async (c) => {
       case "air_quality":
         return c.json(scoreAirQuality(parsed, aqiAnnualData));
       case "healthcare":
-        return c.json(scoreHealthcare(parsed, hospitalsData));
+        return c.json(scoreHealthcare(parsed, hospitalsData, osmHospitalsData));
       case "amenities":
         return c.json(await scoreAmenities(parsed));
       case "transit":
@@ -166,7 +169,7 @@ app.get("/api/report", async (c) => {
   const coords = { lat: geo.lat, lng: geo.lng };
   const [healthcare, amenities, air_quality, earthquake, transit, flood, school_district] =
     await Promise.all([
-      Promise.resolve(scoreHealthcare(coords, hospitalsData)),
+      Promise.resolve(scoreHealthcare(coords, hospitalsData, osmHospitalsData)),
       scoreAmenities(coords),
       Promise.resolve(scoreAirQuality(coords, aqiAnnualData)),
       Promise.resolve(scoreEarthquake(coords, earthquakesData, activeFaultsData)),

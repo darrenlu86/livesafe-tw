@@ -1,0 +1,3921 @@
+{
+  "metadata": {
+    "source": "OpenStreetMap Overpass API (amenity=hospital, 台灣方框)",
+    "fetched_at": "2026-05-20T03:44:56.111977+00:00",
+    "total": 391,
+    "medical_center_count": 50,
+    "with_emergency_tag": 136
+  },
+  "hospitals": [
+    {
+      "osm_id": "node/1517456001",
+      "name": "新生醫院",
+      "lat": 23.1604134,
+      "lng": 120.1765381,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/1590313743",
+      "name": "現代醫院",
+      "lat": 23.2345865,
+      "lng": 120.1814432,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/1591540196",
+      "name": "聖恩醫院",
+      "lat": 23.231118,
+      "lng": 120.1802241,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/1703810054",
+      "name": "忠孝醫院",
+      "lat": 24.1487352,
+      "lng": 120.48593,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/2043420086",
+      "name": "宏元醫院",
+      "lat": 23.9206318,
+      "lng": 120.5474229,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/2051204038",
+      "name": "耀安醫院",
+      "lat": 24.078463,
+      "lng": 120.5428484,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/2085900124",
+      "name": "宏仁醫院",
+      "lat": 23.9552726,
+      "lng": 120.5701243,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "彰化縣員林市惠來街89號"
+    },
+    {
+      "osm_id": "node/2090847087",
+      "name": "順天醫院",
+      "lat": 24.1157082,
+      "lng": 120.4957453,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/2162043731",
+      "name": "承安醫院",
+      "lat": 24.953369,
+      "lng": 121.2220707,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/2401070551",
+      "name": "顏威裕醫院",
+      "lat": 22.7111887,
+      "lng": 120.2956585,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/2594649876",
+      "name": "祐民醫院",
+      "lat": 24.9574178,
+      "lng": 121.2036573,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "桃園市中壢區民族路二段180號"
+    },
+    {
+      "osm_id": "node/2630657579",
+      "name": "板新醫院",
+      "lat": 25.0168281,
+      "lng": 121.4563572,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/2792930658",
+      "name": "永和醫院",
+      "lat": 22.9902881,
+      "lng": 120.1988495,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/2978413248",
+      "name": "永和復康醫院",
+      "lat": 25.0038436,
+      "lng": 121.5119425,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/3049890627",
+      "name": "泰安醫院",
+      "lat": 24.0648956,
+      "lng": 120.6988646,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "413台灣台中市霧峰區中正路928號"
+    },
+    {
+      "osm_id": "node/3049890935",
+      "name": "霧峰澄清醫院",
+      "lat": 24.0617384,
+      "lng": 120.7390721,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "41341臺中市霧峰區中正路1129號"
+    },
+    {
+      "osm_id": "node/3259855995",
+      "name": "柏仁醫院",
+      "lat": 22.6651442,
+      "lng": 120.3035288,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "81358高雄市左營區博愛二路354號"
+    },
+    {
+      "osm_id": "node/3292775593",
+      "name": "板英醫院",
+      "lat": 25.0184062,
+      "lng": 121.464544,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": "中英醫療社團法人",
+      "addr": "22050新北市板橋區文化路一段269號"
+    },
+    {
+      "osm_id": "node/3328449233",
+      "name": "怡和醫院",
+      "lat": 25.0018801,
+      "lng": 121.4985466,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/3555258802",
+      "name": "大川醫院",
+      "lat": 24.5605515,
+      "lng": 120.8220694,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "苗栗縣苗栗市中正路416號"
+    },
+    {
+      "osm_id": "node/3770068920",
+      "name": "太平澄清醫院",
+      "lat": 24.1273383,
+      "lng": 120.7155384,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "411臺中市太平區中興路92號"
+    },
+    {
+      "osm_id": "node/3856927986",
+      "name": "慶生醫院",
+      "lat": 25.0644863,
+      "lng": 121.5258219,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "台北市中山區林森北路561號之7"
+    },
+    {
+      "osm_id": "node/3860539101",
+      "name": "宋志懿醫院",
+      "lat": 23.9005535,
+      "lng": 120.3728314,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/3961911873",
+      "name": "清泉醫院",
+      "lat": 24.2169346,
+      "lng": 120.6664329,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/4107330193",
+      "name": "仁一醫院",
+      "lat": 23.5774293,
+      "lng": 120.3012852,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/4229177810",
+      "name": "長安醫院",
+      "lat": 24.1312016,
+      "lng": 120.7196382,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "長安醫院",
+      "addr": "411台中市太平區永平路一段9號"
+    },
+    {
+      "osm_id": "node/4365013335",
+      "name": "鹿基健康促進中心",
+      "lat": 24.0610337,
+      "lng": 120.438176,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/4649245510",
+      "name": "田中仁和醫院",
+      "lat": 23.8579738,
+      "lng": 120.5878793,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/4678210890",
+      "name": "仁愛醫院",
+      "lat": 22.9897693,
+      "lng": 120.2115865,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "臺南市東區北門路一段10號"
+    },
+    {
+      "osm_id": "node/4710328424",
+      "name": "台新醫院",
+      "lat": 24.1303984,
+      "lng": 120.7054389,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/4748285621",
+      "name": "中祥醫院附設居家護理所",
+      "lat": 25.0032083,
+      "lng": 121.5020088,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "235新北市中和區中山路二段140號"
+    },
+    {
+      "osm_id": "node/4854838884",
+      "name": "新興醫院",
+      "lat": 23.3036565,
+      "lng": 120.3167013,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/5061686948",
+      "name": "培靈醫院",
+      "lat": 25.0493566,
+      "lng": 121.5683513,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "台北市松山區八德路四段355號"
+    },
+    {
+      "osm_id": "node/5306594112",
+      "name": "佑安中醫醫院",
+      "lat": 22.7093767,
+      "lng": 120.2930738,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/5350686806",
+      "name": "三軍總醫院基隆分院孝二院區",
+      "lat": 25.1291236,
+      "lng": 121.7387853,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": "三軍總醫院",
+      "addr": "20042基隆市仁愛區孝二路39號"
+    },
+    {
+      "osm_id": "node/5504431648",
+      "name": "李澤醫院",
+      "lat": 22.4665522,
+      "lng": 120.4510797,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/5985032816",
+      "name": "惠德醫院",
+      "lat": 22.5920545,
+      "lng": 120.325157,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/6024282261",
+      "name": "中英醫院",
+      "lat": 25.0198152,
+      "lng": 121.4662163,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "新北市板橋區文化路一段196號"
+    },
+    {
+      "osm_id": "node/6533220121",
+      "name": "宏科醫院",
+      "lat": 23.1276524,
+      "lng": 120.286898,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/6565496785",
+      "name": "茂盛醫院",
+      "lat": 24.1666873,
+      "lng": 120.6941887,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/7814754481",
+      "name": "復興醫院",
+      "lat": 22.6685039,
+      "lng": 120.4957973,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/7860356549",
+      "name": "仁成醫院",
+      "lat": 23.123594,
+      "lng": 121.217054,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "臺東縣池上鄉中山路173號"
+    },
+    {
+      "osm_id": "node/9481371994",
+      "name": "大明醫院",
+      "lat": 24.9953755,
+      "lng": 121.3377438,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "桃園市龜山區龜山里9鄰萬壽路二段964號"
+    },
+    {
+      "osm_id": "node/9652612481",
+      "name": "臺大兒童醫院",
+      "lat": 25.0441374,
+      "lng": 121.518724,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/9761944912",
+      "name": "曾漢棋綜合醫院",
+      "lat": 23.9785832,
+      "lng": 120.6857231,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "南投縣草屯鎮虎山路915號"
+    },
+    {
+      "osm_id": "node/11876065640",
+      "name": "振生醫院",
+      "lat": 24.9996534,
+      "lng": 121.3094824,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/12178257049",
+      "name": "法務部矯正署臺中監獄附設培德醫院",
+      "lat": 24.1426711,
+      "lng": 120.5961226,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "408287臺中市南屯區培德路9號"
+    },
+    {
+      "osm_id": "node/12179885670",
+      "name": "和平醫院",
+      "lat": 24.8088863,
+      "lng": 120.955559,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": "平和醫療社團法人",
+      "addr": "新竹市北區和平路86-1號"
+    },
+    {
+      "osm_id": "node/12666463140",
+      "name": "慶昇醫療社團法人慶昇醫院",
+      "lat": 23.4800625,
+      "lng": 120.4438095,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "嘉義市新榮路339之1號"
+    },
+    {
+      "osm_id": "node/13146113970",
+      "name": "屏東榮總急診室",
+      "lat": 22.6623456,
+      "lng": 120.4754487,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/13356996142",
+      "name": "急診室",
+      "lat": 25.0269971,
+      "lng": 121.5634143,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "node/13728725099",
+      "name": "藝群永和診所",
+      "lat": 25.0098072,
+      "lng": 121.5100063,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "234新北市永和區中山路142號一、二樓"
+    },
+    {
+      "osm_id": "node/13806044538",
+      "name": "許景新耳鼻喉科診所",
+      "lat": 25.1698813,
+      "lng": 121.4440726,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "251新北市淡水區中山路17號"
+    },
+    {
+      "osm_id": "way/19792776",
+      "name": "臺北榮民總醫院玉里分院",
+      "lat": 23.3379109,
+      "lng": 121.3107033,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "981花蓮縣玉里鎮新興街91號"
+    },
+    {
+      "osm_id": "way/33406780",
+      "name": "高雄醫學大學附設醫院",
+      "lat": 22.6459514,
+      "lng": 120.310075,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "807高雄市三民區十全一路100號"
+    },
+    {
+      "osm_id": "way/93899597",
+      "name": "正薪醫院",
+      "lat": 22.6077861,
+      "lng": 120.3176964,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "高雄市前鎮區竹南里6鄰一心一路233號"
+    },
+    {
+      "osm_id": "way/107503209",
+      "name": "財團法人天主教聖功醫院",
+      "lat": 22.6336593,
+      "lng": 120.3240234,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "802高雄市苓雅區建國一路352號"
+    },
+    {
+      "osm_id": "way/120104992",
+      "name": "國軍高雄總醫院左營分院",
+      "lat": 22.7026862,
+      "lng": 120.2908096,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "813高雄市左營區軍校路553號"
+    },
+    {
+      "osm_id": "way/126081005",
+      "name": "右昌聯合醫院",
+      "lat": 22.7135631,
+      "lng": 120.2909466,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "811高雄市楠梓區軍校路930號"
+    },
+    {
+      "osm_id": "way/134367376",
+      "name": "衛生福利部花蓮醫院",
+      "lat": 23.9789678,
+      "lng": 121.6119478,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "中華民國衛生福利部",
+      "addr": "970007花蓮縣花蓮市中正路600號"
+    },
+    {
+      "osm_id": "way/139190767",
+      "name": "仁愛院區",
+      "lat": 25.0372302,
+      "lng": 121.5451691,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "106243臺北市大安區仁愛路四段10號"
+    },
+    {
+      "osm_id": "way/139350160",
+      "name": "中山醫院",
+      "lat": 25.0365374,
+      "lng": 121.5499617,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "106臺北市仁愛路四段112巷11號"
+    },
+    {
+      "osm_id": "way/139555040",
+      "name": "卓綜合醫院",
+      "lat": 23.8721522,
+      "lng": 120.5153601,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/141992817",
+      "name": "新北市立聯合醫院板橋院區",
+      "lat": 25.0232989,
+      "lng": 121.4578243,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/150332916",
+      "name": "奇美醫院柳營分院",
+      "lat": 23.2892438,
+      "lng": 120.3243745,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "臺南市柳營區太康里13鄰太康201號"
+    },
+    {
+      "osm_id": "way/154245173",
+      "name": "新營醫院北門分院",
+      "lat": 23.2502098,
+      "lng": 120.1292302,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "臺南市北門區文山里6鄰溪底寮56號之3"
+    },
+    {
+      "osm_id": "way/159315649",
+      "name": "陽明大學附設醫院新民院區",
+      "lat": 24.75804,
+      "lng": 121.7544757,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "宜蘭縣宜蘭市新民路152號"
+    },
+    {
+      "osm_id": "way/159926467",
+      "name": "奇美醫院永康院區",
+      "lat": 23.0199602,
+      "lng": 120.2215919,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "臺南市永康區中華路901號"
+    },
+    {
+      "osm_id": "way/160088291",
+      "name": "台南醫院",
+      "lat": 22.9963588,
+      "lng": 120.2086198,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "700臺南市中西區中山路125號"
+    },
+    {
+      "osm_id": "way/160201490",
+      "name": "高雄榮民總醫院臺南分院",
+      "lat": 22.9965774,
+      "lng": 120.2405289,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "臺南市永康區復興里1鄰復興路427號"
+    },
+    {
+      "osm_id": "way/160253723",
+      "name": "台南新樓醫院",
+      "lat": 22.9890378,
+      "lng": 120.2132412,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "臺南市東區東門里6鄰東門路一段57號"
+    },
+    {
+      "osm_id": "way/161308929",
+      "name": "台南市立醫院",
+      "lat": 22.9684517,
+      "lng": 120.22659,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "臺南市東區崇成里18鄰崇德路670號"
+    },
+    {
+      "osm_id": "way/161621160",
+      "name": "臺灣礦工醫院",
+      "lat": 25.1079869,
+      "lng": 121.7331863,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "醫療財團法人臺灣區煤礦業基金會",
+      "addr": "20543基隆市暖暖區源遠路29號"
+    },
+    {
+      "osm_id": "way/161621394",
+      "name": "郵政醫院",
+      "lat": 25.0285989,
+      "lng": 121.518826,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "中英醫療社團法人",
+      "addr": "100027臺北市中正區福州街14號"
+    },
+    {
+      "osm_id": "way/165578312",
+      "name": "義大醫院",
+      "lat": 22.765949,
+      "lng": 120.3630096,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": "義大醫療財團法人",
+      "addr": "824高雄市燕巢區義大路1號"
+    },
+    {
+      "osm_id": "way/171753021",
+      "name": "彰濱秀傳紀念醫院",
+      "lat": 24.0784955,
+      "lng": 120.4106776,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/172618643",
+      "name": "衛生福利部台南醫院新化分院",
+      "lat": 23.0626822,
+      "lng": 120.3363373,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "臺南市新化區那拔里9鄰牧場72號"
+    },
+    {
+      "osm_id": "way/173001823",
+      "name": "中國醫藥大學附設醫院臺北分院",
+      "lat": 25.0821248,
+      "lng": 121.59074,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "台北市內湖區內湖路二段360號"
+    },
+    {
+      "osm_id": "way/182680760",
+      "name": "林口長庚紀念醫院",
+      "lat": 25.0607996,
+      "lng": 121.3672792,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "333桃園市龜山區復興街5號"
+    },
+    {
+      "osm_id": "way/183553056",
+      "name": "衛生福利部胸腔病院",
+      "lat": 22.9752091,
+      "lng": 120.2418773,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "71742臺南市仁德區中山路864號"
+    },
+    {
+      "osm_id": "way/189157196",
+      "name": "國軍高雄總醫院",
+      "lat": 22.6264254,
+      "lng": 120.3407468,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "高雄市苓雅區中正一路2號"
+    },
+    {
+      "osm_id": "way/193623005",
+      "name": "瑞芳礦工醫院",
+      "lat": 25.1085825,
+      "lng": 121.8021375,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "新北市瑞芳區一坑路71-2號"
+    },
+    {
+      "osm_id": "way/197110138",
+      "name": "彰基鹿基分院",
+      "lat": 24.060621,
+      "lng": 120.4381154,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/197316116",
+      "name": "臺北市立聯合醫院和平婦幼院區和平院址",
+      "lat": 25.0353885,
+      "lng": 121.5070087,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "10065臺北市中正區中華路二段33號"
+    },
+    {
+      "osm_id": "way/198136075",
+      "name": "奇美醫院西門院區",
+      "lat": 22.9865815,
+      "lng": 120.1961546,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/201119482",
+      "name": "新營醫院",
+      "lat": 23.309062,
+      "lng": 120.3133293,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/201280863",
+      "name": "臺北市立聯合醫院中興院區",
+      "lat": 25.0512131,
+      "lng": 121.5091639,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "臺北市立聯合醫院",
+      "addr": "103212臺北市大同區鄭州路145號"
+    },
+    {
+      "osm_id": "way/204615988",
+      "name": "臺南市立安南醫院",
+      "lat": 23.0651593,
+      "lng": 120.2233639,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "中國醫藥大學",
+      "addr": "709204臺南市安南區長和路二段66號"
+    },
+    {
+      "osm_id": "way/205887931",
+      "name": "高雄市立聯合醫院",
+      "lat": 22.6554593,
+      "lng": 120.2910316,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "804高雄市鼓山區中華一路976號"
+    },
+    {
+      "osm_id": "way/206082005",
+      "name": "高雄長庚紀念醫院",
+      "lat": 22.6489036,
+      "lng": 120.3548465,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": "長庚醫療財團法人",
+      "addr": "高雄市鳥松區大埤路123號"
+    },
+    {
+      "osm_id": "way/206682076",
+      "name": "仁愛醫院",
+      "lat": 24.9870984,
+      "lng": 121.4199454,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "238新北市樹林區文化街9號"
+    },
+    {
+      "osm_id": "way/208033952",
+      "name": "郭綜合醫院",
+      "lat": 22.9949826,
+      "lng": 120.1988128,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/212391796",
+      "name": "高雄市立旗津醫院",
+      "lat": 22.5902492,
+      "lng": 120.2850931,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/215352682",
+      "name": "新竹臺大分院新竹醫院",
+      "lat": 24.8163634,
+      "lng": 120.9801896,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "新竹市北區經國路一段442巷25號"
+    },
+    {
+      "osm_id": "way/222311625",
+      "name": "朴子醫院",
+      "lat": 23.4646412,
+      "lng": 120.2346046,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "613嘉義縣朴子市42之50號"
+    },
+    {
+      "osm_id": "way/230012494",
+      "name": "健仁醫院",
+      "lat": 22.7238059,
+      "lng": 120.3290731,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "811高雄市楠梓區楠陽路136號"
+    },
+    {
+      "osm_id": "way/231656465",
+      "name": "衛生福利部臺北醫院",
+      "lat": 25.0428869,
+      "lng": 121.4588175,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "衛生福利部",
+      "addr": "24213新北市新莊區思源路127號"
+    },
+    {
+      "osm_id": "way/233192591",
+      "name": "博愛蕙馨醫院",
+      "lat": 22.6568669,
+      "lng": 120.3034498,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/239206119",
+      "name": "宏恩醫院",
+      "lat": 25.0383516,
+      "lng": 121.5468202,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "106臺北市大安區仁愛路四段61號"
+    },
+    {
+      "osm_id": "way/241424548",
+      "name": "亞東醫院",
+      "lat": 24.9973048,
+      "lng": 121.4530666,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "新北市板橋區華東里南雅南路二段21號"
+    },
+    {
+      "osm_id": "way/241490134",
+      "name": "樂生療養院迴龍院區",
+      "lat": 25.0205038,
+      "lng": 121.4081529,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "衛生福利部樂生療養院",
+      "addr": "333027桃園市龜山區迴龍里萬壽路一段50巷2號"
+    },
+    {
+      "osm_id": "way/242465369",
+      "name": "成功大學醫學院附設斗六分院",
+      "lat": 23.7021011,
+      "lng": 120.5457317,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "640雲林縣斗六市莊敬路345號"
+    },
+    {
+      "osm_id": "way/243610859",
+      "name": "臺北榮民醫院員山分院附設門診部",
+      "lat": 24.750467,
+      "lng": 121.7574756,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/244387673",
+      "name": "奇美醫院佳里分院",
+      "lat": 23.1819881,
+      "lng": 120.1837634,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "臺南市佳里區佳興里6鄰佳里興606號"
+    },
+    {
+      "osm_id": "way/244578165",
+      "name": "國軍臺中總醫院",
+      "lat": 24.1511287,
+      "lng": 120.7306382,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "411台中市太平區中山路二段348號"
+    },
+    {
+      "osm_id": "way/245595312",
+      "name": "台東馬偕紀念醫院",
+      "lat": 22.7509179,
+      "lng": 121.1407499,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "台東縣台東市東海里10鄰長沙街303巷1號"
+    },
+    {
+      "osm_id": "way/246401675",
+      "name": "豐原醫院",
+      "lat": 24.2425805,
+      "lng": 120.7249556,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "衛生福利部",
+      "addr": "42055臺中市豐原區安康路100號"
+    },
+    {
+      "osm_id": "way/247786518",
+      "name": "新北市立土城醫院",
+      "lat": 24.9759184,
+      "lng": 121.4489117,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "長庚醫療",
+      "addr": "236017新北市土城區金城路二段6號"
+    },
+    {
+      "osm_id": "way/252752821",
+      "name": "關渡醫院",
+      "lat": 25.1204778,
+      "lng": 121.4662021,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": "臺北榮民總醫院",
+      "addr": "台北市北投區知行路225巷12號"
+    },
+    {
+      "osm_id": "way/253019878",
+      "name": "為恭紀念醫院",
+      "lat": 24.6870872,
+      "lng": 120.9074859,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "苗栗縣頭份市東庄里5鄰信義路128號"
+    },
+    {
+      "osm_id": "way/253412018",
+      "name": "台東聖母醫院",
+      "lat": 22.7578952,
+      "lng": 121.1466191,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/253734014",
+      "name": "台東基督教醫院",
+      "lat": 22.7639199,
+      "lng": 121.1461269,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": "東基醫療財團法人",
+      "addr": "950臺東縣臺東市開封街350號"
+    },
+    {
+      "osm_id": "way/254610004",
+      "name": "臺北榮民總醫院桃園分院",
+      "lat": 25.0040708,
+      "lng": 121.3252023,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/254807476",
+      "name": "新竹馬偕醫院",
+      "lat": 24.8004838,
+      "lng": 120.9906822,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "臺灣基督長老教會",
+      "addr": "新竹市東區光復里10鄰光復路二段690號"
+    },
+    {
+      "osm_id": "way/255983133",
+      "name": "忠孝院區",
+      "lat": 25.0466758,
+      "lng": 121.5862227,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "台北市南港區同德路87號"
+    },
+    {
+      "osm_id": "way/256116443",
+      "name": "台北榮民總醫院台東分院",
+      "lat": 22.7726572,
+      "lng": 121.1327545,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": "國軍退除役官兵輔導委員會",
+      "addr": "950台東縣台東市更生路1000號"
+    },
+    {
+      "osm_id": "way/257026301",
+      "name": "新竹市立馬偕兒童醫院",
+      "lat": 24.7972577,
+      "lng": 121.0029749,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "新竹市東區建功二路28號"
+    },
+    {
+      "osm_id": "way/257380862",
+      "name": "基隆市立醫院",
+      "lat": 25.1295999,
+      "lng": 121.7620694,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "202基隆市信義區東信路282號"
+    },
+    {
+      "osm_id": "way/257759930",
+      "name": "鹿基長青院區",
+      "lat": 24.0552596,
+      "lng": 120.4683801,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": "鹿港基督教醫院",
+      "addr": "50550彰化縣鹿港鎮東崎里14鄰鹿東路二段888號"
+    },
+    {
+      "osm_id": "way/257932535",
+      "name": "南投基督教醫院",
+      "lat": 23.8988956,
+      "lng": 120.6839664,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "南投縣南投市中興路870號"
+    },
+    {
+      "osm_id": "way/259858355",
+      "name": "台大醫院雲林分院",
+      "lat": 23.697023,
+      "lng": 120.5256208,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "雲林縣斗六市鎮西里14鄰雲林路二段579號"
+    },
+    {
+      "osm_id": "way/259858414",
+      "name": "台大醫院雲林分院虎尾院區",
+      "lat": 23.7341705,
+      "lng": 120.4264381,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "雲林縣虎尾鎮廉使里19鄰學府路95號"
+    },
+    {
+      "osm_id": "way/259922124",
+      "name": "童綜合醫院梧棲院區",
+      "lat": 24.2469933,
+      "lng": 120.5426053,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": "童綜合醫療社團法人童綜合醫院",
+      "addr": "43541臺中市梧棲區大庄里臺灣大道八段699號"
+    },
+    {
+      "osm_id": "way/260711122",
+      "name": "中山醫學大學附設醫院(大慶院區)",
+      "lat": 24.121601,
+      "lng": 120.6501226,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "402306臺中市南區建國北路一段110號"
+    },
+    {
+      "osm_id": "way/262848548",
+      "name": "澄清醫院平等院區",
+      "lat": 24.1427895,
+      "lng": 120.6816596,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "澄清綜合醫院",
+      "addr": "40045臺中市中區平等街139號"
+    },
+    {
+      "osm_id": "way/263602002",
+      "name": "聖馬爾定醫院",
+      "lat": 23.4761073,
+      "lng": 120.4677067,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "嘉義市東區大雅路二段565號"
+    },
+    {
+      "osm_id": "way/263740648",
+      "name": "衛福部嘉義醫院",
+      "lat": 23.481345,
+      "lng": 120.4292851,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "嘉義市西區北港路312號"
+    },
+    {
+      "osm_id": "way/265241171",
+      "name": "彰化基督教醫院員林分院",
+      "lat": 23.9628063,
+      "lng": 120.5671405,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/266072625",
+      "name": "馬偕醫院淡水院區",
+      "lat": 25.139389,
+      "lng": 121.4615707,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "新北市淡水區民生路45號"
+    },
+    {
+      "osm_id": "way/266355623",
+      "name": "高雄市立凱旋醫院",
+      "lat": 22.625188,
+      "lng": 120.3244587,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "802211高雄市苓雅區凱旋二路130號"
+    },
+    {
+      "osm_id": "way/266355625",
+      "name": "高雄市立民生醫院",
+      "lat": 22.6267242,
+      "lng": 120.3237952,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "802213高雄市苓雅區凱旋二路134號"
+    },
+    {
+      "osm_id": "way/269139429",
+      "name": "大林慈濟醫院",
+      "lat": 23.5956627,
+      "lng": 120.4548609,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "嘉義縣大林鎮平林里7鄰民生路2號"
+    },
+    {
+      "osm_id": "way/270385608",
+      "name": "中山醫學大學附設醫院(文心院區)",
+      "lat": 24.121007,
+      "lng": 120.649296,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/271956490",
+      "name": "臺中醫院",
+      "lat": 24.1403665,
+      "lng": 120.6754462,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "衛生福利部",
+      "addr": "403301臺中市西區三民路一段199號"
+    },
+    {
+      "osm_id": "way/272557791",
+      "name": "埔里基督教醫院",
+      "lat": 23.9703186,
+      "lng": 120.9466192,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "南投縣埔里鎮鐵山路1號"
+    },
+    {
+      "osm_id": "way/275191057",
+      "name": "三義慈濟中醫醫院",
+      "lat": 24.4034465,
+      "lng": 120.7643655,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "苗栗縣三義鄉八股路24之9號"
+    },
+    {
+      "osm_id": "way/277580723",
+      "name": "大安婦幼醫院",
+      "lat": 22.9927136,
+      "lng": 120.1928037,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "700台南市中西區金華路三段167號"
+    },
+    {
+      "osm_id": "way/277832239",
+      "name": "澎湖醫院安宅院區",
+      "lat": 23.5744579,
+      "lng": 119.6008052,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "澎湖縣馬公市安宅里1鄰宅脚嶼91號之2"
+    },
+    {
+      "osm_id": "way/280175714",
+      "name": "開元寺慈愛醫院",
+      "lat": 23.0106669,
+      "lng": 120.2225195,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "704台南市北區北園街89之1號"
+    },
+    {
+      "osm_id": "way/280241064",
+      "name": "樂生療養院療養院區 (舊院區)",
+      "lat": 25.0228216,
+      "lng": 121.4083206,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": "衛生福利部樂生療養院",
+      "addr": "242052新北市新莊區雙鳳里中正路794號"
+    },
+    {
+      "osm_id": "way/286455791",
+      "name": "仁村醫院",
+      "lat": 22.9836296,
+      "lng": 120.1979391,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "臺南市"
+    },
+    {
+      "osm_id": "way/289462283",
+      "name": "基督教門諾會醫院",
+      "lat": 23.9881156,
+      "lng": 121.6266586,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "970花蓮縣花蓮市民權路44號"
+    },
+    {
+      "osm_id": "way/295691051",
+      "name": "東華醫院",
+      "lat": 23.7643347,
+      "lng": 120.7001001,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "557南投縣竹山鎮集山路三段272巷16號"
+    },
+    {
+      "osm_id": "way/297377967",
+      "name": "國軍高雄醫院門診中心",
+      "lat": 22.6099319,
+      "lng": 120.3166703,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/301430357",
+      "name": "恆春基督教醫院",
+      "lat": 22.0022548,
+      "lng": 120.7414333,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "屏東縣恆春鎮恆西路21號"
+    },
+    {
+      "osm_id": "way/301894560",
+      "name": "關山慈濟醫院",
+      "lat": 23.0573454,
+      "lng": 121.1666417,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "95655臺東縣關山鎮和平路125-5號"
+    },
+    {
+      "osm_id": "way/305430655",
+      "name": "馬偕紀念醫院",
+      "lat": 25.0585791,
+      "lng": 121.5222197,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": "台灣基督長老教會馬偕醫療財團法人",
+      "addr": "10449臺北市中山區中山北路二段92號"
+    },
+    {
+      "osm_id": "way/307986143",
+      "name": "林森中醫昆明院區林森分部",
+      "lat": 25.063503,
+      "lng": 121.5254561,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "臺北市中山區林森北路530號"
+    },
+    {
+      "osm_id": "way/308529619",
+      "name": "廣川醫院",
+      "lat": 24.982208,
+      "lng": 121.4549437,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/310490012",
+      "name": "建新醫院",
+      "lat": 22.6313155,
+      "lng": 120.2908494,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "高雄市前金區七賢二路295號"
+    },
+    {
+      "osm_id": "way/314430608",
+      "name": "台中榮總埔里分院",
+      "lat": 23.9756052,
+      "lng": 120.9964625,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "南投縣埔里鎮榮光路1號"
+    },
+    {
+      "osm_id": "way/315102732",
+      "name": "萬華醫院",
+      "lat": 25.0240334,
+      "lng": 121.5097325,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "108台北市萬華區中華路二段606巷6號"
+    },
+    {
+      "osm_id": "way/317749616",
+      "name": "高雄市立鳳山醫院",
+      "lat": 22.6284544,
+      "lng": 120.3630753,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "長庚醫療財團法人",
+      "addr": "830高雄市鳳山區經武路42號"
+    },
+    {
+      "osm_id": "way/320897824",
+      "name": "恩樺醫院",
+      "lat": 24.9910901,
+      "lng": 121.4489394,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/321812755",
+      "name": "臺北榮民總醫院新竹分院",
+      "lat": 24.7219744,
+      "lng": 121.1000515,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "新竹縣竹東鎮中豐路一段81號"
+    },
+    {
+      "osm_id": "way/323413328",
+      "name": "東元綜合醫院",
+      "lat": 24.8234834,
+      "lng": 121.0137493,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "東元醫療社團法人",
+      "addr": "302新竹縣竹北市縣政二路69號"
+    },
+    {
+      "osm_id": "way/325023284",
+      "name": "台北榮民總醫院蘇澳分院",
+      "lat": 24.6139611,
+      "lng": 121.8487918,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "270宜蘭縣蘇澳鎮蘇濱路一段301號"
+    },
+    {
+      "osm_id": "way/328772646",
+      "name": "汐止國泰綜合醫院",
+      "lat": 25.0727226,
+      "lng": 121.6608682,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "新北市汐止區建成路59巷2號"
+    },
+    {
+      "osm_id": "way/329147421",
+      "name": "耕莘醫院安康分院",
+      "lat": 24.9538369,
+      "lng": 121.5040504,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/330359863",
+      "name": "景美醫院",
+      "lat": 24.9911355,
+      "lng": 121.5397788,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "11674臺北市文山區羅斯福路六段280號"
+    },
+    {
+      "osm_id": "way/332832428",
+      "name": "大甲李綜合醫院",
+      "lat": 24.3507393,
+      "lng": 120.6181941,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "李綜合醫療社團法人李綜合醫院",
+      "addr": "43748臺中市大甲區八德路2號"
+    },
+    {
+      "osm_id": "way/333090218",
+      "name": "順安醫院",
+      "lat": 24.3437963,
+      "lng": 120.62555,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": "李綜合醫療社團法人李綜合醫院",
+      "addr": "43746臺中市大甲區光明路6號"
+    },
+    {
+      "osm_id": "way/333944044",
+      "name": "輔英科技大學附設醫院",
+      "lat": 22.4646485,
+      "lng": 120.4531235,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "屏東縣東港鎮共和里7鄰中山路5號"
+    },
+    {
+      "osm_id": "way/334718300",
+      "name": "臺大醫院金山分院",
+      "lat": 25.219549,
+      "lng": 121.6284854,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/334869023",
+      "name": "胸腔醫院",
+      "lat": 22.987184,
+      "lng": 120.2115828,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "臺南市"
+    },
+    {
+      "osm_id": "way/336079242",
+      "name": "烏日林新醫院",
+      "lat": 24.1097098,
+      "lng": 120.598161,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "臺中市烏日區榮和路168號"
+    },
+    {
+      "osm_id": "way/337350390",
+      "name": "大千綜合醫院",
+      "lat": 24.5510802,
+      "lng": 120.8148967,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/338436726",
+      "name": "恩主公醫院",
+      "lat": 24.9377959,
+      "lng": 121.3627882,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "行天宮醫療志業醫療財團法人",
+      "addr": "23702新北市三峽區復興路399號"
+    },
+    {
+      "osm_id": "way/340593342",
+      "name": "南門綜合醫院",
+      "lat": 24.8022729,
+      "lng": 120.9696397,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "新竹市東區林森路20號"
+    },
+    {
+      "osm_id": "way/341969366",
+      "name": "臺安醫院雙十分院",
+      "lat": 24.1526886,
+      "lng": 120.6885039,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "40455台中市北區雙十路二段29號"
+    },
+    {
+      "osm_id": "way/343211959",
+      "name": "聯新醫院",
+      "lat": 24.9464415,
+      "lng": 121.2054359,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "桃園市平鎮區平興里廣泰路77號"
+    },
+    {
+      "osm_id": "way/343747436",
+      "name": "台安醫院",
+      "lat": 25.0475176,
+      "lng": 121.5473329,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "105臺北市松山區福成里1鄰八德路二段424號"
+    },
+    {
+      "osm_id": "way/344669332",
+      "name": "杏和醫院",
+      "lat": 24.8201463,
+      "lng": 121.7688199,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": "羅東聖母醫院",
+      "addr": "26243宜蘭縣礁溪鄉礁溪路四段129號"
+    },
+    {
+      "osm_id": "way/345564146",
+      "name": "中正區健康服務中心",
+      "lat": 25.0303982,
+      "lng": 121.5158713,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "臺北市牯嶺街24號"
+    },
+    {
+      "osm_id": "way/353154415",
+      "name": "台中榮總嘉義分院",
+      "lat": 23.4668373,
+      "lng": 120.423613,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "600嘉義市西區世賢路二段600號"
+    },
+    {
+      "osm_id": "way/353361372",
+      "name": "同仁醫院",
+      "lat": 24.9826305,
+      "lng": 121.5378147,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/353643452",
+      "name": "安泰醫院",
+      "lat": 22.4739366,
+      "lng": 120.4595083,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "屏東縣東港鎮中正路一段210號"
+    },
+    {
+      "osm_id": "way/354534871",
+      "name": "衛生福利部雙和醫院",
+      "lat": 24.992568,
+      "lng": 121.4935211,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "236新北市中和區中正路291號"
+    },
+    {
+      "osm_id": "way/359636495",
+      "name": "中壢長榮醫院",
+      "lat": 24.9645086,
+      "lng": 121.2577474,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "桃園市中壢區自治里20鄰環中東路150號"
+    },
+    {
+      "osm_id": "way/360032498",
+      "name": "中山醫學大學附設醫院中興分院",
+      "lat": 24.1181551,
+      "lng": 120.6585124,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": "中山醫學大學",
+      "addr": "40256臺中市南區復興路二段11號"
+    },
+    {
+      "osm_id": "way/360032889",
+      "name": "宏恩醫院龍安分院",
+      "lat": 24.1193421,
+      "lng": 120.6552315,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "402020臺中市南區德富路145巷2號"
+    },
+    {
+      "osm_id": "way/361501946",
+      "name": "臺中榮民總醫院",
+      "lat": 24.184516,
+      "lng": 120.6052729,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": "國軍退除役官兵輔導委員會",
+      "addr": "407220臺中市西屯區臺灣大道四段1650號"
+    },
+    {
+      "osm_id": "way/361758009",
+      "name": "臺安醫院",
+      "lat": 24.1489173,
+      "lng": 120.6940668,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "台中市東區進化路203號"
+    },
+    {
+      "osm_id": "way/362092004",
+      "name": "玉里慈濟醫院",
+      "lat": 23.3348138,
+      "lng": 121.3184244,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "981花蓮縣玉里鎮民權街1-1號"
+    },
+    {
+      "osm_id": "way/362635274",
+      "name": "協和婦女醫院",
+      "lat": 25.050391,
+      "lng": 121.5339509,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "104臺北市中山區朱園里9鄰松江路85巷5號"
+    },
+    {
+      "osm_id": "way/363982002",
+      "name": "禾馨民權婦幼診所",
+      "lat": 25.0675618,
+      "lng": 121.5816813,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "114臺北市內湖區民權東路六段42號"
+    },
+    {
+      "osm_id": "way/367214488",
+      "name": "成功醫院",
+      "lat": 24.1135218,
+      "lng": 120.6018483,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/367812162",
+      "name": "衛生福利部基隆醫院",
+      "lat": 25.1305582,
+      "lng": 121.7484418,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "中華民國衛生福利部",
+      "addr": "20148基隆市信義區信二路268號"
+    },
+    {
+      "osm_id": "way/368356541",
+      "name": "基隆市立醫院門診中心",
+      "lat": 25.1304349,
+      "lng": 121.7455725,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "20250基隆市中正區義二路2巷6號"
+    },
+    {
+      "osm_id": "way/368358482",
+      "name": "新昆明醫院",
+      "lat": 25.1332288,
+      "lng": 121.7449275,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "201基隆市中正區中正路30號"
+    },
+    {
+      "osm_id": "way/368612925",
+      "name": "基隆長庚紀念醫院 情人湖院區",
+      "lat": 25.1488284,
+      "lng": 121.7072074,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": "長庚醫療財團法人",
+      "addr": "204基隆市安樂區基金一路208巷200號"
+    },
+    {
+      "osm_id": "way/368617488",
+      "name": "南光神經精神科醫院",
+      "lat": 25.1385146,
+      "lng": 121.7181772,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "基隆市安樂區基金一路91號"
+    },
+    {
+      "osm_id": "way/370101741",
+      "name": "三軍總醫院基隆分院正榮院區",
+      "lat": 25.1449838,
+      "lng": 121.7640559,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": "國防部軍醫局",
+      "addr": "基隆市中正區正榮街100號"
+    },
+    {
+      "osm_id": "way/373233852",
+      "name": "安泰醫院",
+      "lat": 22.5651576,
+      "lng": 120.3614421,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "812高雄市小港區學府路111號"
+    },
+    {
+      "osm_id": "way/375791112",
+      "name": "康寧醫院",
+      "lat": 25.0757992,
+      "lng": 121.6088669,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "台北市內湖區成功路五段420巷26號"
+    },
+    {
+      "osm_id": "way/376274677",
+      "name": "新泰宜醫院",
+      "lat": 23.882215,
+      "lng": 120.6912085,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/377258573",
+      "name": "國軍花蓮總醫院進豐門診處",
+      "lat": 23.9874401,
+      "lng": 121.6067877,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": "國防部軍醫局",
+      "addr": "97055花蓮縣花蓮市進豐街100號"
+    },
+    {
+      "osm_id": "way/396909006",
+      "name": "臺北市立聯合醫院松德院區",
+      "lat": 25.029496,
+      "lng": 121.5743903,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "臺北市信義區松德路309號"
+    },
+    {
+      "osm_id": "way/398190962",
+      "name": "中國醫藥大學新竹附設醫院",
+      "lat": 24.8247488,
+      "lng": 121.0026139,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": "中國醫藥大學",
+      "addr": "新竹縣竹北市興隆路一段199號"
+    },
+    {
+      "osm_id": "way/398342051",
+      "name": "高雄市立大同醫院",
+      "lat": 22.6271128,
+      "lng": 120.2972949,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "財團法人私立高雄醫學大學附設醫院",
+      "addr": "801高雄市前金區中華三路68號"
+    },
+    {
+      "osm_id": "way/398450502",
+      "name": "靜和醫院燕巢分院",
+      "lat": 22.7817901,
+      "lng": 120.4165443,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "靜和醫療體系",
+      "addr": "高雄市燕巢區深水里2鄰深水路3之20號"
+    },
+    {
+      "osm_id": "way/402274203",
+      "name": "光雄長安醫院",
+      "lat": 22.7941466,
+      "lng": 120.2961056,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "820高雄市岡山區岡山路380-1號"
+    },
+    {
+      "osm_id": "way/403555136",
+      "name": "西園醫院",
+      "lat": 25.0277401,
+      "lng": 121.4943466,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "108035臺北市萬華區西園路二段266~274號、185、187號"
+    },
+    {
+      "osm_id": "way/405635610",
+      "name": "桃園長庚紀念醫院",
+      "lat": 25.0295436,
+      "lng": 121.3664407,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": "長庚醫療財團法人",
+      "addr": "333桃園市龜山區頂湖路123號"
+    },
+    {
+      "osm_id": "way/406124212",
+      "name": "國立陽明交通大學附設醫院",
+      "lat": 24.7490319,
+      "lng": 121.758849,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": "國立陽明交通大學",
+      "addr": "宜蘭縣宜蘭市東村里10鄰校舍路169號"
+    },
+    {
+      "osm_id": "way/407709637",
+      "name": "高雄市立凱旋醫院百合園區",
+      "lat": 22.6046837,
+      "lng": 120.3791696,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/409778203",
+      "name": "信合美醫院",
+      "lat": 23.4681397,
+      "lng": 120.4443275,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/424742265",
+      "name": "新北市立聯合醫院三重院區",
+      "lat": 25.0606038,
+      "lng": 121.4908258,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "新北市立聯合醫院",
+      "addr": "241新北市三重區新北大道一段3號"
+    },
+    {
+      "osm_id": "way/425918633",
+      "name": "國軍桃園總醫院新竹分院",
+      "lat": 24.8165727,
+      "lng": 120.9622881,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "新竹市北區武陵路3號"
+    },
+    {
+      "osm_id": "way/427242298",
+      "name": "屏東榮民總醫院龍泉分院",
+      "lat": 22.67496,
+      "lng": 120.5986657,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "91245屏東縣內埔鄉龍潭村昭勝路安平1巷1號"
+    },
+    {
+      "osm_id": "way/427324968",
+      "name": "馨生婦產/.小兒科醫院",
+      "lat": 23.9057679,
+      "lng": 120.686964,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/427938383",
+      "name": "玉里醫院萬寧院區",
+      "lat": 23.2525916,
+      "lng": 121.2962609,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/428372314",
+      "name": "北新醫院",
+      "lat": 25.1932605,
+      "lng": 121.4754663,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/432046000",
+      "name": "聖母醫院牛鬥站",
+      "lat": 24.6409925,
+      "lng": 121.5700566,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/432713664",
+      "name": "國立台灣大學醫學院附設醫院北護分院",
+      "lat": 25.0418677,
+      "lng": 121.5036105,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "108台北市萬華區西門里9鄰內江街87號"
+    },
+    {
+      "osm_id": "way/436051224",
+      "name": "四季台安醫院",
+      "lat": 22.659413,
+      "lng": 120.3136832,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/436597797",
+      "name": "衛福部南投醫院",
+      "lat": 23.9141267,
+      "lng": 120.6850443,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "衛生福利部",
+      "addr": "54062南投縣南投市南陽路478號"
+    },
+    {
+      "osm_id": "way/444264088",
+      "name": "輔大醫院",
+      "lat": 25.0402252,
+      "lng": 121.4314358,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "輔仁大學學校財團法人",
+      "addr": "24352新北市泰山區貴子路69號"
+    },
+    {
+      "osm_id": "way/444601008",
+      "name": "慈恵醫院",
+      "lat": 22.6390936,
+      "lng": 120.3972605,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "831高雄市大寮區鳳屏一路509號"
+    },
+    {
+      "osm_id": "way/447950993",
+      "name": "永慶尖端醫療園區",
+      "lat": 25.0630194,
+      "lng": 121.3707653,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": "林口長庚紀念醫院",
+      "addr": null
+    },
+    {
+      "osm_id": "way/448595331",
+      "name": "桃園長庚醫院護理之家",
+      "lat": 25.0160257,
+      "lng": 121.3672254,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/453772955",
+      "name": "天主教福安醫院",
+      "lat": 23.6787605,
+      "lng": 120.4822069,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "630雲林縣斗南鎮文昌路110號"
+    },
+    {
+      "osm_id": "way/460574769",
+      "name": "建生醫院",
+      "lat": 24.5960405,
+      "lng": 121.8462868,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/462964969",
+      "name": "中心綜合醫院",
+      "lat": 25.0419159,
+      "lng": 121.547405,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "106臺北市大安區忠孝東路四段77號"
+    },
+    {
+      "osm_id": "way/464108112",
+      "name": "玉里醫院溪口院區",
+      "lat": 23.8127528,
+      "lng": 121.4607085,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/467622240",
+      "name": "賢德醫院樹孝院區",
+      "lat": 24.1508791,
+      "lng": 120.717112,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "411台中市太平區新明街69巷38號"
+    },
+    {
+      "osm_id": "way/472067593",
+      "name": "敏盛智醫診所(智慧門診中心)",
+      "lat": 24.9924579,
+      "lng": 121.3132944,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "桃園市桃園區民生路107號"
+    },
+    {
+      "osm_id": "way/486320630",
+      "name": "新竹臺大分院生醫醫院竹北院區",
+      "lat": 24.8058027,
+      "lng": 121.0445878,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "302新竹縣竹北市生醫路一段2號"
+    },
+    {
+      "osm_id": "way/491221747",
+      "name": "宏仁醫院",
+      "lat": 25.0540753,
+      "lng": 121.4838142,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "241新北市三重區水漾路一段158號"
+    },
+    {
+      "osm_id": "way/491865357",
+      "name": "成美醫院",
+      "lat": 24.0831639,
+      "lng": 120.5403383,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": "婦產科",
+      "addr": null
+    },
+    {
+      "osm_id": "way/494957359",
+      "name": "衛生福利部嘉南療養院",
+      "lat": 22.9766265,
+      "lng": 120.242443,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/495028736",
+      "name": "博仁綜合醫院",
+      "lat": 25.0499464,
+      "lng": 121.5574371,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "台北市松山區光復北路66號"
+    },
+    {
+      "osm_id": "way/496651953",
+      "name": "信安醫院",
+      "lat": 23.6685113,
+      "lng": 120.5113811,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/496843411",
+      "name": "斗六慈濟醫院",
+      "lat": 23.7024736,
+      "lng": 120.5298197,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/503165362",
+      "name": "重仁骨科醫院",
+      "lat": 22.6342456,
+      "lng": 120.2936775,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/508896695",
+      "name": "新竹臺大分院生醫醫院竹東院區",
+      "lat": 24.7190781,
+      "lng": 121.0932016,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "新竹縣竹東鎮至善路52號"
+    },
+    {
+      "osm_id": "way/511682128",
+      "name": "平潭协和医院",
+      "lat": 25.484834,
+      "lng": 119.6963549,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/520966551",
+      "name": "長慎醫院",
+      "lat": 24.9477991,
+      "lng": 121.2462459,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "桃園市中壢區中山東路二段525號"
+    },
+    {
+      "osm_id": "way/529609320",
+      "name": "秀傳醫院光復分院",
+      "lat": 24.0811595,
+      "lng": 120.5454563,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/529613955",
+      "name": "順安醫院",
+      "lat": 24.0807261,
+      "lng": 120.5440048,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/529615460",
+      "name": "冠華醫院",
+      "lat": 24.082474,
+      "lng": 120.5425973,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/529615928",
+      "name": "彰化基督教醫院中華路院區",
+      "lat": 24.078703,
+      "lng": 120.539598,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/543000989",
+      "name": "台北秀傳醫院",
+      "lat": 25.0431667,
+      "lng": 121.5568796,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": "秀傳醫療社團法人",
+      "addr": "106臺北市大安區光復南路116巷1號"
+    },
+    {
+      "osm_id": "way/544940298",
+      "name": "亞洲大學附屬醫院",
+      "lat": 24.0540326,
+      "lng": 120.6853657,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "41354臺中市霧峰區福新路222號"
+    },
+    {
+      "osm_id": "way/545642973",
+      "name": "台中榮總灣橋分院",
+      "lat": 23.4901099,
+      "lng": 120.5075185,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "604001嘉義縣竹崎鄉灣橋村石麻園38號"
+    },
+    {
+      "osm_id": "way/546767498",
+      "name": "雲林長庚紀念醫院",
+      "lat": 23.7954761,
+      "lng": 120.2180951,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "雲林縣麥寮鄉中興村工業路1500號"
+    },
+    {
+      "osm_id": "way/546942400",
+      "name": "和信治癌中心醫院",
+      "lat": 25.1283921,
+      "lng": 121.4717562,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "台北市北投區立德路125號"
+    },
+    {
+      "osm_id": "way/550194320",
+      "name": "衛生福利部苗栗醫院",
+      "lat": 24.5757885,
+      "lng": 120.8410775,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/550416016",
+      "name": "敏盛醫院",
+      "lat": 25.0164514,
+      "lng": 121.3063131,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "33044桃園市桃園區經國路168號"
+    },
+    {
+      "osm_id": "way/550805494",
+      "name": "安心醫院",
+      "lat": 23.4532384,
+      "lng": 120.433436,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "600嘉義市西區新民路88號"
+    },
+    {
+      "osm_id": "way/554210472",
+      "name": "部立桃園醫院",
+      "lat": 24.977724,
+      "lng": 121.2680448,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "33004桃園市中山路 1492 號"
+    },
+    {
+      "osm_id": "way/555398331",
+      "name": "盧亞人醫院",
+      "lat": 23.482117,
+      "lng": 120.4475475,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/583636631",
+      "name": "台中榮民總醫院灣橋分院",
+      "lat": 23.4873683,
+      "lng": 120.5069469,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/584421209",
+      "name": "員林郭醫院大村分院",
+      "lat": 23.9992532,
+      "lng": 120.5389414,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/586988781",
+      "name": "怡仁醫院",
+      "lat": 24.9167168,
+      "lng": 121.1547354,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/593366020",
+      "name": "枋寮醫院",
+      "lat": 22.3639307,
+      "lng": 120.5965038,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/596768964",
+      "name": "潮州孝愛仁愛之家",
+      "lat": 22.5544378,
+      "lng": 120.5459456,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "920屏東縣潮州鎮四維路189巷13號"
+    },
+    {
+      "osm_id": "way/601928324",
+      "name": "敏盛醫院 龍潭分院",
+      "lat": 24.8755432,
+      "lng": 121.2141606,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "32550桃園市龍潭區烏樹林里中豐路168號"
+    },
+    {
+      "osm_id": "way/607087713",
+      "name": "大安醫院",
+      "lat": 24.834881,
+      "lng": 121.0081563,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "新竹縣竹北市博愛街298巷5號"
+    },
+    {
+      "osm_id": "way/607087714",
+      "name": "新仁醫院",
+      "lat": 24.8356541,
+      "lng": 121.0077948,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "新竹縣竹北市博愛街331號"
+    },
+    {
+      "osm_id": "way/610818176",
+      "name": "博田國際醫院",
+      "lat": 22.6581047,
+      "lng": 120.3035359,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "高雄市左營區博愛二路100號"
+    },
+    {
+      "osm_id": "way/617099333",
+      "name": "公祥醫院",
+      "lat": 25.1699762,
+      "lng": 121.4443301,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/617957517",
+      "name": "柏仁醫院",
+      "lat": 22.6642999,
+      "lng": 120.3035864,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/619333028",
+      "name": "衛福部澎湖醫院",
+      "lat": 23.5642253,
+      "lng": 119.5659442,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "澎湖縣馬公市啟明里10鄰中正路10號"
+    },
+    {
+      "osm_id": "way/620853895",
+      "name": "溫有諒醫院",
+      "lat": 22.857847,
+      "lng": 120.2586606,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/621174739",
+      "name": "高新醫院",
+      "lat": 22.865582,
+      "lng": 120.2571752,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/635196692",
+      "name": "海天醫院",
+      "lat": 24.7788627,
+      "lng": 121.8106794,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "263宜蘭縣壯圍鄉古亭路23之9號"
+    },
+    {
+      "osm_id": "way/635196693",
+      "name": "員山馬偕紀念醫院",
+      "lat": 24.7213919,
+      "lng": 121.7217059,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "264宜蘭縣員山鄉尚深路91號"
+    },
+    {
+      "osm_id": "way/635196694",
+      "name": "蘭陽仁愛醫院",
+      "lat": 24.7487565,
+      "lng": 121.7544992,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "268宜蘭縣宜蘭市中山路二段260號"
+    },
+    {
+      "osm_id": "way/636893902",
+      "name": "居善醫院",
+      "lat": 25.0587386,
+      "lng": 121.1658524,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "桃園市大園區大觀路910號"
+    },
+    {
+      "osm_id": "way/654378973",
+      "name": "豐安醫院",
+      "lat": 24.2516285,
+      "lng": 120.7206034,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/654379579",
+      "name": "中國醫藥大學附設醫院豐原分院",
+      "lat": 24.2515418,
+      "lng": 120.7184339,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/656644785",
+      "name": "霧峰澄清醫院",
+      "lat": 24.0856537,
+      "lng": 120.6994281,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "412台中市大里區成功路55號"
+    },
+    {
+      "osm_id": "way/659302100",
+      "name": "聯新國際醫院桃新分院",
+      "lat": 24.9891488,
+      "lng": 121.3094855,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "桃園市桃園區復興路195號"
+    },
+    {
+      "osm_id": "way/664061054",
+      "name": "大園敏盛醫院",
+      "lat": 25.0623469,
+      "lng": 121.1960456,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "桃園市大園區田心里13鄰華中街2號"
+    },
+    {
+      "osm_id": "way/665770168",
+      "name": "竹山秀傳醫院",
+      "lat": 23.7999874,
+      "lng": 120.7142334,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "557南投縣竹山鎮集山路二段75號"
+    },
+    {
+      "osm_id": "way/668053121",
+      "name": "衛福部恆春旅遊醫院",
+      "lat": 21.9990222,
+      "lng": 120.7451019,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/668053127",
+      "name": "南門醫院",
+      "lat": 22.0009478,
+      "lng": 120.7453999,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "屏東縣恆春鎮城南里6鄰南門路10號"
+    },
+    {
+      "osm_id": "way/682717547",
+      "name": "玉里榮民醫院長良分院",
+      "lat": 23.287782,
+      "lng": 121.2826302,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/682717552",
+      "name": "臺北榮民總醫院玉里分院長良園區",
+      "lat": 23.2904545,
+      "lng": 121.2935811,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "花蓮縣玉里鎮長良里忠義34號"
+    },
+    {
+      "osm_id": "way/684434694",
+      "name": "維德醫院",
+      "lat": 25.1303757,
+      "lng": 121.798865,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/687819607",
+      "name": "新竹國泰綜合醫院",
+      "lat": 24.7984754,
+      "lng": 120.9651296,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": "國泰醫療財團法人",
+      "addr": "新竹市東區中華路二段678號"
+    },
+    {
+      "osm_id": "way/692893297",
+      "name": "新惠生醫院",
+      "lat": 24.2582663,
+      "lng": 120.7192477,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "臺中市豐原區圓環北路一段319號"
+    },
+    {
+      "osm_id": "way/696106166",
+      "name": "台中榮總埔里分院市區門診",
+      "lat": 23.968254,
+      "lng": 120.9564247,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/699629555",
+      "name": "臺東醫院",
+      "lat": 22.7572951,
+      "lng": 121.1506663,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "950204臺東縣臺東市五權街1號"
+    },
+    {
+      "osm_id": "way/708675111",
+      "name": "臺北市立聯合醫院昆明院區",
+      "lat": 25.0442679,
+      "lng": 121.5047337,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/709816361",
+      "name": "東勢區農會附設農民醫院",
+      "lat": 24.2536198,
+      "lng": 120.8290937,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "東勢區農會",
+      "addr": "臺中市東勢區南平里７鄰忠孝街1號"
+    },
+    {
+      "osm_id": "way/734500741",
+      "name": "南星醫院",
+      "lat": 23.8725493,
+      "lng": 120.5277691,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "521彰化縣北斗鎮斗苑路一段26號"
+    },
+    {
+      "osm_id": "way/750986395",
+      "name": "吉安醫院",
+      "lat": 22.9667988,
+      "lng": 120.3443965,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "臺南市關廟區花園里16鄰中正路435號"
+    },
+    {
+      "osm_id": "way/751222504",
+      "name": "漢銘醫院",
+      "lat": 24.0612492,
+      "lng": 120.5360366,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/751264403",
+      "name": "佛教正德醫院",
+      "lat": 24.1432757,
+      "lng": 120.6311694,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "408023臺中市南屯區文心南五路三段100號"
+    },
+    {
+      "osm_id": "way/753696098",
+      "name": "本堂澄清醫院",
+      "lat": 24.0535782,
+      "lng": 120.6964485,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "41341臺中市霧峰區中正路718號"
+    },
+    {
+      "osm_id": "way/754336278",
+      "name": "懷寧醫院",
+      "lat": 24.9614058,
+      "lng": 121.2054057,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/759353605",
+      "name": "國軍高雄總醫院屏東分院",
+      "lat": 22.6333543,
+      "lng": 120.4876318,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/759621668",
+      "name": "衛生福利部彰化醫院",
+      "lat": 23.951022,
+      "lng": 120.5272242,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/760001357",
+      "name": "衛福部桃園醫院新屋分院",
+      "lat": 24.9697204,
+      "lng": 121.1071839,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/771556919",
+      "name": "文化醫院",
+      "lat": 24.9308069,
+      "lng": 121.3782243,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/781722808",
+      "name": "新泰綜合醫院",
+      "lat": 25.0215405,
+      "lng": 121.4343128,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "242063新北市新莊區新樹路176號"
+    },
+    {
+      "osm_id": "way/781983613",
+      "name": "通霄光田醫院",
+      "lat": 24.4890061,
+      "lng": 120.6784794,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/782032090",
+      "name": "佑民醫院",
+      "lat": 23.9605225,
+      "lng": 120.681819,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "佑民醫療社團法人佑民醫院",
+      "addr": "542南投縣草屯鎮太平路一段200號"
+    },
+    {
+      "osm_id": "way/782277163",
+      "name": "道安醫院",
+      "lat": 23.9615058,
+      "lng": 120.4802767,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "彰化縣溪湖鎮光平里2鄰彰水路三段362號"
+    },
+    {
+      "osm_id": "way/782279462",
+      "name": "員榮醫院",
+      "lat": 23.9536042,
+      "lng": 120.5747166,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "彰化縣員林市黎明里15鄰中正路201號"
+    },
+    {
+      "osm_id": "way/782405204",
+      "name": "義大大昌醫院",
+      "lat": 22.6574995,
+      "lng": 120.3196503,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "義大醫療財團法人",
+      "addr": "807高雄市三民區大昌一路305號"
+    },
+    {
+      "osm_id": "way/782575358",
+      "name": "大東醫院",
+      "lat": 22.6252939,
+      "lng": 120.3619439,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "高雄市鳳山區三民里17鄰光遠路171之2號"
+    },
+    {
+      "osm_id": "way/782604894",
+      "name": "民眾醫院",
+      "lat": 22.6762689,
+      "lng": 120.4876992,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/784559368",
+      "name": "邱外科醫院",
+      "lat": 22.614651,
+      "lng": 120.2972239,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "高雄市苓雅區成功一路137號"
+    },
+    {
+      "osm_id": "way/808485794",
+      "name": "清泉醫院",
+      "lat": 24.2170025,
+      "lng": 120.6664735,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/815116505",
+      "name": "南勢醫院",
+      "lat": 24.5194563,
+      "lng": 120.7883907,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": "大千醫療社團法人",
+      "addr": null
+    },
+    {
+      "osm_id": "way/815401339",
+      "name": "員榮醫院員生院區",
+      "lat": 23.959248,
+      "lng": 120.566209,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "彰化縣員林市新生里28鄰莒光路359號"
+    },
+    {
+      "osm_id": "way/817849311",
+      "name": "陽明醫院",
+      "lat": 24.9500808,
+      "lng": 121.2124702,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/821344225",
+      "name": "屏安醫院",
+      "lat": 22.6706183,
+      "lng": 120.5678894,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/825462040",
+      "name": "洪揚醫院",
+      "lat": 23.7107136,
+      "lng": 120.5489309,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/830192315",
+      "name": "關西醫院",
+      "lat": 24.7570445,
+      "lng": 121.1898843,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/833425467",
+      "name": "佑青醫院",
+      "lat": 22.6658045,
+      "lng": 120.5678291,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "屏東縣內埔鄉建興路218巷19號"
+    },
+    {
+      "osm_id": "way/866350249",
+      "name": "勝美醫院",
+      "lat": 24.1531473,
+      "lng": 120.6828078,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/866491506",
+      "name": "中國醫藥大學北港附設醫院",
+      "lat": 23.5897068,
+      "lng": 120.3072486,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "雲林縣北港鎮新街里5鄰新德路123之1號"
+    },
+    {
+      "osm_id": "way/874820147",
+      "name": "道周醫院",
+      "lat": 24.1106893,
+      "lng": 120.4917984,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/890555483",
+      "name": "高禾醫院",
+      "lat": 22.6542788,
+      "lng": 120.3041435,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "804高雄市鼓山區博愛一路460號"
+    },
+    {
+      "osm_id": "way/895821895",
+      "name": "建佑醫院",
+      "lat": 22.503943,
+      "lng": 120.386837,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/896973477",
+      "name": "麻豆新樓醫院",
+      "lat": 23.179752,
+      "lng": 120.2332881,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "臺南市麻豆區埤頭里11鄰麻佳路一段207號"
+    },
+    {
+      "osm_id": "way/905836620",
+      "name": "阮綜合醫院",
+      "lat": 22.6155788,
+      "lng": 120.2980328,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "高雄市苓雅區成功一路162號"
+    },
+    {
+      "osm_id": "way/924809717",
+      "name": "衛生福利部玉里醫院",
+      "lat": 23.3470876,
+      "lng": 121.3211761,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": "衛生福利部",
+      "addr": "981花蓮縣玉里鎮中華路448號"
+    },
+    {
+      "osm_id": "way/938843147",
+      "name": "新國民醫院",
+      "lat": 24.9542092,
+      "lng": 121.2234111,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/941911056",
+      "name": "屏基醫療財團法人屏東基督教醫院",
+      "lat": 22.6826262,
+      "lng": 120.5025225,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "屏基醫療財團法人",
+      "addr": "900屏東縣屏東市大連路60號"
+    },
+    {
+      "osm_id": "way/948654566",
+      "name": "新莊仁濟醫院",
+      "lat": 25.0269521,
+      "lng": 121.4429442,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": "台北仁濟院",
+      "addr": "242066新北市新莊區中環路一段28號"
+    },
+    {
+      "osm_id": "way/949145548",
+      "name": "衛生福利部旗山醫院",
+      "lat": 22.8804395,
+      "lng": 120.4830714,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "84247高雄市旗山區中學路60號"
+    },
+    {
+      "osm_id": "way/953062133",
+      "name": "光田醫院大甲分院",
+      "lat": 24.3467934,
+      "lng": 120.6165443,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/964454706",
+      "name": "員郭醫院",
+      "lat": 23.9674705,
+      "lng": 120.5628498,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "彰化縣員林市員林大道六段51號"
+    },
+    {
+      "osm_id": "way/965126659",
+      "name": "新永和醫院",
+      "lat": 24.9513239,
+      "lng": 121.219674,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/987210743",
+      "name": "迦樂醫院",
+      "lat": 22.463402,
+      "lng": 120.6152889,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "屏東縣新埤鄉箕湖村10鄰進化路12之200號"
+    },
+    {
+      "osm_id": "way/987589514",
+      "name": "清福醫院",
+      "lat": 24.92918,
+      "lng": 121.3799908,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/990293756",
+      "name": "為恭紀念醫院東興院區",
+      "lat": 24.6706915,
+      "lng": 120.9195798,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/993363250",
+      "name": "天主教仁慈醫院",
+      "lat": 24.9004474,
+      "lng": 121.0454802,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "新竹縣湖口鄉忠孝路29號"
+    },
+    {
+      "osm_id": "way/996052181",
+      "name": "長青醫院",
+      "lat": 25.1715589,
+      "lng": 121.483082,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "新北市淡水區糞箕湖1-5號"
+    },
+    {
+      "osm_id": "way/997980573",
+      "name": "高醫岡山醫院",
+      "lat": 22.77917,
+      "lng": 120.3011532,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": "高雄醫學大學",
+      "addr": "高雄市岡山區大遼里9鄰捷安路8號"
+    },
+    {
+      "osm_id": "way/999820276",
+      "name": "苑裡李綜合醫院",
+      "lat": 24.4418843,
+      "lng": 120.65271,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "苗栗縣苑裡鎮苑南里10鄰和平路168號"
+    },
+    {
+      "osm_id": "way/1004862600",
+      "name": "臺北市立聯合醫院和平婦幼院區婦幼院址",
+      "lat": 25.0290074,
+      "lng": 121.5193103,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "臺北市立聯合醫院",
+      "addr": "10078臺北市中正區福州街12號"
+    },
+    {
+      "osm_id": "way/1033538061",
+      "name": "天成醫院",
+      "lat": 24.9089114,
+      "lng": 121.1572104,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "桃園市楊梅區中山里17鄰中山北路一段356號"
+    },
+    {
+      "osm_id": "way/1034703550",
+      "name": "華揚醫院",
+      "lat": 24.9530557,
+      "lng": 121.2300491,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/1052419632",
+      "name": "國立臺灣大學醫學院附設醫院癌醫中心分院",
+      "lat": 25.0148589,
+      "lng": 121.5442471,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": "國立臺灣大學醫學院",
+      "addr": "106台北市大安區基隆路三段155巷57號"
+    },
+    {
+      "osm_id": "way/1056447073",
+      "name": "桃園秉坤婦幼醫院",
+      "lat": 25.0003928,
+      "lng": 121.289265,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "桃園市桃園區慈文路959號"
+    },
+    {
+      "osm_id": "way/1057231377",
+      "name": "重光醫院",
+      "lat": 24.686598,
+      "lng": 120.9081189,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "苗栗縣頭份市中華路1039號"
+    },
+    {
+      "osm_id": "way/1059183609",
+      "name": "惠川醫院",
+      "lat": 22.7879928,
+      "lng": 120.29687,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "高雄市岡山區岡山路92號"
+    },
+    {
+      "osm_id": "way/1063142951",
+      "name": "暘基醫院",
+      "lat": 25.1388794,
+      "lng": 121.7146514,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "基隆市安樂區基金一路129巷8號"
+    },
+    {
+      "osm_id": "way/1063167428",
+      "name": "高雄市立中醫醫院",
+      "lat": 22.6258869,
+      "lng": 120.3238635,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "高雄市苓雅區奏捷里16鄰凱旋二路132號"
+    },
+    {
+      "osm_id": "way/1071897990",
+      "name": "樂生療養院組合屋區",
+      "lat": 25.0208831,
+      "lng": 121.4094042,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": "衛生福利部樂生療養院",
+      "addr": "333027桃園市龜山區迴龍里萬壽路一段50巷2號"
+    },
+    {
+      "osm_id": "way/1072972559",
+      "name": "新菩提醫院",
+      "lat": 24.1149204,
+      "lng": 120.6889359,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": "新菩提醫院",
+      "addr": null
+    },
+    {
+      "osm_id": "way/1078697137",
+      "name": "臺北榮民總醫院臺東分院勝利院區",
+      "lat": 22.7608011,
+      "lng": 121.1583785,
+      "is_medical_center": true,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "臺東縣臺東市勝利街2號"
+    },
+    {
+      "osm_id": "way/1083108516",
+      "name": "劉嘉修醫院",
+      "lat": 22.7957484,
+      "lng": 120.2958748,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/1085396047",
+      "name": "大順醫院",
+      "lat": 24.4240419,
+      "lng": 120.8668476,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": "大千醫療體系",
+      "addr": "苗栗縣大湖鄉中山路711號"
+    },
+    {
+      "osm_id": "way/1088124990",
+      "name": "瑞生醫院",
+      "lat": 22.6177612,
+      "lng": 120.3849064,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "高雄市大寮區中興里5鄰鳳林四路192號"
+    },
+    {
+      "osm_id": "way/1093106518",
+      "name": "杏豐醫院",
+      "lat": 24.2537805,
+      "lng": 120.7201353,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "臺中市豐原區豐榮里12鄰三民路106號"
+    },
+    {
+      "osm_id": "way/1103363087",
+      "name": "部立臺東醫院成功分院",
+      "lat": 23.0992434,
+      "lng": 121.3778257,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/1143880538",
+      "name": "美德醫院",
+      "lat": 24.3861732,
+      "lng": 120.6653862,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": "李綜合醫療社團法人",
+      "addr": "437臺中市大甲區長安路20號"
+    },
+    {
+      "osm_id": "way/1188452333",
+      "name": "南投醫院中興分院",
+      "lat": 23.952148,
+      "lng": 120.6952247,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/1240470368",
+      "name": "番路鄉衛生所",
+      "lat": 23.4630721,
+      "lng": 120.5538169,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/1254729425",
+      "name": "二林基督教醫院",
+      "lat": 23.8936414,
+      "lng": 120.3633272,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "彰化縣二林鎮南光里25鄰大成路一段558號"
+    },
+    {
+      "osm_id": "way/1285862210",
+      "name": "常春醫院",
+      "lat": 23.9477751,
+      "lng": 120.5748603,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "彰化縣員林市員集路二段501號"
+    },
+    {
+      "osm_id": "way/1286644895",
+      "name": "高雄秀傳紀念醫院",
+      "lat": 22.8346952,
+      "lng": 120.2663992,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "高雄市路竹區北嶺六路100號"
+    },
+    {
+      "osm_id": "way/1299017119",
+      "name": "台中榮民總醫院北院區",
+      "lat": 24.1905271,
+      "lng": 120.6082427,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/1302296777",
+      "name": "宏其婦幼醫院",
+      "lat": 24.9612363,
+      "lng": 121.2269858,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "桃園市中壢區新街里6鄰元化路223號"
+    },
+    {
+      "osm_id": "way/1303816601",
+      "name": "靜和醫院",
+      "lat": 24.133594,
+      "lng": 120.6600741,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "403028臺中市西區南屯路一段158號"
+    },
+    {
+      "osm_id": "way/1306066038",
+      "name": "德仁醫院",
+      "lat": 24.9840939,
+      "lng": 121.3187273,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "桃園市桃園區桃鶯路245號"
+    },
+    {
+      "osm_id": "way/1306660127",
+      "name": "秉坤婦幼醫院",
+      "lat": 24.9481444,
+      "lng": 121.2118221,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "桃園市平鎮區義興里23鄰延平路二段129號"
+    },
+    {
+      "osm_id": "way/1310803656",
+      "name": "高雄基督教醫院",
+      "lat": 22.6140361,
+      "lng": 120.2962151,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "高雄市苓雅區苓雅里3鄰華新街86號"
+    },
+    {
+      "osm_id": "way/1310806728",
+      "name": "敦仁醫院",
+      "lat": 23.9513602,
+      "lng": 120.604517,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "彰化縣員林市振興里8鄰員水路一段102巷74弄99號"
+    },
+    {
+      "osm_id": "way/1315884157",
+      "name": "新中興醫院",
+      "lat": 24.8018317,
+      "lng": 120.9627721,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "新竹市北區興南街43號"
+    },
+    {
+      "osm_id": "way/1315884159",
+      "name": "竹信醫院",
+      "lat": 24.7343497,
+      "lng": 121.0910838,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "新竹縣竹東鎮仁愛路196號"
+    },
+    {
+      "osm_id": "way/1322465711",
+      "name": "豐榮醫院",
+      "lat": 24.9632964,
+      "lng": 121.5114444,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/1324142320",
+      "name": "林森醫院",
+      "lat": 24.1359003,
+      "lng": 120.6730931,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "403027臺中市西區三民路一段152之1號"
+    },
+    {
+      "osm_id": "way/1327578612",
+      "name": "宏濟神經精神科醫院",
+      "lat": 24.9588443,
+      "lng": 121.5142604,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": "怡濟慈園醫療社團法人",
+      "addr": "新北市新店區公崙里022鄰安忠路57巷5號"
+    },
+    {
+      "osm_id": "way/1334664811",
+      "name": "宏慈療養院",
+      "lat": 24.938628,
+      "lng": 121.4883516,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "新北市新店區雙城里029鄰安泰路157號二樓"
+    },
+    {
+      "osm_id": "way/1348757216",
+      "name": "童綜合醫院沙鹿院區",
+      "lat": 24.2430397,
+      "lng": 120.5607402,
+      "is_medical_center": true,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "臺中市沙鹿區鹿寮里17鄰中山路439號"
+    },
+    {
+      "osm_id": "way/1348956003",
+      "name": "宋俊宏婦幼醫院",
+      "lat": 24.9561899,
+      "lng": 121.209974,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "桃園市平鎮區廣達里16鄰民族路197號"
+    },
+    {
+      "osm_id": "way/1348965036",
+      "name": "雲林基督教醫院",
+      "lat": 23.7810153,
+      "lng": 120.442064,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "雲林縣西螺鎮新豐里12鄰市場南路371號"
+    },
+    {
+      "osm_id": "way/1348965037",
+      "name": "天晟醫院",
+      "lat": 24.9625435,
+      "lng": 121.2291451,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "桃園市中壢區延平路155號"
+    },
+    {
+      "osm_id": "way/1348965041",
+      "name": "新生醫院",
+      "lat": 24.551613,
+      "lng": 120.8207033,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "苗栗縣苗栗市維新里14鄰新東街117號"
+    },
+    {
+      "osm_id": "way/1348965042",
+      "name": "弘大醫院",
+      "lat": 24.5516656,
+      "lng": 120.8210397,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "苗栗縣苗栗市維新里15鄰新東街125號"
+    },
+    {
+      "osm_id": "way/1361896406",
+      "name": "台安醫院",
+      "lat": 25.2082974,
+      "lng": 121.4959487,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "新北市三芝區興華里007鄰楓子林42之5號"
+    },
+    {
+      "osm_id": "way/1380612696",
+      "name": "員榮醫院",
+      "lat": 23.9533025,
+      "lng": 120.5747263,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/1382108397",
+      "name": "賢德醫院",
+      "lat": 24.1451549,
+      "lng": 120.7143174,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "411台中市太平區宜昌路420號"
+    },
+    {
+      "osm_id": "way/1383792761",
+      "name": "澄清復健醫院",
+      "lat": 24.1994154,
+      "lng": 120.612151,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/1409804263",
+      "name": "陽光精神科醫院",
+      "lat": 24.2811435,
+      "lng": 120.6094116,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "臺中市清水區吳厝里8鄰大楊南街98號"
+    },
+    {
+      "osm_id": "way/1428421098",
+      "name": "新生醫院",
+      "lat": 24.8016858,
+      "lng": 120.9633161,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "新竹市北區西門街120號"
+    },
+    {
+      "osm_id": "way/1436687304",
+      "name": "員林何醫院",
+      "lat": 23.9570652,
+      "lng": 120.5705214,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/1443425446",
+      "name": "員林衛生所",
+      "lat": 23.9529006,
+      "lng": 120.5641293,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/1461703303",
+      "name": "敏盛綜合醫院三民院區",
+      "lat": 24.9942597,
+      "lng": 121.3054686,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": "桃園市桃園區西門里12鄰三民路三段106號"
+    },
+    {
+      "osm_id": "way/1487668453",
+      "name": "祥太醫院",
+      "lat": 23.476089,
+      "lng": 120.4405499,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/1496000452",
+      "name": "高雄市立岡山醫院",
+      "lat": 22.7968322,
+      "lng": 120.2944994,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "高雄市岡山區岡山里26鄰壽天路12號"
+    },
+    {
+      "osm_id": "way/1498943443",
+      "name": "捨憶之家",
+      "lat": 24.2428496,
+      "lng": 120.7241999,
+      "is_medical_center": false,
+      "has_emergency_tag": false,
+      "operator": null,
+      "addr": null
+    },
+    {
+      "osm_id": "way/1505903491",
+      "name": "林新醫院",
+      "lat": 24.1493528,
+      "lng": 120.6402361,
+      "is_medical_center": false,
+      "has_emergency_tag": true,
+      "operator": null,
+      "addr": "408346臺中市南屯區惠中路三段36號"
+    }
+  ]
+}

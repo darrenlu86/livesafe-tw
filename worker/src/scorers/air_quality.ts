@@ -1,23 +1,11 @@
 /**
- * 空氣品質評分（年度版）
+ * 空氣品質評分（年度版 + 橘色天數）
  *
- * 資料源：環境部 aqx_p_434（測站逐日 AQI）+ aqx_p_322（測站逐日 PM2.5）
- * 由 data-pipeline/scripts/fetch_aqi_annual.py 預處理為 aqi_annual.json。
- *
- * 算法（spec §4.1：近 12 個月 PM2.5 年均 + 紫爆天數）：
- *   PM2.5 年均 (µg/m³)：
- *     ≤ 12 (WHO 良好) → 100
- *     12-15           → 85
- *     15-25           → 70
- *     25-35           → 50
- *     35-50           → 25
- *     > 50            → 10
- *   紅色天數扣分 (AQI > 150)：
- *     -2 per day, cap -20
- *   紫爆天數加重扣分 (AQI > 200)：
- *     -3 per day, cap -15
- *
- * 若無 PM2.5 資料，fallback 用年均 AQI 分級。
+ * 算法：
+ *   base (PM2.5 年均)：≤12 100、≤15 85、≤25 70、≤35 50、≤50 25、>50 10
+ *   橘色 (101-150) 扣分： -0.4/day, cap -12
+ *   紅色 (>150)    扣分： -2/day,  cap -20
+ *   紫爆 (>200)    扣分： -3/day,  cap -15
  */
 import { haversineKm } from "./healthcare";
 import type {
@@ -54,8 +42,6 @@ export function scoreAirQuality(
       score: 0,
       nearest_station: null,
       window_days: dataset.metadata.window_days,
-      current_aqi: null,
-      current_publishtime: null,
     };
   }
 
@@ -73,20 +59,21 @@ export function scoreAirQuality(
       score: 0,
       nearest_station: null,
       window_days: dataset.metadata.window_days,
-      current_aqi: null,
-      current_publishtime: null,
     };
   }
 
-  // base: 以 PM2.5 年均優先，否則用 AQI 年均
   const base =
     nearest.avg_pm25 != null
       ? pm25Score(nearest.avg_pm25)
       : avgAqiScore(nearest.avg_aqi);
 
+  const orangePenalty = Math.min(12, nearest.orange_days * 0.4);
   const redPenalty = Math.min(20, nearest.red_days * 2);
   const purplePenalty = Math.min(15, nearest.purple_days * 3);
-  const score = Math.max(0, Math.round(base - redPenalty - purplePenalty));
+  const score = Math.max(
+    0,
+    Math.round(base - orangePenalty - redPenalty - purplePenalty),
+  );
 
   return {
     score,
@@ -99,11 +86,11 @@ export function scoreAirQuality(
       avg_pm25: nearest.avg_pm25,
       purple_days: nearest.purple_days,
       red_days: nearest.red_days,
+      orange_days: nearest.orange_days,
       good_rate: nearest.good_rate,
+      unhealthy_for_sensitive_rate: nearest.unhealthy_for_sensitive_rate,
       days_total: nearest.days_total,
     },
     window_days: dataset.metadata.window_days,
-    current_aqi: null,
-    current_publishtime: null,
   };
 }

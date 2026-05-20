@@ -54,14 +54,64 @@ MANUAL_COORDS: dict[str, tuple[float, float, str]] = {
     "1507010023": (22.5987581, 120.3347744, "manual_district"),  # 澄清國際眼科醫院（鳳山五甲）
     "1507330011": (22.6334495, 120.3068806, "manual_district"),  # 七賢脊椎外科醫院（新興七賢）
     "1507340044": (22.6275512, 120.2941644, "manual_district"),  # 活力得中山脊椎外科醫院（前金）
+    "1411030013": (25.0984566, 121.7530762, "manual_street"),   # 礦工醫院（基隆暖暖源遠路）
+    "1502050045": (22.6476949, 120.2996219, "manual_district"),  # 德謙醫院（高雄三民區）
+    "1502060014": (22.6310699, 120.3100224, "manual_district"),  # 蕭志文醫院（高雄新興區）
+    "1522011080": (23.4824128, 120.4611116, "manual_street"),    # 建興醫院（嘉義東區中山路）
+    "1531021183": (25.0614860, 121.4881020, "manual_district"),  # 全民醫院（新北三重）
+    "1531140058": (25.0849230, 121.4737000, "manual_district"),  # 全民醫院（新北蘆洲）
 }
 
-# 剝除「XX醫療社團法人 / XX醫療財團法人」前綴（含教會、財團、學校等冗長前綴）
+# 剝除「XX醫療社團法人 / XX醫療財團法人」前綴
 LEGAL_ENTITY_RE = re.compile(r"^.*?醫療(?:社團|財團)法人")
 ADDRESS_RE = re.compile(r"^(.+?[縣市])(.+?[鄉鎮市區])(.+?[路街道段])")
 ADDRESS_NO_RE = re.compile(
     r"^(.+?[縣市])(.+?[鄉鎮市區])(?:.*?里)?(.+?[路街道]\S*?號)"
 )
+COUNTY_RE = re.compile(r"^([^縣市]+[縣市])")
+
+# 縣市概略邊界（用於驗證 geocode 結果在 address 聲明的縣市範圍內）
+COUNTY_BBOX: dict[str, tuple[float, float, float, float]] = {
+    "臺北市": (24.95, 25.21, 121.45, 121.67),
+    "台北市": (24.95, 25.21, 121.45, 121.67),
+    "新北市": (24.66, 25.31, 121.21, 122.03),
+    "桃園市": (24.61, 25.13, 121.00, 121.51),
+    "新竹市": (24.74, 24.89, 120.88, 121.05),
+    "新竹縣": (24.51, 24.95, 120.78, 121.45),
+    "苗栗縣": (24.30, 24.70, 120.59, 121.13),
+    "臺中市": (23.99, 24.50, 120.43, 121.45),
+    "台中市": (23.99, 24.50, 120.43, 121.45),
+    "彰化縣": (23.78, 24.16, 120.31, 120.71),
+    "南投縣": (23.48, 24.20, 120.55, 121.41),
+    "雲林縣": (23.49, 23.95, 120.07, 120.74),
+    "嘉義市": (23.43, 23.51, 120.40, 120.50),
+    "嘉義縣": (23.16, 23.61, 120.10, 120.97),
+    "臺南市": (22.86, 23.46, 120.04, 120.64),
+    "台南市": (22.86, 23.46, 120.04, 120.64),
+    "高雄市": (22.45, 23.47, 120.10, 121.06),
+    "屏東縣": (21.89, 22.91, 120.30, 120.93),
+    "宜蘭縣": (24.30, 25.04, 121.30, 121.96),
+    "花蓮縣": (23.10, 24.41, 121.17, 121.74),
+    "臺東縣": (21.93, 23.42, 120.74, 121.65),
+    "台東縣": (21.93, 23.42, 120.74, 121.65),
+    "澎湖縣": (23.18, 23.74, 119.30, 119.71),
+    "金門縣": (24.34, 24.60, 118.21, 118.50),
+    "連江縣": (26.13, 26.39, 119.91, 120.51),
+    "基隆市": (25.10, 25.21, 121.62, 121.83),
+}
+
+
+def parse_county(address: str) -> str | None:
+    m = COUNTY_RE.match(address)
+    return m.group(1) if m else None
+
+
+def in_county(lat: float, lng: float, county: str) -> bool:
+    bbox = COUNTY_BBOX.get(county)
+    if not bbox:
+        return True
+    lat_min, lat_max, lng_min, lng_max = bbox
+    return lat_min <= lat <= lat_max and lng_min <= lng <= lng_max
 
 FULLWIDTH_DIGITS = str.maketrans("０１２３４５６７８９－", "0123456789-")
 
@@ -139,46 +189,63 @@ def geocode_one(hospital: dict) -> tuple[float, float, str] | None:
 
     name = normalize(hospital["name"])
     address = normalize(hospital["address"])
+    county = parse_county(address)
 
-    # 1. 完整名稱
-    coords = nominatim_query(name)
-    time.sleep(RATE_LIMIT_SECONDS)
-    if coords:
-        return (*coords, "name")
-
-    # 2. 剝除前綴
-    stripped = strip_prefix(name)
-    if stripped and stripped != name:
-        coords = nominatim_query(stripped)
+    def try_query(q: str, method: str) -> tuple[float, float, str] | None:
+        coords = nominatim_query(q)
         time.sleep(RATE_LIMIT_SECONDS)
-        if coords:
-            return (*coords, "name_stripped")
+        if not coords:
+            return None
+        # 驗證落點是否在 address 聲明的縣市範圍
+        if county and not in_county(coords[0], coords[1], county):
+            print(
+                f"    [reject out-of-county] {method} q={q!r} → {coords} 不在 {county}"
+            )
+            return None
+        return (*coords, method)
 
-    # 3. 縣市+區+路名
-    street_q = extract_street_query(address)
-    if street_q:
-        coords = nominatim_query(street_q)
-        time.sleep(RATE_LIMIT_SECONDS)
-        if coords:
-            return (*coords, "address_street")
-
-    # 4. 縣市+區+路名+號（全完整地址）
+    # 1. address-first：縣市+區+路名+號（最精準）
     full_q = extract_full_query(address)
     if full_q:
-        coords = nominatim_query(full_q)
-        time.sleep(RATE_LIMIT_SECONDS)
-        if coords:
-            return (*coords, "address_full")
+        r = try_query(full_q, "address_full")
+        if r:
+            return r
 
-    # 5. Google Maps fallback（若已設 key）
+    # 2. 縣市+區+路名
+    street_q = extract_street_query(address)
+    if street_q:
+        r = try_query(street_q, "address_street")
+        if r:
+            return r
+
+    # 3. 縣市 + 完整名稱（縣市鎖定範圍）
+    if county:
+        r = try_query(f"{county} {name}", "county_name")
+        if r:
+            return r
+
+    # 4. 縣市 + 剝除前綴名稱
+    stripped = strip_prefix(name)
+    if stripped and county:
+        r = try_query(f"{county} {stripped}", "county_name_stripped")
+        if r:
+            return r
+
+    # 5. 名稱（無縣市鎖定，最易誤判，最後 fallback）
+    r = try_query(name, "name")
+    if r:
+        return r
+
+    if stripped and stripped != name:
+        r = try_query(stripped, "name_stripped")
+        if r:
+            return r
+
+    # 6. Google Maps fallback
     if GOOGLE_MAPS_KEY:
-        # 先試名稱，後試地址
-        coords = google_query(name)
-        if coords:
-            return (*coords, "google_name")
-        coords = google_query(address)
-        if coords:
-            return (*coords, "google_address")
+        coords = google_query(f"{address} {name}" if address else name)
+        if coords and (not county or in_county(coords[0], coords[1], county)):
+            return (*coords, "google")
 
     return None
 
@@ -192,6 +259,7 @@ def save(data: dict) -> None:
 
 def main() -> int:
     retry_unresolved = "--retry-unresolved" in sys.argv
+    retry_all = "--retry-all" in sys.argv
 
     if not INPUT_PATH.exists():
         print(
@@ -203,7 +271,7 @@ def main() -> int:
     src = json.loads(INPUT_PATH.read_text(encoding="utf-8"))
 
     done: dict[str, dict] = {}
-    if OUTPUT_PATH.exists():
+    if OUTPUT_PATH.exists() and not retry_all:
         prev = json.loads(OUTPUT_PATH.read_text(encoding="utf-8"))
         for h in prev.get("hospitals", []):
             done[h["code"]] = h
@@ -227,12 +295,13 @@ def main() -> int:
 
     total = len(src["hospitals"])
     stats: dict[str, int] = {
+        "address_full": 0,
+        "address_street": 0,
+        "county_name": 0,
+        "county_name_stripped": 0,
         "name": 0,
         "name_stripped": 0,
-        "address_street": 0,
-        "address_full": 0,
-        "google_name": 0,
-        "google_address": 0,
+        "google": 0,
         "manual_street": 0,
         "manual_district": 0,
         "unresolved": 0,

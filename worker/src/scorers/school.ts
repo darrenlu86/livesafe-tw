@@ -1,18 +1,17 @@
 /**
- * 學區 / 學校密度（OSM）— 輕量代理版
- *
- * 真正的「學區劃分」是各縣市教育局 CSV（哪戶屬於哪校），需逐縣市整合。
- * 此版用「1km 內學校密度」做粗略代理，並於 UI 註明。
- *
- * 算法：
- *   schoolCount within 1km
- *     0 → 40    1 → 65    2 → 80    >=3 → 95
+ * 學區 / 學校密度（OSM 代理）
  */
 import { haversineKm } from "./healthcare";
-import type { Coords, OverpassResponse, SchoolDistrict } from "../types";
+import type {
+  Coords,
+  OverpassResponse,
+  Poi,
+  SchoolDistrict,
+} from "../types";
 
 const OVERPASS_URL = "https://overpass-api.de/api/interpreter";
 const RADIUS_M = 1000;
+const MAX_POIS = 15;
 
 function buildQuery(lat: number, lng: number): string {
   return `[out:json][timeout:25];
@@ -50,6 +49,7 @@ export async function scoreSchool(target: Coords): Promise<SchoolDistrict> {
   let schools = 0;
   let kindergartens = 0;
   const nearestSchools: Array<{ name: string; distance_km: number }> = [];
+  const pois: Poi[] = [];
 
   for (const el of data.elements) {
     const tags = el.tags ?? {};
@@ -61,12 +61,27 @@ export async function scoreSchool(target: Coords): Promise<SchoolDistrict> {
     if (tags.amenity === "school") {
       schools++;
       if (name) nearestSchools.push({ name, distance_km: dKm });
+      pois.push({
+        name: name ?? "(school)",
+        lat,
+        lng,
+        distance_km: Number(dKm.toFixed(2)),
+        category: "school",
+      });
     } else if (tags.amenity === "kindergarten") {
       kindergartens++;
+      pois.push({
+        name: name ?? "(kindergarten)",
+        lat,
+        lng,
+        distance_km: Number(dKm.toFixed(2)),
+        category: "kindergarten",
+      });
     }
   }
 
   nearestSchools.sort((a, b) => a.distance_km - b.distance_km);
+  pois.sort((a, b) => a.distance_km - b.distance_km);
 
   return {
     score: countScore(schools),
@@ -76,6 +91,7 @@ export async function scoreSchool(target: Coords): Promise<SchoolDistrict> {
       name: s.name,
       distance_km: Number(s.distance_km.toFixed(2)),
     })),
+    pois: pois.slice(0, MAX_POIS),
     proxy_note:
       "本維度為「學校密度」代理，非實際學區劃分；國中小學區需各縣市教育局公開資料逐筆整合。",
   };

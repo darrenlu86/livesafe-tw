@@ -19,14 +19,54 @@ export interface SourceRef {
   updated_at: string;
 }
 
+export interface HospitalPoi {
+  name: string;
+  lat: number;
+  lng: number;
+  distance_km: number;
+  source: "nhi" | "osm";
+  has_emergency: boolean;
+  is_medical_center?: boolean;
+}
+
 export interface HealthcareAccess {
   score: number;
+  total_hospitals_within_5km: number;
   emergency_hospitals_within_5km: number;
-  nearest_emergency: {
-    name: string;
-    distance_km: number;
-  } | null;
+  medical_centers_within_5km: number;
+  nearest: HospitalPoi | null;
+  hospitals: HospitalPoi[];
   note?: string;
+}
+
+export interface OsmHospital {
+  osm_id: string;
+  name: string;
+  lat: number;
+  lng: number;
+  is_medical_center: boolean;
+  has_emergency_tag: boolean;
+  operator?: string | null;
+  addr?: string | null;
+}
+
+export interface OsmHospitalsDataset {
+  metadata: {
+    source: string;
+    fetched_at: string;
+    total: number;
+    medical_center_count: number;
+    with_emergency_tag: number;
+  };
+  hospitals: OsmHospital[];
+}
+
+export interface Poi {
+  name: string;
+  lat: number;
+  lng: number;
+  distance_km: number;
+  category?: string;
 }
 
 export interface Amenities {
@@ -34,6 +74,7 @@ export interface Amenities {
   convenience_stores_500m: number;
   pharmacies_500m: number;
   parks_500m: number;
+  pois: Poi[];
 }
 
 export interface Transit {
@@ -41,10 +82,8 @@ export interface Transit {
   rail_within_500m: number;
   rail_500m_to_1km: number;
   bus_stops_500m: number;
-  nearest_rail: {
-    name: string | null;
-    distance_km: number;
-  } | null;
+  nearest_rail: { name: string | null; distance_km: number } | null;
+  pois: Poi[];
 }
 
 export interface FloodRisk {
@@ -54,6 +93,7 @@ export interface FloodRisk {
     type: string | null;
     distance_km: number;
   } | null;
+  pois: Poi[];
   proxy_note: string;
 }
 
@@ -62,6 +102,7 @@ export interface SchoolDistrict {
   schools_within_1km: number;
   kindergartens_within_1km: number;
   nearest_schools: Array<{ name: string; distance_km: number }>;
+  pois: Poi[];
   proxy_note: string;
 }
 
@@ -76,12 +117,12 @@ export interface AirQualityRisk {
     avg_pm25: number | null;
     purple_days: number;
     red_days: number;
+    orange_days: number;
     good_rate: number;
+    unhealthy_for_sensitive_rate: number;
     days_total: number;
   } | null;
   window_days: number;
-  current_aqi: number | null;
-  current_publishtime: string | null;
 }
 
 export interface AnnualAqiStation {
@@ -94,8 +135,11 @@ export interface AnnualAqiStation {
   avg_aqi: number;
   purple_days: number;
   red_days: number;
+  orange_days: number;
+  yellow_days: number;
   good_days: number;
   good_rate: number;
+  unhealthy_for_sensitive_rate: number;
   avg_pm25: number | null;
   pm25_days_total: number;
 }
@@ -211,7 +255,7 @@ export interface HospitalRecord {
   is_active: boolean;
   lat: number | null;
   lng: number | null;
-  geocode_method: "name" | "name_stripped" | "address_street" | "unresolved";
+  geocode_method: string;
 }
 
 export interface HospitalsDataset {

@@ -115,7 +115,15 @@ def to_float(s) -> float | None:
 
 def aggregate_daily_aqi(rows: list[dict]) -> dict[str, dict]:
     by_site: dict[str, dict] = defaultdict(
-        lambda: {"name": "", "aqi_values": [], "purple": 0, "red": 0, "good": 0}
+        lambda: {
+            "name": "",
+            "aqi_values": [],
+            "purple": 0,
+            "red": 0,
+            "orange": 0,
+            "yellow": 0,
+            "good": 0,
+        }
     )
     for r in rows:
         sid = r.get("siteid", "")
@@ -127,11 +135,16 @@ def aggregate_daily_aqi(rows: list[dict]) -> dict[str, dict]:
         s = by_site[sid]
         s["name"] = r.get("sitename", s["name"])
         s["aqi_values"].append(aqi)
+        # 級距由小到大計次（互斥）
         if aqi > 200:
             s["purple"] += 1
-        if aqi > 150:
+        elif aqi > 150:
             s["red"] += 1
-        if aqi <= 50:
+        elif aqi > 100:
+            s["orange"] += 1
+        elif aqi > 50:
+            s["yellow"] += 1
+        else:
             s["good"] += 1
     return by_site
 
@@ -190,8 +203,13 @@ def main() -> int:
                 "avg_aqi": round(avg, 1),
                 "purple_days": s["purple"],
                 "red_days": s["red"],
+                "orange_days": s["orange"],
+                "yellow_days": s["yellow"],
                 "good_days": s["good"],
                 "good_rate": round(s["good"] / len(vals), 3),
+                "unhealthy_for_sensitive_rate": round(
+                    (s["orange"] + s["red"] + s["purple"]) / len(vals), 3
+                ),
                 "avg_pm25": round(pm25_avg, 1) if pm25_avg is not None else None,
                 "pm25_days_total": len(pm25_vals),
             }
