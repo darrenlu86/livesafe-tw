@@ -19,6 +19,7 @@ import { scoreAmenities } from "./scorers/amenities";
 import { scoreEarthquake } from "./scorers/earthquake";
 import { scoreFlood } from "./scorers/flood";
 import { scoreLandslide } from "./scorers/landslide";
+import { scoreNuisance } from "./scorers/nuisance";
 import { scoreHealthcare } from "./scorers/healthcare";
 import { computeOverall } from "./scorers/overall";
 import { scoreSchool } from "./scorers/school";
@@ -148,6 +149,8 @@ app.get("/api/dim/:key", async (c) => {
         return c.json(await scoreSchool(parsed, osmSchoolsData));
       case "landslide":
         return c.json(scoreLandslide(parsed));
+      case "nuisance":
+        return c.json(scoreNuisance(parsed));
       default:
         return c.json({ error: `Unknown dimension: ${key}` }, 400);
     }
@@ -185,6 +188,7 @@ app.get("/api/report", async (c) => {
     flood,
     school_district,
     landslide,
+    nuisance,
   ] = await Promise.all([
     Promise.resolve(scoreHealthcare(coords, hospitalsData)),
     scoreAmenities(coords, osmAmenitiesData),
@@ -194,6 +198,7 @@ app.get("/api/report", async (c) => {
     Promise.resolve(scoreFlood(coords)),
     scoreSchool(coords, osmSchoolsData),
     Promise.resolve(scoreLandslide(coords)),
+    Promise.resolve(scoreNuisance(coords)),
   ]);
 
   const dimensions = {
@@ -205,6 +210,7 @@ app.get("/api/report", async (c) => {
     flood,
     school_district,
     landslide,
+    nuisance,
   };
   const overall = computeOverall(dimensions);
 

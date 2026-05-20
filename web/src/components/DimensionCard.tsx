@@ -8,6 +8,7 @@ import type {
   FloodRisk,
   HealthcareAccess,
   LandslideRisk,
+  NuisanceRisk,
   SchoolDistrict,
   Transit,
 } from "@/lib/types";
@@ -21,6 +22,7 @@ export type DimensionData =
   | { kind: "flood"; data: FloodRisk }
   | { kind: "school_district"; data: SchoolDistrict }
   | { kind: "landslide"; data: LandslideRisk }
+  | { kind: "nuisance"; data: NuisanceRisk }
   | { kind: "loading" }
   | { kind: "error"; message: string }
   | { kind: "placeholder" };
@@ -365,6 +367,48 @@ function renderDetail(value: DimensionData, config: DimensionConfig) {
             <div className="rounded-xl border border-emerald-400/30 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-300">
               <div className="font-semibold">✓ 不在淹水潛勢區</div>
               <div className="mt-0.5 text-xs opacity-75">水利署 24h 650mm 情境</div>
+            </div>
+          )}
+          <p className="text-xs italic text-white/40">{d.proxy_note}</p>
+        </div>
+      );
+    }
+    case "nuisance": {
+      const d = value.data;
+      const LABEL: Record<string, string> = {
+        substation: "變電所",
+        funeral_hall: "殯儀館",
+        crematorium: "火葬場",
+        cemetery: "墓地",
+        landfill: "垃圾場",
+        incinerator: "焚化廠",
+        prison: "監獄",
+      };
+      const triggered = Object.entries(d.nearest_by_category).filter(
+        ([, p]) => p && p.distance_km < 1,
+      );
+      return (
+        <div className="space-y-3">
+          {triggered.length > 0 ? (
+            <ul className="space-y-1.5">
+              {triggered
+                .slice(0, 5)
+                .map(([cat, p]) => (
+                  <Row
+                    key={cat}
+                    label={LABEL[cat] ?? cat}
+                    value={`${p!.distance_km} km · ${p!.name ?? "(無名)"}`}
+                  />
+                ))}
+            </ul>
+          ) : (
+            <div className="rounded-xl border border-emerald-400/30 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-300">
+              ✓ 1km 內無顯著嫌惡設施
+            </div>
+          )}
+          {d.total_penalty > 0 && (
+            <div className="text-xs text-white/60">
+              扣分小計：<span className="font-mono text-rose-300">-{d.total_penalty}</span>
             </div>
           )}
           <p className="text-xs italic text-white/40">{d.proxy_note}</p>

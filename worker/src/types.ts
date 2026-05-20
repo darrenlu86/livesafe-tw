@@ -141,6 +141,31 @@ export interface FloodRisk {
   proxy_note: string;
 }
 
+export type NuisanceCategory =
+  | "substation"
+  | "funeral_hall"
+  | "crematorium"
+  | "cemetery"
+  | "landfill"
+  | "incinerator"
+  | "prison";
+
+export interface NuisancePoi {
+  name: string | null;
+  lat: number;
+  lng: number;
+  category: NuisanceCategory;
+  distance_km: number;
+}
+
+export interface NuisanceRisk {
+  score: number;
+  total_penalty: number;
+  nearest_by_category: Record<string, NuisancePoi | null>;
+  nearby_pois: NuisancePoi[];
+  proxy_note: string;
+}
+
 export interface LandslideRisk {
   score: number;
   nearest_stream: {
@@ -302,6 +327,7 @@ export interface RiskReport {
     flood: FloodRisk;
     school_district: SchoolDistrict;
     landslide: LandslideRisk;
+    nuisance: NuisanceRisk;
   };
   sources: SourceRef[];
 }

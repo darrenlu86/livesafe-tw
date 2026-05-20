@@ -87,6 +87,31 @@ export interface FloodRisk {
   proxy_note: string;
 }
 
+export type NuisanceCategory =
+  | "substation"
+  | "funeral_hall"
+  | "crematorium"
+  | "cemetery"
+  | "landfill"
+  | "incinerator"
+  | "prison";
+
+export interface NuisancePoi {
+  name: string | null;
+  lat: number;
+  lng: number;
+  category: NuisanceCategory;
+  distance_km: number;
+}
+
+export interface NuisanceRisk {
+  score: number;
+  total_penalty: number;
+  nearest_by_category: Record<string, NuisancePoi | null>;
+  nearby_pois: NuisancePoi[];
+  proxy_note: string;
+}
+
 export interface LandslideRisk {
   score: number;
   nearest_stream: {
@@ -147,6 +172,7 @@ export interface RiskReport {
     flood: FloodRisk;
     school_district: SchoolDistrict;
     landslide: LandslideRisk;
+    nuisance: NuisanceRisk;
   };
   sources: { name: string; url: string; updated_at: string }[];
 }
@@ -159,7 +185,8 @@ export type DimensionKey =
   | "transit"
   | "flood"
   | "school_district"
-  | "landslide";
+  | "landslide"
+  | "nuisance";
 
 export interface DimensionConfig {
   key: DimensionKey;
@@ -234,6 +261,14 @@ export const DIMENSIONS: DimensionConfig[] = [
     shortLabel: "坊地",
     description: "水保局土石流潛勢溪流（1729 條），距溪流距離 + 風險等級",
     colorVar: "var(--color-dim-school)",
+    available: true,
+  },
+  {
+    key: "nuisance",
+    label: "嫌惡設施",
+    shortLabel: "嫌惡",
+    description: "周邊變電所/殯儀館/火葬場/墓地/垃圾場/監獄距離扣分",
+    colorVar: "var(--color-dim-flood)",
     available: true,
   },
 ];

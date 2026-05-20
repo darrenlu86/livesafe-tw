@@ -31,6 +31,7 @@ const CONVEN_KEYS: DimensionKey[] = [
   "amenities",
   "transit",
   "school_district",
+  "nuisance",
 ];
 
 function computeLayer(

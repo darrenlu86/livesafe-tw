@@ -17,7 +17,8 @@ type DimensionKey =
   | "amenities"
   | "transit"
   | "school_district"
-  | "landslide";
+  | "landslide"
+  | "nuisance";
 
 const SAFETY_DIMS: DimensionKey[] = ["earthquake", "flood", "landslide", "air_quality"];
 const CONVENIENCE_DIMS: DimensionKey[] = [
@@ -25,6 +26,7 @@ const CONVENIENCE_DIMS: DimensionKey[] = [
   "amenities",
   "transit",
   "school_district",
+  "nuisance",
 ];
 const SAFETY_WEIGHT = 0.6;
 const CONVENIENCE_WEIGHT = 0.4;
@@ -50,6 +52,8 @@ function dimScore(
       return dimensions.school_district.score;
     case "landslide":
       return dimensions.landslide.score;
+    case "nuisance":
+      return dimensions.nuisance.score;
     default:
       return null;
   }

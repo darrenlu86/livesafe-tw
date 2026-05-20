@@ -255,6 +255,8 @@ function scoreOf(key: DimensionKey, r: RiskReport): number {
       return r.dimensions.school_district.score;
     case "landslide":
       return r.dimensions.landslide.score;
+    case "nuisance":
+      return r.dimensions.nuisance.score;
     default:
       return 0;
   }
