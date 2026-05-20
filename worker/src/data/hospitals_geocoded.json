@@ -6,15 +6,20 @@
     "row_count": 371,
     "emergency_hospital_count": 174,
     "active_count": 337,
-    "geocoded_at": "2026-04-22T10:56:46.218924+00:00",
-    "geocoder": "OSM Nominatim",
+    "geocoded_at": "2026-05-20T01:45:48.421081+00:00",
+    "geocoder": "OSM Nominatim + (optional) Google Maps fallback",
     "geocoder_endpoint": "https://nominatim.openstreetmap.org/search",
     "geocode_stats": {
-      "name": 251,
-      "name_stripped": 4,
-      "address_street": 101,
-      "unresolved": 15,
-      "cached": 0
+      "name": 0,
+      "name_stripped": 0,
+      "address_street": 0,
+      "address_full": 0,
+      "google_name": 0,
+      "google_address": 0,
+      "manual_street": 2,
+      "manual_district": 4,
+      "unresolved": 0,
+      "cached": 365
     }
   },
   "hospitals": [
@@ -212,9 +217,9 @@
       "contract_start": "2003-06-10",
       "contract_end": "2028-06-09",
       "is_active": true,
-      "lat": null,
-      "lng": null,
-      "geocode_method": "unresolved"
+      "lat": 24.9705743,
+      "lng": 121.1059706,
+      "geocode_method": "manual_street"
     },
     {
       "code": "0140010028",
@@ -1182,9 +1187,9 @@
       "contract_start": "1995-10-07",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": null,
-      "lng": null,
-      "geocode_method": "unresolved"
+      "lat": 23.5534068,
+      "lng": 119.5856084,
+      "geocode_method": "manual_street"
     },
     {
       "code": "0633030010",
@@ -2430,9 +2435,9 @@
       "contract_start": "2016-08-11",
       "contract_end": "2028-08-10",
       "is_active": true,
-      "lat": null,
-      "lng": null,
-      "geocode_method": "unresolved"
+      "lat": 25.1932145,
+      "lng": 121.4750147,
+      "geocode_method": "name_stripped"
     },
     {
       "code": "0932020016",
@@ -2635,9 +2640,9 @@
       "contract_start": "2017-01-01",
       "contract_end": "2028-12-31",
       "is_active": true,
-      "lat": null,
-      "lng": null,
-      "geocode_method": "unresolved"
+      "lat": 24.5195974,
+      "lng": 120.7883366,
+      "geocode_method": "name_stripped"
     },
     {
       "code": "0935020027",
@@ -2834,9 +2839,9 @@
       "contract_start": "2023-01-01",
       "contract_end": "2028-12-31",
       "is_active": true,
-      "lat": null,
-      "lng": null,
-      "geocode_method": "unresolved"
+      "lat": 23.9674471,
+      "lng": 120.5628285,
+      "geocode_method": "name_stripped"
     },
     {
       "code": "0937080012",
@@ -3169,9 +3174,9 @@
       "contract_start": "2013-12-18",
       "contract_end": "2028-12-17",
       "is_active": true,
-      "lat": null,
-      "lng": null,
-      "geocode_method": "unresolved"
+      "lat": 25.0076683,
+      "lng": 121.4611497,
+      "geocode_method": "name_stripped"
     },
     {
       "code": "0943010044",
@@ -3192,9 +3197,9 @@
       "contract_start": "2020-04-01",
       "contract_end": "2029-03-31",
       "is_active": true,
-      "lat": null,
-      "lng": null,
-      "geocode_method": "unresolved"
+      "lat": 22.6657039,
+      "lng": 120.5010407,
+      "geocode_method": "address_street"
     },
     {
       "code": "0943020013",
@@ -3228,9 +3233,9 @@
       "contract_start": "2010-05-01",
       "contract_end": "2028-04-30",
       "is_active": true,
-      "lat": null,
-      "lng": null,
-      "geocode_method": "unresolved"
+      "lat": 22.5539238,
+      "lng": 120.5471369,
+      "geocode_method": "name_stripped"
     },
     {
       "code": "0943030019",
@@ -3611,9 +3616,9 @@
       "contract_start": "2012-12-01",
       "contract_end": "2027-11-30",
       "is_active": true,
-      "lat": null,
-      "lng": null,
-      "geocode_method": "unresolved"
+      "lat": 23.1798218,
+      "lng": 120.2333644,
+      "geocode_method": "name_stripped"
     },
     {
       "code": "1105050012",
@@ -4706,9 +4711,9 @@
       "contract_start": "2009-12-17",
       "contract_end": "2026-12-16",
       "is_active": true,
-      "lat": null,
-      "lng": null,
-      "geocode_method": "unresolved"
+      "lat": 23.869949,
+      "lng": 121.5261243,
+      "geocode_method": "name_stripped"
     },
     {
       "code": "1146010032",
@@ -4792,9 +4797,9 @@
       "contract_start": "2011-10-01",
       "contract_end": "2026-09-30",
       "is_active": true,
-      "lat": null,
-      "lng": null,
-      "geocode_method": "unresolved"
+      "lat": 22.7581327,
+      "lng": 121.1464856,
+      "geocode_method": "name_stripped"
     },
     {
       "code": "1146030516",
@@ -6719,9 +6724,9 @@
       "contract_start": "2025-03-03",
       "contract_end": "2028-03-02",
       "is_active": true,
-      "lat": null,
-      "lng": null,
-      "geocode_method": "unresolved"
+      "lat": 24.1803135,
+      "lng": 120.6583427,
+      "geocode_method": "manual_district"
     },
     {
       "code": "1503290043",
@@ -6886,9 +6891,9 @@
       "contract_start": "2022-11-14",
       "contract_end": "2028-11-13",
       "is_active": true,
-      "lat": null,
-      "lng": null,
-      "geocode_method": "unresolved"
+      "lat": 22.5987581,
+      "lng": 120.3347744,
+      "geocode_method": "manual_district"
     },
     {
       "code": "1507010032",
@@ -7182,9 +7187,9 @@
       "contract_start": "2015-01-07",
       "contract_end": "2027-01-06",
       "is_active": true,
-      "lat": null,
-      "lng": null,
-      "geocode_method": "unresolved"
+      "lat": 22.6334495,
+      "lng": 120.3068806,
+      "geocode_method": "manual_district"
     },
     {
       "code": "1507330039",
@@ -7259,9 +7264,9 @@
       "contract_start": "2016-11-01",
       "contract_end": "2025-09-15",
       "is_active": false,
-      "lat": null,
-      "lng": null,
-      "geocode_method": "unresolved"
+      "lat": 22.6275512,
+      "lng": 120.2941644,
+      "geocode_method": "manual_district"
     },
     {
       "code": "1507340053",

@@ -1,0 +1,64 @@
+name: Refresh bundled data
+
+on:
+  schedule:
+    # 每月 1 號 02:00 UTC（台灣時間 10:00）
+    - cron: "0 2 1 * *"
+  workflow_dispatch: {}
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python deps
+        working-directory: data-pipeline
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Refresh hospitals (NHI)
+        working-directory: data-pipeline
+        env:
+          NOMINATIM_USER_AGENT: "LiveSafe.tw/0.1 (kevin868686@gmail.com)"
+        run: |
+          python scripts/fetch_hospitals.py
+          python scripts/geocode_hospitals.py
+
+      - name: Refresh earthquakes (USGS)
+        working-directory: data-pipeline
+        run: python scripts/fetch_earthquake.py
+
+      - name: Copy processed data into worker bundle
+        run: |
+          cp data-pipeline/data/processed/hospitals_geocoded.json worker/src/data/
+          cp data-pipeline/data/processed/earthquakes.json worker/src/data/
+
+      - name: Commit updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- worker/src/data; then
+            echo "no changes"
+          else
+            git add worker/src/data
+            git commit -m "chore: refresh bundled data (hospitals + earthquakes)"
+            git push
+          fi
+
+      # 可選：自動部署 worker（需要 CLOUDFLARE_API_TOKEN secret）
+      - name: Deploy worker if CF token available
+        if: env.CLOUDFLARE_API_TOKEN != ''
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        working-directory: worker
+        run: |
+          npm ci || npm install
+          npx wrangler deploy
