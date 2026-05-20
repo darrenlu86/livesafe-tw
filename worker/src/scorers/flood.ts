@@ -1,123 +1,144 @@
 /**
- * 淹水風險（OSM 河川 vs 滯洪池代理）— 暫時 live OSM 版本
+ * 淹水風險（水利署淹水潛勢圖 24h 650mm 情境）— bundled point-in-polygon
  *
- * TODO: 切換為 bundled flood_potential.json (水利署 24h 650mm shp 整合)，
- *       目前 22 個縣市 7z 下載中。data ready 後改 in-memory PIP 查詢。
+ * 資料源：水利署 25766 dataset，22 縣市 shapefile（24h 累積降雨 650mm 最壞情境）。
+ * data-pipeline/scripts/fetch_flood_potential.py 處理：
+ *   - 解 7z + 找 shp（22 縣市命名各異：24h650r/24hr650mm/24Hr650R/yl_24h_r650/pt_24h650mm…）
+ *   - 統一 schema（type/水深/RANK/GRIDCODE）+ normalize depth class
+ *   - TWD97 → WGS84 投影
+ *   - 同層 dissolve（unary_union） + 300m 容差 simplify → 2.3 MB bundle
+ *
+ * 涵蓋：19/22 縣市（缺臺北市 — 政府公開 7z 是空檔；缺漏縣市 fallback = 95 不在 zone）
+ *
+ * 算法：
+ *   in flood polygon → depth_class 對應扣分（90→5）
+ *     0-0.3 → 70, 0.3-0.5 → 50, 0.5-1 → 30, 1-2 → 15, 2-3 → 8, >3 → 3
+ *   不在 polygon → 95
+ *
+ * Worker 端只做 point-in-polygon（ray casting），無 Overpass call。
  */
-import { haversineKm } from "./healthcare";
-import type { Coords, FloodRisk, OverpassResponse, Poi } from "../types";
+import floodRaw from "../data/flood_potential.json";
+import type { Coords, FloodRisk } from "../types";
 
-const OVERPASS_URL = "https://overpass-api.de/api/interpreter";
-const RIVER_RADIUS_M = 1500;
-const DETENTION_RADIUS_M = 1000;
-const MAX_POIS = 8;
-
-function buildQuery(lat: number, lng: number): string {
-  return `[out:json][timeout:25];
-(
-  way["waterway"="river"](around:${RIVER_RADIUS_M},${lat},${lng});
-  way["waterway"="stream"](around:${RIVER_RADIUS_M},${lat},${lng});
-  way["waterway"="drain"](around:${RIVER_RADIUS_M},${lat},${lng});
-  way["natural"="water"]["water"="basin"](around:${DETENTION_RADIUS_M},${lat},${lng});
-  way["landuse"="basin"](around:${DETENTION_RADIUS_M},${lat},${lng});
-  way["natural"="water"]["water"="reservoir"](around:${DETENTION_RADIUS_M},${lat},${lng});
-);
-out tags center;`;
+interface FloodPolygon {
+  depth_class: string;
+  rings: number[][][];
+  county: string;
 }
 
-function riverPenalty(km: number): number {
-  if (km < 0.2) return 60;
-  if (km < 0.5) return 45;
-  if (km < 1) return 25;
-  return 0;
+interface FloodDataset {
+  metadata: {
+    scenario_label: string;
+    counties: string[];
+    polygon_count: number;
+    fetched_at: string;
+  };
+  polygons: FloodPolygon[];
 }
 
-export async function scoreFlood(target: Coords): Promise<FloodRisk> {
-  const body = new URLSearchParams({ data: buildQuery(target.lat, target.lng) });
-  const resp = await fetch(OVERPASS_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-      "User-Agent": "LiveSafe.tw/0.1 (https://livesafe.oharalab.com)",
-      Accept: "application/json",
-    },
-    body: body.toString(),
-    cf: { cacheTtl: 86400, cacheEverything: true },
-  });
-  if (!resp.ok) throw new Error(`Overpass ${resp.status}`);
-  const data = (await resp.json()) as OverpassResponse;
+const floodData = floodRaw as unknown as FloodDataset;
 
-  let nearestRiverKm = Infinity;
-  let nearestRiverName: string | null = null;
-  let nearestRiverType: string | null = null;
-  let nearestStreamKm = Infinity;
-  let detentionCount = 0;
-  const pois: Poi[] = [];
+const DEPTH_SCORE: Record<string, number> = {
+  "0-0.3": 70,
+  "<0.3": 70,
+  "0.3-0.5": 50,
+  "0.5-1": 30,
+  "1-2": 15,
+  "2-3": 8,
+  ">3": 3,
+};
 
-  for (const el of data.elements) {
-    const tags = el.tags ?? {};
-    const lat = el.lat ?? el.center?.lat;
-    const lng = el.lon ?? el.center?.lon;
-    if (lat == null || lng == null) continue;
-    const dKm = haversineKm(target, { lat, lng });
-    const name = tags.name ?? tags["name:zh"] ?? null;
+const DEPTH_SEVERITY: Record<string, number> = {
+  "<0.3": 1,
+  "0-0.3": 1,
+  "0.3-0.5": 2,
+  "0.5-1": 3,
+  "1-2": 4,
+  "2-3": 5,
+  ">3": 6,
+};
 
-    if (tags.waterway === "river") {
-      if (dKm < nearestRiverKm) {
-        nearestRiverKm = dKm;
-        nearestRiverName = name;
-        nearestRiverType = "river";
-      }
-      pois.push({
-        name: name ?? "(河川)",
-        lat,
-        lng,
-        distance_km: Number(dKm.toFixed(2)),
-        category: "river",
-      });
-    } else if (tags.waterway === "stream" || tags.waterway === "drain") {
-      if (dKm < nearestStreamKm) nearestStreamKm = dKm;
-      pois.push({
-        name: name ?? (tags.waterway === "drain" ? "(排水溝)" : "(野溪)"),
-        lat,
-        lng,
-        distance_km: Number(dKm.toFixed(2)),
-        category: tags.waterway,
-      });
-    } else if (
-      tags.landuse === "basin" ||
-      tags.water === "basin" ||
-      tags.water === "reservoir"
-    ) {
-      detentionCount++;
-      pois.push({
-        name: name ?? "(滯洪池/水庫)",
-        lat,
-        lng,
-        distance_km: Number(dKm.toFixed(2)),
-        category: "detention",
-      });
+// 預計算每個 polygon ring 的 bbox 加速 PIP
+interface RingIdx {
+  poly_idx: number;
+  ring: number[][];
+  bbox: [number, number, number, number]; // [minLng, minLat, maxLng, maxLat]
+}
+
+const ringIndex: RingIdx[] = [];
+for (let i = 0; i < floodData.polygons.length; i++) {
+  const poly = floodData.polygons[i]!;
+  for (const ring of poly.rings) {
+    let minLng = Infinity,
+      minLat = Infinity,
+      maxLng = -Infinity,
+      maxLat = -Infinity;
+    for (const pt of ring) {
+      const x = pt[0]!,
+        y = pt[1]!;
+      if (x < minLng) minLng = x;
+      if (x > maxLng) maxLng = x;
+      if (y < minLat) minLat = y;
+      if (y > maxLat) maxLat = y;
+    }
+    ringIndex.push({
+      poly_idx: i,
+      ring,
+      bbox: [minLng, minLat, maxLng, maxLat],
+    });
+  }
+}
+
+function ringContains(ring: number[][], lng: number, lat: number): boolean {
+  let inside = false;
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+    const a = ring[i]!;
+    const b = ring[j]!;
+    const xi = a[0]!,
+      yi = a[1]!;
+    const xj = b[0]!,
+      yj = b[1]!;
+    const intersect =
+      yi > lat !== yj > lat &&
+      lng < ((xj - xi) * (lat - yi)) / (yj - yi + 1e-12) + xi;
+    if (intersect) inside = !inside;
+  }
+  return inside;
+}
+
+interface FloodMatch {
+  depth_class: string;
+  county: string;
+}
+
+function findFloodMatch(lng: number, lat: number): FloodMatch | null {
+  let best: FloodMatch | null = null;
+  let bestSev = 0;
+  for (const r of ringIndex) {
+    const [mnL, mnLa, mxL, mxLa] = r.bbox;
+    if (lng < mnL || lng > mxL || lat < mnLa || lat > mxLa) continue;
+    if (!ringContains(r.ring, lng, lat)) continue;
+    const poly = floodData.polygons[r.poly_idx]!;
+    const sev = DEPTH_SEVERITY[poly.depth_class] ?? 0;
+    if (sev > bestSev) {
+      best = { depth_class: poly.depth_class, county: poly.county };
+      bestSev = sev;
     }
   }
+  return best;
+}
 
-  pois.sort((a, b) => a.distance_km - b.distance_km);
-
-  const rivP = Number.isFinite(nearestRiverKm) ? riverPenalty(nearestRiverKm) : 0;
-  const strP = Number.isFinite(nearestStreamKm) ? riverPenalty(nearestStreamKm) * 0.5 : 0;
-  const detBonus = Math.min(15, detentionCount * 5);
-  const score = Math.max(0, Math.min(100, Math.round(95 - rivP - strP + detBonus)));
+export function scoreFlood(target: Coords): FloodRisk {
+  const match = findFloodMatch(target.lng, target.lat);
+  const inZone = !!match;
+  const score = inZone ? (DEPTH_SCORE[match!.depth_class] ?? 40) : 95;
 
   return {
     score,
-    nearest_water: Number.isFinite(nearestRiverKm)
-      ? {
-          name: nearestRiverName,
-          type: nearestRiverType,
-          distance_km: Number(nearestRiverKm.toFixed(2)),
-        }
-      : null,
-    pois: pois.slice(0, MAX_POIS),
-    proxy_note:
-      "本維度為「距河川距離」OSM 代理（滯洪池鄰近加分）。真實淹水深度需參考水利署淹水潛勢圖（22 縣市 shp 整合中）",
+    nearest_water: null,
+    pois: [],
+    proxy_note: inZone
+      ? `落入水利署淹水潛勢圖（${floodData.metadata.scenario_label}）「${match!.depth_class} m」淹水深度區`
+      : `不在水利署 24h 650mm 淹水潛勢區內（資料涵蓋 ${floodData.metadata.counties.length} 縣市；臺北市資料源缺漏，可能誤報）`,
   };
 }

@@ -331,17 +331,40 @@ function renderDetail(value: DimensionData, config: DimensionConfig) {
     }
     case "flood": {
       const d = value.data;
+      // 從 proxy_note 解析深度等級
+      const depthMatch = d.proxy_note.match(/「([^」]+)\s*m」/);
+      const depthLabel = depthMatch ? depthMatch[1] : null;
+      const inZone = d.proxy_note.includes("落入");
+      const tier = inZone
+        ? depthLabel === ">3"
+          ? { color: "border-rose-400/50 bg-rose-500/20 text-rose-200", icon: "⚠️", desc: "極嚴重淹水" }
+          : depthLabel?.startsWith("2-3") || depthLabel?.startsWith("1-2")
+            ? { color: "border-rose-400/40 bg-rose-500/15 text-rose-300", icon: "⚠️", desc: "嚴重淹水" }
+            : depthLabel?.includes("0.5") || depthLabel === "0.5-1"
+              ? { color: "border-orange-400/40 bg-orange-500/15 text-orange-300", icon: "⚠", desc: "中度淹水" }
+              : { color: "border-amber-400/30 bg-amber-500/10 text-amber-300", icon: "·", desc: "輕度淹水" }
+        : null;
       return (
         <div className="space-y-3">
-          {d.nearest_water && (
-            <ul className="space-y-1.5">
-              <Row
-                label="最近水體"
-                value={`${d.nearest_water.name ?? d.nearest_water.type ?? "—"}（${d.nearest_water.distance_km} km）`}
-              />
-            </ul>
+          {inZone && tier && (
+            <div className={clsx("rounded-xl border px-3 py-2 text-sm", tier.color)}>
+              <div className="flex items-baseline justify-between gap-2">
+                <span className="font-semibold">
+                  {tier.icon} 落入淹水潛勢區
+                </span>
+                <span className="font-mono tabular-nums">{depthLabel} m</span>
+              </div>
+              <div className="mt-0.5 text-xs opacity-75">
+                {tier.desc} · 水利署 24h 650mm 情境
+              </div>
+            </div>
           )}
-          <PoiList items={d.pois} limit={4} />
+          {!inZone && (
+            <div className="rounded-xl border border-emerald-400/30 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-300">
+              <div className="font-semibold">✓ 不在淹水潛勢區</div>
+              <div className="mt-0.5 text-xs opacity-75">水利署 24h 650mm 情境</div>
+            </div>
+          )}
           <p className="text-xs italic text-white/40">{d.proxy_note}</p>
         </div>
       );

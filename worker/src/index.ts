@@ -142,7 +142,7 @@ app.get("/api/dim/:key", async (c) => {
       case "transit":
         return c.json(await scoreTransit(parsed, osmTransitData));
       case "flood":
-        return c.json(await scoreFlood(parsed));
+        return c.json(scoreFlood(parsed));
       case "school_district":
         return c.json(await scoreSchool(parsed, osmSchoolsData));
       default:
@@ -180,7 +180,7 @@ app.get("/api/report", async (c) => {
       Promise.resolve(scoreAirQuality(coords, aqiAnnualData)),
       Promise.resolve(scoreEarthquake(coords, earthquakesData, activeFaultsData)),
       scoreTransit(coords, osmTransitData),
-      scoreFlood(coords),
+      Promise.resolve(scoreFlood(coords)),
       scoreSchool(coords, osmSchoolsData),
     ]);
 
