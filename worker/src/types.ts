@@ -275,6 +275,9 @@ export interface RiskReport {
   overall: {
     grade: Grade;
     score: number;
+    safety_score: number | null;
+    convenience_score: number | null;
+    layer_weights: { safety: number; convenience: number };
   };
   dimensions: {
     healthcare: HealthcareAccess;

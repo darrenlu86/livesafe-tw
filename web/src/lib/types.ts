@@ -117,7 +117,13 @@ export interface RiskReport {
     geocode_display_name?: string;
     generated_at: string;
   };
-  overall: { grade: Grade; score: number };
+  overall: {
+    grade: Grade;
+    score: number;
+    safety_score: number | null;
+    convenience_score: number | null;
+    layer_weights: { safety: number; convenience: number };
+  };
   dimensions: {
     healthcare: HealthcareAccess;
     amenities: Amenities;

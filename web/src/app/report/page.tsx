@@ -25,6 +25,74 @@ import {
 
 type DimSlot = DimensionData;
 
+const SAFETY_KEYS: DimensionKey[] = ["earthquake", "flood", "air_quality"];
+const CONVEN_KEYS: DimensionKey[] = [
+  "healthcare",
+  "amenities",
+  "transit",
+  "school_district",
+];
+
+function computeLayer(
+  keys: DimensionKey[],
+  dims: Record<DimensionKey, DimSlot>,
+  disabled: Set<DimensionKey>,
+): number | null {
+  const scores: number[] = [];
+  for (const k of keys) {
+    if (disabled.has(k)) continue;
+    const slot = dims[k];
+    if (slot.kind === "loading" || slot.kind === "error" || slot.kind === "placeholder")
+      continue;
+    scores.push((slot as { data: { score: number } }).data.score);
+  }
+  if (scores.length === 0) return null;
+  return Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
+}
+
+function LayeredScores({
+  safety,
+  convenience,
+}: {
+  safety: number | null;
+  convenience: number | null;
+}) {
+  return (
+    <div className="mb-6 grid max-w-md grid-cols-2 gap-3 mx-auto lg:mx-0">
+      <LayerCell label="安全層" weight="60%" score={safety} color="from-rose-400 to-orange-400" />
+      <LayerCell label="便利層" weight="40%" score={convenience} color="from-cyan-400 to-emerald-400" />
+    </div>
+  );
+}
+
+function LayerCell({
+  label,
+  weight,
+  score,
+  color,
+}: {
+  label: string;
+  weight: string;
+  score: number | null;
+  color: string;
+}) {
+  return (
+    <div className="glass rounded-xl p-3">
+      <div className="flex items-center justify-between">
+        <span className="text-xs uppercase tracking-widest text-white/50">
+          {label}
+        </span>
+        <span className="text-[10px] text-white/40">{weight}</span>
+      </div>
+      <div
+        className={`mt-1 bg-gradient-to-r bg-clip-text font-mono text-2xl font-bold tabular-nums text-transparent ${color}`}
+      >
+        {score ?? "—"}
+      </div>
+    </div>
+  );
+}
+
 function gradeFromScore(score: number): Grade {
   if (score >= 80) return "A";
   if (score >= 60) return "B";
@@ -135,7 +203,13 @@ function ReportInner() {
         geocode_display_name: geo.display_name,
         generated_at: new Date().toISOString(),
       },
-      overall: { score: overall.score, grade: overall.grade },
+      overall: {
+        score: overall.score,
+        grade: overall.grade,
+        safety_score: null,
+        convenience_score: null,
+        layer_weights: { safety: 0.6, convenience: 0.4 },
+      },
       dimensions: dimensions as RiskReport["dimensions"],
       sources: [],
     };
@@ -217,6 +291,12 @@ function ReportInner() {
               />
             )}
           </div>
+          {overall.ready && (
+            <LayeredScores
+              safety={computeLayer(SAFETY_KEYS, dims, disabled)}
+              convenience={computeLayer(CONVEN_KEYS, dims, disabled)}
+            />
+          )}
           <button
             disabled={!overall.ready}
             onClick={() => {
