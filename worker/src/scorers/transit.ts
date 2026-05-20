@@ -15,14 +15,45 @@ const BUS_RADIUS_M = 500;
 const MAX_POIS = 25;
 
 function buildQuery(lat: number, lng: number): string {
+  // 捷運/火車站採嚴格 tag：railway=station + station=subway/light_rail
+  // 排除 public_transport=station 因含過多管理中心/機廠/客運站營業所噪音
   return `[out:json][timeout:25];
 (
   node["railway"="station"](around:${RAIL_RADIUS_M},${lat},${lng});
-  node["public_transport"="station"](around:${RAIL_RADIUS_M},${lat},${lng});
+  node["railway"="halt"](around:${RAIL_RADIUS_M},${lat},${lng});
   node["station"="subway"](around:${RAIL_RADIUS_M},${lat},${lng});
+  node["station"="light_rail"](around:${RAIL_RADIUS_M},${lat},${lng});
   node["highway"="bus_stop"](around:${BUS_RADIUS_M},${lat},${lng});
 );
 out tags center;`;
+}
+
+// 名稱噪音過濾：機廠、管理中心、工程段、辦公室、停車場、營業所 等非實際車站
+const RAIL_NAME_NOISE = [
+  "機廠",
+  "管理中心",
+  "工程段",
+  "工務段",
+  "辦公",
+  "事務所",
+  "停車場",
+  "養路",
+  "維修",
+  "服務中心",
+  "服務區",
+  "派出所",
+  "派遣所",
+  "客運站營業所",
+  "客運服務站",
+  "監理",
+  "工區",
+  "分局",
+  "段",
+];
+
+function isNoisyRailName(name: string | null | undefined): boolean {
+  if (!name) return false;
+  return RAIL_NAME_NOISE.some((kw) => name.includes(kw));
 }
 
 export async function scoreTransit(target: Coords): Promise<Transit> {
@@ -57,18 +88,22 @@ export async function scoreTransit(target: Coords): Promise<Transit> {
     const dKm = haversineKm(target, { lat, lng });
     const isRail =
       tags.railway === "station" ||
-      tags.public_transport === "station" ||
-      tags.station === "subway";
+      tags.railway === "halt" ||
+      tags.station === "subway" ||
+      tags.station === "light_rail";
     const isBus = tags.highway === "bus_stop";
+    const rawName = tags.name ?? tags["name:zh"] ?? null;
     if (isRail) {
+      // 過濾名稱噪音（機廠、管理中心、工程段...）
+      if (isNoisyRailName(rawName)) continue;
       if (dKm < nearestRailKm) {
         nearestRailKm = dKm;
-        nearestRailName = tags.name ?? tags["name:zh"] ?? null;
+        nearestRailName = rawName;
       }
       if (dKm <= 0.5) railWithin500++;
       else if (dKm <= 1) rail500to1000++;
       pois.push({
-        name: tags.name ?? tags["name:zh"] ?? "(rail station)",
+        name: rawName ?? "(rail station)",
         lat,
         lng,
         distance_km: Number(dKm.toFixed(2)),

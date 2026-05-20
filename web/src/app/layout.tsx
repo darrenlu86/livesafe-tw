@@ -31,8 +31,8 @@ export default function RootLayout({
   return (
     <html lang="zh-Hant-TW" className={spaceGrotesk.variable}>
       <body>
-        <header className="fixed inset-x-0 top-0 z-50">
-          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <header className="fixed inset-x-0 top-0 z-50 border-b border-white/[0.06] bg-black/40 backdrop-blur-xl supports-[backdrop-filter]:bg-black/30">
+          <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3.5">
             <Link
               href="/"
               className="font-display text-lg font-bold tracking-tight text-white"

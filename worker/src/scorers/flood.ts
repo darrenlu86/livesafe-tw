@@ -1,30 +1,44 @@
 /**
- * 淹水風險（OSM 水域鄰近代理）
+ * 淹水風險（OSM 河川 + 滯洪池代理）
+ *
+ * 真正的水利署淹水潛勢圖（22 縣市 shapefile 共 ~2GB）需 PMTiles 工程，
+ * 此版用 OSM 區分「河川（風險）」與「滯洪池（緩衝、加分）」做代理。
+ *
+ * 算法：
+ *   base = 95
+ *   river_penalty (距最近河川距離)：
+ *     < 200m → -60、200-500m → -45、500m-1km → -25、>1km → 0
+ *   stream_penalty (距最近野溪)：river_penalty × 0.5
+ *   detention_bonus (1km 內有滯洪池/人工水池)：每座 +5, cap +15
+ *
+ * proxy_note 連結至水利署淹水潛勢查詢系統供用戶交叉驗證。
  */
 import { haversineKm } from "./healthcare";
 import type { Coords, FloodRisk, OverpassResponse, Poi } from "../types";
 
 const OVERPASS_URL = "https://overpass-api.de/api/interpreter";
-const RADIUS_M = 1500;
+const RIVER_RADIUS_M = 1500;
+const DETENTION_RADIUS_M = 1000;
 const MAX_POIS = 8;
 
 function buildQuery(lat: number, lng: number): string {
   return `[out:json][timeout:25];
 (
-  node["natural"="water"](around:${RADIUS_M},${lat},${lng});
-  way["natural"="water"](around:${RADIUS_M},${lat},${lng});
-  way["waterway"="river"](around:${RADIUS_M},${lat},${lng});
-  way["waterway"="stream"](around:${RADIUS_M},${lat},${lng});
-  way["waterway"="canal"](around:${RADIUS_M},${lat},${lng});
+  way["waterway"="river"](around:${RIVER_RADIUS_M},${lat},${lng});
+  way["waterway"="stream"](around:${RIVER_RADIUS_M},${lat},${lng});
+  way["waterway"="drain"](around:${RIVER_RADIUS_M},${lat},${lng});
+  way["natural"="water"]["water"="basin"](around:${DETENTION_RADIUS_M},${lat},${lng});
+  way["landuse"="basin"](around:${DETENTION_RADIUS_M},${lat},${lng});
+  way["natural"="water"]["water"="reservoir"](around:${DETENTION_RADIUS_M},${lat},${lng});
 );
 out tags center;`;
 }
 
-function distanceScore(km: number): number {
-  if (km < 0.2) return 15;
-  if (km < 0.5) return 40;
-  if (km < 1) return 70;
-  return 95;
+function riverPenalty(km: number): number {
+  if (km < 0.2) return 60;
+  if (km < 0.5) return 45;
+  if (km < 1) return 25;
+  return 0;
 }
 
 export async function scoreFlood(target: Coords): Promise<FloodRisk> {
@@ -42,9 +56,11 @@ export async function scoreFlood(target: Coords): Promise<FloodRisk> {
   if (!resp.ok) throw new Error(`Overpass ${resp.status}`);
   const data = (await resp.json()) as OverpassResponse;
 
-  let nearestKm = Infinity;
-  let nearestName: string | null = null;
-  let nearestType: string | null = null;
+  let nearestRiverKm = Infinity;
+  let nearestRiverName: string | null = null;
+  let nearestRiverType: string | null = null;
+  let nearestStreamKm = Infinity;
+  let detentionCount = 0;
   const pois: Poi[] = [];
 
   for (const el of data.elements) {
@@ -53,38 +69,66 @@ export async function scoreFlood(target: Coords): Promise<FloodRisk> {
     const lng = el.lon ?? el.center?.lon;
     if (lat == null || lng == null) continue;
     const dKm = haversineKm(target, { lat, lng });
-    const t = tags.waterway ?? (tags.natural === "water" ? "water" : null);
     const name = tags.name ?? tags["name:zh"] ?? null;
-    if (dKm < nearestKm) {
-      nearestKm = dKm;
-      nearestName = name;
-      nearestType = t;
+
+    if (tags.waterway === "river") {
+      if (dKm < nearestRiverKm) {
+        nearestRiverKm = dKm;
+        nearestRiverName = name;
+        nearestRiverType = "river";
+      }
+      pois.push({
+        name: name ?? "(河川)",
+        lat,
+        lng,
+        distance_km: Number(dKm.toFixed(2)),
+        category: "river",
+      });
+    } else if (tags.waterway === "stream" || tags.waterway === "drain") {
+      if (dKm < nearestStreamKm) nearestStreamKm = dKm;
+      pois.push({
+        name: name ?? (tags.waterway === "drain" ? "(排水溝)" : "(野溪)"),
+        lat,
+        lng,
+        distance_km: Number(dKm.toFixed(2)),
+        category: tags.waterway,
+      });
+    } else if (
+      tags.landuse === "basin" ||
+      tags.water === "basin" ||
+      tags.water === "reservoir"
+    ) {
+      detentionCount++;
+      pois.push({
+        name: name ?? "(滯洪池/水庫)",
+        lat,
+        lng,
+        distance_km: Number(dKm.toFixed(2)),
+        category: "detention",
+      });
     }
-    pois.push({
-      name: name ?? `(${t ?? "water"})`,
-      lat,
-      lng,
-      distance_km: Number(dKm.toFixed(2)),
-      category: t ?? "water",
-    });
   }
 
   pois.sort((a, b) => a.distance_km - b.distance_km);
 
-  const hasNearby = Number.isFinite(nearestKm);
-  const score = hasNearby ? distanceScore(nearestKm) : 95;
+  const rivP = Number.isFinite(nearestRiverKm) ? riverPenalty(nearestRiverKm) : 0;
+  const strP = Number.isFinite(nearestStreamKm) ? riverPenalty(nearestStreamKm) * 0.5 : 0;
+  const detBonus = Math.min(15, detentionCount * 5);
+  const score = Math.max(0, Math.min(100, Math.round(95 - rivP - strP + detBonus)));
+
+  const nearest = Number.isFinite(nearestRiverKm)
+    ? {
+        name: nearestRiverName,
+        type: nearestRiverType,
+        distance_km: Number(nearestRiverKm.toFixed(2)),
+      }
+    : null;
 
   return {
     score,
-    nearest_water: hasNearby
-      ? {
-          name: nearestName,
-          type: nearestType,
-          distance_km: Number(nearestKm.toFixed(2)),
-        }
-      : null,
+    nearest_water: nearest,
     pois: pois.slice(0, MAX_POIS),
     proxy_note:
-      "本維度為「距水體距離」粗略代理，非水利署淹水潛勢圖。",
+      "本維度為「距河川距離」OSM 代理（滯洪池鄰近加分）。真實淹水深度需參考水利署淹水潛勢圖：https://dprc.wra.gov.tw/",
   };
 }
