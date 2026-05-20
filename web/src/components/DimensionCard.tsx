@@ -320,20 +320,35 @@ function renderDetail(value: DimensionData, config: DimensionConfig) {
     }
     case "school_district": {
       const d = value.data;
+      const parts = [
+        d.universities_within_1km && `大學 ${d.universities_within_1km}`,
+        d.high_schools_within_1km && `高中職 ${d.high_schools_within_1km}`,
+        d.junior_schools_within_1km && `國中 ${d.junior_schools_within_1km}`,
+        d.primary_schools_within_1km && `國小 ${d.primary_schools_within_1km}`,
+        d.kindergartens_within_1km && `幼兒園 ${d.kindergartens_within_1km}`,
+      ].filter(Boolean);
       return (
         <div className="space-y-3">
           <ul className="space-y-1.5">
             <Row
               label="1km 內"
-              value={`國中小 ${d.schools_within_1km} · 幼兒園 ${d.kindergartens_within_1km}`}
+              value={parts.length ? parts.join(" · ") : "—"}
             />
           </ul>
           <PoiList
             items={d.pois}
-            limit={5}
-            showBadge={(p) =>
-              p.category === "school" ? "學校" : p.category === "kindergarten" ? "幼兒園" : null
-            }
+            limit={8}
+            showBadge={(p) => {
+              const m: Record<string, string> = {
+                university: "大學",
+                high: "高中職",
+                junior: "國中",
+                primary: "國小",
+                kindergarten: "幼兒園",
+                other: "其他學校",
+              };
+              return m[p.category ?? ""] ?? null;
+            }}
           />
           <p className="text-xs italic text-white/40">{d.proxy_note}</p>
         </div>

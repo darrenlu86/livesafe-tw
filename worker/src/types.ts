@@ -101,8 +101,13 @@ export interface SchoolDistrict {
   score: number;
   schools_within_1km: number;
   kindergartens_within_1km: number;
+  universities_within_1km: number;
+  high_schools_within_1km: number;
+  junior_schools_within_1km: number;
+  primary_schools_within_1km: number;
   nearest_schools: Array<{ name: string; distance_km: number }>;
   pois: Poi[];
+  level_labels: Record<string, string>;
   proxy_note: string;
 }
 
