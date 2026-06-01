@@ -5,21 +5,21 @@
     "endpoint": "https://earthquake.usgs.gov/fdsnws/event/1/query",
     "query": {
       "format": "geojson",
-      "starttime": "2021-05-19",
-      "endtime": "2026-05-19",
+      "starttime": "2021-06-01",
+      "endtime": "2026-06-01",
       "minmagnitude": 4.0,
       "minlatitude": 21.5,
       "maxlatitude": 25.5,
       "minlongitude": 119.5,
       "maxlongitude": 122.5
     },
-    "fetched_at": "2026-05-19T15:49:06.180423+00:00",
+    "fetched_at": "2026-06-01T07:05:11.282727+00:00",
     "license": "USGS public domain (U.S. federal government work)",
-    "count": 1012,
+    "count": 992,
     "magnitude_min": 4.0,
     "magnitude_max": 7.4,
-    "date_earliest": "2021-05-22T19:57:42.892000+00:00",
-    "date_latest": "2026-05-17T00:46:13.678000+00:00",
+    "date_earliest": "2021-06-01T02:21:37.156000+00:00",
+    "date_latest": "2026-05-20T12:25:35.650000+00:00",
     "taiwan_bbox": {
       "minlatitude": 21.5,
       "maxlatitude": 25.5,
@@ -28,6 +28,24 @@
     }
   },
   "earthquakes": [
+    {
+      "id": "us6000syy7",
+      "date": "2026-05-20T12:25:35.650000+00:00",
+      "lat": 23.2439,
+      "lng": 121.4465,
+      "magnitude": 4.9,
+      "depth_km": 24.62,
+      "place": "82 km S of Hualien City, Taiwan"
+    },
+    {
+      "id": "us6000syvs",
+      "date": "2026-05-20T01:11:57.759000+00:00",
+      "lat": 23.311,
+      "lng": 121.4279,
+      "magnitude": 4.3,
+      "depth_km": 24.634,
+      "place": "75 km SSW of Hualien City, Taiwan"
+    },
     {
       "id": "us6000syaw",
       "date": "2026-05-17T00:46:13.678000+00:00",
@@ -66,21 +84,21 @@
     },
     {
       "id": "us6000sw1q",
-      "date": "2026-05-07T20:57:34.420000+00:00",
-      "lat": 24.1692,
-      "lng": 121.8825,
+      "date": "2026-05-07T20:57:34.232000+00:00",
+      "lat": 24.1374,
+      "lng": 121.9114,
       "magnitude": 4.3,
-      "depth_km": 28.824,
-      "place": "35 km NE of Hualien City, Taiwan"
+      "depth_km": 29.053,
+      "place": "35 km ENE of Hualien City, Taiwan"
     },
     {
       "id": "us7000si3h",
-      "date": "2026-05-04T06:59:22.417000+00:00",
-      "lat": 24.6854,
-      "lng": 121.7937,
+      "date": "2026-05-04T06:59:22.076000+00:00",
+      "lat": 24.6926,
+      "lng": 121.8648,
       "magnitude": 4.4,
       "depth_km": 10.0,
-      "place": "8 km SSE of Yilan, Taiwan"
+      "place": "13 km ESE of Yilan, Taiwan"
     },
     {
       "id": "us6000sxfp",
@@ -93,21 +111,21 @@
     },
     {
       "id": "us7000shjp",
-      "date": "2026-05-01T12:39:55.578000+00:00",
-      "lat": 24.8748,
-      "lng": 122.02,
+      "date": "2026-05-01T12:39:55.952000+00:00",
+      "lat": 24.8743,
+      "lng": 122.0444,
       "magnitude": 5.8,
-      "depth_km": 97.333,
-      "place": "29 km ENE of Yilan, Taiwan"
+      "depth_km": 103.0,
+      "place": "32 km ENE of Yilan, Taiwan"
     },
     {
       "id": "us6000sss5",
-      "date": "2026-04-25T07:16:33.996000+00:00",
-      "lat": 24.7912,
-      "lng": 121.8472,
+      "date": "2026-04-25T07:16:34.149000+00:00",
+      "lat": 24.7353,
+      "lng": 121.8432,
       "magnitude": 4.1,
-      "depth_km": 70.68,
-      "place": "10 km ENE of Yilan, Taiwan"
+      "depth_km": 70.488,
+      "place": "9 km ESE of Yilan, Taiwan"
     },
     {
       "id": "us7000shc4",
@@ -8937,204 +8955,6 @@
       "magnitude": 4.6,
       "depth_km": 10.0,
       "place": "67 km NW of Yonakuni, Japan"
-    },
-    {
-      "id": "us6000egde",
-      "date": "2021-05-31T17:53:57.043000+00:00",
-      "lat": 24.8414,
-      "lng": 122.4545,
-      "magnitude": 4.2,
-      "depth_km": 14.48,
-      "place": "68 km ESE of Jiufen, Taiwan"
-    },
-    {
-      "id": "us7000e9h0",
-      "date": "2021-05-31T07:53:44.720000+00:00",
-      "lat": 24.9867,
-      "lng": 121.626,
-      "magnitude": 4.3,
-      "depth_km": 40.32,
-      "place": "11 km SE of Taipei, Taiwan"
-    },
-    {
-      "id": "us6000eg4l",
-      "date": "2021-05-31T06:03:38.981000+00:00",
-      "lat": 24.8753,
-      "lng": 122.4157,
-      "magnitude": 4.3,
-      "depth_km": 10.0,
-      "place": "63 km ESE of Jiufen, Taiwan"
-    },
-    {
-      "id": "us6000eg2i",
-      "date": "2021-05-30T20:35:50.065000+00:00",
-      "lat": 24.8591,
-      "lng": 122.4236,
-      "magnitude": 4.6,
-      "depth_km": 10.0,
-      "place": "64 km ESE of Jiufen, Taiwan"
-    },
-    {
-      "id": "us6000eftu",
-      "date": "2021-05-29T14:32:21.367000+00:00",
-      "lat": 24.8969,
-      "lng": 122.4453,
-      "magnitude": 4.4,
-      "depth_km": 10.0,
-      "place": "65 km ESE of Jiufen, Taiwan"
-    },
-    {
-      "id": "us6000eh02",
-      "date": "2021-05-28T23:59:11.391000+00:00",
-      "lat": 24.7643,
-      "lng": 122.2545,
-      "magnitude": 4.1,
-      "depth_km": 10.0,
-      "place": "50 km E of Yilan, Taiwan"
-    },
-    {
-      "id": "us6000egzl",
-      "date": "2021-05-28T12:38:21.413000+00:00",
-      "lat": 24.7717,
-      "lng": 122.4405,
-      "magnitude": 4.4,
-      "depth_km": 10.0,
-      "place": "65 km WNW of Yonakuni, Japan"
-    },
-    {
-      "id": "us6000egzd",
-      "date": "2021-05-28T07:07:27.735000+00:00",
-      "lat": 24.7452,
-      "lng": 122.0192,
-      "magnitude": 4.2,
-      "depth_km": 10.0,
-      "place": "26 km E of Yilan, Taiwan"
-    },
-    {
-      "id": "us6000egqb",
-      "date": "2021-05-27T04:00:27.120000+00:00",
-      "lat": 24.2794,
-      "lng": 122.4044,
-      "magnitude": 4.9,
-      "depth_km": 10.0,
-      "place": "63 km WSW of Yonakuni, Japan"
-    },
-    {
-      "id": "us6000eglc",
-      "date": "2021-05-26T22:12:02.096000+00:00",
-      "lat": 24.9666,
-      "lng": 122.4798,
-      "magnitude": 4.2,
-      "depth_km": 7.72,
-      "place": "66 km ESE of Jiufen, Taiwan"
-    },
-    {
-      "id": "us6000eevw",
-      "date": "2021-05-26T19:45:48.748000+00:00",
-      "lat": 24.722,
-      "lng": 122.4169,
-      "magnitude": 4.6,
-      "depth_km": 10.0,
-      "place": "65 km WNW of Yonakuni, Japan"
-    },
-    {
-      "id": "us6000egkf",
-      "date": "2021-05-26T12:31:43.402000+00:00",
-      "lat": 24.852,
-      "lng": 122.4961,
-      "magnitude": 4.3,
-      "depth_km": 10.0,
-      "place": "66 km NW of Yonakuni, Japan"
-    },
-    {
-      "id": "us7000e69f",
-      "date": "2021-05-26T00:43:16.485000+00:00",
-      "lat": 24.8253,
-      "lng": 122.4615,
-      "magnitude": 4.4,
-      "depth_km": 10.0,
-      "place": "67 km NW of Yonakuni, Japan"
-    },
-    {
-      "id": "us6000efkv",
-      "date": "2021-05-25T22:56:08.520000+00:00",
-      "lat": 24.7982,
-      "lng": 122.4624,
-      "magnitude": 4.3,
-      "depth_km": 10.0,
-      "place": "65 km NW of Yonakuni, Japan"
-    },
-    {
-      "id": "us7000e65g",
-      "date": "2021-05-25T16:47:58.415000+00:00",
-      "lat": 23.8467,
-      "lng": 121.5384,
-      "magnitude": 4.4,
-      "depth_km": 10.0,
-      "place": "15 km SSW of Hualien City, Taiwan"
-    },
-    {
-      "id": "us6000efjm",
-      "date": "2021-05-25T05:35:39.136000+00:00",
-      "lat": 24.8987,
-      "lng": 122.4698,
-      "magnitude": 4.1,
-      "depth_km": 10.0,
-      "place": "67 km ESE of Jiufen, Taiwan"
-    },
-    {
-      "id": "us6000efjk",
-      "date": "2021-05-25T04:51:31.284000+00:00",
-      "lat": 24.8284,
-      "lng": 122.4177,
-      "magnitude": 4.1,
-      "depth_km": 10.0,
-      "place": "65 km ESE of Jiufen, Taiwan"
-    },
-    {
-      "id": "us6000efji",
-      "date": "2021-05-25T04:24:46.561000+00:00",
-      "lat": 24.7547,
-      "lng": 122.4952,
-      "magnitude": 4.0,
-      "depth_km": 10.0,
-      "place": "60 km WNW of Yonakuni, Japan"
-    },
-    {
-      "id": "us6000efjh",
-      "date": "2021-05-25T02:39:05.875000+00:00",
-      "lat": 24.8683,
-      "lng": 122.4543,
-      "magnitude": 4.7,
-      "depth_km": 10.0,
-      "place": "67 km ESE of Jiufen, Taiwan"
-    },
-    {
-      "id": "us7000e5yw",
-      "date": "2021-05-25T00:36:51.655000+00:00",
-      "lat": 24.8454,
-      "lng": 122.4707,
-      "magnitude": 4.3,
-      "depth_km": 12.3,
-      "place": "68 km NW of Yonakuni, Japan"
-    },
-    {
-      "id": "us6000efiw",
-      "date": "2021-05-24T20:56:21.118000+00:00",
-      "lat": 24.8671,
-      "lng": 122.4472,
-      "magnitude": 4.6,
-      "depth_km": 10.0,
-      "place": "66 km ESE of Jiufen, Taiwan"
-    },
-    {
-      "id": "us7000e5ct",
-      "date": "2021-05-22T19:57:42.892000+00:00",
-      "lat": 23.8471,
-      "lng": 121.5256,
-      "magnitude": 4.4,
-      "depth_km": 16.4,
-      "place": "Taiwan"
     }
   ]
 }
