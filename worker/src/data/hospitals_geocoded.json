@@ -1,18 +1,18 @@
 {
   "metadata": {
     "source": "https://info.nhi.gov.tw/api/iode0000s01/Dataset?rId=A21030000I-D21003-003",
-    "fetched_at": "2026-06-01T06:45:38.100424+00:00",
+    "fetched_at": "2026-07-01T06:16:30.199865+00:00",
     "license": "政府資料開放授權條款-第 1 版",
     "row_count": 371,
     "emergency_hospital_count": 173,
     "active_count": 337,
-    "geocoded_at": "2026-06-01T06:45:38.277280+00:00",
+    "geocoded_at": "2026-07-01T06:16:30.368440+00:00",
     "geocoder": "OSM Nominatim + (optional) Google Maps fallback",
     "geocoder_endpoint": "https://nominatim.openstreetmap.org/search",
     "geocode_stats": {
       "address_full": 1,
-      "address_street": 309,
-      "county_name": 39,
+      "address_street": 312,
+      "county_name": 36,
       "county_name_stripped": 10,
       "name": 0,
       "name_stripped": 0,
@@ -174,8 +174,8 @@
       "contract_start": "1995-07-07",
       "contract_end": "2028-07-06",
       "is_active": true,
-      "lat": 25.0288187,
-      "lng": 121.4224884,
+      "lat": 25.0212011,
+      "lng": 121.4105129,
       "geocode_method": "address_street"
     },
     {
@@ -426,8 +426,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 21.9875387,
-      "lng": 120.748924,
+      "lat": 21.9943879,
+      "lng": 120.7460912,
       "geocode_method": "address_street"
     },
     {
@@ -469,8 +469,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 23.5630856,
-      "lng": 119.5650397,
+      "lat": 23.5643803,
+      "lng": 119.5652362,
       "geocode_method": "address_street"
     },
     {
@@ -833,8 +833,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.0425,
-      "lng": 121.5024333,
+      "lat": 25.0392234,
+      "lng": 121.5019011,
       "geocode_method": "address_street"
     },
     {
@@ -967,8 +967,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.1447028,
-      "lng": 121.7621161,
+      "lat": 25.1433789,
+      "lng": 121.7628676,
       "geocode_method": "address_street"
     },
     {
@@ -1017,8 +1017,8 @@
       "contract_start": "1998-08-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.8223496,
-      "lng": 120.9698595,
+      "lat": 24.8161356,
+      "lng": 120.9631451,
       "geocode_method": "address_street"
     },
     {
@@ -1061,8 +1061,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.162612,
-      "lng": 120.6650752,
+      "lat": 24.1617133,
+      "lng": 120.6636071,
       "geocode_method": "address_street"
     },
     {
@@ -1143,8 +1143,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 22.6343485,
-      "lng": 120.4872865,
+      "lat": 22.6259587,
+      "lng": 120.4951241,
       "geocode_method": "address_street"
     },
     {
@@ -1332,8 +1332,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.7232995,
-      "lng": 121.6787877,
+      "lat": 24.7240314,
+      "lng": 121.6766082,
       "geocode_method": "address_street"
     },
     {
@@ -1564,8 +1564,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 23.7350968,
-      "lng": 121.4439657,
+      "lat": 23.7253519,
+      "lng": 121.4368998,
       "geocode_method": "address_street"
     },
     {
@@ -1722,8 +1722,8 @@
       "contract_start": "2012-11-15",
       "contract_end": "2027-11-14",
       "is_active": true,
-      "lat": 24.1435325,
-      "lng": 120.5993363,
+      "lat": 24.140605,
+      "lng": 120.5997145,
       "geocode_method": "address_street"
     },
     {
@@ -1770,8 +1770,8 @@
       "contract_start": "2007-01-01",
       "contract_end": "2028-12-31",
       "is_active": true,
-      "lat": 25.0381709,
-      "lng": 121.5393437,
+      "lat": 25.0380003,
+      "lng": 121.5473699,
       "geocode_method": "address_street"
     },
     {
@@ -1804,8 +1804,8 @@
       "contract_start": "2015-08-13",
       "contract_end": "2027-08-12",
       "is_active": true,
-      "lat": 25.0286326,
-      "lng": 121.5182779,
+      "lat": 25.0278746,
+      "lng": 121.5170336,
       "geocode_method": "address_street"
     },
     {
@@ -1903,8 +1903,8 @@
       "contract_start": "2017-03-01",
       "contract_end": "2028-12-11",
       "is_active": true,
-      "lat": 24.1092831,
-      "lng": 120.5976285,
+      "lat": 24.1092748,
+      "lng": 120.5975464,
       "geocode_method": "address_street"
     },
     {
@@ -1927,8 +1927,8 @@
       "contract_start": "2019-10-18",
       "contract_end": "2028-10-17",
       "is_active": true,
-      "lat": 22.9652013,
-      "lng": 120.3409646,
+      "lat": 22.9629325,
+      "lng": 120.333941,
       "geocode_method": "address_street"
     },
     {
@@ -2221,8 +2221,8 @@
       "contract_start": "2019-11-01",
       "contract_end": "2028-10-31",
       "is_active": true,
-      "lat": 23.475944,
-      "lng": 120.4403228,
+      "lat": 23.4768386,
+      "lng": 120.4507687,
       "geocode_method": "address_street"
     },
     {
@@ -2247,8 +2247,8 @@
       "contract_start": "2025-06-01",
       "contract_end": "2028-05-31",
       "is_active": true,
-      "lat": 23.4564129,
-      "lng": 120.4364269,
+      "lat": 23.4535412,
+      "lng": 120.433323,
       "geocode_method": "address_street"
     },
     {
@@ -2361,8 +2361,8 @@
       "contract_start": "2016-07-07",
       "contract_end": "2028-07-06",
       "is_active": true,
-      "lat": 24.9598896,
-      "lng": 121.5133753,
+      "lat": 24.9517217,
+      "lng": 121.5088478,
       "geocode_method": "address_street"
     },
     {
@@ -2393,8 +2393,8 @@
       "contract_start": "2011-06-01",
       "contract_end": "2029-05-31",
       "is_active": true,
-      "lat": 25.0288187,
-      "lng": 121.4224884,
+      "lat": 25.0373365,
+      "lng": 121.4577713,
       "geocode_method": "address_street"
     },
     {
@@ -2467,8 +2467,8 @@
       "contract_start": "2007-12-21",
       "contract_end": "2028-12-20",
       "is_active": true,
-      "lat": 24.9623965,
-      "lng": 121.2179902,
+      "lat": 24.9597543,
+      "lng": 121.2277879,
       "geocode_method": "address_street"
     },
     {
@@ -2560,8 +2560,8 @@
       "contract_start": "2024-07-01",
       "contract_end": "2027-06-30",
       "is_active": true,
-      "lat": 24.8351173,
-      "lng": 121.0077826,
+      "lat": 24.8410477,
+      "lng": 121.012025,
       "geocode_method": "address_street"
     },
     {
@@ -2618,8 +2618,8 @@
       "contract_start": "2015-11-17",
       "contract_end": "2027-11-16",
       "is_active": true,
-      "lat": 24.5512862,
-      "lng": 120.8210997,
+      "lat": 24.5520656,
+      "lng": 120.818638,
       "geocode_method": "address_street"
     },
     {
@@ -2724,8 +2724,8 @@
       "contract_start": "2008-05-01",
       "contract_end": "2028-04-30",
       "is_active": true,
-      "lat": 24.1108571,
-      "lng": 120.4932124,
+      "lat": 24.1102354,
+      "lng": 120.4914658,
       "geocode_method": "address_street"
     },
     {
@@ -2772,8 +2772,8 @@
       "contract_start": "2008-01-01",
       "contract_end": "2026-12-31",
       "is_active": true,
-      "lat": 23.9594001,
-      "lng": 120.5719652,
+      "lat": 23.9628466,
+      "lng": 120.571295,
       "geocode_method": "address_street"
     },
     {
@@ -3077,8 +3077,8 @@
       "contract_start": "2010-09-23",
       "contract_end": "2028-09-22",
       "is_active": true,
-      "lat": 23.0243503,
-      "lng": 120.2537151,
+      "lat": 23.0192454,
+      "lng": 120.241588,
       "geocode_method": "address_street"
     },
     {
@@ -3199,8 +3199,8 @@
       "contract_start": "2020-04-01",
       "contract_end": "2029-03-31",
       "is_active": true,
-      "lat": 22.6657039,
-      "lng": 120.5010407,
+      "lat": 22.6683356,
+      "lng": 120.496384,
       "geocode_method": "address_street"
     },
     {
@@ -3436,8 +3436,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.0444322,
-      "lng": 121.5365679,
+      "lat": 25.04159,
+      "lng": 121.5378,
       "geocode_method": "address_street"
     },
     {
@@ -3481,8 +3481,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.037985,
-      "lng": 121.5369915,
+      "lat": 25.0380003,
+      "lng": 121.5473699,
       "geocode_method": "address_street"
     },
     {
@@ -3897,8 +3897,8 @@
       "contract_start": "1996-09-25",
       "contract_end": "2028-09-24",
       "is_active": true,
-      "lat": 24.900244,
-      "lng": 121.0465965,
+      "lat": 24.900918,
+      "lng": 121.0452195,
       "geocode_method": "address_street"
     },
     {
@@ -3964,7 +3964,7 @@
         "復健科"
       ],
       "contract_start": "2020-08-01",
-      "contract_end": "2026-07-31",
+      "contract_end": "2029-07-31",
       "is_active": true,
       "lat": 24.776995,
       "lng": 121.7157492,
@@ -3997,8 +3997,8 @@
       "contract_start": "1997-06-13",
       "contract_end": "2028-06-12",
       "is_active": true,
-      "lat": 24.7219978,
-      "lng": 121.7221968,
+      "lat": 24.7194342,
+      "lng": 121.7233132,
       "geocode_method": "address_street"
     },
     {
@@ -4041,8 +4041,8 @@
       "contract_start": "2019-09-01",
       "contract_end": "2028-08-31",
       "is_active": true,
-      "lat": 24.1065462,
-      "lng": 120.562117,
+      "lat": 24.0719569,
+      "lng": 120.5226696,
       "geocode_method": "address_street"
     },
     {
@@ -4092,8 +4092,8 @@
       "contract_start": "2006-09-05",
       "contract_end": "2028-09-04",
       "is_active": true,
-      "lat": 24.060237,
-      "lng": 120.4380887,
+      "lat": 24.0538796,
+      "lng": 120.4409147,
       "geocode_method": "address_street"
     },
     {
@@ -4174,8 +4174,8 @@
       "contract_start": "2015-07-01",
       "contract_end": "2027-06-30",
       "is_active": true,
-      "lat": 23.9569344,
-      "lng": 120.5666808,
+      "lat": 23.9674572,
+      "lng": 120.5668897,
       "geocode_method": "address_street"
     },
     {
@@ -4267,8 +4267,8 @@
       "contract_start": "2019-10-01",
       "contract_end": "2028-09-30",
       "is_active": true,
-      "lat": 23.9263223,
-      "lng": 120.6921142,
+      "lat": 23.9095326,
+      "lng": 120.693065,
       "geocode_method": "address_street"
     },
     {
@@ -4335,8 +4335,8 @@
       "contract_start": "2019-01-01",
       "contract_end": "2027-12-31",
       "is_active": true,
-      "lat": 23.6791324,
-      "lng": 120.481478,
+      "lat": 23.6767289,
+      "lng": 120.4820776,
       "geocode_method": "address_street"
     },
     {
@@ -4480,8 +4480,8 @@
       "contract_start": "2009-12-29",
       "contract_end": "2026-12-28",
       "is_active": true,
-      "lat": 23.7941574,
-      "lng": 120.2194646,
+      "lat": 23.7914079,
+      "lng": 120.2429522,
       "geocode_method": "address_street"
     },
     {
@@ -4679,8 +4679,8 @@
       "contract_start": "1999-06-14",
       "contract_end": "2028-03-14",
       "is_active": true,
-      "lat": 23.3350344,
-      "lng": 121.3187109,
+      "lat": 23.3340953,
+      "lng": 121.3145353,
       "geocode_method": "address_street"
     },
     {
@@ -4764,8 +4764,8 @@
       "contract_start": "1998-08-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 22.7614185,
-      "lng": 121.1406706,
+      "lat": 22.7590386,
+      "lng": 121.137617,
       "geocode_method": "address_street"
     },
     {
@@ -4995,8 +4995,8 @@
       "contract_start": "2025-12-01",
       "contract_end": "2028-11-30",
       "is_active": true,
-      "lat": 24.2518543,
-      "lng": 120.7171973,
+      "lat": 24.2517446,
+      "lng": 120.7204001,
       "geocode_method": "address_street"
     },
     {
@@ -5046,8 +5046,8 @@
       "contract_start": "2025-09-02",
       "contract_end": "2028-09-01",
       "is_active": true,
-      "lat": 24.1618908,
-      "lng": 120.7331534,
+      "lat": 24.17555,
+      "lng": 120.68799,
       "geocode_method": "address_street"
     },
     {
@@ -5101,8 +5101,8 @@
       "contract_start": "2024-04-17",
       "contract_end": "2027-04-16",
       "is_active": true,
-      "lat": 22.7793151,
-      "lng": 120.3008256,
+      "lat": 22.7787263,
+      "lng": 120.2993697,
       "geocode_method": "address_street"
     },
     {
@@ -5171,8 +5171,8 @@
       "contract_start": "2008-09-05",
       "contract_end": "2028-09-04",
       "is_active": true,
-      "lat": 24.1427811,
-      "lng": 120.7005817,
+      "lat": 24.1427371,
+      "lng": 120.7005924,
       "geocode_method": "address_street"
     },
     {
@@ -5278,8 +5278,8 @@
       "contract_start": "2009-02-01",
       "contract_end": "2025-12-01",
       "is_active": false,
-      "lat": 24.2517446,
-      "lng": 120.7204001,
+      "lat": 24.2490723,
+      "lng": 120.7006228,
       "geocode_method": "address_street"
     },
     {
@@ -5440,8 +5440,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.1337005,
-      "lng": 120.6577448,
+      "lat": 24.1324209,
+      "lng": 120.6613769,
       "geocode_method": "address_street"
     },
     {
@@ -5495,8 +5495,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.5512862,
-      "lng": 120.8210997,
+      "lat": 24.5483087,
+      "lng": 120.825353,
       "geocode_method": "address_street"
     },
     {
@@ -5555,8 +5555,8 @@
       "contract_start": "1995-05-24",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 23.0394985,
-      "lng": 120.3114737,
+      "lat": 23.034571,
+      "lng": 120.28811,
       "geocode_method": "address_street"
     },
     {
@@ -5603,8 +5603,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.062211,
-      "lng": 121.5545371,
+      "lat": 25.0499626,
+      "lng": 121.5578025,
       "geocode_method": "address_street"
     },
     {
@@ -5653,8 +5653,8 @@
       "contract_start": "2018-03-01",
       "contract_end": "2027-02-28",
       "is_active": true,
-      "lat": 25.0413495,
-      "lng": 121.5576163,
+      "lat": 25.0388721,
+      "lng": 121.5575554,
       "geocode_method": "address_street"
     },
     {
@@ -5662,7 +5662,7 @@
       "name": "協和婦女醫院",
       "type": "醫院",
       "phone": "(02)25072222",
-      "address": "臺北市中山區松江路８５巷５號９３巷６號９３巷６號２樓",
+      "address": "臺北市中山區松江路８５巷５號１，２，３，４樓",
       "county_code": "63000",
       "region_group": "臺北業務組",
       "has_emergency": false,
@@ -5673,15 +5673,15 @@
         "分娩"
       ],
       "specialties": [
+        "外科",
         "兒科",
-        "婦產科",
-        "牙科"
+        "婦產科"
       ],
       "contract_start": "1997-07-14",
-      "contract_end": "2028-07-13",
+      "contract_end": "2029-04-30",
       "is_active": true,
-      "lat": 25.0720372,
-      "lng": 121.5314822,
+      "lat": 25.0645731,
+      "lng": 121.5333192,
       "geocode_method": "address_street"
     },
     {
@@ -5698,8 +5698,8 @@
       "contract_start": "2003-09-19",
       "contract_end": "2024-06-20",
       "is_active": false,
-      "lat": 25.0673919,
-      "lng": 121.5340165,
+      "lat": 25.06246,
+      "lng": 121.54323,
       "geocode_method": "address_street"
     },
     {
@@ -5951,8 +5951,8 @@
       "contract_start": "2006-05-05",
       "contract_end": "2028-05-04",
       "is_active": true,
-      "lat": 22.7110249,
-      "lng": 120.2923328,
+      "lat": 22.7133834,
+      "lng": 120.2906602,
       "geocode_method": "address_street"
     },
     {
@@ -6127,8 +6127,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2024-06-28",
       "is_active": false,
-      "lat": 22.6322209,
-      "lng": 120.3134893,
+      "lat": 22.6305939,
+      "lng": 120.3133711,
       "geocode_method": "address_street"
     },
     {
@@ -6169,8 +6169,8 @@
       "contract_start": "1999-04-16",
       "contract_end": "2024-12-26",
       "is_active": false,
-      "lat": 22.6330194,
-      "lng": 120.3021474,
+      "lat": 22.6352964,
+      "lng": 120.3021805,
       "geocode_method": "address_street"
     },
     {
@@ -6379,8 +6379,8 @@
       "contract_start": "2017-01-01",
       "contract_end": "2028-12-31",
       "is_active": true,
-      "lat": 24.2517446,
-      "lng": 120.7204001,
+      "lat": 24.24983,
+      "lng": 120.7047562,
       "geocode_method": "address_street"
     },
     {
@@ -6410,8 +6410,8 @@
       "contract_start": "2020-08-25",
       "contract_end": "2026-08-24",
       "is_active": true,
-      "lat": 24.2517446,
-      "lng": 120.7204001,
+      "lat": 24.24983,
+      "lng": 120.7047562,
       "geocode_method": "address_street"
     },
     {
@@ -6433,8 +6433,8 @@
       "contract_start": "2013-07-03",
       "contract_end": "2028-07-02",
       "is_active": true,
-      "lat": 24.3464141,
-      "lng": 120.6179394,
+      "lat": 24.3440008,
+      "lng": 120.6242125,
       "geocode_method": "address_street"
     },
     {
@@ -6537,8 +6537,8 @@
       "contract_start": "2017-10-01",
       "contract_end": "2026-09-30",
       "is_active": true,
-      "lat": 24.1268133,
-      "lng": 120.7150091,
+      "lat": 24.1284254,
+      "lng": 120.7174256,
       "geocode_method": "address_street"
     },
     {
@@ -6577,8 +6577,8 @@
       "contract_start": "2017-01-23",
       "contract_end": "2029-01-22",
       "is_active": true,
-      "lat": 24.0855072,
-      "lng": 120.6998322,
+      "lat": 24.090152,
+      "lng": 120.7031975,
       "geocode_method": "address_street"
     },
     {
@@ -6637,8 +6637,8 @@
       "contract_start": "2017-02-15",
       "contract_end": "2029-02-14",
       "is_active": true,
-      "lat": 24.1465723,
-      "lng": 120.6874563,
+      "lat": 24.1440932,
+      "lng": 120.6858252,
       "geocode_method": "address_street"
     },
     {
@@ -6667,8 +6667,8 @@
       "contract_start": "2021-06-05",
       "contract_end": "2027-06-04",
       "is_active": true,
-      "lat": 24.2013075,
-      "lng": 120.6088791,
+      "lat": 24.1990981,
+      "lng": 120.6115344,
       "geocode_method": "address_street"
     },
     {
@@ -6701,8 +6701,8 @@
       "contract_start": "2015-12-07",
       "contract_end": "2027-12-06",
       "is_active": true,
-      "lat": 24.1929898,
-      "lng": 120.6825705,
+      "lat": 24.1947578,
+      "lng": 120.6829029,
       "geocode_method": "address_street"
     },
     {
@@ -6810,8 +6810,8 @@
       "contract_start": "2013-04-19",
       "contract_end": "2028-04-18",
       "is_active": true,
-      "lat": 22.9939063,
-      "lng": 120.1903005,
+      "lat": 22.9945243,
+      "lng": 120.1886639,
       "geocode_method": "address_street"
     },
     {
@@ -7007,8 +7007,8 @@
       "contract_start": "2019-09-24",
       "contract_end": "2028-09-23",
       "is_active": true,
-      "lat": 22.6795872,
-      "lng": 120.3061801,
+      "lat": 22.6792689,
+      "lng": 120.3062164,
       "geocode_method": "address_street"
     },
     {
@@ -7233,8 +7233,8 @@
       "contract_start": "2011-03-10",
       "contract_end": "2025-03-14",
       "is_active": false,
-      "lat": 22.6285387,
-      "lng": 120.2943026,
+      "lat": 22.62774,
+      "lng": 120.29085,
       "geocode_method": "address_street"
     },
     {
@@ -7327,8 +7327,8 @@
       "contract_start": "2025-03-14",
       "contract_end": "2028-03-13",
       "is_active": true,
-      "lat": 22.6285387,
-      "lng": 120.2943026,
+      "lat": 22.62774,
+      "lng": 120.29085,
       "geocode_method": "address_street"
     },
     {
@@ -7418,8 +7418,8 @@
       "contract_start": "1999-09-01",
       "contract_end": "2028-08-31",
       "is_active": true,
-      "lat": 25.1391005,
-      "lng": 121.7518142,
+      "lat": 25.1344508,
+      "lng": 121.7455505,
       "geocode_method": "address_street"
     },
     {
@@ -7442,8 +7442,8 @@
       "contract_start": "1998-07-08",
       "contract_end": "2028-07-07",
       "is_active": true,
-      "lat": 25.1398102,
-      "lng": 121.7151131,
+      "lat": 25.1382206,
+      "lng": 121.7187163,
       "geocode_method": "address_street"
     },
     {
@@ -7466,8 +7466,8 @@
       "contract_start": "2015-01-08",
       "contract_end": "2027-01-07",
       "is_active": true,
-      "lat": 25.1398102,
-      "lng": 121.7151131,
+      "lat": 25.1382206,
+      "lng": 121.7187163,
       "geocode_method": "address_street"
     },
     {
@@ -7522,7 +7522,7 @@
       "name": "新中興醫院",
       "type": "醫院",
       "phone": "(03)5213163",
-      "address": "新竹市興南街４３號",
+      "address": "新竹市北區興南街４３號",
       "county_code": "10018",
       "region_group": "北區業務組",
       "has_emergency": false,
@@ -7541,9 +7541,9 @@
       "contract_start": "1995-09-22",
       "contract_end": "2028-09-21",
       "is_active": true,
-      "lat": 24.8018688,
-      "lng": 120.9627613,
-      "geocode_method": "county_name"
+      "lat": 24.8014649,
+      "lng": 120.9632614,
+      "geocode_method": "address_street"
     },
     {
       "code": "1517011103",
@@ -7564,8 +7564,8 @@
       "contract_start": "2004-09-04",
       "contract_end": "2028-09-03",
       "is_active": true,
-      "lat": 24.136336,
-      "lng": 120.6833199,
+      "lat": 24.1367405,
+      "lng": 120.6829293,
       "geocode_method": "address_street"
     },
     {
@@ -7633,8 +7633,8 @@
       "contract_start": "2003-12-01",
       "contract_end": "2027-11-30",
       "is_active": true,
-      "lat": 24.1504232,
-      "lng": 120.6944403,
+      "lat": 24.145162,
+      "lng": 120.6944444,
       "geocode_method": "address_street"
     },
     {
@@ -7720,8 +7720,8 @@
       "contract_start": "1999-07-01",
       "contract_end": "2028-06-30",
       "is_active": true,
-      "lat": 24.1737167,
-      "lng": 120.671984,
+      "lat": 24.17378,
+      "lng": 120.67216,
       "geocode_method": "address_street"
     },
     {
@@ -7833,8 +7833,8 @@
       "contract_start": "2008-04-25",
       "contract_end": "2028-04-24",
       "is_active": true,
-      "lat": 24.1720204,
-      "lng": 120.6618883,
+      "lat": 24.1719032,
+      "lng": 120.6982205,
       "geocode_method": "address_street"
     },
     {
@@ -7868,7 +7868,7 @@
       "name": "郭綜合醫院",
       "type": "綜合醫院",
       "phone": "(06)2221111",
-      "address": "臺南市民生路二段１８．２０．２２．２３．２４．２５．２７號",
+      "address": "臺南市中西區民生路二段６．８．１０．１２．１４．１８．２０",
       "county_code": "10021",
       "region_group": "南區業務組",
       "has_emergency": true,
@@ -7911,9 +7911,9 @@
       "contract_start": "2000-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 22.9949814,
-      "lng": 120.1988041,
-      "geocode_method": "county_name"
+      "lat": 22.9925956,
+      "lng": 120.2050583,
+      "geocode_method": "address_street"
     },
     {
       "code": "1521040050",
@@ -7936,8 +7936,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 23.0013315,
-      "lng": 120.2089584,
+      "lat": 23.0121423,
+      "lng": 120.2113541,
       "geocode_method": "address_street"
     },
     {
@@ -7973,7 +7973,7 @@
       "name": "永川醫院",
       "type": "醫院",
       "phone": "(06)2245771",
-      "address": "臺南市中區觀音里成功路１６９號",
+      "address": "臺南市中西區成功路１６９號",
       "county_code": "10021",
       "region_group": "南區業務組",
       "has_emergency": false,
@@ -7989,16 +7989,16 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 22.9979028,
-      "lng": 120.2063259,
-      "geocode_method": "county_name"
+      "lat": 22.998164,
+      "lng": 120.2061845,
+      "geocode_method": "address_street"
     },
     {
       "code": "1521051160",
       "name": "永和醫院",
       "type": "專科醫院",
       "phone": "(06)2231191",
-      "address": "臺南市中區福安里府前路一段３０４巷２號",
+      "address": "臺南市中西區府前路一段３０４巷２號",
       "county_code": "10021",
       "region_group": "南區業務組",
       "has_emergency": false,
@@ -8020,8 +8020,8 @@
       "contract_start": "2002-04-01",
       "contract_end": "2028-03-31",
       "is_active": true,
-      "lat": 22.9913949,
-      "lng": 120.1963292,
+      "lat": 22.9920414,
+      "lng": 120.1888319,
       "geocode_method": "address_street"
     },
     {
@@ -8048,8 +8048,8 @@
       "contract_start": "2002-07-15",
       "contract_end": "2028-07-14",
       "is_active": true,
-      "lat": 22.9958108,
-      "lng": 120.1994533,
+      "lat": 22.9901612,
+      "lng": 120.1994425,
       "geocode_method": "address_street"
     },
     {
@@ -8171,8 +8171,8 @@
       "contract_start": "2011-07-01",
       "contract_end": "2025-06-01",
       "is_active": false,
-      "lat": 23.4564129,
-      "lng": 120.4364269,
+      "lat": 23.4593613,
+      "lng": 120.4398999,
       "geocode_method": "address_street"
     },
     {
@@ -8203,8 +8203,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.0258448,
-      "lng": 121.4545913,
+      "lat": 25.0234993,
+      "lng": 121.4543103,
       "geocode_method": "address_street"
     },
     {
@@ -8273,8 +8273,8 @@
       "contract_start": "1999-03-16",
       "contract_end": "2028-03-15",
       "is_active": true,
-      "lat": 25.0020238,
-      "lng": 121.4610038,
+      "lat": 25.0028205,
+      "lng": 121.4661861,
       "geocode_method": "address_street"
     },
     {
@@ -8303,8 +8303,8 @@
       "contract_start": "2000-01-15",
       "contract_end": "2029-01-14",
       "is_active": true,
-      "lat": 25.0020238,
-      "lng": 121.4610038,
+      "lat": 25.0028205,
+      "lng": 121.4661861,
       "geocode_method": "address_street"
     },
     {
@@ -8371,8 +8371,8 @@
       "contract_start": "2006-04-01",
       "contract_end": "2023-12-15",
       "is_active": false,
-      "lat": 25.0644751,
-      "lng": 121.5044998,
+      "lat": 25.0605096,
+      "lng": 121.4925645,
       "geocode_method": "address_street"
     },
     {
@@ -8390,7 +8390,8 @@
         "復健－語言治療業務",
         "門診診療",
         "糞便抗原檢測胃幽門螺旋桿菌服務",
-        "住院診療"
+        "住院診療",
+        "血液透析"
       ],
       "specialties": [
         "家醫科",
@@ -8470,8 +8471,8 @@
       "contract_start": "2015-11-06",
       "contract_end": "2027-11-05",
       "is_active": true,
-      "lat": 25.0018091,
-      "lng": 121.5103183,
+      "lat": 25.0039625,
+      "lng": 121.5121996,
       "geocode_method": "address_street"
     },
     {
@@ -8500,8 +8501,8 @@
       "contract_start": "1996-09-02",
       "contract_end": "2028-09-01",
       "is_active": true,
-      "lat": 25.0038182,
-      "lng": 121.4900689,
+      "lat": 25.0037192,
+      "lng": 121.4897313,
       "geocode_method": "address_street"
     },
     {
@@ -8526,8 +8527,8 @@
       "contract_start": "2005-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.0038182,
-      "lng": 121.4900689,
+      "lat": 25.0037192,
+      "lng": 121.4897313,
       "geocode_method": "address_street"
     },
     {
@@ -8557,8 +8558,8 @@
       "contract_start": "2013-09-02",
       "contract_end": "2026-09-01",
       "is_active": true,
-      "lat": 24.9961558,
-      "lng": 121.4838212,
+      "lat": 24.9962732,
+      "lng": 121.4838251,
       "geocode_method": "address_street"
     },
     {
@@ -8703,8 +8704,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.0229395,
-      "lng": 121.4136575,
+      "lat": 25.0212011,
+      "lng": 121.4105129,
       "geocode_method": "address_street"
     },
     {
@@ -8727,8 +8728,8 @@
       "contract_start": "2010-07-01",
       "contract_end": "2028-06-30",
       "is_active": true,
-      "lat": 25.0588765,
-      "lng": 121.4502155,
+      "lat": 25.0468273,
+      "lng": 121.4515488,
       "geocode_method": "address_street"
     },
     {
@@ -8771,8 +8772,8 @@
       "contract_start": "2022-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 25.0019949,
-      "lng": 121.4319794,
+      "lat": 25.0294932,
+      "lng": 121.4385722,
       "geocode_method": "address_street"
     },
     {
@@ -8834,8 +8835,8 @@
       "contract_start": "2000-08-07",
       "contract_end": "2028-08-06",
       "is_active": true,
-      "lat": 24.9876112,
-      "lng": 121.4194442,
+      "lat": 24.989016,
+      "lng": 121.4170644,
       "geocode_method": "address_street"
     },
     {
@@ -8936,8 +8937,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.9873013,
-      "lng": 121.4499352,
+      "lat": 24.9891406,
+      "lng": 121.4468258,
       "geocode_method": "address_street"
     },
     {
@@ -8964,8 +8965,8 @@
       "contract_start": "1999-04-21",
       "contract_end": "2028-04-20",
       "is_active": true,
-      "lat": 24.9915483,
-      "lng": 121.4489653,
+      "lat": 24.9914998,
+      "lng": 121.448514,
       "geocode_method": "address_street"
     },
     {
@@ -8993,8 +8994,8 @@
       "contract_start": "2007-01-08",
       "contract_end": "2029-01-07",
       "is_active": true,
-      "lat": 24.9915483,
-      "lng": 121.4489653,
+      "lat": 24.9914998,
+      "lng": 121.448514,
       "geocode_method": "address_street"
     },
     {
@@ -9024,8 +9025,8 @@
       "contract_start": "2016-11-01",
       "contract_end": "2028-10-31",
       "is_active": true,
-      "lat": 24.9915483,
-      "lng": 121.4489653,
+      "lat": 24.9914998,
+      "lng": 121.448514,
       "geocode_method": "address_street"
     },
     {
@@ -9060,8 +9061,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2025-04-01",
       "is_active": false,
-      "lat": 25.20714,
-      "lng": 121.5042231,
+      "lat": 25.217858,
+      "lng": 121.5000436,
       "geocode_method": "address_street"
     },
     {
@@ -9146,8 +9147,8 @@
       "contract_start": "1998-01-02",
       "contract_end": "2028-01-01",
       "is_active": true,
-      "lat": 24.990947,
-      "lng": 121.3171143,
+      "lat": 24.9910301,
+      "lng": 121.314638,
       "geocode_method": "address_street"
     },
     {
@@ -9176,7 +9177,7 @@
         "放射診斷科"
       ],
       "contract_start": "2013-09-01",
-      "contract_end": "2028-08-31",
+      "contract_end": "2029-05-10",
       "is_active": true,
       "lat": 24.9325642,
       "lng": 121.1225616,
@@ -9255,8 +9256,8 @@
       "contract_start": "2004-07-19",
       "contract_end": "2025-11-01",
       "is_active": false,
-      "lat": 24.9602935,
-      "lng": 121.2255959,
+      "lat": 24.954179,
+      "lng": 121.2222229,
       "geocode_method": "address_street"
     },
     {
@@ -9333,8 +9334,8 @@
       "contract_start": "2013-10-16",
       "contract_end": "2028-10-15",
       "is_active": true,
-      "lat": 25.0194074,
-      "lng": 121.2924918,
+      "lat": 25.0194351,
+      "lng": 121.2923474,
       "geocode_method": "address_street"
     },
     {
@@ -9369,8 +9370,8 @@
       "contract_start": "2014-10-02",
       "contract_end": "2026-10-01",
       "is_active": true,
-      "lat": 24.9564293,
-      "lng": 121.2318814,
+      "lat": 24.9565521,
+      "lng": 121.2318114,
       "geocode_method": "address_street"
     },
     {
@@ -9495,7 +9496,6 @@
         "婦產科",
         "骨科",
         "泌尿科",
-        "耳鼻喉科(耳鼻喉頭頸外科)",
         "眼科",
         "神經科",
         "精神科",
@@ -9818,13 +9818,14 @@
         "家醫科",
         "內科",
         "骨科",
+        "神經科",
         "復健科"
       ],
       "contract_start": "1995-03-01",
       "contract_end": "2027-10-25",
       "is_active": true,
-      "lat": 24.7373602,
-      "lng": 121.0936986,
+      "lat": 24.7369849,
+      "lng": 121.0909994,
       "geocode_method": "address_street"
     },
     {
@@ -9850,8 +9851,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.7355092,
-      "lng": 121.0906981,
+      "lat": 24.7401347,
+      "lng": 121.0915797,
       "geocode_method": "address_street"
     },
     {
@@ -9882,8 +9883,8 @@
       "contract_start": "2002-09-27",
       "contract_end": "2028-09-26",
       "is_active": true,
-      "lat": 24.8351173,
-      "lng": 121.0077826,
+      "lat": 24.8410477,
+      "lng": 121.012025,
       "geocode_method": "address_street"
     },
     {
@@ -9900,8 +9901,8 @@
       "contract_start": "2015-07-22",
       "contract_end": "2024-07-01",
       "is_active": false,
-      "lat": 24.8351173,
-      "lng": 121.0077826,
+      "lat": 24.8410477,
+      "lng": 121.012025,
       "geocode_method": "address_street"
     },
     {
@@ -9930,8 +9931,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.5599402,
-      "lng": 120.8218973,
+      "lat": 24.5519153,
+      "lng": 120.8161843,
       "geocode_method": "address_street"
     },
     {
@@ -9978,7 +9979,8 @@
         "麻醉科",
         "放射線科",
         "病理科",
-        "核子醫學科"
+        "核子醫學科",
+        "放射腫瘤科"
       ],
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
@@ -10016,8 +10018,8 @@
       "contract_start": "2006-11-01",
       "contract_end": "2028-05-10",
       "is_active": true,
-      "lat": 24.5460542,
-      "lng": 120.6981009,
+      "lat": 24.5461148,
+      "lng": 120.697975,
       "geocode_method": "address_street"
     },
     {
@@ -10063,7 +10065,6 @@
       "region_group": "北區業務組",
       "has_emergency": true,
       "services": [
-        "復健－物理治療業務",
         "急診業務",
         "門診診療",
         "婦女人類乳突病毒檢測服務",
@@ -10115,8 +10116,8 @@
       "contract_start": "2007-02-12",
       "contract_end": "2028-02-11",
       "is_active": true,
-      "lat": 24.6728813,
-      "lng": 120.8890969,
+      "lat": 24.6857204,
+      "lng": 120.907299,
       "geocode_method": "address_street"
     },
     {
@@ -10195,8 +10196,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.2517446,
-      "lng": 120.7204001,
+      "lat": 24.24983,
+      "lng": 120.7047562,
       "geocode_method": "address_street"
     },
     {
@@ -10221,8 +10222,8 @@
       "contract_start": "2005-07-01",
       "contract_end": "2028-06-30",
       "is_active": true,
-      "lat": 24.2558743,
-      "lng": 120.7133749,
+      "lat": 24.2600001,
+      "lng": 120.7261236,
       "geocode_method": "address_street"
     },
     {
@@ -10294,8 +10295,8 @@
       "contract_start": "2007-04-17",
       "contract_end": "2028-04-16",
       "is_active": true,
-      "lat": 24.2848433,
-      "lng": 120.5499215,
+      "lat": 24.2923302,
+      "lng": 120.5518815,
       "geocode_method": "address_street"
     },
     {
@@ -10392,8 +10393,8 @@
       "contract_start": "1999-08-09",
       "contract_end": "2028-02-11",
       "is_active": true,
-      "lat": 24.2169621,
-      "lng": 120.6664759,
+      "lat": 24.2170172,
+      "lng": 120.6664757,
       "geocode_method": "county_name"
     },
     {
@@ -10416,8 +10417,8 @@
       "contract_start": "1999-06-14",
       "contract_end": "2028-06-13",
       "is_active": true,
-      "lat": 24.257629,
-      "lng": 120.773686,
+      "lat": 24.2714677,
+      "lng": 120.7742727,
       "geocode_method": "address_street"
     },
     {
@@ -10448,8 +10449,8 @@
       "contract_start": "2002-05-01",
       "contract_end": "2028-04-30",
       "is_active": true,
-      "lat": 24.0994908,
-      "lng": 120.6478035,
+      "lat": 24.1093826,
+      "lng": 120.6507592,
       "geocode_method": "address_street"
     },
     {
@@ -10552,8 +10553,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 24.0915844,
-      "lng": 120.6909031,
+      "lat": 24.0874708,
+      "lng": 120.6958658,
       "geocode_method": "address_street"
     },
     {
@@ -10570,8 +10571,8 @@
       "contract_start": "2007-01-01",
       "contract_end": "2025-12-04",
       "is_active": false,
-      "lat": 24.0915844,
-      "lng": 120.6909031,
+      "lat": 24.0874708,
+      "lng": 120.6958658,
       "geocode_method": "address_street"
     },
     {
@@ -10812,8 +10813,8 @@
       "contract_start": "2006-11-15",
       "contract_end": "2028-11-14",
       "is_active": true,
-      "lat": 23.9590969,
-      "lng": 120.5734185,
+      "lat": 23.9591141,
+      "lng": 120.5734547,
       "geocode_method": "county_name"
     },
     {
@@ -11114,8 +11115,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 23.713223,
-      "lng": 120.5584023,
+      "lat": 23.7168401,
+      "lng": 120.5679939,
       "geocode_method": "address_street"
     },
     {
@@ -11320,8 +11321,8 @@
       "contract_start": "2005-09-06",
       "contract_end": "2028-09-05",
       "is_active": true,
-      "lat": 23.3130858,
-      "lng": 120.3051468,
+      "lat": 23.3141825,
+      "lng": 120.3043579,
       "geocode_method": "address_street"
     },
     {
@@ -11338,8 +11339,8 @@
       "contract_start": "1995-03-01",
       "contract_end": "2023-12-20",
       "is_active": false,
-      "lat": 23.1613161,
-      "lng": 120.1805134,
+      "lat": 23.1580104,
+      "lng": 120.165885,
       "geocode_method": "address_street"
     },
     {
@@ -11433,8 +11434,8 @@
       "contract_start": "2000-10-03",
       "contract_end": "2028-11-16",
       "is_active": true,
-      "lat": 22.600692,
-      "lng": 120.326798,
+      "lat": 22.5920545,
+      "lng": 120.325157,
       "geocode_method": "address_street"
     },
     {
@@ -11461,8 +11462,8 @@
       "contract_start": "2000-10-01",
       "contract_end": "2027-09-18",
       "is_active": true,
-      "lat": 22.625393,
-      "lng": 120.3484932,
+      "lat": 22.6257618,
+      "lng": 120.3514245,
       "geocode_method": "address_street"
     },
     {
@@ -11797,8 +11798,8 @@
       "contract_start": "2000-01-15",
       "contract_end": "2028-01-14",
       "is_active": true,
-      "lat": 22.6057193,
-      "lng": 120.3945702,
+      "lat": 22.60555,
+      "lng": 120.3957076,
       "geocode_method": "address_street"
     },
     {
@@ -11824,8 +11825,8 @@
       "contract_start": "2005-01-01",
       "contract_end": "2026-12-31",
       "is_active": true,
-      "lat": 22.6150593,
-      "lng": 120.3875559,
+      "lat": 22.6202506,
+      "lng": 120.3819504,
       "geocode_method": "address_street"
     },
     {
@@ -11928,14 +11929,14 @@
         "骨科",
         "泌尿科",
         "復健科",
-        "放射診斷科",
-        "解剖病理科"
+        "急診醫學科",
+        "放射診斷科"
       ],
       "contract_start": "1995-03-01",
       "contract_end": "2028-02-29",
       "is_active": true,
-      "lat": 22.6578206,
-      "lng": 120.5149137,
+      "lat": 22.6566802,
+      "lng": 120.5168881,
       "geocode_method": "address_street"
     },
     {
@@ -11966,8 +11967,8 @@
       "contract_start": "1998-09-18",
       "contract_end": "2028-09-17",
       "is_active": true,
-      "lat": 22.6729549,
-      "lng": 120.4830954,
+      "lat": 22.7042735,
+      "lng": 120.5000154,
       "geocode_method": "address_street"
     },
     {
@@ -12047,9 +12048,8 @@
         "牙髓病科",
         "牙周病科",
         "贋復補綴牙科",
-        "齒顎矯正科",
-        "家庭牙醫科",
-        "特殊需求者口腔醫學科"
+        "口腔顎面外科",
+        "家庭牙醫科"
       ],
       "contract_start": "2021-02-03",
       "contract_end": "2027-02-02",
