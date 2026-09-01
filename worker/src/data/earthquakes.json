@@ -5,21 +5,21 @@
     "endpoint": "https://earthquake.usgs.gov/fdsnws/event/1/query",
     "query": {
       "format": "geojson",
-      "starttime": "2021-08-01",
-      "endtime": "2026-08-01",
+      "starttime": "2021-09-01",
+      "endtime": "2026-09-01",
       "minmagnitude": 4.0,
       "minlatitude": 21.5,
       "maxlatitude": 25.5,
       "minlongitude": 119.5,
       "maxlongitude": 122.5
     },
-    "fetched_at": "2026-08-01T05:37:12.372393+00:00",
+    "fetched_at": "2026-09-01T07:18:59.167421+00:00",
     "license": "USGS public domain (U.S. federal government work)",
-    "count": 965,
+    "count": 959,
     "magnitude_min": 4.0,
     "magnitude_max": 7.4,
-    "date_earliest": "2021-08-03T00:05:31.378000+00:00",
-    "date_latest": "2026-07-30T16:58:35.880000+00:00",
+    "date_earliest": "2021-09-02T10:57:01.860000+00:00",
+    "date_latest": "2026-08-28T02:20:55.533000+00:00",
     "taiwan_bbox": {
       "minlatitude": 21.5,
       "maxlatitude": 25.5,
@@ -29,40 +29,103 @@
   },
   "earthquakes": [
     {
+      "id": "us7000tcgz",
+      "date": "2026-08-28T02:20:55.533000+00:00",
+      "lat": 22.0405,
+      "lng": 120.3615,
+      "magnitude": 4.4,
+      "depth_km": 12.071,
+      "place": "39 km W of Hengchun, Taiwan"
+    },
+    {
+      "id": "us7000tc37",
+      "date": "2026-08-26T21:47:20.969000+00:00",
+      "lat": 22.8296,
+      "lng": 121.4502,
+      "magnitude": 4.6,
+      "depth_km": 42.104,
+      "place": "106 km ESE of Yujing, Taiwan"
+    },
+    {
+      "id": "us7000tby1",
+      "date": "2026-08-26T09:51:22.122000+00:00",
+      "lat": 21.5368,
+      "lng": 122.3274,
+      "magnitude": 4.6,
+      "depth_km": 10.0,
+      "place": "126 km NNE of Basco, Philippines"
+    },
+    {
+      "id": "us6000tnbm",
+      "date": "2026-08-25T07:00:10.853000+00:00",
+      "lat": 22.6053,
+      "lng": 121.5709,
+      "magnitude": 5.5,
+      "depth_km": 14.608,
+      "place": "108 km NE of Hengchun, Taiwan"
+    },
+    {
+      "id": "us6000tmqf",
+      "date": "2026-08-22T03:40:14.817000+00:00",
+      "lat": 24.4244,
+      "lng": 122.0811,
+      "magnitude": 4.4,
+      "depth_km": 38.316,
+      "place": "49 km SE of Yilan, Taiwan"
+    },
+    {
+      "id": "us6000tl0a",
+      "date": "2026-08-15T11:30:15.229000+00:00",
+      "lat": 24.486,
+      "lng": 122.2948,
+      "magnitude": 4.9,
+      "depth_km": 65.242,
+      "place": "62 km ESE of Yilan, Taiwan"
+    },
+    {
+      "id": "us6000tka7",
+      "date": "2026-08-12T19:54:21.437000+00:00",
+      "lat": 21.9386,
+      "lng": 120.6514,
+      "magnitude": 4.4,
+      "depth_km": 15.766,
+      "place": "11 km SW of Hengchun, Taiwan"
+    },
+    {
       "id": "us6000th0z",
-      "date": "2026-07-30T16:58:35.880000+00:00",
-      "lat": 23.0993,
-      "lng": 121.4235,
+      "date": "2026-07-30T16:58:34.553000+00:00",
+      "lat": 23.0923,
+      "lng": 121.4756,
       "magnitude": 4.5,
-      "depth_km": 18.282,
-      "place": "98 km E of Yujing, Taiwan"
+      "depth_km": 10.0,
+      "place": "98 km S of Hualien City, Taiwan"
     },
     {
       "id": "us7000t3kn",
-      "date": "2026-07-27T02:14:50.279000+00:00",
-      "lat": 23.1882,
-      "lng": 120.5356,
+      "date": "2026-07-27T02:14:50.866000+00:00",
+      "lat": 23.1812,
+      "lng": 120.5417,
       "magnitude": 4.5,
-      "depth_km": 18.643,
+      "depth_km": 22.804,
       "place": "10 km NE of Yujing, Taiwan"
     },
     {
       "id": "us7000t3gt",
-      "date": "2026-07-26T12:36:17.467000+00:00",
-      "lat": 24.8852,
-      "lng": 121.8508,
+      "date": "2026-07-26T12:36:17.489000+00:00",
+      "lat": 24.8953,
+      "lng": 121.7883,
       "magnitude": 4.7,
-      "depth_km": 93.836,
-      "place": "15 km ESE of Pinglin, Taiwan"
+      "depth_km": 95.992,
+      "place": "9 km ESE of Pinglin, Taiwan"
     },
     {
       "id": "us7000t2iy",
-      "date": "2026-07-22T20:57:09.754000+00:00",
-      "lat": 23.5613,
-      "lng": 121.5738,
+      "date": "2026-07-22T20:57:09.879000+00:00",
+      "lat": 23.5655,
+      "lng": 121.5859,
       "magnitude": 4.1,
-      "depth_km": 24.429,
-      "place": "46 km S of Hualien City, Taiwan"
+      "depth_km": 27.376,
+      "place": "45 km S of Hualien City, Taiwan"
     },
     {
       "id": "us6000tab1",
@@ -108,6 +171,15 @@
       "magnitude": 4.0,
       "depth_km": 10.0,
       "place": "87 km SE of Hualien City, Taiwan"
+    },
+    {
+      "id": "us7000stqs",
+      "date": "2026-06-05T00:21:20.527000+00:00",
+      "lat": 24.0164,
+      "lng": 122.4602,
+      "magnitude": 4.2,
+      "depth_km": 40.229,
+      "place": "74 km SW of Yonakuni, Japan"
     },
     {
       "id": "us6000syy7",
@@ -8586,132 +8658,6 @@
       "magnitude": 4.2,
       "depth_km": 10.0,
       "place": "Taiwan"
-    },
-    {
-      "id": "us7000f9eb",
-      "date": "2021-08-31T22:27:56.652000+00:00",
-      "lat": 23.2821,
-      "lng": 120.7389,
-      "magnitude": 4.3,
-      "depth_km": 10.0,
-      "place": "33 km ENE of Yujing, Taiwan"
-    },
-    {
-      "id": "us6000fa0k",
-      "date": "2021-08-23T10:56:38.417000+00:00",
-      "lat": 24.7034,
-      "lng": 122.4006,
-      "magnitude": 4.8,
-      "depth_km": 10.0,
-      "place": "65 km E of Yilan, Taiwan"
-    },
-    {
-      "id": "us6000f9mp",
-      "date": "2021-08-22T11:52:02.506000+00:00",
-      "lat": 23.182,
-      "lng": 120.5965,
-      "magnitude": 4.2,
-      "depth_km": 15.24,
-      "place": "15 km ENE of Yujing, Taiwan"
-    },
-    {
-      "id": "us7000f5s0",
-      "date": "2021-08-19T15:34:32.167000+00:00",
-      "lat": 23.8902,
-      "lng": 121.6714,
-      "magnitude": 4.3,
-      "depth_km": 9.74,
-      "place": "11 km SE of Hualien City, Taiwan"
-    },
-    {
-      "id": "us7000f5rb",
-      "date": "2021-08-19T07:50:55.273000+00:00",
-      "lat": 23.8849,
-      "lng": 121.6815,
-      "magnitude": 4.7,
-      "depth_km": 10.0,
-      "place": "12 km SE of Hualien City, Taiwan"
-    },
-    {
-      "id": "us6000f703",
-      "date": "2021-08-07T05:43:59.165000+00:00",
-      "lat": 24.7034,
-      "lng": 122.2968,
-      "magnitude": 4.4,
-      "depth_km": 7.77,
-      "place": "55 km E of Yilan, Taiwan"
-    },
-    {
-      "id": "us6000f2sa",
-      "date": "2021-08-06T11:39:12.175000+00:00",
-      "lat": 23.1525,
-      "lng": 121.3694,
-      "magnitude": 4.6,
-      "depth_km": 17.04,
-      "place": "91 km SE of Lugu, Taiwan"
-    },
-    {
-      "id": "us6000f2r5",
-      "date": "2021-08-06T11:12:29.968000+00:00",
-      "lat": 23.1108,
-      "lng": 121.3586,
-      "magnitude": 5.2,
-      "depth_km": 7.27,
-      "place": "91 km E of Yujing, Taiwan"
-    },
-    {
-      "id": "us6000f2p7",
-      "date": "2021-08-06T08:11:04.405000+00:00",
-      "lat": 24.7518,
-      "lng": 122.2411,
-      "magnitude": 5.3,
-      "depth_km": 10.0,
-      "place": "49 km E of Yilan, Taiwan"
-    },
-    {
-      "id": "us6000f4ji",
-      "date": "2021-08-04T23:28:13.935000+00:00",
-      "lat": 24.7973,
-      "lng": 122.3945,
-      "magnitude": 4.3,
-      "depth_km": 15.49,
-      "place": "65 km E of Yilan, Taiwan"
-    },
-    {
-      "id": "us6000f29z",
-      "date": "2021-08-04T21:56:27.073000+00:00",
-      "lat": 24.7534,
-      "lng": 122.2717,
-      "magnitude": 5.1,
-      "depth_km": 10.0,
-      "place": "52 km E of Yilan, Taiwan"
-    },
-    {
-      "id": "us6000f4jq",
-      "date": "2021-08-04T21:53:24.205000+00:00",
-      "lat": 24.6792,
-      "lng": 122.2861,
-      "magnitude": 4.7,
-      "depth_km": 12.38,
-      "place": "54 km E of Yilan, Taiwan"
-    },
-    {
-      "id": "us6000f29v",
-      "date": "2021-08-04T21:50:46.473000+00:00",
-      "lat": 24.7827,
-      "lng": 122.3105,
-      "magnitude": 5.8,
-      "depth_km": 10.0,
-      "place": "56 km E of Yilan, Taiwan"
-    },
-    {
-      "id": "us6000f46g",
-      "date": "2021-08-03T00:05:31.378000+00:00",
-      "lat": 24.9352,
-      "lng": 121.9372,
-      "magnitude": 4.2,
-      "depth_km": 106.12,
-      "place": "21 km SSE of Jiufen, Taiwan"
     }
   ]
 }
