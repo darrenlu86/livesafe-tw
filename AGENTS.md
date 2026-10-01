@@ -20,7 +20,7 @@
 - **安全層 60%**：地震斷層、淹水潛勢、坊地災害、空氣品質（等權平均）
 - **便利層 40%**：醫療可近性 0.35、交通 0.25、生活機能 0.20、學校密度 0.10、嫌惡設施 0.10（加權平均）
 - **不含**：任何房價 / 實價登錄資料
-- **規劃中未納入**：土壤液化（資料源無法跨縣市齊備）、治安犯罪率（無 per-district open API）、噪音
+- **規劃中未納入**：土壤液化（資料源無法跨縣市齊備，只有臺南 dataset 122721、臺中 138707／138708 可程式化下載）、治安犯罪率（無 per-district open API）、噪音
 
 ### Geocoding 策略
 - 使用 Nominatim（免費）— 僅支援「縣市 + 行政區 + 路名」，不處理門牌號
@@ -31,7 +31,7 @@
 
 - `data-pipeline/`：Python ETL，產出 `worker/src/data/*.json` 供 Worker 打包
 - `worker/`：Cloudflare Worker (Hono + TypeScript)，對外風險計算 API
-- `web/`：Next.js 16 + OpenNext，Cloudflare Workers 部署（非 Pages）
+- `web/`：Next.js 16 + OpenNext，Cloudflare Workers 部署（非 Pages；2026-05 時 Next 16 尚不支援 next-on-pages）
 
 ## 部署目標
 
@@ -39,13 +39,9 @@
 - Worker：Cloudflare Workers (`livesafe-worker.kevin868686.workers.dev`)
 - Static data：全部 bundle 進 Worker（總 ~10 MB raw / ~2 MB gzip，free tier 3 MiB 限制內）
 
-## API Keys（到位後填入 `.env`）
+## 環境變數
 
-| Key | 申請網址 | 用於 |
-|-----|---------|------|
-| `MOENV_API_KEY` | https://data.moenv.gov.tw/ | 空氣品質 AQI 歷史資料 |
-
-> 地震改用 USGS（無需 API key）取代 CWA。
+- `MOENV_API_KEY`（空氣品質 AQI，向 data.moenv.gov.tw 申請）放 `data-pipeline/.env`，範本見 `.env.example`。地震改用 USGS，不需 key。
 
 ## 已知資料源情境差異
 
