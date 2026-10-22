@@ -39,6 +39,23 @@
 - Worker：Cloudflare Workers (`livesafe-worker.kevin868686.workers.dev`)
 - Static data：全部 bundle 進 Worker（總 ~10 MB raw / ~2 MB gzip，free tier 3 MiB 限制內）
 
+## 升級 Next.js／OpenNext（web）
+
+- 升 `next` 一定要一起看 `@opennextjs/cloudflare` 的 peerDependencies：1.20.12 起要求 `next >=16.4.1`、`wrangler ^4.148.0`。Next 16.4 搭舊版 OpenNext 時建置照樣會過，但 Workers 上每頁 500（`preview-props.json`），所以只看建置通過不夠，要用 `wrangler dev` 實際打頁面（2026-10 W16）。
+- OpenNext 1.20.13（`@opennextjs/aws` 4.1.12）起，Next 主版本到「下下個主版本推出」前都算支援；更舊的版本用「主版本發布日＋2 年」擋建置，Next 16 會在 2027-10-21 被擋。
+- 沙盒（Claude 的 Bot）裡 Turbopack 抓不到 Google Fonts，`npm run build`／`npm run deploy` 會失敗。驗證改用 webpack，再交給 OpenNext 打包（正式部署仍在 Mac 上用 `npm run deploy`，走 Turbopack）：
+
+  ```bash
+  cd web
+  NODE_USE_ENV_PROXY=1 NEXT_PRIVATE_STANDALONE=true NEXT_PRIVATE_OUTPUT_TRACE_ROOT="$(pwd -P)" npx next build --webpack
+  npx opennextjs-cloudflare build --skipNextBuild
+  npx wrangler dev --port 8799
+  ```
+
+  `NODE_USE_ENV_PROXY=1` 讓 og 圖建置時抓中文字型走代理；`NEXT_PRIVATE_*` 是 OpenNext 自己建置時會設的值（要 standalone 產出），路徑要用 `pwd -P`（`/tmp` 是 `/private/tmp` 的連結，路徑對不上就沒有 standalone）。
+- `report/opengraph-image.tsx`、`icon.tsx` 在 Worker 上是執行時才產生（沒設 incremental cache），中文字型執行時向 Google Fonts 抓；本機 `wrangler dev` 在沙盒裡抓不到，中文會變方框，是環境限制。
+- Next 的 `opengraph-image` 只收得到 `params`，收不到 `searchParams`：程式裡讀的 `address` 永遠是 undefined，og 圖一律顯示「輸入地址查詢」，網址參數不會進到 ImageResponse。
+
 ## 環境變數
 
 - `MOENV_API_KEY`（空氣品質 AQI，向 data.moenv.gov.tw 申請）放 `data-pipeline/.env`，範本見 `.env.example`。地震改用 USGS，不需 key。
